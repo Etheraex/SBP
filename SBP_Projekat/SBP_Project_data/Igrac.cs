@@ -18,9 +18,17 @@ namespace SBP_Project_data
         public virtual string Prezime { get; set; }
 
         public virtual Alijansa PripadaAlijansi { get; set; }
-        public Igrac()
+
+        public Igrac(string username, string pass, int uzrast, string nick, char p, string ime, string prezime, Alijansa a)
         {
-            // TODO
+            Username = username;
+            Password = pass;
+            Uzrast = uzrast;
+            Nadimak = nick;
+            Pol = p;
+            Ime = ime;
+            Prezime = prezime;
+            PripadaAlijansi = a;
         }
     }
 }

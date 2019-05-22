@@ -43,10 +43,13 @@
   <ItemGroup>
     <Compile Include="Alijansa.cs" />
     <Compile Include="Igrac.cs" />
+    <Compile Include="Lik.cs" />
     <Compile Include="Predmet.cs" />
     <Compile Include="Quest.cs" />
     <Compile Include="Rasa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Segrt.cs" />
+    <Compile Include="Sesija.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
