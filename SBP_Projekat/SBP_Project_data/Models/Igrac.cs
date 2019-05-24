@@ -8,7 +8,7 @@ namespace SBP_Project_data.Models
 {
     public class Igrac
     {
-        public virtual int Id { get; private set; }
+        public virtual int Id { get; set; }
         public virtual string Username { get; set; }
         public virtual string Password { get; set; }
         public virtual int Uzrast { get; set; }
@@ -18,6 +18,11 @@ namespace SBP_Project_data.Models
         public virtual string Prezime { get; set; }
 
         public virtual Alijansa PripadaAlijansi { get; set; }
+
+        public Igrac()
+        {
+
+        }
 
         public Igrac(string username, string pass, int uzrast, string nick, char p, string ime, string prezime, Alijansa a)
         {
