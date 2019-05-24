@@ -67,13 +67,16 @@
   <ItemGroup>
     <Compile Include="DataLayer.cs" />
     <Compile Include="Mapiranja\AlijansaMapiranje.cs" />
-	 <Compile Include="Mapiranja\QuestMapiranje.cs" />
-	<Compile Include="Mapiranja\LikMapiranje.cs" />
+    <Compile Include="Mapiranja\IgracMapiranje.cs" />
+    <Compile Include="Mapiranja\AbstractPredmetMapiranje.cs" />
+    <Compile Include="Mapiranja\QuestMapiranje.cs" />
+    <Compile Include="Mapiranja\LikMapiranje.cs" />
     <Compile Include="Mapiranja\RasaMapiranje.cs" />
+    <Compile Include="Mapiranja\SegrtMapiranje.cs" />
     <Compile Include="Models\Alijansa.cs" />
     <Compile Include="Models\Igrac.cs" />
     <Compile Include="Models\Lik.cs" />
-    <Compile Include="Models\Predmet.cs" />
+    <Compile Include="Models\AbstractPredmet.cs" />
     <Compile Include="Models\Quest.cs" />
     <Compile Include="Models\Rasa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

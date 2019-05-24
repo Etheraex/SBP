@@ -40,10 +40,11 @@ namespace SBP_Project_data
                 .ConnectionString(c =>
                     c.Is("Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S16022;Password=burek123"));
 
+                var ass = (typeof(Mapiranja.AbstractPredmetMapiranje).Assembly);
+
                 return Fluently.Configure()
                     .Database(cfg.ShowSql())
-                    //.Mappings(m => m.FluentMappings.AddFromAssemblyOf<Mapiranja.RasaMapiranje>())
-                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Mapiranja.LikMapiranje>())
+                    .Mappings(m => m.FluentMappings.AddFromAssembly(ass))
                     .BuildSessionFactory();
             }
             catch (Exception ec)

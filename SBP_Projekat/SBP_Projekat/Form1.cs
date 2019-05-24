@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SBP_Project_data;
+using SBP_Project_data.Models;
 using NHibernate;
 using NHibernate.Criterion;
 using NHibernate.Linq;
@@ -34,7 +35,7 @@ namespace SBP_Projekat
                 ISession s = DataLayer.GetSession();
 
                 var rasa = s.Load<SBP_Project_data.Models.Ork>(4);
-                SBP_Project_data.Models.Ork ork = (SBP_Project_data.Models.Ork)rasa;
+                SBP_Project_data.Models.Ork ork = (Ork)rasa;
 
                 MessageBox.Show(ork.Specijalizacija);
 
@@ -74,6 +75,43 @@ namespace SBP_Projekat
                 var Alijansa = s.Load<SBP_Project_data.Models.Alijansa>(1);
             
                 MessageBox.Show(Alijansa.Naziv);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var Igrac = s.Load<SBP_Project_data.Models.Igrac>(1);
+
+                MessageBox.Show(Igrac.Username);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var predmet = (Oruzje)s.Load<Oruzje>(8);
+                
+
+                MessageBox.Show(predmet.Naziv +" "+ predmet.VrstaOruzja);
 
                 s.Close();
             }

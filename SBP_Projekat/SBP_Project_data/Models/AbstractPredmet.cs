@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SBP_Project_data.Models
 {
-    public class Predmet
+    public class AbstractPredmet
     {
         public virtual int Id { get; set; }
         public virtual int XpBonus { get; set; }
@@ -14,13 +14,14 @@ namespace SBP_Project_data.Models
         public virtual string Opis { get; set; }
         public virtual string VrstaOruzja { get; set; }
         public virtual Quest Pripada { get; set; }
+        public virtual List<Rasa> MozeDaKoristi {get; set;}
 
-        public Predmet()
+        public AbstractPredmet()
         {
-
+            MozeDaKoristi = new List<Rasa>();
         }
-
-        public Predmet(int x, string n, string o, string v, Quest p)
+        // Ovo treba da se edituje na EER dijagramu
+        public AbstractPredmet(int x, string n, string o, string v, Quest p)
         {
             XpBonus = x;
             Naziv = n;
@@ -30,7 +31,17 @@ namespace SBP_Project_data.Models
         }
     }
 
-    public class Oruzje : Predmet
+    public class Predmet : AbstractPredmet
+    {
+        public Predmet()
+        {
+
+        }
+
+        public Predmet(int x, string n, string o, string v, Quest p) : base(x, n, o, v, p) { }
+    }
+
+    public class Oruzje : AbstractPredmet
     {
         public Oruzje()
         {

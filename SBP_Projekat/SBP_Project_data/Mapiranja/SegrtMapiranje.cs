@@ -17,6 +17,7 @@ namespace SBP_Project_data.Mapiranja
             Map(x => x.Ime).Column("IME");
             Map(x => x.Bonus).Column("BONUS");
 
+            References(x => x.Rasa).Column("RASA_FK").LazyLoad();
         }
     }
 }

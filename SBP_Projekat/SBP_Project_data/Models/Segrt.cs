@@ -11,7 +11,7 @@ namespace SBP_Project_data.Models
         public virtual int Id { get; set; }
         public virtual string Ime { get; set; }
         public virtual int Bonus { get; set; }
-        public virtual Rasa RasaID { get; set; }
+        public virtual Rasa Rasa { get; set; }
         public virtual Lik LikID { get; set; }
     }
 }
