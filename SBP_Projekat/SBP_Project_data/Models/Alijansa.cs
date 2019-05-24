@@ -8,7 +8,7 @@ namespace SBP_Project_data.Models
 {
     public class Alijansa
     {
-        public virtual int Id { get; private set; }
+        public virtual int Id { get; set; }
         public virtual string Naziv { get; set; }
         public virtual int MinBrojIgraca { get; set; }
         public virtual int MaxBrojIgraca { get; set; }
@@ -17,6 +17,12 @@ namespace SBP_Project_data.Models
 
         public virtual List<Alijansa> Savezi { get; set; }
         public virtual List<Igrac> Igraci { get; set; }
+
+        public Alijansa()
+        {
+
+        }
+
         public Alijansa(string n, int min, int max, int x, int h)
         {
             Naziv = n;
