@@ -7,8 +7,12 @@ using System.Threading.Tasks;
 namespace SBP_Project_data.Models
 {
     public class Quest
-    {
-        public virtual int Id { get; private set; }
+    {   
+        public Quest()
+        {
+        }
+
+        public virtual int Id { get; set; }
         public virtual int XpGain { get; set; }
         public virtual List<Predmet> Predmeti { get; set; }
 

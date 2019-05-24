@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="DataLayer.cs" />
     <Compile Include="Mapiranja\AlijansaMapiranje.cs" />
+	 <Compile Include="Mapiranja\QuestMapiranje.cs" />
 	<Compile Include="Mapiranja\LikMapiranje.cs" />
     <Compile Include="Mapiranja\RasaMapiranje.cs" />
     <Compile Include="Models\Alijansa.cs" />
