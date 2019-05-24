@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SBP_Project_data
+namespace SBP_Project_data.Models
 {
     public class Predmet
     {

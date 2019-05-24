@@ -76,5 +76,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SBP_Project_data\SBP_Project_data.csproj">
+      <Project>{9637d653-dd6e-4f8a-b00d-d5253b8a932e}</Project>
+      <Name>SBP_Project_data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
