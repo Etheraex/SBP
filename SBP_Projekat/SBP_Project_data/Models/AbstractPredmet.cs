@@ -14,7 +14,7 @@ namespace SBP_Project_data.Models
         public virtual string Opis { get; set; }
         public virtual string VrstaOruzja { get; set; }
         public virtual Quest Pripada { get; set; }
-        public virtual List<Rasa> MozeDaKoristi {get; set;}
+        public virtual IList<Rasa> MozeDaKoristi {get; set;}
 
         public AbstractPredmet()
         {

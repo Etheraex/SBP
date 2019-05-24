@@ -13,6 +13,13 @@ namespace SBP_Project_data.Mapiranja
         {
             Table("Rasa");
             Id(x => x.Id, "RASA_ID").GeneratedBy.SequenceIdentity("S16022.RASA_ID_SEQ");
+            HasManyToMany(x => x.Koristi)
+                .Table("KORISTI")
+                .ParentKeyColumn("RASA_FK")
+                .ChildKeyColumn("PREDMET_FK")
+                .Inverse()
+                .Cascade.All();
+                //.LazyLoad();
             DiscriminateSubClassesOnColumn("TIPRASE");
         }
     }

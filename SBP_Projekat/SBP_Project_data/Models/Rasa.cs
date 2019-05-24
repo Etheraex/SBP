@@ -14,7 +14,7 @@ namespace SBP_Project_data.Models
         }
         
         public virtual int Id { get; protected set; }
-        public virtual List<Predmet> Koristi { get; set; }
+        public virtual IList<Predmet> Koristi { get; set; }
     }
 
     public class Covek : Rasa

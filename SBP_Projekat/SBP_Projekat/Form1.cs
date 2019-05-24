@@ -120,5 +120,29 @@ namespace SBP_Projekat
                 MessageBox.Show(ec.Message);
             }
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Ork bigGreen = s.Load<Ork>(4);
+                String koristi = "";
+                foreach(AbstractPredmet abstractPredmet in bigGreen.Koristi)
+                {
+                    koristi += " " + abstractPredmet.Naziv + ",";
+                }
+
+
+                MessageBox.Show("povucena je rasa sa id = "+ bigGreen.Id + " i onda moze da korist sledeca oruzija:" + koristi);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
     }
 }
