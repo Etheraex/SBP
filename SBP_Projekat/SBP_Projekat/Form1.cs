@@ -64,5 +64,23 @@ namespace SBP_Projekat
                 MessageBox.Show(ec.Message);
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var Alijansa = s.Load<SBP_Project_data.Models.Alijansa>(1);
+            
+                MessageBox.Show(Alijansa.Naziv);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
     }
 }
