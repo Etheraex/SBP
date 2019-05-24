@@ -45,5 +45,24 @@ namespace SBP_Projekat
                 MessageBox.Show(ec.Message);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var Lik = s.Load<SBP_Project_data.Models.Lik>(5);
+                //SBP_Project_data.Models.Ork ork = (SBP_Project_data.Models.Ork)rasa;
+
+                MessageBox.Show("HP lika je: " + Lik.HP +" a id njegove rase je "+  Lik.Rasa.Id);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
     }
 }

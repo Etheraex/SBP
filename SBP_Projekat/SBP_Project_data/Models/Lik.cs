@@ -9,11 +9,11 @@ namespace SBP_Project_data.Models
     public class Lik
     {
         public virtual int Id { get; set; }
-        public virtual double Gold { get; set; }
+        public virtual double Zlato { get; set; }
         public virtual int HP { get; set; }
         public virtual int XP { get; set; }
         public virtual int StepenZamora { get; set; }
-        public virtual Rasa RasaID { get; set; }
-        public virtual Igrac IgracID { get; set; }
+        public virtual Rasa Rasa { get; set; }
+        public virtual Igrac Igrac { get; set; }
     }
 }

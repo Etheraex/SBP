@@ -42,7 +42,8 @@ namespace SBP_Project_data
 
                 return Fluently.Configure()
                     .Database(cfg.ShowSql())
-                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Mapiranja.RasaMapiranje>())
+                    //.Mappings(m => m.FluentMappings.AddFromAssemblyOf<Mapiranja.RasaMapiranje>())
+                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Mapiranja.LikMapiranje>())
                     .BuildSessionFactory();
             }
             catch (Exception ec)
