@@ -65,6 +65,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataLayer.cs" />
+    <Compile Include="Mapiranja\RasaMapiranje.cs" />
     <Compile Include="Models\Alijansa.cs" />
     <Compile Include="Models\Igrac.cs" />
     <Compile Include="Models\Lik.cs" />

@@ -16,6 +16,7 @@ namespace SBP_Projekat
         static void Main()
         {
             var asd = new Rasa();
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());

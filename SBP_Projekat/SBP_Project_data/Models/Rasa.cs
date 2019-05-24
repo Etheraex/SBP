@@ -8,11 +8,17 @@ namespace SBP_Project_data.Models
 {
     public class Rasa
     {
-        public virtual int Id { get; private set; }
+        public Rasa()
+        {
+        }
+        public virtual int Id { get; protected set; }
     }
 
     public class Covek : Rasa
     {
+        public Covek()
+        {
+        }
         public virtual int UmesnostUSkrivanju { get; set; }
 
         public Covek(int u)
@@ -21,8 +27,11 @@ namespace SBP_Project_data.Models
         }
     }
 
-    public class Borac : Rasa
+    public abstract class Borac : Rasa
     {
+        public Borac()
+        {
+        }
         public virtual string Specijalizacija { get; set; }
 
         public Borac(string s)
@@ -31,8 +40,11 @@ namespace SBP_Project_data.Models
         }
     }
 
-    public class Mage : Rasa
+    public abstract class Mage : Rasa
     {
+        public Mage()
+        {
+        }
         public virtual int NivoEnergije { get; set; }
 
         public Mage(int n)
@@ -43,21 +55,33 @@ namespace SBP_Project_data.Models
 
     public class Patuljak : Borac
     {
-        public Patuljak(string s) : base(s) { }
+        public Patuljak()
+        {
+        }
+        public Patuljak(string s) : base() { }
     }
 
     public class Ork : Borac
     {
-        public Ork(string s) : base(s) { }
+        public Ork()
+        {
+        }
+        public Ork(string s) : base() { }
     }
 
     public class Vilenjak : Mage
     {
-        public Vilenjak(int n) : base(n) { }
+        public Vilenjak()
+        {
+        }
+        public Vilenjak(int n) : base() { }
     }
 
     public class Demon : Mage
     {
-        public Demon(int n) : base(n) { }
+        public Demon()
+        {
+        }
+        public Demon(int n) : base() { }
     }
 }
