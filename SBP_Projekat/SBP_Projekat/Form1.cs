@@ -152,7 +152,7 @@ namespace SBP_Projekat
             {
                 ISession s = DataLayer.GetSession();
 
-                var predmet = s.Load<AbstractPredmet>(8);
+                var predmet = s.Load<AbstractPredmet>(3);
                 String koristi = "";
                 foreach(Rasa rasa in predmet.MozeDaKoristi)
                 {
@@ -217,6 +217,42 @@ namespace SBP_Projekat
                 var Alijansa = s.Load<SBP_Project_data.Models.Alijansa>(1);
 
                 MessageBox.Show("Alijana "+Alijansa.Naziv+"Je u savezu sa alijansom "+Alijansa.Savezi[0].Naziv);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var Igrac = s.Load<SBP_Project_data.Models.Igrac>(1);
+
+                MessageBox.Show(Igrac.Username +" Poseduje predmet "+ Igrac.Predmeti[0].Naziv );
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var predmet = s.Load<SBP_Project_data.Models.AbstractPredmet>(1);
+
+                MessageBox.Show(predmet.Naziv+ " Poseduje igrac " + predmet.Igraci[0].Nadimak);
 
                 s.Close();
             }

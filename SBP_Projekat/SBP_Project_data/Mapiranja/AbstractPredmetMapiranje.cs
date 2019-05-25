@@ -24,7 +24,12 @@ namespace SBP_Project_data.Mapiranja
                 .ParentKeyColumn("PREDMET_FK")
                 .ChildKeyColumn("RASA_FK")
                 .Cascade.All();
-
+            HasManyToMany(x => x.Igraci)
+                .Table("POSEDUJE")
+                .ParentKeyColumn("PREDMET_FK")
+                .ChildKeyColumn("IGRAC_FK")
+                .Inverse()
+                .Cascade.All();
             DiscriminateSubClassesOnColumn("TIPPREDMETA");
         }
     }

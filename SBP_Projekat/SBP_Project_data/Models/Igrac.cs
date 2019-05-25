@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SBP_Project_data.Models;
 
 namespace SBP_Project_data.Models
 {
@@ -18,6 +19,7 @@ namespace SBP_Project_data.Models
         public virtual string Prezime { get; set; }
 
         public virtual Alijansa PripadaAlijansi { get; set; }
+        public virtual IList<AbstractPredmet> Predmeti { get; set; }
 
         public Igrac()
         {

@@ -23,6 +23,11 @@ namespace SBP_Project_data.Mapiranja
             Map(x => x.Ime).Column("IME");
             Map(x => x.Prezime).Column("PREZIME");
 
+            HasManyToMany(x => x.Predmeti)
+                .Table("POSEDUJE")
+                .ParentKeyColumn("IGRAC_FK")
+                .ChildKeyColumn("PREDMET_FK")
+                .Cascade.All();
 
         }
     }

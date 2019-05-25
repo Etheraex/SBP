@@ -44,7 +44,7 @@ namespace SBP_Project_data.Mapiranja
     {
         public MageMapiranje()
         {
-            Map(x => x.NivoEnergije).Column("NIVOENERGIJE");
+            Map(x => x.NivoEnergije).Column("NIVOENERGIJA");
         }
     }
     class PatuljakMapiranje : SubclassMap<Patuljak>
