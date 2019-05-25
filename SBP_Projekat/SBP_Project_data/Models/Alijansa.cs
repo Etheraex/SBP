@@ -15,8 +15,8 @@ namespace SBP_Project_data.Models
         public virtual int XpBonus { get; set; }
         public virtual int HpBonus { get; set; }
 
-        public virtual List<Alijansa> Savezi { get; set; }
-        public virtual List<Igrac> Igraci { get; set; }
+        public virtual IList<Alijansa> Savezi { get; set; }
+        public virtual IList<Igrac> Igraci { get; set; }
 
         public Alijansa()
         {

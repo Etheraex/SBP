@@ -19,6 +19,11 @@ namespace SBP_Project_data.Mapiranja
             Map(x => x.MaxBrojIgraca).Column("MAXBROJIGRACA");
             Map(x => x.HpBonus).Column("BONUS_XP");
             Map(x => x.XpBonus).Column("HP_BONUS");
+
+            HasManyToMany(x => x.Savezi)
+                .ParentKeyColumn("ALIJANSA_FK1")
+                .ChildKeyColumn("ALIJANSA_FK2")
+                .Table("SAVEZI");
         }
     }
 }
