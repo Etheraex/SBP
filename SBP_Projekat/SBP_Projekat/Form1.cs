@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SBP_Project_data;
 using SBP_Project_data.Models;
+using SBP_Project_data.Models.KompozitniKljucevi;
 using NHibernate;
 using NHibernate.Criterion;
 using NHibernate.Linq;
@@ -143,6 +144,68 @@ namespace SBP_Projekat
             {
                 MessageBox.Show(ec.Message);
             }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var predmet = s.Load<Oruzje>(8);
+                String koristi = "";
+                foreach(Rasa rasa in predmet.MozeDaKoristi)
+                {
+                    koristi += rasa.GetType();
+                }
+
+                MessageBox.Show(koristi);
+
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Igrac igrac = new Igrac();
+            igrac.Id = 6;
+            Lik lik = new Lik();
+            lik.Id = 8;
+            SesijaID sesijaID = new SesijaID();
+            sesijaID.Lik = lik;
+            sesijaID.Igrac = igrac;
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                // var sesija = s.Load<Sesija>(sesijaID);
+                /*String koristi = "";
+                foreach (Rasa rasa in predmet.MozeDaKoristi)
+                {
+                    koristi += rasa.GetType();
+                }*/
+
+                var sesija = s.Query<Sesija>() //ovo mora zbog lazy Loading
+                    .Fetch(x => x.Id)
+                    .Where(x => x.Id == sesijaID)
+                    .ToList(); //i ovo ne znam dal mora da vracam listu ovo je test samo da vidim dal vraca uopste nesto, verovatno ima pametniji nacin da se ovo radi
+
+                MessageBox.Show("loadovana je sesija Igraca "+ sesija[0].Id.Igrac.Ime +"sa likom " + sesija[0].Id.Lik.Id+" (ovo je id posto nemamo imena za likove)" );
+
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+
+
         }
     }
 }

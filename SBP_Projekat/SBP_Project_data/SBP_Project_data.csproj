@@ -73,8 +73,10 @@
     <Compile Include="Mapiranja\LikMapiranje.cs" />
     <Compile Include="Mapiranja\RasaMapiranje.cs" />
     <Compile Include="Mapiranja\SegrtMapiranje.cs" />
+    <Compile Include="Mapiranja\SesijaMapiranje.cs" />
     <Compile Include="Models\Alijansa.cs" />
     <Compile Include="Models\Igrac.cs" />
+    <Compile Include="Models\KompozitniKljucevi\SesijaID.cs" />
     <Compile Include="Models\Lik.cs" />
     <Compile Include="Models\AbstractPredmet.cs" />
     <Compile Include="Models\Quest.cs" />

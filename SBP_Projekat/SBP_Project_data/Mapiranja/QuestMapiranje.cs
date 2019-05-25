@@ -13,7 +13,7 @@ namespace SBP_Project_data.Mapiranja
         public QuestMapiranje()
         {
             Table("Quest");
-            Id(x => x.Id, "QUEST_ID").GeneratedBy.SequenceIdentity("S16022.QUEST_ID_SEQ");
+            Id(x => x.Id, "QUEST_ID").GeneratedBy.SequenceIdentity("S16022.QUEST_AUTO_PK");
 
             Map(x => x.XpGain).Column("XP_Gain");
         }

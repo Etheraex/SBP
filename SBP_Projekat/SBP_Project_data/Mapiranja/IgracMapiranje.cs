@@ -14,7 +14,7 @@ namespace SBP_Project_data.Mapiranja
         {
             Table("Igrac");
 
-            Id(x => x.Id, "IGRAC_ID").GeneratedBy.SequenceIdentity("S16022.IGRAC_ID_SEQ");
+            Id(x => x.Id, "IGRAC_ID").GeneratedBy.SequenceIdentity("S16022.IGRAC_AUTO_PK");
             Map(x => x.Username).Column("USERNAME");
             Map(x => x.Password).Column("PASSWORD");
             Map(x => x.Uzrast).Column("UZRAST");
@@ -22,6 +22,8 @@ namespace SBP_Project_data.Mapiranja
             Map(x => x.Pol).Column("POL");
             Map(x => x.Ime).Column("IME");
             Map(x => x.Prezime).Column("PREZIME");
+
+
         }
     }
 }

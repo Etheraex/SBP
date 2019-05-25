@@ -13,13 +13,14 @@ namespace SBP_Project_data.Mapiranja
         public LikMapiranje()
         {
             Table("LIK");
-            Id(x => x.Id, "LIK_ID").GeneratedBy.SequenceIdentity("S16022.LIK_ID_SEQ");
+            Id(x => x.Id, "LIK_ID").GeneratedBy.SequenceIdentity("S16022.LIK_AUTO_PK");
 
             Map(x => x.HP).Column("HP");
             Map(x => x.XP).Column("XP");
             Map(x => x.Zlato).Column("ZLATO");
             Map(x => x.StepenZamora).Column("STEPEN_ZAMORA");
             References(x => x.Rasa).Column("RASA_FK").LazyLoad();
+            References(x => x.Igrac).Column("IGRAC_FK").LazyLoad();
         }
     }
 }

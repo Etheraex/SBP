@@ -10,11 +10,11 @@ namespace SBP_Project_data.Models
     {
         public Rasa()
         {
-            Koristi = new List<Predmet>();
+            Koristi = new List<AbstractPredmet>();
         }
         
         public virtual int Id { get; protected set; }
-        public virtual IList<Predmet> Koristi { get; set; }
+        public virtual IList<AbstractPredmet> Koristi { get; set; }
     }
 
     public class Covek : Rasa

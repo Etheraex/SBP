@@ -13,11 +13,12 @@ namespace SBP_Project_data.Mapiranja
         public SegrtMapiranje()
         {
             Table("Segrt");
-            Id(x => x.Id, "SEGRT_ID").GeneratedBy.SequenceIdentity("S16022.RASA_ID_SEQ");
+            Id(x => x.Id, "SEGRT_ID").GeneratedBy.SequenceIdentity("S16022.SEGRT_AUTO_PK");
             Map(x => x.Ime).Column("IME");
             Map(x => x.Bonus).Column("BONUS");
 
             References(x => x.Rasa).Column("RASA_FK").LazyLoad();
+            References(x => x.Lik).Column("LIK_FK").LazyLoad();
         }
     }
 }
