@@ -10,16 +10,20 @@ namespace SBP_Project_data.Models
     {   
         public Quest()
         {
+            Predmeti = new List<Predmet>();
+            this.AlijanseKojeSuIspunile = new List<Alijansa>();
         }
 
         public virtual int Id { get; set; }
         public virtual int XpGain { get; set; }
-        public virtual List<Predmet> Predmeti { get; set; }
+        public virtual IList<Predmet> Predmeti { get; set; }
+        public virtual IList<Alijansa>  AlijanseKojeSuIspunile{ get; set; } //ako imate bolji predlog ubacite ga samo
 
         public Quest(int x)
         {
             XpGain = x;
-            Predmeti = new List<Predmet>();
+            this.Predmeti = new List<Predmet>();
+            this.AlijanseKojeSuIspunile = new List<Alijansa>();
         }
     }
 }

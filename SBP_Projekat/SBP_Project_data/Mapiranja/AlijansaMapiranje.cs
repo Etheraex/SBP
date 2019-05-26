@@ -24,6 +24,12 @@ namespace SBP_Project_data.Mapiranja
                 .ParentKeyColumn("ALIJANSA_FK1")
                 .ChildKeyColumn("ALIJANSA_FK2")
                 .Table("SAVEZI");
+
+            HasManyToMany(x => x.IspunjeniQuestiovi)
+              .Table("ALIJANSAISPUNJAVA")
+              .ParentKeyColumn("ALIJANSA_FK")
+              .ChildKeyColumn("QUEST_FK")
+              .Cascade.All();
         }
     }
 }

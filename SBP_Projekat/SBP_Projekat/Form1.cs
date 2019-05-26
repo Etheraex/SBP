@@ -241,5 +241,36 @@ namespace SBP_Projekat
                 MessageBox.Show(ec.Message);
             }
         }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var Alijansa = s.Load<SBP_Project_data.Models.Alijansa>(1);
+                String questovi = "";
+                foreach (Quest quest in Alijansa.IspunjeniQuestiovi)
+                {
+                    questovi += quest.Id + " ";
+                }
+                MessageBox.Show("Alijana " + Alijansa.Naziv + "Je ispunila kvestove " + questovi +"(ovo su id-jevi posto nemamo imena)");
+
+
+                var questIzBaze= s.Load<SBP_Project_data.Models.Quest>(2);
+                String alijanse = "";
+                foreach (Alijansa alijansa in questIzBaze.AlijanseKojeSuIspunile)
+                {
+                    alijanse += alijansa.Naziv+ " ";
+                }
+                MessageBox.Show("Quest sa id: "+ questIzBaze.Id + "je zavrsen od strane ovih alijansa :" + alijanse);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
     }
 }

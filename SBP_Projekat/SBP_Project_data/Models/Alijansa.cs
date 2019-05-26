@@ -17,10 +17,13 @@ namespace SBP_Project_data.Models
 
         public virtual IList<Alijansa> Savezi { get; set; }
         public virtual IList<Igrac> Igraci { get; set; }
+        public virtual IList<Quest> IspunjeniQuestiovi { get; set; }
 
         public Alijansa()
         {
-
+            this.Savezi = new List<Alijansa>();
+            this.Igraci = new List<Igrac>();
+            this.IspunjeniQuestiovi = new List<Quest>();
         }
 
         public Alijansa(string n, int min, int max, int x, int h)
@@ -32,6 +35,7 @@ namespace SBP_Project_data.Models
             HpBonus = h;
             Savezi = new List<Alijansa>();
             Igraci = new List<Igrac>();
+            this.IspunjeniQuestiovi = new List<Quest>();
         }
     }
 }

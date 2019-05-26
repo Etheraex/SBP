@@ -14,7 +14,12 @@ namespace SBP_Project_data.Mapiranja
         {
             Table("Quest");
             Id(x => x.Id, "QUEST_ID").GeneratedBy.SequenceIdentity("S16022.QUEST_AUTO_PK");
-
+            HasManyToMany(x => x.AlijanseKojeSuIspunile)
+               .Table("ALIJANSAISPUNJAVA")
+               .ParentKeyColumn("QUEST_FK")
+               .ChildKeyColumn("ALIJANSA_FK")
+               .Inverse()
+               .Cascade.All();
             Map(x => x.XpGain).Column("XP_Gain");
         }
     }
