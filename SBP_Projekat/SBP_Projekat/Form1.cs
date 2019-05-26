@@ -90,7 +90,7 @@ namespace SBP_Projekat
             {
                 ISession s = DataLayer.GetSession();
 
-                var Igrac = s.Load<SBP_Project_data.Models.Igrac>(1);
+                var Igrac = s.Load<SBP_Project_data.Models.Igrac>(2);
 
                 MessageBox.Show(Igrac.Username);
 
@@ -119,6 +119,25 @@ namespace SBP_Projekat
             {
                 MessageBox.Show(ec.Message);
             }
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var predmet = (Predmet)s.Load<Predmet>(7);
+                String bitan = "bitan za Quest:";
+                if (predmet.Pripada != null)
+                    bitan += predmet.Pripada.Id;
+
+                MessageBox.Show(predmet.Naziv + " " + predmet.VrstaOruzja + " " +bitan);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+
         }
 
         private void button7_Click(object sender, EventArgs e)

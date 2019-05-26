@@ -18,8 +18,8 @@ namespace SBP_Project_data.Mapiranja
             Map(x => x.Opis).Column("OPIS");
             Map(x => x.XpBonus).Column("XP_BONUS");
             Map(x => x.VrstaOruzja).Column("VRSTAORUZIJA");
-
-           HasManyToMany(x => x.MozeDaKoristi)
+            References(x => x.Pripada).Column("QUEST_FK").LazyLoad();
+            HasManyToMany(x => x.MozeDaKoristi)
                 .Table("KORISTI")
                 .ParentKeyColumn("PREDMET_FK")
                 .ChildKeyColumn("RASA_FK")

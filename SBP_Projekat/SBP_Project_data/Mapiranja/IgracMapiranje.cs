@@ -22,7 +22,7 @@ namespace SBP_Project_data.Mapiranja
             Map(x => x.Pol).Column("POL");
             Map(x => x.Ime).Column("IME");
             Map(x => x.Prezime).Column("PREZIME");
-
+            References(x => x.PripadaAlijansi).Column("ALIJANSA_FK");
             HasManyToMany(x => x.Predmeti)
                 .Table("POSEDUJE")
                 .ParentKeyColumn("IGRAC_FK")
