@@ -272,5 +272,36 @@ namespace SBP_Projekat
                 MessageBox.Show(ec.Message);
             }
         }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                var igrac = s.Load<SBP_Project_data.Models.Igrac>(1);
+                String questovi = "";
+                foreach (Quest quest in igrac.IspunjeniQuestiov)
+                {
+                    questovi += quest.Id + " ";
+                }
+                MessageBox.Show("Korisnik " + igrac.Nadimak + "Je ispunio kvestove " + questovi + "(ovo su id-jevi posto nemamo imena)");
+
+
+                var questIzBaze = s.Load<SBP_Project_data.Models.Quest>(3);
+                String igraci = "";
+                foreach (Igrac player in questIzBaze.IgraciKojiSuIspunili)
+                {
+                    igraci += player.Nadimak+ " ";
+                }
+                MessageBox.Show("Quest sa id: " + questIzBaze.Id + "je zavrsen od strane ovih igraca :" + igraci);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
     }
 }

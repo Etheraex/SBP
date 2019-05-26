@@ -20,6 +20,12 @@ namespace SBP_Project_data.Mapiranja
                .ChildKeyColumn("ALIJANSA_FK")
                .Inverse()
                .Cascade.All();
+            HasManyToMany(x => x.IgraciKojiSuIspunili)
+              .Table("IGRACISPUNJAVA")
+              .ParentKeyColumn("QUEST_FK")
+              .ChildKeyColumn("IGRAC_FK")
+              .Inverse()
+              .Cascade.All();
             Map(x => x.XpGain).Column("XP_Gain");
         }
     }

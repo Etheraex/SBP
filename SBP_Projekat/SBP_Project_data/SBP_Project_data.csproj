@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="DataLayer.cs" />
     <Compile Include="Mapiranja\AlijansaIspunjavaMapiranje.cs" />
+    <Compile Include="Mapiranja\IgracIspunjavaMapiranje.cs" />
     <Compile Include="Models\AlijansaIspunjava.cs" />
     <Compile Include="Mapiranja\AlijansaMapiranje.cs" />
     <Compile Include="Mapiranja\IgracMapiranje.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Mapiranja\SesijaMapiranje.cs" />
     <Compile Include="Models\Alijansa.cs" />
     <Compile Include="Models\Igrac.cs" />
+    <Compile Include="Models\IgracIspunjava.cs" />
     <Compile Include="Models\Lik.cs" />
     <Compile Include="Models\AbstractPredmet.cs" />
     <Compile Include="Models\Quest.cs" />

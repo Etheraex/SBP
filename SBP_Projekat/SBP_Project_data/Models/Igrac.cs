@@ -20,10 +20,12 @@ namespace SBP_Project_data.Models
 
         public virtual Alijansa PripadaAlijansi { get; set; }
         public virtual IList<AbstractPredmet> Predmeti { get; set; }
+        public virtual IList<Quest> IspunjeniQuestiov { get; set; }
 
         public Igrac()
         {
-
+            this.Predmeti = new List<AbstractPredmet>();
+            this.IspunjeniQuestiov = new List<Quest>();
         }
 
         public Igrac(string username, string pass, int uzrast, string nick, char p, string ime, string prezime, Alijansa a)

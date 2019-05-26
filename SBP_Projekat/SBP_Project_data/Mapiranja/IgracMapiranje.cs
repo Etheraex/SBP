@@ -28,7 +28,11 @@ namespace SBP_Project_data.Mapiranja
                 .ParentKeyColumn("IGRAC_FK")
                 .ChildKeyColumn("PREDMET_FK")
                 .Cascade.All();
-
+            HasManyToMany(x => x.IspunjeniQuestiov)
+              .Table("IGRACISPUNJAVA")
+              .ParentKeyColumn("IGRAC_FK")
+              .ChildKeyColumn("QUEST_FK")
+              .Cascade.All();
         }
     }
 }
