@@ -14,7 +14,8 @@ namespace SBP_Project_data.Mapiranja
         {
             Table("Igrac");
 
-            Id(x => x.Id, "IGRAC_ID").GeneratedBy.SequenceIdentity("S16022.IGRAC_ID_SEQ");
+            //Id(x => x.Id, "IGRAC_ID").GeneratedBy.SequenceIdentity("S16022.IGRAC_ID_SEQ");
+            Id(x => x.Id, "IGRAC_ID").GeneratedBy.TriggerIdentity();
             Map(x => x.Username).Column("USERNAME");
             Map(x => x.Password).Column("PASSWORD");
             Map(x => x.Uzrast).Column("UZRAST");

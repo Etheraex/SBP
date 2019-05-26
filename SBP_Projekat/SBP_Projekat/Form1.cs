@@ -358,7 +358,7 @@ namespace SBP_Projekat
             try
             {
                 ISession session = DataLayer.GetSession();
-                Igrac igrac = new Igrac("Dandolo", "burek123", 21, "Ne znam sta je nick", 'm', "Dandolo", "poslezime", null);
+                Igrac igrac = new Igrac("Dandolo II", "burek123", 21, "Ne znam sta je nick", 'm', "Dandolo", "poslezime", null);
                 Lik lik = new Lik();
                 session.Save(igrac);
                 session.Flush();

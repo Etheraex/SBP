@@ -13,7 +13,8 @@ namespace SBP_Project_data.Mapiranja
         public SesijaMapiranje()
         {
             Table("SESIJA");
-            Id(x => x.Id, "SESIJA_ID").GeneratedBy.SequenceIdentity("S16022.SESIJA_ID_SEQ");
+            //Id(x => x.Id, "SESIJA_ID").GeneratedBy.SequenceIdentity("S16022.SESIJA_ID_SEQ");
+            Id(x => x.Id, "SESIJA_ID").GeneratedBy.TriggerIdentity();
             /*CompositeId(x => x.Id)
                 .KeyReference(x => x.Igrac, "IGRAC_FK")
                 .KeyReference(x => x.Lik, "LIK_FK");*/
