@@ -7,7 +7,7 @@ using SBP_Project_data.Models;
 
 namespace SBP_Project_data.Models
 {
-    class AlijansaIspunjava
+    public class AlijansaIspunjava
     {
         public virtual int Id { get; set; }
         public virtual int Vreme { get; set; }

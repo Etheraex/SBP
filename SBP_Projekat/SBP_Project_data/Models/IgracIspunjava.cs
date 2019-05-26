@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SBP_Project_data.Models
 {
-    class IgracIspunjava
+    public class IgracIspunjava
     {
         public virtual int Id { get; set; }
         public virtual int Vreme { get; set; }

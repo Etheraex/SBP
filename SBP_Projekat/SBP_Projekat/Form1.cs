@@ -370,5 +370,82 @@ namespace SBP_Projekat
                 MessageBox.Show(error.Message);
             }
         }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession session = DataLayer.GetSession();
+
+                Predmet predmet = new Predmet(0, "Jabuka", "one apple a day keeps the demons away",null,null);
+                Ork begGreen = session.Load<Ork>(4);
+                predmet.MozeDaKoristi.Add(begGreen);
+                session.Save(predmet);
+                session.Flush();
+                session.Close();
+                MessageBox.Show("Dodat je predmet");
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Alijansa a = s.Load<Alijansa>(1);
+
+                Quest q = s.Load<Quest>(4);
+
+                AlijansaIspunjava tmp = new AlijansaIspunjava();
+                tmp.Alijansa = a;
+                tmp.Quest = q;
+                tmp.Vreme = 168;
+
+                s.Save(tmp);
+                s.Flush();
+                MessageBox.Show("Dodata je evidencija o tome da je Alijansa " + a.Naziv + " ispunila quest " + q.Id);
+
+                s.Close();
+               
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Igrac igr = s.Load<Igrac>(6);
+
+                Quest q = s.Load<Quest>(2);
+
+                IgracIspunjava tmp = new IgracIspunjava();
+                tmp.Igrac = igr;
+                tmp.Quest = q;
+                tmp.Vreme = 168;
+
+                s.Save(tmp);
+                s.Flush();
+                MessageBox.Show("Dodata je evidencija o tome da je Igrac " + igr.Nadimak + " ispunio quest " + q.Id);
+
+                s.Close();
+
+                
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
     }
 }
