@@ -11,7 +11,7 @@ namespace SBP_Project_data.Mapiranja
     {
         public AlijansaIspunjavaMapiranje()
         {
-            Id(x => x.Id, "ALIJANSAISPUNJAVA_ID").GeneratedBy.SequenceIdentity("S16022.ALIJANSAISPUNJAVA_AUTO_PK");
+            Id(x => x.Id, "ALIJANSAISPUNJAVA_ID").GeneratedBy.SequenceIdentity("S16022.ALIJANSAISPUNJAVA_ID_SEQ");
             Map(x => x.Vreme).Column("VREME");
             References(x => x.Quest).Column("QUEST_FK").LazyLoad();
             References(x => x.Alijansa).Column("ALIJANSA_FK").LazyLoad();

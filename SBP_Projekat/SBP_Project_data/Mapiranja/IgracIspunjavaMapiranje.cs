@@ -11,7 +11,7 @@ namespace SBP_Project_data.Mapiranja
     {
         public IgracIspunjavaMapiranje()
         {
-            Id(x => x.Id, "IGRACISPUNJAVA_ID").GeneratedBy.SequenceIdentity("S16022.IGRACISPUNJAVA_AUTO_PK");
+            Id(x => x.Id, "IGRACISPUNJAVA_ID").GeneratedBy.SequenceIdentity("S16022.IGRACISPUNJAVA_ID_SEQ");
             Map(x => x.Vreme).Column("VREME");
             References(x => x.Quest).Column("QUEST_FK").LazyLoad();
             References(x => x.Igrac).Column("IGRAC_FK").LazyLoad();

@@ -322,5 +322,53 @@ namespace SBP_Projekat
                 MessageBox.Show(ec.Message);
             }
         }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession session = DataLayer.GetSession();
+
+                Igrac igrac = session.Load<Igrac>(1);
+                Lik lik = session.Load<Lik>(3);
+
+                Sesija sesija = new Sesija();
+                sesija.Igrac = igrac;
+                sesija.Lik = lik;
+                sesija.VremePocetka = DateTime.Now.ToString();
+                sesija.VremeKraja = null;
+                sesija.ZaradjeniXP = 1911;
+                sesija.Gold = 2000;
+
+                session.Save(sesija);
+
+                session.Flush();
+                session.Close();
+                MessageBox.Show("Uspesno je dodata sesija");
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
+
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession session = DataLayer.GetSession();
+                Igrac igrac = new Igrac("Dandolo", "burek123", 21, "Ne znam sta je nick", 'm', "Dandolo", "poslezime", null);
+                Lik lik = new Lik();
+                session.Save(igrac);
+                session.Flush();
+                session.Close();
+                MessageBox.Show("Igrac je uspesno sacuvan");
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
+        }
     }
 }

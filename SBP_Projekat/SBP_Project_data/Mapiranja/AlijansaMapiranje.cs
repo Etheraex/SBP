@@ -13,7 +13,7 @@ namespace SBP_Project_data.Mapiranja
         public AlijansaMapiranje()
         {
             Table("Alijansa");
-            Id(x => x.Id, "ALIJANSA_ID").GeneratedBy.SequenceIdentity("S16022.ALIJANSA_AUTO_PK");
+            Id(x => x.Id, "ALIJANSA_ID").GeneratedBy.SequenceIdentity("S16022.ALIJANSA_ID_SEQ");
             Map(x => x.Naziv).Column("NAZIV");
             Map(x => x.MinBrojIgraca).Column("MINBROJIGRACA");
             Map(x => x.MaxBrojIgraca).Column("MAXBROJIGRACA");

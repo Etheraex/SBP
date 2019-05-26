@@ -13,7 +13,7 @@ namespace SBP_Project_data.Mapiranja
         public LikMapiranje()
         {
             Table("LIK");
-            Id(x => x.Id, "LIK_ID").GeneratedBy.SequenceIdentity("S16022.LIK_AUTO_PK");
+            Id(x => x.Id, "LIK_ID").GeneratedBy.SequenceIdentity("S16022.LIK_ID_SEQ");
 
             Map(x => x.HP).Column("HP");
             Map(x => x.XP).Column("XP");

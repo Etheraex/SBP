@@ -38,6 +38,8 @@ namespace SBP_Project_data.Models
             Ime = ime;
             Prezime = prezime;
             PripadaAlijansi = a;
+            this.Predmeti = new List<AbstractPredmet>();
+            this.IspunjeniQuestiov = new List<Quest>();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace SBP_Project_data.Mapiranja
         public RasaMapiranje()
         {
             Table("Rasa");
-            Id(x => x.Id, "RASA_ID").GeneratedBy.SequenceIdentity("S16022.RASA_AUTO_PK");
+            Id(x => x.Id, "RASA_ID").GeneratedBy.SequenceIdentity("S16022.RASA_ID_SEQ");
             HasManyToMany(x => x.Koristi)
                 .Table("KORISTI")
                 .ParentKeyColumn("RASA_FK")
