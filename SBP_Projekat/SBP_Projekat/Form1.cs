@@ -447,5 +447,26 @@ namespace SBP_Projekat
                 MessageBox.Show(ec.Message);
             }
         }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Igrac Igrac = s.Load<SBP_Project_data.Models.Igrac>(11);
+
+                Igrac.Nadimak = "Dandolo the Bastart";
+                s.Save(Igrac);
+                s.Flush();
+                MessageBox.Show("novi nadimak je " + Igrac.Nadimak);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
     }
 }
