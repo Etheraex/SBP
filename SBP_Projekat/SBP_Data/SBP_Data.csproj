@@ -67,6 +67,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataLayer.cs" />
+    <Compile Include="DTOManager.cs" />
+    <Compile Include="DTOs\AbstractDTO.cs" />
+    <Compile Include="DTOs\AbstractPredmetDTO.cs" />
+    <Compile Include="DTOs\AlijansaDTO.cs" />
+    <Compile Include="DTOs\AlijansaIspunjavaDTO.cs" />
+    <Compile Include="DTOs\IgracDTO.cs" />
+    <Compile Include="DTOs\IgracIspunjavaDTO.cs" />
+    <Compile Include="DTOs\LikDTO.cs" />
+    <Compile Include="DTOs\QuestDTO.cs" />
+    <Compile Include="DTOs\RasaDTO.cs" />
+    <Compile Include="DTOs\SegrtDTO.cs" />
+    <Compile Include="DTOs\SesijaDTO.cs" />
     <Compile Include="Mappings\AlijansaIspunjavaMapiranje.cs" />
     <Compile Include="Mappings\IgracIspunjavaMapiranje.cs" />
     <Compile Include="Models\AlijansaIspunjava.cs" />
@@ -93,8 +105,6 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DTOs\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

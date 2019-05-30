@@ -18,8 +18,8 @@ namespace SBP_Data.Models
         public virtual int Id { get; set; }
         public virtual int XpGain { get; set; }
         public virtual IList<Predmet> Predmeti { get; set; }
-        public virtual IList<Alijansa>  AlijanseKojeSuIspunile{ get; set; } //ako imate bolji predlog ubacite ga samo
-        public virtual IList<Igrac> IgraciKojiSuIspunili { get; set; } //ako imate bolji predlog ubacite ga samo
+        public virtual IList<Alijansa>  AlijanseKojeSuIspunile{ get; set; } 
+        public virtual IList<Igrac> IgraciKojiSuIspunili { get; set; } 
         public Quest(int x)
         {
             XpGain = x;

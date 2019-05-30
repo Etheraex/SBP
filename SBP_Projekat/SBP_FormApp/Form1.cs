@@ -12,15 +12,18 @@ using SBP_Data.Models;
 using NHibernate;
 using NHibernate.Criterion;
 using NHibernate.Linq;
+using SBP_Data.DTOs;
 
 namespace SBP_Projekat
 {
     public partial class Form1 : Form
     {
+        private DTOManager manager;
+
         public Form1()
         {
             InitializeComponent();
-
+            manager = new DTOManager();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -34,10 +37,10 @@ namespace SBP_Projekat
             {
                 ISession s = DataLayer.GetSession();
 
-                var rasa = s.Load<SBP_Data.Models.Ork>(4);
-                SBP_Data.Models.Ork ork = (Ork)rasa;
+                var rasa = s.Load<Covek>(1);
+                Covek ork = (Covek)rasa;
 
-                MessageBox.Show(ork.Specijalizacija);
+                MessageBox.Show(ork.UmesnostUSkrivanju.ToString());
 
                 s.Close();
             }
@@ -467,6 +470,17 @@ namespace SBP_Projekat
             {
                 MessageBox.Show(ec.Message);
             }
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            var o = new IgracDTO();
+            o.Nadimak = "Mihajlo";
+            o.Pol = 'm';
+            o.Prezime = "Veljkovic";
+
+            DTOManager dm = new DTOManager();
+            dm.SaveEntity(o);
         }
     }
 }

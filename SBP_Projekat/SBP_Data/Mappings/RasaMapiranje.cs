@@ -29,7 +29,7 @@ namespace SBP_Data.Mappings
     {
         public CovekMapiranje()
         {
-            DiscriminatorValue("Covek");
+            DiscriminatorValue("covek");
 
             Map(x => x.UmesnostUSkrivanju).Column("UMESNOSTUSKRIVANJU");
         }
@@ -53,7 +53,7 @@ namespace SBP_Data.Mappings
         public PatuljakMapiranje()
         {
            
-            DiscriminatorValue("Patuljak");
+            DiscriminatorValue("patuljak");
         }
     }
     class OrkMapiranje : SubclassMap<Ork>
