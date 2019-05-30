@@ -24,16 +24,11 @@ namespace SBP_Projekat
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
-                ISession s = DataLayer.GetSession();
+                ISession s = DataLayer.Session;
 
                 var rasa = s.Load<Covek>(1);
                 Covek ork = (Covek)rasa;
@@ -52,7 +47,7 @@ namespace SBP_Projekat
         {
             try
             {
-                ISession s = DataLayer.GetSession();
+                ISession s = DataLayer.Session;
 
                 var Lik = s.Load<SBP_Data.Models.Lik>(5);
                 //SBP_Project_data.Models.Ork ork = (SBP_Project_data.Models.Ork)rasa;
@@ -71,7 +66,7 @@ namespace SBP_Projekat
         {
             try
             {
-                ISession s = DataLayer.GetSession();
+                ISession s = DataLayer.Session;
 
                 var Alijansa = s.Load<SBP_Data.Models.Alijansa>(1);
             
@@ -89,7 +84,7 @@ namespace SBP_Projekat
         {
             try
             {
-                ISession s = DataLayer.GetSession();
+                ISession s = DataLayer.Session;
 
                 var Igrac = s.Load<SBP_Data.Models.Igrac>(2);
 
@@ -107,7 +102,7 @@ namespace SBP_Projekat
         {
             try
             {
-                ISession s = DataLayer.GetSession();
+                ISession s = DataLayer.Session;
 
                 var predmet = (Oruzje)s.Load<Oruzje>(8);
                 
@@ -123,7 +118,7 @@ namespace SBP_Projekat
 
             try
             {
-                ISession s = DataLayer.GetSession();
+                ISession s = DataLayer.Session;
 
                 var predmet = (Predmet)s.Load<Predmet>(7);
                 String bitan = "bitan za Quest:";
@@ -145,7 +140,7 @@ namespace SBP_Projekat
         {
             try
             {
-                ISession s = DataLayer.GetSession();
+                ISession s = DataLayer.Session;
 
                 Ork bigGreen = s.Load<Ork>(4);
                 String koristi = "";
@@ -169,7 +164,7 @@ namespace SBP_Projekat
         {
             try
             {
-                ISession s = DataLayer.GetSession();
+                ISession s = DataLayer.Session;
 
                 var predmet = s.Load<AbstractPredmet>(3);
                 String koristi = "";
@@ -193,7 +188,7 @@ namespace SBP_Projekat
         {
             try
             {
-                ISession s = DataLayer.GetSession();
+                ISession s = DataLayer.Session;
 
                 var sesija = s.Load<SBP_Data.Models.Sesija>(1);
 
@@ -212,7 +207,7 @@ namespace SBP_Projekat
         {
             try
             {
-                ISession s = DataLayer.GetSession();
+                ISession s = DataLayer.Session;
 
                 var Alijansa = s.Load<SBP_Data.Models.Alijansa>(1);
 
@@ -230,7 +225,7 @@ namespace SBP_Projekat
         {
             try
             {
-                ISession s = DataLayer.GetSession();
+                ISession s = DataLayer.Session;
 
                 var Igrac = s.Load<SBP_Data.Models.Igrac>(1);
 
@@ -248,7 +243,7 @@ namespace SBP_Projekat
         {
             try
             {
-                ISession s = DataLayer.GetSession();
+                ISession s = DataLayer.Session;
 
                 var predmet = s.Load<SBP_Data.Models.AbstractPredmet>(1);
 
@@ -266,7 +261,7 @@ namespace SBP_Projekat
         {
             try
             {
-                ISession s = DataLayer.GetSession();
+                ISession s = DataLayer.Session;
 
                 var Alijansa = s.Load<SBP_Data.Models.Alijansa>(1);
                 String questovi = "";
@@ -297,7 +292,7 @@ namespace SBP_Projekat
         {
             try
             {
-                ISession s = DataLayer.GetSession();
+                ISession s = DataLayer.Session;
 
                 var igrac = s.Load<SBP_Data.Models.Igrac>(1);
                 String questovi = "";
@@ -328,7 +323,7 @@ namespace SBP_Projekat
         {
             try
             {
-                ISession session = DataLayer.GetSession();
+                ISession session = DataLayer.Session;
 
                 Igrac igrac = session.Load<Igrac>(1);
                 Lik lik = session.Load<Lik>(3);
@@ -358,8 +353,16 @@ namespace SBP_Projekat
         {
             try
             {
-                ISession session = DataLayer.GetSession();
-                Igrac igrac = new Igrac("Dandolo II", "burek123", 21, "Ne znam sta je nick", 'm', "Dandolo", "poslezime", null);
+                ISession session = DataLayer.Session;
+                Igrac igrac = new Igrac();
+                igrac.Username = "Dandolo II";
+                igrac.Password = "burek123";
+                igrac.Uzrast = 21;
+                igrac.Nadimak = "Ne znam sta je nick";
+                igrac.Pol = 'm';
+                igrac.Ime = "Dandolo";
+                igrac.Prezime = "poslezime";
+
                 Lik lik = new Lik();
                 session.Save(igrac);
                 session.Flush();
@@ -376,9 +379,13 @@ namespace SBP_Projekat
         {
             try
             {
-                ISession session = DataLayer.GetSession();
+                ISession session = DataLayer.Session;
 
-                Predmet predmet = new Predmet(0, "Jabuka", "one apple a day keeps the demons away",null,null);
+                Predmet predmet = new Predmet();
+                predmet.XpBonus = 0;
+                predmet.Naziv = "Jabuka";
+                predmet.Opis = "one apple a day keeps the demons away";
+
                 Ork begGreen = session.Load<Ork>(4);
                 predmet.MozeDaKoristi.Add(begGreen);
                 session.Save(predmet);
@@ -396,7 +403,7 @@ namespace SBP_Projekat
         {
             try
             {
-                ISession s = DataLayer.GetSession();
+                ISession s = DataLayer.Session;
 
                 Alijansa a = s.Load<Alijansa>(1);
 
@@ -424,7 +431,7 @@ namespace SBP_Projekat
         {
             try
             {
-                ISession s = DataLayer.GetSession();
+                ISession s = DataLayer.Session;
 
                 Igrac igr = s.Load<Igrac>(6);
 
@@ -453,7 +460,7 @@ namespace SBP_Projekat
         {
             try
             {
-                ISession s = DataLayer.GetSession();
+                ISession s = DataLayer.Session;
 
                 Igrac Igrac = s.Load<SBP_Data.Models.Igrac>(11);
 
@@ -472,10 +479,16 @@ namespace SBP_Projekat
 
         private void button20_Click(object sender, EventArgs e)
         {
-            var igrac = DTOManager.GetInstance().GetEntityById<IgracDTO, Igrac>(21);
+            var igrac = DTOManager.Instance.GetEntityById<IgracDTO, Igrac>(21);
             igrac.Nadimak = "BurekMan";
-            DTOManager.GetInstance().UpdateEntity<IgracDTO, Igrac>(igrac);
+            DTOManager.Instance.UpdateEntity<IgracDTO, Igrac>(igrac);
             MessageBox.Show("YAAAY");
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            var tmp = DTOManager.Instance.GetEntityById<PredmetDTO, Predmet>(4);
+            MessageBox.Show(tmp.Naziv);
         }
     }
 }

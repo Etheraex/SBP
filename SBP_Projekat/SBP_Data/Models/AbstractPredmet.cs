@@ -22,36 +22,15 @@ namespace SBP_Data.Models
             MozeDaKoristi = new List<Rasa>();
             this.Igraci = new List<Igrac>();
         }
-        // Ovo treba da se edituje na EER dijagramu
-        public AbstractPredmet(int xp, string naziv, string opis, string vrstaOruzija, Quest quest)
-        {
-            XpBonus = xp;
-            Naziv = naziv;
-            Opis = opis;
-            VrstaOruzja = vrstaOruzija;
-            Pripada = quest;
-            MozeDaKoristi = new List<Rasa>();
-            this.Igraci = new List<Igrac>();
-        }
     }
 
     public class Predmet : AbstractPredmet
     {
-        public Predmet()
-        {
 
-        }
-
-        public Predmet(int xp, string naziv, string opis, string vrstaOruzija, Quest quest) : base(xp, naziv, opis, vrstaOruzija, quest) { }
     }
 
     public class Oruzje : AbstractPredmet
     {
-        public Oruzje()
-        {
 
-        }
-
-        public Oruzje(int x, string n, string o, string v, Quest p) : base(x, n, o, v, p) { }
     }
 }

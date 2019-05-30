@@ -13,7 +13,6 @@ namespace SBP_Data.Mappings
         public AlijansaMapiranje()
         {
             Table("Alijansa");
-            //Id(x => x.Id, "ALIJANSA_ID").GeneratedBy.SequenceIdentity("S16022.ALIJANSA_ID_SEQ");
             Id(x => x.Id, "ALIJANSA_ID").GeneratedBy.TriggerIdentity();
             Map(x => x.Naziv).Column("NAZIV");
             Map(x => x.MinBrojIgraca).Column("MINBROJIGRACA");

@@ -13,7 +13,6 @@ namespace SBP_Data.Mappings
         public AbstractPredmetMapiranje()
         {
             Table("Predmet");
-            //Id(x => x.Id, "PREDMET_ID").GeneratedBy.SequenceIdentity("S16022.PREDMET_ID_SEQ");
             Id(x => x.Id, "PREDMET_ID").GeneratedBy.TriggerIdentity();
             Map(x => x.Naziv).Column("NAZIV");
             Map(x => x.Opis).Column("OPIS");

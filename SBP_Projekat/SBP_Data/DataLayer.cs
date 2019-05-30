@@ -13,25 +13,24 @@ namespace SBP_Data
     {
         private static ISessionFactory _factory = null;
         private static object objLock = new object();
-
-
-        //funkcija na zahtev otvara sesiju
-        public static ISession GetSession()
+        
+        public static ISession Session
         {
-            //ukoliko session factory nije kreiran
-            if (_factory == null)
+            get
             {
-                lock (objLock)
+                if (_factory == null)
                 {
-                    if (_factory == null)
-                        _factory = CreateSessionFactory();
+                    lock (objLock)
+                    {
+                        if (_factory == null)
+                            _factory = CreateSessionFactory();
+                    }
                 }
+                return _factory.OpenSession();
             }
-
-            return _factory.OpenSession();
+            
         }
-
-        //konfiguracija i kreiranje session factory
+        
         private static ISessionFactory CreateSessionFactory()
         {
             try
@@ -52,7 +51,6 @@ namespace SBP_Data
                 Console.WriteLine(ec);
                 return null;
             }
-
         }
     }
 }

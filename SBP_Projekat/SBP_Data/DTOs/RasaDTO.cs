@@ -9,7 +9,6 @@ namespace SBP_Data.DTOs
 {
     public abstract class RasaDTO : AbstractDTO
     {
-       
         public IList<AbstractPredmet> Koristi { get; set; }
 
         public override string ToString()
@@ -24,7 +23,12 @@ namespace SBP_Data.DTOs
     public class VilenjakDTO : RasaDTO
     {
         public int NivoEnergije { get; set; }
-        
+
+        public VilenjakDTO()
+        {
+
+        }
+
         public VilenjakDTO(Vilenjak v)
         {
             ID = v.Id;
@@ -39,9 +43,8 @@ namespace SBP_Data.DTOs
             if (input != null)
                 i = input as Vilenjak;
             else if (i == null || input == null)
-            {
                 i = new Vilenjak();
-            }
+
             i.Koristi = Koristi;
             i.NivoEnergije = NivoEnergije;
             return i;
@@ -49,13 +52,17 @@ namespace SBP_Data.DTOs
         }
     }
 
-
     /// <summary>
     /// Ork
     /// </summary>
     public class OrkDTO : RasaDTO
     {
         public virtual string Specijalizacija { get; set; }
+
+        public OrkDTO()
+        {
+
+        }
 
         public OrkDTO(Ork o)
         {
@@ -71,15 +78,13 @@ namespace SBP_Data.DTOs
             if (input != null)
                 i = input as Ork;
             else if (i == null || input == null)
-            {
                 i = new Ork();
-            }
+
             i.Koristi = Koristi;
             i.Specijalizacija = Specijalizacija;
             return i;
         }
     }
-
 
     /// <summary>
     /// Covek
@@ -87,6 +92,11 @@ namespace SBP_Data.DTOs
     public class CovekDTO : RasaDTO
     {
         public virtual int UmesnostUSkrivanju { get; set; }
+
+        public CovekDTO()
+        {
+
+        }
 
         public CovekDTO(Covek c)
         {
@@ -102,15 +112,13 @@ namespace SBP_Data.DTOs
             if (input != null)
                 i = input as Covek;
             else if (i == null || input == null)
-            {
                 i = new Covek();
-            }
+
             i.Koristi = Koristi;
             i.UmesnostUSkrivanju = UmesnostUSkrivanju;
             return i;
         }
     }
-
 
     /// <summary>
     /// Demon
@@ -118,6 +126,11 @@ namespace SBP_Data.DTOs
     public class DemonDTO : RasaDTO
     {
         public int NivoEnergije { get; set; }
+
+        public DemonDTO()
+        {
+
+        }
 
         public DemonDTO(Demon d)
         {
@@ -133,9 +146,8 @@ namespace SBP_Data.DTOs
             if (input != null)
                 i = input as Demon;
             else if (i == null || input == null)
-            {
                 i = new Demon();
-            }
+
             i.Koristi = Koristi;
             i.NivoEnergije = NivoEnergije;
             return i;
@@ -148,6 +160,11 @@ namespace SBP_Data.DTOs
     public class PatuljakDTO : RasaDTO
     {
         public string Specijalizacija { get; set; }
+
+        public PatuljakDTO()
+        {
+
+        }
 
         public PatuljakDTO(Patuljak p)
         {
@@ -162,9 +179,8 @@ namespace SBP_Data.DTOs
             if (input != null)
                 i = input as Patuljak;
             else if (i == null || input == null)
-            {
                 i = new Patuljak();
-            }
+
             i.Koristi = Koristi;
             i.Specijalizacija = Specijalizacija;
             return i;

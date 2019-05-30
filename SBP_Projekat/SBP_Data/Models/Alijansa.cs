@@ -25,17 +25,5 @@ namespace SBP_Data.Models
             this.Igraci = new List<Igrac>();
             this.IspunjeniQuestiovi = new List<Quest>();
         }
-
-        public Alijansa(string n, int min, int max, int x, int h)
-        {
-            Naziv = n;
-            MinBrojIgraca = min;
-            MaxBrojIgraca = max;
-            XpBonus = x;
-            HpBonus = h;
-            Savezi = new List<Alijansa>();
-            Igraci = new List<Igrac>();
-            this.IspunjeniQuestiovi = new List<Quest>();
-        }
     }
 }

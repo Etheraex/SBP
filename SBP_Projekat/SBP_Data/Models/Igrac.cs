@@ -27,19 +27,5 @@ namespace SBP_Data.Models
             this.Predmeti = new List<AbstractPredmet>();
             this.IspunjeniQuestiov = new List<Quest>();
         }
-
-        public Igrac(string username, string pass, int uzrast, string nick, char p, string ime, string prezime, Alijansa a)
-        {
-            Username = username;
-            Password = pass;
-            Uzrast = uzrast;
-            Nadimak = nick;
-            Pol = p;
-            Ime = ime;
-            Prezime = prezime;
-            PripadaAlijansi = a;
-            this.Predmeti = new List<AbstractPredmet>();
-            this.IspunjeniQuestiov = new List<Quest>();
-        }
     }
 }

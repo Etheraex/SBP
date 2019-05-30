@@ -13,7 +13,6 @@ namespace SBP_Data.Mappings
         public SegrtMapiranje()
         {
             Table("Segrt");
-            //Id(x => x.Id, "SEGRT_ID").GeneratedBy.SequenceIdentity("S16022.SEGRT_ID_SEQ");
             Id(x => x.Id, "SEGRT_ID").GeneratedBy.TriggerIdentity();
             Map(x => x.Ime).Column("IME");
             Map(x => x.Bonus).Column("BONUS");

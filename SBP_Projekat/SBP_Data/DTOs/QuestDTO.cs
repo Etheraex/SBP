@@ -9,11 +9,15 @@ namespace SBP_Data.DTOs
 {
     public class QuestDTO : AbstractDTO
     {
-        
         public int XpGain { get; set; }
         public IList<Predmet> Predmeti { get; set; }
         public IList<Alijansa> AlijanseKojeSuIspunile { get; set; } 
         public IList<Igrac> IgraciKojiSuIspunili { get; set; }
+
+        public QuestDTO()
+        {
+
+        }
 
         public override string ToString()
         {
@@ -36,16 +40,14 @@ namespace SBP_Data.DTOs
             if (input != null)
                 q = input as Quest;
             else if (q == null || input == null)
-            {
                 q = new Quest();
-            }
+
             q.XpGain = XpGain;
             q.Predmeti = Predmeti;
             q.AlijanseKojeSuIspunile = AlijanseKojeSuIspunile;
             q.IgraciKojiSuIspunili = IgraciKojiSuIspunili;
 
             return q;
-
         }
     }
 }

@@ -12,7 +12,6 @@ namespace SBP_Data.Mappings
         public AlijansaIspunjavaMapiranje()
         {
             Table("AlijansaIspunjava");
-            //Id(x => x.Id, "ALIJANSAISPUNJAVA_ID").GeneratedBy.SequenceIdentity("S16022.ALIJANSAISPUNJAVA_ID_SEQ");
             Id(x => x.Id, "ALIJANSAISPUNJAVA_ID").GeneratedBy.TriggerIdentity();
 
             Map(x => x.Vreme).Column("VREME");

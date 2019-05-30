@@ -9,7 +9,6 @@ namespace SBP_Data.DTOs
 {
     public class IgracDTO : AbstractDTO
     {
-      
         public string Username { get; set; }
         public string Password { get; set; }
         public int Uzrast { get; set; }
@@ -17,6 +16,11 @@ namespace SBP_Data.DTOs
         public char Pol { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
+
+        public IgracDTO()
+        {
+
+        }
 
         public Alijansa PripadaAlijansi { get; set; }
         public IList<AbstractPredmet> Predmeti { get; set; }
@@ -43,19 +47,14 @@ namespace SBP_Data.DTOs
             IspunjeniQuestiov = i.IspunjeniQuestiov;
         }
 
-        public IgracDTO()
-        {
-        }
-
         public override object CreateOrUpdate(object input )
         {
             Igrac i = null;
             if (input != null)
                 i = input as Igrac;
             else if (i == null || input == null)
-            {
                 i = new Igrac();
-            }
+
             i.Username = Username;
             i.Password = Password;
             i.Uzrast = Uzrast;

@@ -13,7 +13,6 @@ namespace SBP_Data.Mappings
         public QuestMapiranje()
         {
             Table("Quest");
-            //Id(x => x.Id, "QUEST_ID").GeneratedBy.SequenceIdentity("S16022.QUEST_ID_SEQ");
             Id(x => x.Id, "QUEST_ID").GeneratedBy.TriggerIdentity();
             HasManyToMany(x => x.AlijanseKojeSuIspunile)
                .Table("ALIJANSAISPUNJAVA")

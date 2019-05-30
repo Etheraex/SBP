@@ -10,8 +10,6 @@ namespace SBP_Data.DTOs
 {
     public class SesijaDTO : AbstractDTO
     {
-
-       
         public double Gold { get; set; }
         public int ZaradjeniXP { get; set; }
         public string VremePocetka { get; set; }
@@ -19,6 +17,11 @@ namespace SBP_Data.DTOs
 
         public Igrac Igrac { get; set; }
         public Lik Lik { get; set; }
+
+        public SesijaDTO()
+        {
+
+        }
 
         public override string ToString()
         {
@@ -31,9 +34,8 @@ namespace SBP_Data.DTOs
             if (input != null)
                 s = input as Sesija;
             else if (s == null || input == null)
-            {
                 s = new Sesija();
-            }
+
             s.Gold = Gold;
             s.ZaradjeniXP = ZaradjeniXP;
             s.VremeKraja = VremeKraja;

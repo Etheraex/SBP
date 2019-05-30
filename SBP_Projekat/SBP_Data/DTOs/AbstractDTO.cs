@@ -11,5 +11,10 @@ namespace SBP_Data.DTOs
         public Type EntityType { get; protected  set; }
         public abstract object CreateOrUpdate(object input = null);
         public int ID { get; set; }
+
+        public AbstractDTO()
+        {
+
+        }
     }
 }

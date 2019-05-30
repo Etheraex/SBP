@@ -9,11 +9,15 @@ namespace SBP_Data.DTOs
 {
     public class SegrtDTO : AbstractDTO
     {
-      
         public string Ime { get; set; }
         public int Bonus { get; set; }
         public Rasa Rasa { get; set; }
         public Lik Lik { get; set; }
+
+        public SegrtDTO()
+        {
+
+        }
 
         public override string ToString()
         {
@@ -26,9 +30,8 @@ namespace SBP_Data.DTOs
             if (input != null)
                 s = input as Segrt;
             else if (s == null || input == null)
-            {
                 s = new Segrt();
-            }
+
             s.Ime = Ime;
             s.Bonus = Bonus;
             s.Rasa = Rasa;

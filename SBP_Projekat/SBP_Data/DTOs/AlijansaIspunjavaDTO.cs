@@ -9,10 +9,14 @@ namespace SBP_Data.DTOs
 {
     public class AlijansaIspunjavaDTO : AbstractDTO
     {
-      
         public int Vreme { get; set; }
         public Alijansa Alijansa { get; set; }
         public Quest Quest { get; set; }
+
+        public AlijansaIspunjavaDTO()
+        {
+
+        }
 
         public override string ToString()
         {
@@ -34,9 +38,7 @@ namespace SBP_Data.DTOs
             if (input != null)
                 a = input as AlijansaIspunjava;
             else if (a == null || input == null)
-            {
                 a = new AlijansaIspunjava();
-            }
             a.Vreme = Vreme;
             a.Alijansa = Alijansa;
             a.Quest = Quest;

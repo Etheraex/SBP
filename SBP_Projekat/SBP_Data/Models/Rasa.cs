@@ -8,89 +8,47 @@ namespace SBP_Data.Models
 {
     public class Rasa
     {
+        public virtual int Id { get; protected set; }
+        public virtual IList<AbstractPredmet> Koristi { get; set; }
+
         public Rasa()
         {
             Koristi = new List<AbstractPredmet>();
         }
-        
-        public virtual int Id { get; protected set; }
-        public virtual IList<AbstractPredmet> Koristi { get; set; }
     }
 
     public class Covek : Rasa
     {
         public virtual int UmesnostUSkrivanju { get; set; }
-
-        public Covek()
-        {
-        }
-
-        public Covek(int u)
-        {
-            UmesnostUSkrivanju = u;
-        }
     }
 
     public abstract class Borac : Rasa
     {
         public virtual string Specijalizacija { get; set; }
-
-        public Borac()
-        {
-        }
-
-        public Borac(string s)
-        {
-            Specijalizacija = s;
-        }
     }
 
     public abstract class Mage : Rasa
     {
         public virtual int NivoEnergije { get; set; }
-        public Mage()
-        {
-        }
-
-        public Mage(int n)
-        {
-            NivoEnergije = n;
-        }
     }
 
     public class Patuljak : Borac
     {
-        public Patuljak()
-        {
-        }
 
-        public Patuljak(string s) : base() { }
     }
 
     public class Ork : Borac
     {
-        public Ork()
-        {
-        }
 
-        public Ork(string s) : base() { }
     }
 
     public class Vilenjak : Mage
     {
-        public Vilenjak()
-        {
-        }
 
-        public Vilenjak(int n) : base() { }
     }
 
     public class Demon : Mage
     {
-        public Demon()
-        {
-        }
 
-        public Demon(int n) : base() { }
     }
 }
