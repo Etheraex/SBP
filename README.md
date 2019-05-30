@@ -1,15 +1,8 @@
-Mogu da dodam jos 3 collaboratora tako da ukupno 4 osoba mogu da rade
+Projekat za predmet Sistemi baza podataka.
 
-TODO: Projekat
+MMORPG
 
-Stefan: nice ovo radi odlicno 
-
-A blyatiful beginning
-
-Baki: Koji moj je ovo? 
-
-Proba proba je'n dva tri
-
-Kolko jaka stvar ovaj git :D 
-
-Baki pls
+[x] - Projekat I deo - DB dizajn  
+[x] - Projekat II deo - Fluent nHibernate mapiranje  
+[] - Projekat III deo - WinForm  
+[] - Projekat IV deo - WinAPI  
