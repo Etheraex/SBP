@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SBP_Projekat", "SBP_Projekat\SBP_Projekat.csproj", "{C9130615-0683-419A-8437-6A17ADCF18E2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SBP_FormApp", "SBP_FormApp\SBP_FormApp.csproj", "{C9130615-0683-419A-8437-6A17ADCF18E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SBP_Project_data", "SBP_Project_data\SBP_Project_data.csproj", "{9637D653-DD6E-4F8A-B00D-D5253B8A932E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SBP_Data", "SBP_Data\SBP_Data.csproj", "{9637D653-DD6E-4F8A-B00D-D5253B8A932E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
