@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using SBP_Data.Models;
 using FluentNHibernate.Mapping;
 
-namespace SBP_Data.Mapiranja
+namespace SBP_Data.Mappings
 {
     class AbstractPredmetMapiranje : ClassMap<AbstractPredmet>
     {

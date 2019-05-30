@@ -67,17 +67,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataLayer.cs" />
-    <Compile Include="Mapiranja\AlijansaIspunjavaMapiranje.cs" />
-    <Compile Include="Mapiranja\IgracIspunjavaMapiranje.cs" />
+    <Compile Include="Mappings\AlijansaIspunjavaMapiranje.cs" />
+    <Compile Include="Mappings\IgracIspunjavaMapiranje.cs" />
     <Compile Include="Models\AlijansaIspunjava.cs" />
-    <Compile Include="Mapiranja\AlijansaMapiranje.cs" />
-    <Compile Include="Mapiranja\IgracMapiranje.cs" />
-    <Compile Include="Mapiranja\AbstractPredmetMapiranje.cs" />
-    <Compile Include="Mapiranja\QuestMapiranje.cs" />
-    <Compile Include="Mapiranja\LikMapiranje.cs" />
-    <Compile Include="Mapiranja\RasaMapiranje.cs" />
-    <Compile Include="Mapiranja\SegrtMapiranje.cs" />
-    <Compile Include="Mapiranja\SesijaMapiranje.cs" />
+    <Compile Include="Mappings\AlijansaMapiranje.cs" />
+    <Compile Include="Mappings\IgracMapiranje.cs" />
+    <Compile Include="Mappings\AbstractPredmetMapiranje.cs" />
+    <Compile Include="Mappings\QuestMapiranje.cs" />
+    <Compile Include="Mappings\LikMapiranje.cs" />
+    <Compile Include="Mappings\RasaMapiranje.cs" />
+    <Compile Include="Mappings\SegrtMapiranje.cs" />
+    <Compile Include="Mappings\SesijaMapiranje.cs" />
     <Compile Include="Models\Alijansa.cs" />
     <Compile Include="Models\Igrac.cs" />
     <Compile Include="Models\IgracIspunjava.cs" />

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using FluentNHibernate.Mapping;
 using SBP_Data.Models;
 
-namespace SBP_Data.Mapiranja
+namespace SBP_Data.Mappings
 {
     class SesijaMapiranje : ClassMap<Sesija>
     {
