@@ -33,12 +33,19 @@ namespace SBP_Data.DTOs
             EntityType = typeof(Vilenjak);
         }
 
-        public override object ConvertToEntity()
+        public override object CreateOrUpdate(object input)
         {
-            var v = new Vilenjak();
-            v.Koristi = Koristi;
-            v.NivoEnergije = NivoEnergije;
-            return v;
+            Vilenjak i = null;
+            if (input != null)
+                i = input as Vilenjak;
+            else if (i == null || input == null)
+            {
+                i = new Vilenjak();
+            }
+            i.Koristi = Koristi;
+            i.NivoEnergije = NivoEnergije;
+            return i;
+
         }
     }
 
@@ -58,12 +65,18 @@ namespace SBP_Data.DTOs
             EntityType = typeof(Ork);
         }
 
-        public override object ConvertToEntity()
+        public override object CreateOrUpdate(object input)
         {
-            var o = new Ork();
-            o.Koristi = Koristi;
-            o.Specijalizacija = Specijalizacija;
-            return o;
+            Ork i = null;
+            if (input != null)
+                i = input as Ork;
+            else if (i == null || input == null)
+            {
+                i = new Ork();
+            }
+            i.Koristi = Koristi;
+            i.Specijalizacija = Specijalizacija;
+            return i;
         }
     }
 
@@ -83,12 +96,18 @@ namespace SBP_Data.DTOs
             EntityType = typeof(Covek);
         }
 
-        public override object ConvertToEntity()
+        public override object CreateOrUpdate(object input)
         {
-            var c = new Covek();
-            c.Koristi = Koristi;
-            c.UmesnostUSkrivanju = UmesnostUSkrivanju;
-            return c;
+            Covek i = null;
+            if (input != null)
+                i = input as Covek;
+            else if (i == null || input == null)
+            {
+                i = new Covek();
+            }
+            i.Koristi = Koristi;
+            i.UmesnostUSkrivanju = UmesnostUSkrivanju;
+            return i;
         }
     }
 
@@ -108,12 +127,18 @@ namespace SBP_Data.DTOs
             EntityType = typeof(Demon);
         }
 
-        public override object ConvertToEntity()
+        public override object CreateOrUpdate(object input)
         {
-            var d = new Demon();
-            d.Koristi = Koristi;
-            d.NivoEnergije = NivoEnergije;
-            return d;
+            Demon i = null;
+            if (input != null)
+                i = input as Demon;
+            else if (i == null || input == null)
+            {
+                i = new Demon();
+            }
+            i.Koristi = Koristi;
+            i.NivoEnergije = NivoEnergije;
+            return i;
         }
     }
 
@@ -131,13 +156,18 @@ namespace SBP_Data.DTOs
             Specijalizacija = p.Specijalizacija;
             EntityType = typeof(Patuljak);
         }
-
-        public override object ConvertToEntity()
+        public override object CreateOrUpdate(object input)
         {
-            var p = new Patuljak();
-            p.Koristi = Koristi;
-            p.Specijalizacija = Specijalizacija;
-            return p;
+            Patuljak i = null;
+            if (input != null)
+                i = input as Patuljak;
+            else if (i == null || input == null)
+            {
+                i = new Patuljak();
+            }
+            i.Koristi = Koristi;
+            i.Specijalizacija = Specijalizacija;
+            return i;
         }
     }
 }

@@ -20,9 +20,15 @@ namespace SBP_Data.DTOs
             return EntityType.Name + Ime;
         }
 
-        public override object ConvertToEntity()
+        public override object CreateOrUpdate(object input)
         {
-            var s = new Segrt();
+            Segrt s = null;
+            if (input != null)
+                s = input as Segrt;
+            else if (s == null || input == null)
+            {
+                s = new Segrt();
+            }
             s.Ime = Ime;
             s.Bonus = Bonus;
             s.Rasa = Rasa;

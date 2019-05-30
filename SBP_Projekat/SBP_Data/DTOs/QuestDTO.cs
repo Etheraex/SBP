@@ -30,15 +30,22 @@ namespace SBP_Data.DTOs
             IgraciKojiSuIspunili = q.IgraciKojiSuIspunili;
         }
 
-        public override object ConvertToEntity()
+        public override object CreateOrUpdate(object input)
         {
-            var q = new Quest();
+            Quest q = null;
+            if (input != null)
+                q = input as Quest;
+            else if (q == null || input == null)
+            {
+                q = new Quest();
+            }
             q.XpGain = XpGain;
             q.Predmeti = Predmeti;
             q.AlijanseKojeSuIspunile = AlijanseKojeSuIspunile;
             q.IgraciKojiSuIspunili = IgraciKojiSuIspunili;
 
             return q;
+
         }
     }
 }

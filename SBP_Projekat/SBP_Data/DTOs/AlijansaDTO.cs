@@ -38,10 +38,15 @@ namespace SBP_Data.DTOs
             Igraci = a.Igraci;
             IspunjeniQuestiovi = a.IspunjeniQuestiovi;
         }
-
-        public override object ConvertToEntity()
+        public override object CreateOrUpdate(object input)
         {
-            Alijansa a = new Alijansa();
+            Alijansa a = null;
+            if (input != null)
+                a = input as Alijansa;
+            else if( a == null || input == null)
+            {
+                a =  new Alijansa();
+            }
             a.Naziv = Naziv;
             a.MinBrojIgraca = MinBrojIgraca;
             a.MaxBrojIgraca = MaxBrojIgraca;

@@ -18,12 +18,10 @@ namespace SBP_Projekat
 {
     public partial class Form1 : Form
     {
-        private DTOManager manager;
 
         public Form1()
         {
             InitializeComponent();
-            manager = new DTOManager();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -474,13 +472,10 @@ namespace SBP_Projekat
 
         private void button20_Click(object sender, EventArgs e)
         {
-            var o = new IgracDTO();
-            o.Nadimak = "Mihajlo";
-            o.Pol = 'm';
-            o.Prezime = "Veljkovic";
-
-            DTOManager dm = new DTOManager();
-            dm.SaveEntity(o);
+            var igrac = DTOManager.GetInstance().GetEntityById<IgracDTO, Igrac>(21);
+            igrac.Nadimak = "BurekMan";
+            DTOManager.GetInstance().UpdateEntity<IgracDTO, Igrac>(igrac);
+            MessageBox.Show("YAAAY");
         }
     }
 }

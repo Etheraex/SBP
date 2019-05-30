@@ -28,13 +28,18 @@ namespace SBP_Data.DTOs
             Quest = a.Quest;
         }
 
-        public override object ConvertToEntity()
+        public override object CreateOrUpdate(object input)
         {
-            AlijansaIspunjava a = new AlijansaIspunjava();
+            AlijansaIspunjava a = null;
+            if (input != null)
+                a = input as AlijansaIspunjava;
+            else if (a == null || input == null)
+            {
+                a = new AlijansaIspunjava();
+            }
             a.Vreme = Vreme;
             a.Alijansa = Alijansa;
             a.Quest = Quest;
-
             return a;
         }
     }

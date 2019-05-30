@@ -47,9 +47,15 @@ namespace SBP_Data.DTOs
         {
         }
 
-        public override object ConvertToEntity()
+        public override object CreateOrUpdate(object input )
         {
-            var i = new Igrac();
+            Igrac i = null;
+            if (input != null)
+                i = input as Igrac;
+            else if (i == null || input == null)
+            {
+                i = new Igrac();
+            }
             i.Username = Username;
             i.Password = Password;
             i.Uzrast = Uzrast;

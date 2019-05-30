@@ -34,9 +34,15 @@ namespace SBP_Data.DTOs
             Igrac = i.Igrac;
         }
 
-        public override object ConvertToEntity()
+        public override object CreateOrUpdate(object input)
         {
-            var i = new Lik();
+            Lik i = null;
+            if (input != null)
+                i = input as Lik;
+            else if (i == null || input == null)
+            {
+                i = new Lik();
+            }
             i.Zlato = Zlato;
             i.HP = HP;
             i.XP = XP;

@@ -27,10 +27,15 @@ namespace SBP_Data.DTOs
             Igrac = i.Igrac;
             Quest = i.Quest;
         }
-
-        public override object ConvertToEntity()
+        public override object CreateOrUpdate(object input)
         {
-            var i = new IgracIspunjava();
+            IgracIspunjava i = null;
+            if (input != null)
+                i = input as IgracIspunjava;
+            else if (i == null || input == null)
+            {
+                i = new IgracIspunjava();
+            }
             i.Vreme = Vreme;
             i.Igrac = Igrac;
             i.Quest = Quest;

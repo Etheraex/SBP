@@ -18,7 +18,7 @@ namespace SBP_Data.DTOs
         public IList<Rasa> MozeDaKoristi { get; set; }
         public IList<Igrac> Igraci { get; set; }
 
-        public override object ConvertToEntity()
+        public override object CreateOrUpdate(object input)
         {
             throw new NotImplementedException();
         }
@@ -26,11 +26,6 @@ namespace SBP_Data.DTOs
         public override string ToString()
         {
             return EntityType.Name + Naziv;
-        }
-
-        public override object Update(object x)
-        {
-            throw new NotImplementedException();
         }
     }
 
@@ -51,10 +46,15 @@ namespace SBP_Data.DTOs
             MozeDaKoristi = p.MozeDaKoristi;
             Igraci = p.Igraci;
         }
-
-        public override object ConvertToEntity()
+        public override object CreateOrUpdate(object input)
         {
-            Predmet p = new Predmet();
+            Predmet p = null;
+            if (input != null)
+                p = input as Predmet;
+            else if (p == null || input == null)
+            {
+                p = new Predmet();
+            }
             p.XpBonus = XpBonus;
             p.Naziv = Naziv;
             p.Opis = Opis;
@@ -64,18 +64,6 @@ namespace SBP_Data.DTOs
             p.Pripada = Pripada;
             p.Igraci = Igraci;
 
-            return p;
-        }
-        public override object Update(object x)
-        {
-            Predmet p = x as Predmet;
-            XpBonus = p.XpBonus;
-            Naziv = p.Naziv;
-            Opis = p.Opis;
-            VrstaOruzja = p.VrstaOruzja;
-            Pripada = p.Pripada;
-            MozeDaKoristi = p.MozeDaKoristi;
-            Igraci = p.Igraci;
             return p;
         }
     }
@@ -97,10 +85,15 @@ namespace SBP_Data.DTOs
             MozeDaKoristi = o.MozeDaKoristi;
             Igraci = o.Igraci;
         }
-
-        public override object ConvertToEntity()
+        public override object CreateOrUpdate(object input)
         {
-            Oruzje o = new Oruzje();
+            Oruzje o = null;
+            if (input != null)
+                o = input as Oruzje;
+            else if (o == null || input == null)
+            {
+                o = new Oruzje();
+            }
             o.XpBonus = XpBonus;
             o.Naziv = Naziv;
             o.Opis = Opis;

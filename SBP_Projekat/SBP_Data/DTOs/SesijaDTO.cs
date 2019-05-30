@@ -25,9 +25,15 @@ namespace SBP_Data.DTOs
             return EntityType.Name + ZaradjeniXP;
         }
 
-        public override object ConvertToEntity()
+        public override object CreateOrUpdate(object input)
         {
-            var s = new Sesija();
+            Sesija s = null;
+            if (input != null)
+                s = input as Sesija;
+            else if (s == null || input == null)
+            {
+                s = new Sesija();
+            }
             s.Gold = Gold;
             s.ZaradjeniXP = ZaradjeniXP;
             s.VremeKraja = VremeKraja;
