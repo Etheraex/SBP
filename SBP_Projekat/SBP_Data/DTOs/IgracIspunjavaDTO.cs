@@ -15,7 +15,7 @@ namespace SBP_Data.DTOs
 
         public IgracIspunjavaDTO()
         {
-
+            base.EntityType = typeof(IgracIspunjava);
         }
 
         public override string ToString()

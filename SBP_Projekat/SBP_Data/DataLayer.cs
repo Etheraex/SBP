@@ -28,7 +28,6 @@ namespace SBP_Data
                 }
                 return _factory.OpenSession();
             }
-            
         }
         
         private static ISessionFactory CreateSessionFactory()

@@ -18,7 +18,7 @@ namespace SBP_Data.DTOs
 
         public LikDTO()
         {
-
+            base.EntityType = typeof(Lik);
         }
 
         public override string ToString()

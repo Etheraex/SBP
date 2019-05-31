@@ -16,7 +16,7 @@ namespace SBP_Data.DTOs
 
         public QuestDTO()
         {
-
+            base.EntityType = typeof(Quest);
         }
 
         public override string ToString()

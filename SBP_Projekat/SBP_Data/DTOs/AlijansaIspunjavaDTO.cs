@@ -15,7 +15,7 @@ namespace SBP_Data.DTOs
 
         public AlijansaIspunjavaDTO()
         {
-
+            base.EntityType = typeof(AlijansaIspunjava);
         }
 
         public override string ToString()

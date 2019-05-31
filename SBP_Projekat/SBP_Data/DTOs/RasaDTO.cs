@@ -26,11 +26,12 @@ namespace SBP_Data.DTOs
 
         public VilenjakDTO()
         {
-
+            base.EntityType = typeof(Vilenjak);
         }
 
         public VilenjakDTO(Vilenjak v)
         {
+            base.EntityType = typeof(Vilenjak);
             ID = v.Id;
             Koristi = v.Koristi;
             NivoEnergije = v.NivoEnergije;
@@ -61,11 +62,12 @@ namespace SBP_Data.DTOs
 
         public OrkDTO()
         {
-
+            base.EntityType = typeof(Ork);
         }
 
         public OrkDTO(Ork o)
         {
+            base.EntityType = typeof(Ork);
             ID = o.Id;
             Koristi = o.Koristi;
             Specijalizacija = o.Specijalizacija;
@@ -95,11 +97,12 @@ namespace SBP_Data.DTOs
 
         public CovekDTO()
         {
-
+            base.EntityType = typeof(Covek);
         }
 
         public CovekDTO(Covek c)
         {
+            base.EntityType = typeof(Covek);
             ID = c.Id;
             Koristi = c.Koristi;
             UmesnostUSkrivanju = c.UmesnostUSkrivanju;
@@ -129,11 +132,12 @@ namespace SBP_Data.DTOs
 
         public DemonDTO()
         {
-
+            base.EntityType = typeof(Demon);
         }
 
         public DemonDTO(Demon d)
         {
+            base.EntityType = typeof(Demon);
             ID = d.Id;
             Koristi = d.Koristi;
             NivoEnergije = d.NivoEnergije;
@@ -163,11 +167,12 @@ namespace SBP_Data.DTOs
 
         public PatuljakDTO()
         {
-
+            base.EntityType = typeof(Patuljak);
         }
 
         public PatuljakDTO(Patuljak p)
         {
+            base.EntityType = typeof(Patuljak);
             ID = p.Id;
             Koristi = p.Koristi;
             Specijalizacija = p.Specijalizacija;

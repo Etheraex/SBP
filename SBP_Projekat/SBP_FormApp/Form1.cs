@@ -479,18 +479,31 @@ namespace SBP_Projekat
 
         private void button20_Click(object sender, EventArgs e)
         {
-            //var igrac = DTOManager.Instance.GetEntityById<IgracDTO, Igrac>(21);
-            //igrac.Nadimak = "BurekMan";
-            //DTOManager.Instance.UpdateEntity<IgracDTO, Igrac>(igrac);
-            //MessageBox.Show("YAAAY");
+            var lik = DTOManager.Instance.GetEntityById<LikDTO>(11);
+            lik.Zlato = 23;
+            DTOManager.Instance.UpdateEntity(lik);
+            MessageBox.Show("YAAAY");
         }
 
         private void button21_Click(object sender, EventArgs e)
         {
-            var tmp = DTOManager.Instance.GetEntityById<AlijansaDTO>(2);
-            tmp.Naziv = "promenismo ga";
-            DTOManager.Instance.UpdateEntity(tmp);
-            MessageBox.Show(tmp.Naziv);
+            //var lik = DTOManager.Instance.GetEntityById<LikDTO>(11);
+            //// Ovako bi trebalo ovo da se radi ali nece
+            //var vilenjakDto = DTOManager.Instance.GetEntityById<VilenjakDTO>(3);
+            //lik.Rasa = (Vilenjak)vilenjakDto.CreateOrUpdate(null);
+
+            //// Nece ni ovako
+            ////lik.Rasa = new Vilenjak();
+
+            //DTOManager.Instance.UpdateEntity(lik);
+            //MessageBox.Show("Proslo");
+
+            //##############################
+
+            // Ovde lik.Rasa nije tip Rasa vec RasaProxy tako da ne moze ni da se castuje verovatno ovo pravi problem
+            //var a = (Covek)lik.Rasa;
+            //var a = lik.Rasa;
+            //MessageBox.Show(a.GetType().ToString());
         }
     }
 }

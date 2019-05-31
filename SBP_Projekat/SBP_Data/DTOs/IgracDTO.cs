@@ -19,7 +19,7 @@ namespace SBP_Data.DTOs
 
         public IgracDTO()
         {
-
+            base.EntityType = typeof(Igrac);
         }
 
         public Alijansa PripadaAlijansi { get; set; }

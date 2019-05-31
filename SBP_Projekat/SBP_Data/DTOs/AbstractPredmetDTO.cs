@@ -84,7 +84,7 @@ namespace SBP_Data.DTOs
     {
         public OruzjeDTO()
         {
-
+            base.EntityType = typeof(Oruzje);
         }
 
         public OruzjeDTO(Oruzje o)

@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using SBP_Data.DTOs;
 using SBP_Data.Models;
 
-
 namespace SBP_Data
 {
     public class DTOManager
@@ -18,8 +17,8 @@ namespace SBP_Data
         {
             using (ISession s = DataLayer.Session)
             {
-                T o = (T)Activator.CreateInstance(typeof(T));
-                var t = s.Load(o.EntityType, id);
+                T tmp = (T)Activator.CreateInstance(typeof(T));
+                var t = s.Load(tmp.EntityType, id);
                 return (T)Activator.CreateInstance(typeof(T), t);
             }
         }
@@ -34,19 +33,18 @@ namespace SBP_Data
 
         public void UpdateEntity<T>(T obj) where T : AbstractDTO
         {
-            object t;
+            object tmp;
             using (ISession s = DataLayer.Session)
             {
-               
-                t = s.Load(obj.EntityType, obj.ID);
-                t = obj.CreateOrUpdate(t);
-                s.Update(t);
+                tmp = s.Load(obj.EntityType, obj.ID);
+                tmp = obj.CreateOrUpdate(tmp);
+                s.Update(tmp);
                 s.Flush();
             }
         }
 
         private static DTOManager _instance;
-        private static object obj = new object();
+        private static readonly object obj = new object();
 
         public static DTOManager Instance
         {
