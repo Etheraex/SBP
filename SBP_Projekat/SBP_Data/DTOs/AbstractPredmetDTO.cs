@@ -58,11 +58,9 @@ namespace SBP_Data.DTOs
 
         public override object CreateOrUpdate(object input)
         {
-            Predmet p = null;
-            if (input != null)
-                p = input as Predmet;
-            else if (p == null || input == null)
-                p = new Predmet();
+            Predmet p = CheckStuff((Predmet)input);
+            if (ID != 0)
+                p.Id = ID;
 
             p.XpBonus = XpBonus;
             p.Naziv = Naziv;
@@ -102,11 +100,9 @@ namespace SBP_Data.DTOs
 
         public override object CreateOrUpdate(object input)
         {
-            Oruzje o = null;
-            if (input != null)
-                o = input as Oruzje;
-            else if (o == null || input == null)
-                o = new Oruzje();
+            Oruzje o = CheckStuff((Oruzje)input);
+            if (ID != 0)
+                o.Id = ID;
 
             o.XpBonus = XpBonus;
             o.Naziv = Naziv;

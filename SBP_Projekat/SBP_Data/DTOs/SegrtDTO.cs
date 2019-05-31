@@ -26,11 +26,9 @@ namespace SBP_Data.DTOs
 
         public override object CreateOrUpdate(object input)
         {
-            Segrt s = null;
-            if (input != null)
-                s = input as Segrt;
-            else if (s == null || input == null)
-                s = new Segrt();
+            Segrt s = CheckStuff((Segrt)input);
+            if (ID != 0)
+                s.Id = ID;
 
             s.Ime = Ime;
             s.Bonus = Bonus;

@@ -36,11 +36,9 @@ namespace SBP_Data.DTOs
 
         public override object CreateOrUpdate(object input)
         {
-            Quest q = null;
-            if (input != null)
-                q = input as Quest;
-            else if (q == null || input == null)
-                q = new Quest();
+            Quest q = CheckStuff((Quest)input);
+            if (ID != 0)
+                q.Id = ID;
 
             q.XpGain = XpGain;
             q.Predmeti = Predmeti;

@@ -30,11 +30,9 @@ namespace SBP_Data.DTOs
 
         public override object CreateOrUpdate(object input)
         {
-            Sesija s = null;
-            if (input != null)
-                s = input as Sesija;
-            else if (s == null || input == null)
-                s = new Sesija();
+            Sesija s = CheckStuff((Sesija)input);
+            if (ID != 0)
+                s.Id = ID;
 
             s.Gold = Gold;
             s.ZaradjeniXP = ZaradjeniXP;

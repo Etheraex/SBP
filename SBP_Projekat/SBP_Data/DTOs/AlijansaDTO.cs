@@ -44,11 +44,9 @@ namespace SBP_Data.DTOs
         }
         public override object CreateOrUpdate(object input)
         {
-            Alijansa a = null;
-            if (input != null)
-                a = input as Alijansa;
-            else if( a == null || input == null)
-                a =  new Alijansa();
+            Alijansa a = CheckStuff((Alijansa)input);
+            if (ID != 0)
+                a.Id = ID;
 
             a.Naziv = Naziv;
             a.MinBrojIgraca = MinBrojIgraca;

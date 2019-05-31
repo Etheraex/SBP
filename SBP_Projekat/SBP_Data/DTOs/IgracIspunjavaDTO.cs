@@ -34,11 +34,9 @@ namespace SBP_Data.DTOs
 
         public override object CreateOrUpdate(object input)
         {
-            IgracIspunjava i = null;
-            if (input != null)
-                i = input as IgracIspunjava;
-            else if (i == null || input == null)
-                i = new IgracIspunjava();
+            IgracIspunjava i = CheckStuff((IgracIspunjava)input);
+            if (ID != 0)
+                i.Id = ID;
 
             i.Vreme = Vreme;
             i.Igrac = Igrac;

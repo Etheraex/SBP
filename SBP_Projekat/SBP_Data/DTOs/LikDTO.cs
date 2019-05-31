@@ -40,11 +40,9 @@ namespace SBP_Data.DTOs
 
         public override object CreateOrUpdate(object input)
         {
-            Lik i = null;
-            if (input != null)
-                i = input as Lik;
-            else if (i == null || input == null)
-                i = new Lik();
+            Lik i = CheckStuff((Lik)input);
+            if (ID != 0)
+                i.Id = ID;
 
             i.Zlato = Zlato;
             i.HP = HP;

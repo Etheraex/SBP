@@ -41,13 +41,10 @@ namespace SBP_Data.DTOs
 
         public override object CreateOrUpdate(object input)
         {
-            Vilenjak i = null;
-            if (input != null)
-                i = input as Vilenjak;
-            else if (i == null || input == null)
-                i = new Vilenjak();
+            Vilenjak i = CheckStuff((Vilenjak)input);
             if (ID != 0)
                 i.Id = ID;
+
             i.Koristi = Koristi;
             i.NivoEnergije = NivoEnergije;
             return i;
@@ -78,11 +75,9 @@ namespace SBP_Data.DTOs
 
         public override object CreateOrUpdate(object input)
         {
-            Ork i = null;
-            if (input != null)
-                i = input as Ork;
-            else if (i == null || input == null)
-                i = new Ork();
+            Ork i = CheckStuff((Ork)input);
+            if (ID != 0)
+                i.Id = ID;
 
             i.Koristi = Koristi;
             i.Specijalizacija = Specijalizacija;
@@ -113,11 +108,9 @@ namespace SBP_Data.DTOs
 
         public override object CreateOrUpdate(object input)
         {
-            Covek i = null;
-            if (input != null)
-                i = input as Covek;
-            else if (i == null || input == null)
-                i = new Covek();
+            Covek i = CheckStuff((Covek)input);
+            if (ID != 0)
+                i.Id = ID;
 
             i.Koristi = Koristi;
             i.UmesnostUSkrivanju = UmesnostUSkrivanju;
@@ -148,11 +141,9 @@ namespace SBP_Data.DTOs
 
         public override object CreateOrUpdate(object input)
         {
-            Demon i = null;
-            if (input != null)
-                i = input as Demon;
-            else if (i == null || input == null)
-                i = new Demon();
+            Demon i = CheckStuff((Demon)input);
+            if (ID != 0)
+                i.Id = ID;
 
             i.Koristi = Koristi;
             i.NivoEnergije = NivoEnergije;
@@ -182,11 +173,9 @@ namespace SBP_Data.DTOs
         }
         public override object CreateOrUpdate(object input)
         {
-            Patuljak i = null;
-            if (input != null)
-                i = input as Patuljak;
-            else if (i == null || input == null)
-                i = new Patuljak();
+            Patuljak i = CheckStuff((Patuljak)input);
+            if (ID != 0)
+                i.Id = ID;
 
             i.Koristi = Koristi;
             i.Specijalizacija = Specijalizacija;

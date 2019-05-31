@@ -34,11 +34,10 @@ namespace SBP_Data.DTOs
 
         public override object CreateOrUpdate(object input)
         {
-            AlijansaIspunjava a = null;
-            if (input != null)
-                a = input as AlijansaIspunjava;
-            else if (a == null || input == null)
-                a = new AlijansaIspunjava();
+            AlijansaIspunjava a = CheckStuff((AlijansaIspunjava)input);
+            if (ID != 0)
+                a.Id = ID;
+
             a.Vreme = Vreme;
             a.Alijansa = Alijansa;
             a.Quest = Quest;

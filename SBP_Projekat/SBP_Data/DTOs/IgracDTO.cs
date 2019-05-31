@@ -49,11 +49,9 @@ namespace SBP_Data.DTOs
 
         public override object CreateOrUpdate(object input )
         {
-            Igrac i = null;
-            if (input != null)
-                i = input as Igrac;
-            else if (i == null || input == null)
-                i = new Igrac();
+            Igrac i = CheckStuff((Igrac)input);
+            if (ID != 0)
+                i.Id = ID;
 
             i.Username = Username;
             i.Password = Password;
