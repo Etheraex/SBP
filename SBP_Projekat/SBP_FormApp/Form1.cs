@@ -479,15 +479,17 @@ namespace SBP_Projekat
 
         private void button20_Click(object sender, EventArgs e)
         {
-            var igrac = DTOManager.Instance.GetEntityById<IgracDTO, Igrac>(21);
-            igrac.Nadimak = "BurekMan";
-            DTOManager.Instance.UpdateEntity<IgracDTO, Igrac>(igrac);
-            MessageBox.Show("YAAAY");
+            //var igrac = DTOManager.Instance.GetEntityById<IgracDTO, Igrac>(21);
+            //igrac.Nadimak = "BurekMan";
+            //DTOManager.Instance.UpdateEntity<IgracDTO, Igrac>(igrac);
+            //MessageBox.Show("YAAAY");
         }
 
         private void button21_Click(object sender, EventArgs e)
         {
-            var tmp = DTOManager.Instance.GetEntityById<PredmetDTO, Predmet>(4);
+            var tmp = DTOManager.Instance.GetEntityById<AlijansaDTO>(2);
+            tmp.Naziv = "promenismo ga";
+            DTOManager.Instance.UpdateEntity(tmp);
             MessageBox.Show(tmp.Naziv);
         }
     }

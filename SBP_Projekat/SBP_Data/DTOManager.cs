@@ -14,11 +14,12 @@ namespace SBP_Data
     {
         private DTOManager() { }
 
-        public T GetEntityById<T, K>(int id) where T : AbstractDTO
+        public T GetEntityById<T>(int id) where T : AbstractDTO
         {
             using (ISession s = DataLayer.Session)
             {
-                var t = s.Load(typeof(K), id);
+                T o = (T)Activator.CreateInstance(typeof(T));
+                var t = s.Load(o.EntityType, id);
                 return (T)Activator.CreateInstance(typeof(T), t);
             }
         }
@@ -31,12 +32,13 @@ namespace SBP_Data
             }
         }
 
-        public void UpdateEntity<T, K>(T obj) where T : AbstractDTO
+        public void UpdateEntity<T>(T obj) where T : AbstractDTO
         {
             object t;
             using (ISession s = DataLayer.Session)
             {
-                t = s.Load(typeof(K), obj.ID);
+               
+                t = s.Load(obj.EntityType, obj.ID);
                 t = obj.CreateOrUpdate(t);
                 s.Update(t);
                 s.Flush();

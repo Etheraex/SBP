@@ -40,7 +40,7 @@ namespace SBP_Data.DTOs
     {
         public PredmetDTO()
         {
-
+            base.EntityType = typeof(Predmet);
         }
 
         public PredmetDTO(Predmet p)

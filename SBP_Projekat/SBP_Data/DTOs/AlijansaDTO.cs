@@ -21,7 +21,7 @@ namespace SBP_Data.DTOs
 
         public AlijansaDTO()
         {
-
+            base.EntityType = typeof(Alijansa);
         }
 
         public override string ToString()
