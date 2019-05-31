@@ -487,23 +487,23 @@ namespace SBP_Projekat
 
         private void button21_Click(object sender, EventArgs e)
         {
-            //var lik = DTOManager.Instance.GetEntityById<LikDTO>(11);
-            //// Ovako bi trebalo ovo da se radi ali nece
-            //var vilenjakDto = DTOManager.Instance.GetEntityById<VilenjakDTO>(3);
-            //lik.Rasa = (Vilenjak)vilenjakDto.CreateOrUpdate(null);
+            var lik = DTOManager.Instance.GetEntityById<LikDTO>(11);
+            // Ovako bi trebalo ovo da se radi ali nece
+            var vilenjakDto = DTOManager.Instance.GetEntityById<VilenjakDTO>(3);
+            lik.Rasa = (Rasa)vilenjakDto.CreateOrUpdate(null);
 
-            //// Nece ni ovako
-            ////lik.Rasa = new Vilenjak();
+            // Nece ni ovako
+            //lik.Rasa = new Vilenjak();
 
-            //DTOManager.Instance.UpdateEntity(lik);
-            //MessageBox.Show("Proslo");
+            DTOManager.Instance.UpdateEntity(lik);
+            MessageBox.Show("Proslo");
 
-            //##############################
+//##############################
 
-            // Ovde lik.Rasa nije tip Rasa vec RasaProxy tako da ne moze ni da se castuje verovatno ovo pravi problem
-            //var a = (Covek)lik.Rasa;
-            //var a = lik.Rasa;
-            //MessageBox.Show(a.GetType().ToString());
+            //Ovde lik.Rasa nije tip Rasa vec RasaProxy tako da ne moze ni da se castuje verovatno ovo pravi problem
+           // var a = (Covek)lik.Rasa;
+            var a = lik.Rasa;
+            MessageBox.Show(a.GetType().ToString());
         }
     }
 }

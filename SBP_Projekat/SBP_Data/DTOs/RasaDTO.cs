@@ -15,6 +15,7 @@ namespace SBP_Data.DTOs
         {
             return EntityType.Name;
         }
+        
     }
 
     /// <summary>
@@ -45,7 +46,8 @@ namespace SBP_Data.DTOs
                 i = input as Vilenjak;
             else if (i == null || input == null)
                 i = new Vilenjak();
-
+            if (ID != 0)
+                i.Id = ID;
             i.Koristi = Koristi;
             i.NivoEnergije = NivoEnergije;
             return i;

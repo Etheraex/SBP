@@ -19,7 +19,7 @@ namespace SBP_Data.Mappings
             Map(x => x.XP).Column("XP");
             Map(x => x.Zlato).Column("ZLATO");
             Map(x => x.StepenZamora).Column("STEPEN_ZAMORA");
-            References(x => x.Rasa).Column("RASA_FK").LazyLoad();
+            References(x => x.Rasa).Column("RASA_FK").LazyLoad();//.Cascade.All();
             References(x => x.Igrac).Column("IGRAC_FK").LazyLoad();
         }
     }

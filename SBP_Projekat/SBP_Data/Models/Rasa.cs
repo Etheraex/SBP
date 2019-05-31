@@ -8,7 +8,7 @@ namespace SBP_Data.Models
 {
     public class Rasa
     {
-        public virtual int Id { get; protected set; }
+        public virtual int Id { get; set; }
         public virtual IList<AbstractPredmet> Koristi { get; set; }
 
         public Rasa()
