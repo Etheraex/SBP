@@ -230,6 +230,7 @@
             this.Controls.Add(this.cmd_show_registration);
             this.Name = "WelcomeForm";
             this.Text = "WelcomeForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WelcomeForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

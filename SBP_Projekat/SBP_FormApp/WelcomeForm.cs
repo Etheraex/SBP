@@ -16,10 +16,12 @@ namespace SBP_Projekat
 {
     public partial class WelcomeForm : Form
     {
-        public WelcomeForm()
+        private Form1 _mainForm;
+        public WelcomeForm(Form1 f)
         {
             InitializeComponent();
             cmd_login.Visible = false;
+            _mainForm = f;
         }
 
         private void cmd_show_registration_Click(object sender, EventArgs e)
@@ -62,6 +64,9 @@ namespace SBP_Projekat
                 Prezime = tb_prezime.Text
             };
             DTOManager.Instance.SaveEntity(igrac);
+            _mainForm.SetPlayer(igrac);
+
+            this.Close();
         }
 
         private void cmd_show_login_Click(object sender, EventArgs e)
@@ -89,7 +94,10 @@ namespace SBP_Projekat
             else if (result == 1)
                 MessageBox.Show("Pogresna sifra");
             else
-                MessageBox.Show(igrac.Ime + " " + igrac.Prezime);
+            {
+                _mainForm.SetPlayer(igrac);
+                this.Close();
+            }
         }
 
         private string ComputeSha256Hash(string rawData)
@@ -108,6 +116,11 @@ namespace SBP_Projekat
                 }
                 return builder.ToString();
             }
+        }
+
+        private void WelcomeForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult = DialogResult.OK;
         }
     }
 }

@@ -65,6 +65,25 @@ namespace SBP_Data
             // Hteo sam da provera bude sto dalje od korisnika, zato nisam stavio u formi
         }
 
+
+        public List<LikDTO> VratiListuLikova(int id)
+        {
+            var tmpLikovi = new List<Lik>();
+
+            using (ISession s = DataLayer.Session)
+            {
+                tmpLikovi = s.Query<Lik>()
+                        .Where(x => x.Igrac.Id == id)
+                        .Select(y => y).ToList();
+            }
+            var tmp = new List<LikDTO>();
+
+            foreach (var lik in tmpLikovi)
+                tmp.Add(new LikDTO(lik));
+
+            return tmp;
+        }
+
         private static DTOManager _instance;
         private static readonly object obj = new object();
 

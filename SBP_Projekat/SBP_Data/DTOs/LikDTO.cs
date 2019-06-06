@@ -23,7 +23,7 @@ namespace SBP_Data.DTOs
 
         public override string ToString()
         {
-            return EntityType.Name + HP;
+            return HP.ToString() + " " + XP.ToString() +" "+ StepenZamora.ToString();
         }
 
         public LikDTO(Lik i)
