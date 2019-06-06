@@ -43,6 +43,28 @@ namespace SBP_Data
             }
         }
 
+        public int LogIn(string username, string password, out IgracDTO igrac)
+        {
+            Igrac tmp;
+            igrac = null;
+            using (ISession s = DataLayer.Session)
+            {
+                tmp = s.Query<Igrac>()
+                            .Where(x => x.Username == username)
+                            .Select(x => x).FirstOrDefault();
+            }
+            if (tmp == null)
+                return 0;   // Error message: nepostojeci igrac
+            else if (tmp.Password != password)
+                return 1;   // Error message: pogresna sifra
+            else
+            {
+                igrac = new IgracDTO(tmp);
+                return 2;   // Sve je u redu
+            }
+            // Hteo sam da provera bude sto dalje od korisnika, zato nisam stavio u formi
+        }
+
         private static DTOManager _instance;
         private static readonly object obj = new object();
 
