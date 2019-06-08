@@ -1,6 +1,6 @@
-﻿namespace SBP_Projekat
+﻿namespace SBP_Projekat.Forme
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -33,6 +33,7 @@
             this.cmd_profile = new System.Windows.Forms.Button();
             this.cmd_prikazi_likove = new System.Windows.Forms.Button();
             this.rtb_likovi = new System.Windows.Forms.RichTextBox();
+            this.cmd_napravi_lika = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,7 +82,7 @@
             this.cmd_prikazi_likove.BackColor = System.Drawing.Color.LightGray;
             this.cmd_prikazi_likove.FlatAppearance.BorderSize = 0;
             this.cmd_prikazi_likove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmd_prikazi_likove.Location = new System.Drawing.Point(0, 69);
+            this.cmd_prikazi_likove.Location = new System.Drawing.Point(0, 55);
             this.cmd_prikazi_likove.Name = "cmd_prikazi_likove";
             this.cmd_prikazi_likove.Size = new System.Drawing.Size(125, 27);
             this.cmd_prikazi_likove.TabIndex = 0;
@@ -91,11 +92,24 @@
             // 
             // rtb_likovi
             // 
-            this.rtb_likovi.Location = new System.Drawing.Point(0, 102);
+            this.rtb_likovi.Location = new System.Drawing.Point(0, 88);
             this.rtb_likovi.Name = "rtb_likovi";
-            this.rtb_likovi.Size = new System.Drawing.Size(204, 293);
+            this.rtb_likovi.Size = new System.Drawing.Size(204, 129);
             this.rtb_likovi.TabIndex = 2;
             this.rtb_likovi.Text = "";
+            // 
+            // cmd_napravi_lika
+            // 
+            this.cmd_napravi_lika.BackColor = System.Drawing.Color.LightGray;
+            this.cmd_napravi_lika.FlatAppearance.BorderSize = 0;
+            this.cmd_napravi_lika.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmd_napravi_lika.Location = new System.Drawing.Point(0, 223);
+            this.cmd_napravi_lika.Name = "cmd_napravi_lika";
+            this.cmd_napravi_lika.Size = new System.Drawing.Size(125, 27);
+            this.cmd_napravi_lika.TabIndex = 0;
+            this.cmd_napravi_lika.Text = "Kreiraj novog lika";
+            this.cmd_napravi_lika.UseVisualStyleBackColor = false;
+            this.cmd_napravi_lika.Click += new System.EventHandler(this.cmd_napravi_lika_Click);
             // 
             // Form1
             // 
@@ -104,6 +118,7 @@
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(600, 396);
             this.Controls.Add(this.rtb_likovi);
+            this.Controls.Add(this.cmd_napravi_lika);
             this.Controls.Add(this.cmd_prikazi_likove);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -124,6 +139,7 @@
         private System.Windows.Forms.Button cmd_profile;
         private System.Windows.Forms.Button cmd_prikazi_likove;
         private System.Windows.Forms.RichTextBox rtb_likovi;
+        private System.Windows.Forms.Button cmd_napravi_lika;
     }
 }
 

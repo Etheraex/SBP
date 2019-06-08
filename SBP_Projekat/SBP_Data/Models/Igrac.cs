@@ -19,8 +19,8 @@ namespace SBP_Data.Models
         public virtual string Prezime { get; set; }
 
         public virtual Alijansa PripadaAlijansi { get; set; }
-        public virtual IList<AbstractPredmet> Predmeti { get; set; }
-        public virtual IList<Quest> IspunjeniQuestiov { get; set; }
+        public virtual IList<AbstractPredmet> Predmeti { get; set; } = new List<AbstractPredmet>();
+        public virtual IList<Quest> IspunjeniQuestiov { get; set; } = new List<Quest>();
 
         public Igrac()
         {

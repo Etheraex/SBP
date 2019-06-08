@@ -12,12 +12,12 @@ using SBP_Data.Models;
 using SBP_Data.DTOs;
 using System.Security.Cryptography;
 
-namespace SBP_Projekat
+namespace SBP_Projekat.Forme
 {
     public partial class WelcomeForm : Form
     {
-        private Form1 _mainForm;
-        public WelcomeForm(Form1 f)
+        private MainForm _mainForm;
+        public WelcomeForm(MainForm f)
         {
             InitializeComponent();
             cmd_login.Visible = false;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SBP_Projekat.Forme;
 using SBP_Data.Models;
 
 namespace SBP_Projekat
@@ -19,7 +20,7 @@ namespace SBP_Projekat
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
     }
 }

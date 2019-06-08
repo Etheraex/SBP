@@ -14,15 +14,15 @@ using NHibernate.Criterion;
 using NHibernate.Linq;
 using SBP_Data.DTOs;
 
-namespace SBP_Projekat
+namespace SBP_Projekat.Forme
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private IgracDTO _igrac;
         private bool _mouseDown;
         private Point _lastLocation;
 
-        public Form1()
+        public MainForm()
         {
             var tmp = new WelcomeForm(this).ShowDialog();
             if (tmp == DialogResult.OK)
@@ -39,9 +39,39 @@ namespace SBP_Projekat
             this.Show();
         }
 
+        #region Dugmici
         private void cmd_logout_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void cmd_prikazi_likove_Click(object sender, EventArgs e)
+        {
+            var listaLikova = DTOManager.Instance.VratiListuLikova(_igrac.ID);
+            var i = 0;
+            foreach(var lik in listaLikova)
+            {
+                rtb_likovi.AppendText(i.ToString() + ")  " +lik.ToString()+"\n");
+                i++;
+            }
+        }
+
+        private void cmd_profile_Click(object sender, EventArgs e)
+        {
+            new ProfileForm(_igrac).ShowDialog();
+        }
+
+        private void cmd_napravi_lika_Click(object sender, EventArgs e)
+        {
+            new KreirajLikaForm(_igrac.ID,this).ShowDialog();
+        }
+        #endregion
+
+
+        #region DodatneMetode
+        public void UpdateLikove(LikDTO lik)
+        {
+            rtb_likovi.AppendText(lik.ToString()+"\n");
         }
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
@@ -65,21 +95,6 @@ namespace SBP_Projekat
         {
             _mouseDown = false;
         }
-
-        private void cmd_prikazi_likove_Click(object sender, EventArgs e)
-        {
-            var listaLikova = DTOManager.Instance.VratiListuLikova(_igrac.ID);
-            var i = 0;
-            foreach(var lik in listaLikova)
-            {
-                rtb_likovi.AppendText(i.ToString() + ")  " +lik.ToString()+"\n");
-                i++;
-            }
-        }
-
-        private void cmd_profile_Click(object sender, EventArgs e)
-        {
-            new ProfileForm(_igrac).ShowDialog();
-        }
+        #endregion
     }
 }

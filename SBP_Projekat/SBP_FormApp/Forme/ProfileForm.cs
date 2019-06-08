@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SBP_Projekat
+namespace SBP_Projekat.Forme
 {
     public partial class ProfileForm : Form
     {

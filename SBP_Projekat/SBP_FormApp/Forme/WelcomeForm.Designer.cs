@@ -1,4 +1,4 @@
-﻿namespace SBP_Projekat
+﻿namespace SBP_Projekat.Forme
 {
     partial class WelcomeForm
     {

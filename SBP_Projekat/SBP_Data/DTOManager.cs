@@ -13,7 +13,16 @@ namespace SBP_Data
     {
         private DTOManager() { }
 
-        public T GetEntityById<T>(int id) where T : AbstractDTO
+        public K GetEntityById<T,K>(int id) where T : AbstractDTO
+        {
+            using (ISession s = DataLayer.Session)
+            {
+                T tmp = (T)Activator.CreateInstance(typeof(T));
+                return (K)s.Load(tmp.EntityType, id);
+            }
+        }
+
+        public T GetDTOById<T>(int id) where T : AbstractDTO
         {
             using (ISession s = DataLayer.Session)
             {
