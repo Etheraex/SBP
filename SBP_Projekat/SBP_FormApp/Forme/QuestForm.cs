@@ -19,7 +19,7 @@ namespace SBP_Projekat.Forme
 {
     public partial class QuestForm : Form
     {
-        public QuestForm(QuestDTO q, Form parent)
+        public QuestForm(IgracDTO q, Form parent)
         {
             this.MdiParent = parent;
             InitializeComponent();
