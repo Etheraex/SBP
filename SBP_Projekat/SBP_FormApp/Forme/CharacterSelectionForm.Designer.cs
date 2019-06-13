@@ -39,10 +39,6 @@
             this.zlatoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stepenZamoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.likDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.dgv_likovi_dd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.likDTOBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -55,6 +51,7 @@
             this.cmd_napravi.TabIndex = 1;
             this.cmd_napravi.Text = "Napravi";
             this.cmd_napravi.UseVisualStyleBackColor = true;
+            this.cmd_napravi.Click += new System.EventHandler(this.cmd_napravi_Click);
             // 
             // cmd_delete
             // 
@@ -68,13 +65,13 @@
             // 
             // cmd_select
             // 
-            this.cmd_select.Enabled = false;
             this.cmd_select.Location = new System.Drawing.Point(390, 330);
             this.cmd_select.Name = "cmd_select";
             this.cmd_select.Size = new System.Drawing.Size(167, 49);
             this.cmd_select.TabIndex = 3;
             this.cmd_select.Text = "Izaberi lika";
             this.cmd_select.UseVisualStyleBackColor = true;
+            this.cmd_select.Click += new System.EventHandler(this.cmd_select_Click);
             // 
             // dgv_likovi_dd
             // 
@@ -135,37 +132,11 @@
             // 
             this.likDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.LikDTO);
             // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.listView1.Location = new System.Drawing.Point(727, 12);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(367, 227);
-            this.listView1.TabIndex = 5;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "NormalizedRasa";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Width = 109;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Width = 116;
-            // 
             // CharacterSelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1106, 391);
-            this.Controls.Add(this.listView1);
+            this.ClientSize = new System.Drawing.Size(693, 391);
             this.Controls.Add(this.dgv_likovi_dd);
             this.Controls.Add(this.cmd_select);
             this.Controls.Add(this.cmd_delete);
@@ -191,9 +162,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn hPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn zlatoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stepenZamoraDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }
