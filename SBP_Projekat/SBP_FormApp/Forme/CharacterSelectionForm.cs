@@ -11,10 +11,10 @@ using SBP_Data.DTOs;
 
 namespace SBP_Projekat.Forme
 {
-    public partial class CharacterSelection : Form
+    public partial class CharacterSelectionForm : Form
     {
         IgracDTO _igrac;
-        public CharacterSelection(IgracDTO igrac , Form parent)
+        public CharacterSelectionForm(IgracDTO igrac , Form parent)
         {
             this.MdiParent = parent;
             _igrac = igrac;

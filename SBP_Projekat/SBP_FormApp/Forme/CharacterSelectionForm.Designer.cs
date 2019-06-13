@@ -1,6 +1,6 @@
 ﻿namespace SBP_Projekat.Forme
 {
-    partial class CharacterSelection
+    partial class CharacterSelectionForm
     {
         /// <summary>
         /// Required designer variable.
