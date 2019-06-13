@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SBP_Data.DTOs;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,10 @@ namespace SBP_Projekat.Forme
 {
     public partial class AlianceForm : Form
     {
-        public AlianceForm()
+        public AlianceForm(IgracDTO igrac,Form parent)
         {
             InitializeComponent();
+            this.MdiParent = parent;
         }
     }
 }
