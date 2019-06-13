@@ -77,11 +77,11 @@
     <Compile Include="Forme\AlianceForm.Designer.cs">
       <DependentUpon>AlianceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\CharacterSelection.cs">
+    <Compile Include="Forme\CharacterSelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forme\CharacterSelection.Designer.cs">
-      <DependentUpon>CharacterSelection.cs</DependentUpon>
+    <Compile Include="Forme\CharacterSelectionForm.Designer.cs">
+      <DependentUpon>CharacterSelectionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forme\GameForm.cs">
       <SubType>Form</SubType>
@@ -133,8 +133,8 @@
     <Compile Include="Forme\WelcomeForm.Designer.cs">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forme\CharacterSelection.resx">
-      <DependentUpon>CharacterSelection.cs</DependentUpon>
+    <EmbeddedResource Include="Forme\CharacterSelectionForm.resx">
+      <DependentUpon>CharacterSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -144,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\ProfileForm.resx">
       <DependentUpon>ProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\QuestForm.resx">
+      <DependentUpon>QuestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
