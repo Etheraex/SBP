@@ -16,15 +16,13 @@ namespace SBP_Projekat.Forme
     public partial class KreirajLikaForm : Form
     {
         private int _id;
-        private MainForm _mainForm;
-        public KreirajLikaForm(int id, MainForm mainForm)
+        public KreirajLikaForm(int id)
         {
             InitializeComponent();
             var rase = new List<string> { "Covek", "Vilenjak", "Ork", "Demon", "Patuljak" };
             foreach (var r in rase)
                 cb_rasa.Items.Add(r);
             _id = id;
-            _mainForm = mainForm;
         }
 
         private void cmd_kreiraj_Click(object sender, EventArgs e)
@@ -59,7 +57,7 @@ namespace SBP_Projekat.Forme
                 Rasa = tmp
             };
             DTOManager.Instance.SaveEntity(lik);
-           // _mainForm.UpdateLikove(lik);
+            this.Close();
         }
     }
 }

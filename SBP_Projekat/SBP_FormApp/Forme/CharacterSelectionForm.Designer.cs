@@ -55,17 +55,17 @@
             // 
             // cmd_delete
             // 
-            this.cmd_delete.Enabled = false;
             this.cmd_delete.Location = new System.Drawing.Point(12, 332);
             this.cmd_delete.Name = "cmd_delete";
             this.cmd_delete.Size = new System.Drawing.Size(167, 49);
             this.cmd_delete.TabIndex = 2;
             this.cmd_delete.Text = "Obrisi";
             this.cmd_delete.UseVisualStyleBackColor = true;
+            this.cmd_delete.Click += new System.EventHandler(this.cmd_delete_Click);
             // 
             // cmd_select
             // 
-            this.cmd_select.Location = new System.Drawing.Point(390, 330);
+            this.cmd_select.Location = new System.Drawing.Point(429, 330);
             this.cmd_select.Name = "cmd_select";
             this.cmd_select.Size = new System.Drawing.Size(167, 49);
             this.cmd_select.TabIndex = 3;
@@ -90,7 +90,7 @@
             this.dgv_likovi_dd.Name = "dgv_likovi_dd";
             this.dgv_likovi_dd.ReadOnly = true;
             this.dgv_likovi_dd.RowTemplate.Height = 24;
-            this.dgv_likovi_dd.Size = new System.Drawing.Size(627, 255);
+            this.dgv_likovi_dd.Size = new System.Drawing.Size(595, 255);
             this.dgv_likovi_dd.TabIndex = 4;
             // 
             // NormalizedRasa
@@ -136,7 +136,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(693, 391);
+            this.ClientSize = new System.Drawing.Size(635, 391);
             this.Controls.Add(this.dgv_likovi_dd);
             this.Controls.Add(this.cmd_select);
             this.Controls.Add(this.cmd_delete);

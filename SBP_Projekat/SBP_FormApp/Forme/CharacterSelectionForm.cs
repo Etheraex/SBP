@@ -21,16 +21,21 @@ namespace SBP_Projekat.Forme
             InitializeComponent();
             this.MdiParent = parent;    
             _igrac = igrac;
-            _likovi = DTOManager.Instance.VratiListuLikova(igrac.ID);
-            this.dgv_likovi_dd.DataSource = _likovi;    
+            this.UpdateList();
         }
 
         private void updateTalb() { }
 
         private void cmd_napravi_Click(object sender, EventArgs e)
         {
-            //new KreirajLikaForm(_igrac.ID, this).ShowDialog();
-            //    cmd_prikazi_likove_Click(null, null);
+            new KreirajLikaForm(_igrac.ID).ShowDialog();
+            UpdateList();
+        }
+
+        private void UpdateList()
+        {
+            _likovi = DTOManager.Instance.VratiListuLikova(_igrac.ID);
+            this.dgv_likovi_dd.DataSource = _likovi;
         }
 
         private void cmd_select_Click(object sender, EventArgs e)
@@ -44,6 +49,20 @@ namespace SBP_Projekat.Forme
             {
                 ((MainForm)this.MdiParent).Character = _likovi[index];
                 this.Close();
+            }
+        }
+
+        private void cmd_delete_Click(object sender, EventArgs e)
+        {
+            int index = dgv_likovi_dd.CurrentCell.RowIndex;
+            if (index == -1)
+            {
+                MessageBox.Show("Niste izabrali lika");
+            }
+            else
+            {
+                DTOManager.Instance.DeleteEntity<LikDTO>(_likovi[index]);
+                this.UpdateList();
             }
         }
     }
