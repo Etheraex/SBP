@@ -59,7 +59,7 @@ namespace SBP_Projekat.Forme
                 Rasa = tmp
             };
             DTOManager.Instance.SaveEntity(lik);
-            _mainForm.UpdateLikove(lik);
+           // _mainForm.UpdateLikove(lik);
         }
     }
 }

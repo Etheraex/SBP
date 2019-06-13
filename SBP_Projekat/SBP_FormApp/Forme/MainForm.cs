@@ -46,40 +46,39 @@ namespace SBP_Projekat.Forme
             Application.Exit();
         }
 
-        private void cmd_prikazi_likove_Click(object sender, EventArgs e)
-        {
-            lb_likovi.Items.Clear();
-            rtb_likovi.Clear();
-            var listaLikova = DTOManager.Instance.VratiListuLikova(_igrac.ID);
-            this._listaLikova = listaLikova;
-            var i = 0;
-            foreach(var lik in listaLikova)
-            {
-                rtb_likovi.AppendText(i.ToString() + ")  " +lik.ToString()+"\n");
-                lb_likovi.Items.Add(i.ToString() + ")  " + lik.ToString());
-                i++;
-            }
-        }
+        //private void cmd_prikazi_likove_Click(object sender, EventArgs e)
+        //{
+        //    lb_likovi.Items.Clear();
+        //    rtb_likovi.Clear();
+        //    var listaLikova = DTOManager.Instance.VratiListuLikova(_igrac.ID);
+        //    this._listaLikova = listaLikova;
+        //    var i = 0;
+        //    foreach(var lik in listaLikova)
+        //    {
+        //        rtb_likovi.AppendText(i.ToString() + ")  " +lik.ToString()+"\n");
+        //        lb_likovi.Items.Add(i.ToString() + ")  " + lik.ToString());
+        //        i++;
+        //    }
+        //}
 
         private void cmd_profile_Click(object sender, EventArgs e)
         {
             new ProfileForm(_igrac).ShowDialog();
         }
 
-        private void cmd_napravi_lika_Click(object sender, EventArgs e)
-        {
-            new KreirajLikaForm(_igrac.ID,this).ShowDialog();
-            cmd_prikazi_likove_Click(null, null);
-
-        }
+        //private void cmd_napravi_lika_Click(object sender, EventArgs e)
+        //{
+        //    new KreirajLikaForm(_igrac.ID,this).ShowDialog();
+        //    cmd_prikazi_likove_Click(null, null);
+        //}
         #endregion
 
 
         #region DodatneMetode
-        public void UpdateLikove(LikDTO lik)
-        {
-            rtb_likovi.AppendText(lik.ToString()+"\n");
-        }
+        //public void UpdateLikove(LikDTO lik)
+        //{
+        //    rtb_likovi.AppendText(lik.ToString()+"\n");
+        //}
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -102,19 +101,29 @@ namespace SBP_Projekat.Forme
         {
             _mouseDown = false;
         }
+
+        private void cmd_fullScreen_Click(object sender, EventArgs e)
+        {
+            this.WindowState = (this.WindowState ==  FormWindowState.Maximized)?FormWindowState.Normal:FormWindowState.Maximized;
+        }
+
+        private void cmd_minimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
         #endregion
 
 
-        private void cmd_zapocni_igru_Click(object sender, EventArgs e)
-        {
-            int index = lb_likovi.SelectedIndex;
-            if (_listaLikova == null || index == -1)
-                MessageBox.Show("Niste izabrali lika");
-            else
-            {
-                //MessageBox.Show("izabrali ste lika: " + _listaLikova[index].ToString());
-                DTOManager.Instance.zapocniSesiju(_listaLikova[index], _igrac);
-            }
-        }
+        //private void cmd_zapocni_igru_Click(object sender, EventArgs e)
+        //{
+        //    int index = lb_likovi.SelectedIndex;
+        //    if (_listaLikova == null || index == -1)
+        //        MessageBox.Show("Niste izabrali lika");
+        //    else
+        //    {
+        //        //MessageBox.Show("izabrali ste lika: " + _listaLikova[index].ToString());
+        //        DTOManager.Instance.zapocniSesiju(_listaLikova[index], _igrac);
+        //    }
+        //}
     }
 }
