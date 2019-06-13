@@ -14,7 +14,7 @@ namespace SBP_Projekat.Forme
     public partial class ProfileForm : Form
     {
         public ProfileForm(IgracDTO igrac)
-        {
+        { 
             InitializeComponent();
             tb_ime.Text = igrac.Ime;
             tb_prezime.Text = igrac.Prezime;

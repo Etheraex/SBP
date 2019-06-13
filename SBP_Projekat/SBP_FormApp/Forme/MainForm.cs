@@ -25,6 +25,7 @@ namespace SBP_Projekat.Forme
 
         public MainForm()
         {
+            this.WindowState = FormWindowState.Maximized;
             var tmp = new WelcomeForm(this).ShowDialog();
             if (tmp == DialogResult.OK)
             {
@@ -63,7 +64,11 @@ namespace SBP_Projekat.Forme
 
         private void cmd_profile_Click(object sender, EventArgs e)
         {
-            new ProfileForm(_igrac).ShowDialog();
+            var temp = new ProfileForm(_igrac);
+            temp.MdiParent = this;
+            temp.Show();
+
+
         }
 
         //private void cmd_napravi_lika_Click(object sender, EventArgs e)

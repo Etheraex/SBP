@@ -71,6 +71,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forme\AlianceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\AlianceForm.Designer.cs">
+      <DependentUpon>AlianceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\CharacterSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\CharacterSelection.Designer.cs">
+      <DependentUpon>CharacterSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\GameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\GameForm.Designer.cs">
+      <DependentUpon>GameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\InventoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\InventoryForm.Designer.cs">
+      <DependentUpon>InventoryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +112,18 @@
     </Compile>
     <Compile Include="Forme\ProfileForm.Designer.cs">
       <DependentUpon>ProfileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\QuestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\QuestForm.Designer.cs">
+      <DependentUpon>QuestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\StatsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\StatsForm.Designer.cs">
+      <DependentUpon>StatsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
