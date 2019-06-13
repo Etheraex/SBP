@@ -19,9 +19,11 @@ namespace SBP_Projekat.Forme
 {
     public partial class QuestForm : Form
     {
+        private IgracDTO _igrac { get; set; }
         public QuestForm(IgracDTO q, Form parent)
         {
             this.MdiParent = parent;
+            _igrac = q;
             InitializeComponent();
         }
 
@@ -32,11 +34,9 @@ namespace SBP_Projekat.Forme
                 ISession s = DataLayer.Session;
 
                 IEnumerable<Quest> quests = s.Query<Quest>()
-                                                    .Where(q => (q.IgraciKojiSuIspunili == null))
-                                                    .OrderBy(q => q.IgraciKojiSuIspunili).ThenBy(q => q.Id)
-                                                    .Select(q => q);
-
-                foreach (Quest q in quests)
+                                                    .Where(q => (!q.IgraciKojiSuIspunili.Any(x => x.Id == _igrac.ID)));
+                                                   
+                   foreach (Quest q in quests)
                 {
                     MessageBox.Show(q.XpGain.ToString());
                 }
@@ -49,10 +49,17 @@ namespace SBP_Projekat.Forme
                 MessageBox.Show(ec.Message);
             }
         }
+        
+
 
         private void QuestForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
