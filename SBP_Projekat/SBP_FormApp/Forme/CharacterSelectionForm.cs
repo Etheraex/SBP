@@ -18,10 +18,11 @@ namespace SBP_Projekat.Forme
         List<LikDTO> _likovi;
         public CharacterSelectionForm(IgracDTO igrac , Form parent)
         {
-            this.MdiParent = parent;
+            InitializeComponent();
+            this.MdiParent = parent;    
             _igrac = igrac;
             _likovi = DTOManager.Instance.VratiListuLikova(igrac.ID);
-            InitializeComponent();
+            this.dgv_likovi_dd.DataSource = _likovi;
         }
 
         private void updateTalb() { }

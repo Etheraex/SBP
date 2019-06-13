@@ -100,8 +100,8 @@ namespace SBP_Data
             using (ISession s = DataLayer.Session)
             {
                 tmpLikovi = s.Query<Lik>()
-                        .Where(x => x.Igrac.Id == id)
-                        .Select(y => y).ToList();
+                        .Where(l => l.Igrac.Id == id)
+                        .ToList();
             }
             var tmp = new List<LikDTO>();
 
