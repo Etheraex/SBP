@@ -29,31 +29,42 @@ namespace SBP_Projekat.Forme
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ISession s = DataLayer.Session;
 
-                IEnumerable<Quest> quests = s.Query<Quest>()
-                                                    .Where(q => (!q.IgraciKojiSuIspunili.Any(x => x.Id == _igrac.ID)));
+            var quests = VratiListuQuestova(_igrac.ID);           
                                                    
-                   foreach (Quest q in quests)
+                foreach (QuestDTO q in quests)
                 {
-                    MessageBox.Show(q.XpGain.ToString());
+                textBox1.Text += q.XpGain+"\r\n";
                 }
 
-                s.Close();
-
-            }
-            catch (Exception ec)
-            {
-                MessageBox.Show(ec.Message);
-            }
+            
         }
-        
 
+        public List<QuestDTO> VratiListuQuestova(int id)
+        {
+            var Quests = new List<Quest>();
+
+            using (ISession s = DataLayer.Session)
+            {
+                Quests =s.Query<Quest>().Where(q => (!q.IgraciKojiSuIspunili.Any(x => x.Id == _igrac.ID))).ToList();
+            }
+            var tmp = new List<QuestDTO>();
+
+            foreach (var quest in Quests)
+                tmp.Add(new QuestDTO(quest));
+
+            return tmp;
+        }
 
         private void QuestForm_Load(object sender, EventArgs e)
         {
+
+            var quests = VratiListuQuestova(_igrac.ID);
+
+            foreach (QuestDTO q in quests)
+            {
+                textBox1.Text += q.XpGain + "\r\n";
+            }
 
         }
 
