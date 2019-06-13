@@ -19,6 +19,7 @@ namespace SBP_Projekat.Forme
 {
     public partial class InventoryForm : Form
     {
+        private List<Quest> zadaci;
         private IgracDTO _igrac { get; set; }
         public InventoryForm(IgracDTO q, Form parent)
         {
@@ -67,7 +68,7 @@ namespace SBP_Projekat.Forme
             var tmp = VratiListuPredmeta(_igrac.ID);
             foreach (var p in tmp)
             {
-                richTextBox1.AppendText(p.Naziv + "\n");
+                listView1.Items.Add("Zadatak: " + p.XpBonus);
             }
         }
     }
