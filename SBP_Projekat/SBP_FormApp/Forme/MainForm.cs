@@ -64,9 +64,7 @@ namespace SBP_Projekat.Forme
 
         private void cmd_profile_Click(object sender, EventArgs e)
         {
-            var temp = new ProfileForm(_igrac);
-            temp.MdiParent = this;
-            temp.Show();
+            
 
 
         }
@@ -115,6 +113,30 @@ namespace SBP_Projekat.Forme
         private void cmd_minimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void mojProfilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var temp = new ProfileForm(_igrac, this);
+            temp.Show();
+        }
+
+        private void izborKarakteraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var temp = new CharacterSelectionForm(_igrac, this);
+            temp.Show();
+        }
+
+        private void alijanseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var temp = new AlianceForm(_igrac, this);
+            temp.Show();
+        }
+
+        private void kuestoviToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var temp = new QuestForm(_igrac, this);
+            temp.Show();
         }
         #endregion
 
