@@ -88,7 +88,7 @@ namespace SBP_Projekat.Forme
         private void cmd_login_Click(object sender, EventArgs e)
         {
             // var HashSifra = ComputeSha256Hash(tb_password.Text);
-            var result = DTOManager.Instance.LogIn("VoliTheBear", "Stefan-696", out IgracDTO igrac);
+            var result = DTOManager.Instance.LogIn("perica33", "burek123", out IgracDTO igrac);
             if (result == 0)
                 MessageBox.Show("Nepostojeci igrac");
             else if (result == 1)
