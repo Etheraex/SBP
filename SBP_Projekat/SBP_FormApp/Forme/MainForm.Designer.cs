@@ -121,20 +121,20 @@
             // kuestoviToolStripMenuItem
             // 
             this.kuestoviToolStripMenuItem.Name = "kuestoviToolStripMenuItem";
-            this.kuestoviToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kuestoviToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.kuestoviToolStripMenuItem.Text = "Kuestovi";
             this.kuestoviToolStripMenuItem.Click += new System.EventHandler(this.kuestoviToolStripMenuItem_Click);
             // 
             // statoviToolStripMenuItem
             // 
             this.statoviToolStripMenuItem.Name = "statoviToolStripMenuItem";
-            this.statoviToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.statoviToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.statoviToolStripMenuItem.Text = "Statovi";
             // 
             // inventarToolStripMenuItem
             // 
             this.inventarToolStripMenuItem.Name = "inventarToolStripMenuItem";
-            this.inventarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inventarToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.inventarToolStripMenuItem.Text = "Inventar";
             this.inventarToolStripMenuItem.Click += new System.EventHandler(this.inventarToolStripMenuItem_Click);
             // 
@@ -181,11 +181,8 @@
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

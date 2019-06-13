@@ -102,7 +102,7 @@
             this.btnLeave.TabIndex = 3;
             this.btnLeave.Text = "Napustite alijansu";
             this.btnLeave.UseVisualStyleBackColor = true;
-            this.btnLeave.Click += new System.EventHandler(this.btnLeave_Click);
+            this.btnLeave.Click += new System.EventHandler(this.cmd_Leave_Click);
             // 
             // nazivDataGridViewTextBoxColumn
             // 
@@ -160,7 +160,7 @@
             this.btnJoin.TabIndex = 4;
             this.btnJoin.Text = "Uclani se u izabranu alijansu";
             this.btnJoin.UseVisualStyleBackColor = true;
-            this.btnJoin.Click += new System.EventHandler(this.btnJoin_Click);
+            this.btnJoin.Click += new System.EventHandler(this.cmd_Join_Click);
             // 
             // AlianceForm
             // 

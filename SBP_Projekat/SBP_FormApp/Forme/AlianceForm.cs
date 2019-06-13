@@ -22,62 +22,48 @@ namespace SBP_Projekat.Forme
             InitializeComponent();
             this.MdiParent = parent;
             _igrac = igrac;
-
-            
         }
 
         private void AlianceForm_Load(object sender, EventArgs e)
         {
-            load();
-
+            LoadInfo();
         }
-        private Task load()
+
+        private Task LoadInfo()
         {
-            return
-            Task.Run(() =>
-            {
-
-
-                dgvAlijanse.Invoke((MethodInvoker)(() =>
-                {
-                    dgvAlijanse.DataSource = DTOManager.Instance.getDTOList<AlijansaDTO, Alijansa>();
-                }));
-              
-                    lAlijansa.Invoke((MethodInvoker)(() =>
+            return Task.Run(() =>
                     {
-                        if (_igrac.PripadaAlijansi != null)
-                            cur = DTOManager.Instance.GetDTOById<AlijansaDTO>(_igrac.PripadaAlijansi.Id);
-                        if (cur != null)
+                        dgvAlijanse.Invoke((MethodInvoker)(() =>
                         {
-                            lAlijansa.Text = cur.Naziv;
-                            lAlijansa.Visible = true;
-                            label1.Invoke((MethodInvoker)(() =>
+                            dgvAlijanse.DataSource = DTOManager.Instance.GetDTOList<AlijansaDTO, Alijansa>();
+                        }));
+              
+                        lAlijansa.Invoke((MethodInvoker)(() =>
+                        {
+                            if (_igrac.PripadaAlijansi != null)
+                                cur = DTOManager.Instance.GetDTOById<AlijansaDTO>(_igrac.PripadaAlijansi.Id);
+                            if (cur != null)
                             {
-                                label1.Visible = true;
-
-                            }));
-                        }
-                            
-                    }));
-                
-                
-
-            }
-            );
+                                lAlijansa.Text = cur.Naziv;
+                                lAlijansa.Visible = true;
+                                label1.Invoke((MethodInvoker)(() => { label1.Visible = true; }));
+                            }  
+                        }));
+                    });
         }
-        private void btnJoin_Click(object sender, EventArgs e)
+        private void cmd_Join_Click(object sender, EventArgs e)
         {
-            var newAlijansa=DTOManager.Instance.GetEntityById<AlijansaDTO,Alijansa>( dgvAlijanse.CurrentCell.RowIndex+1);
+            var newAlijansa=DTOManager.Instance.GetEntityById<AlijansaDTO,Alijansa>(dgvAlijanse.CurrentCell.RowIndex+1);
             _igrac.PripadaAlijansi = newAlijansa;
             DTOManager.Instance.UpdateEntity(_igrac);
-            load();
+            LoadInfo();
         }
 
-        private void btnLeave_Click(object sender, EventArgs e)
+        private void cmd_Leave_Click(object sender, EventArgs e)
         {
             _igrac.PripadaAlijansi = null;
             DTOManager.Instance.UpdateEntity(_igrac);
-            load();
+            LoadInfo();
         }
     }
 }

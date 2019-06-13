@@ -27,50 +27,39 @@ namespace SBP_Projekat.Forme
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            var quests = VratiListuQuestova(_igrac.ID);           
-                                                   
-                foreach (QuestDTO q in quests)
-                {
-                textBox1.Text += q.XpGain+"\r\n";
-                }
-
-            
-        }
-
-        public List<QuestDTO> VratiListuQuestova(int id)
-        {
-            var Quests = new List<Quest>();
-
-            using (ISession s = DataLayer.Session)
-            {
-                Quests =s.Query<Quest>().Where(q => (!q.IgraciKojiSuIspunili.Any(x => x.Id == _igrac.ID))).ToList();
-            }
-            var tmp = new List<QuestDTO>();
-
-            foreach (var quest in Quests)
-                tmp.Add(new QuestDTO(quest));
-
-            return tmp;
-        }
-
         private void QuestForm_Load(object sender, EventArgs e)
         {
-
-            var quests = VratiListuQuestova(_igrac.ID);
-
-            foreach (QuestDTO q in quests)
-            {
-                textBox1.Text += q.XpGain + "\r\n";
-            }
-
+            dgv_quest.DataSource = DTOManager.Instance.VratiListuQuestova();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void cmd_questItems_Click(object sender, EventArgs e)
         {
-            
+            string display = "";
+            int ind = dgv_quest.CurrentCell.RowIndex;
+            var tmp = new List<AbstractPredmetDTO>();
+
+            if (ind != -1)
+                tmp = DTOManager.Instance.VratiListuPredmetaZaKvest(ind + 1);
+            else
+                MessageBox.Show("Niste izabrali kvest");
+
+            foreach (var p in tmp)
+                display += p.Naziv + "\n";
+            if (display != "")
+                MessageBox.Show(display);
+            else
+                MessageBox.Show("Za izabrani kvest nisu potrebni predmeti");
+        }
+
+        private void cmd_odradi_quest_Click(object sender, EventArgs e)
+        {
+            int ind = dgv_quest.CurrentCell.RowIndex;
+
+            if (ind != -1)
+            {
+                var temp = new GameForm(_igrac, this.MdiParent);
+                temp.Show();
+            }
         }
     }
 }

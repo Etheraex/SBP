@@ -20,7 +20,17 @@ namespace SBP_Projekat.Forme
         public WelcomeForm(MainForm f)
         {
             InitializeComponent();
-            cmd_login.Visible = false;
+            cmd_registration.Visible = false;
+            tb_ime.Visible = false;
+            tb_prezime.Visible = false;
+            tb_nadimak.Visible = false;
+            cb_pol.Visible = false;
+            tb_uzrast.Visible = false;
+            lbl_ime.Visible = false;
+            lbl_nadimak.Visible = false;
+            lbl_pol.Visible = false;
+            lbl_prezime.Visible = false;
+            lbl_uzrast.Visible = false;
             _mainForm = f;
         }
 

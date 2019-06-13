@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using SBP_Data.DTOs;
 using SBP_Data.Models;
 
+#pragma warning disable CS0618
+
 namespace SBP_Data
 {
     public class DTOManager
@@ -34,7 +36,7 @@ namespace SBP_Data
             }
         }
 
-        public List<T> getDTOList<T,K>() where T : AbstractDTO
+        public List<T> GetDTOList<T,K>() where T : AbstractDTO
         {
             List<T> newList = new List<T>(); ;
             using (ISession s = DataLayer.Session)
@@ -119,15 +121,75 @@ namespace SBP_Data
             return tmp;
         }
 
-        public void zapocniSesiju(LikDTO lik, IgracDTO igrac)
+        public void ZapocniSesiju(LikDTO lik, IgracDTO igrac)
         {
-            SesijaDTO novaSesija = new SesijaDTO();
-            novaSesija.Igrac = this.GetEntityById<IgracDTO,Igrac>(igrac.ID);
-            novaSesija.Lik = this.GetEntityById<LikDTO, Lik>(lik.ID);
-            novaSesija.Gold = 0;
-            novaSesija.VremePocetka = DateTime.Now.ToString();
-            novaSesija.ZaradjeniXP = 0;
-            this.SaveEntity<SesijaDTO>(novaSesija);
+            SesijaDTO novaSesija = new SesijaDTO
+            {
+                Igrac = this.GetEntityById<IgracDTO, Igrac>(igrac.ID),
+                Lik = this.GetEntityById<LikDTO, Lik>(lik.ID),
+                Gold = 0,
+                VremePocetka = DateTime.Now.ToString(),
+                ZaradjeniXP = 0
+            };
+            this.SaveEntity(novaSesija);
+        }
+
+        public List<QuestDTO> VratiListuQuestova()
+        {
+            var Quests = new List<Quest>();
+
+            using (ISession s = DataLayer.Session)
+            {
+                Quests = s.Query<Quest>().ToList();
+            }
+            var tmp = new List<QuestDTO>();
+
+            foreach (var quest in Quests)
+                tmp.Add(new QuestDTO(quest));
+
+            return tmp;
+        }
+
+        public List<AbstractPredmetDTO> VratiListuPredmetaZaKvest(int id)
+        {
+            List<AbstractPredmet> tmp;
+            using (ISession s = DataLayer.Session)
+            {
+                tmp = s.Query<AbstractPredmet>().Where(x=>x.Pripada.Id == id).ToList();
+            }
+            var temp = new List<AbstractPredmetDTO>();
+
+            foreach(var p in tmp)
+            {
+                if (p.GetType() == typeof(Predmet))
+                    temp.Add(new PredmetDTO(p as Predmet));
+                else
+                    temp.Add(new OruzjeDTO(p as Oruzje));
+            }
+            return temp;
+        }
+
+        public List<AbstractPredmetDTO> VratiListuPredmeta(int id)
+        {
+            var predmeti = new List<AbstractPredmet>();
+
+            using (ISession s = DataLayer.Session)
+            {
+                predmeti = s.Query<AbstractPredmet>().Where(x => x.Igraci.Any(y => y.Id == id)).ToList();
+            }
+            var tmp = new List<AbstractPredmetDTO>();
+
+            foreach (var p in predmeti)
+            {
+                if (p.GetType() == typeof(Predmet))
+                {
+                    tmp.Add(new PredmetDTO(p as Predmet));
+                }
+                else
+                    tmp.Add(new OruzjeDTO(p as Oruzje));
+            }
+
+            return tmp;
         }
 
         private static DTOManager _instance;

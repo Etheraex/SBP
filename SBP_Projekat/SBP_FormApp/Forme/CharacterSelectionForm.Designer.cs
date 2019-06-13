@@ -33,21 +33,22 @@
             this.cmd_delete = new System.Windows.Forms.Button();
             this.cmd_select = new System.Windows.Forms.Button();
             this.dgv_likovi_dd = new System.Windows.Forms.DataGridView();
+            this.likDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.NormalizedRasa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zlatoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stepenZamoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.likDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_likovi_dd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.likDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cmd_napravi
             // 
-            this.cmd_napravi.Location = new System.Drawing.Point(12, 277);
+            this.cmd_napravi.Location = new System.Drawing.Point(9, 225);
+            this.cmd_napravi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmd_napravi.Name = "cmd_napravi";
-            this.cmd_napravi.Size = new System.Drawing.Size(167, 49);
+            this.cmd_napravi.Size = new System.Drawing.Size(125, 40);
             this.cmd_napravi.TabIndex = 1;
             this.cmd_napravi.Text = "Napravi";
             this.cmd_napravi.UseVisualStyleBackColor = true;
@@ -55,9 +56,10 @@
             // 
             // cmd_delete
             // 
-            this.cmd_delete.Location = new System.Drawing.Point(12, 332);
+            this.cmd_delete.Location = new System.Drawing.Point(9, 270);
+            this.cmd_delete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmd_delete.Name = "cmd_delete";
-            this.cmd_delete.Size = new System.Drawing.Size(167, 49);
+            this.cmd_delete.Size = new System.Drawing.Size(125, 40);
             this.cmd_delete.TabIndex = 2;
             this.cmd_delete.Text = "Obrisi";
             this.cmd_delete.UseVisualStyleBackColor = true;
@@ -65,9 +67,10 @@
             // 
             // cmd_select
             // 
-            this.cmd_select.Location = new System.Drawing.Point(429, 330);
+            this.cmd_select.Location = new System.Drawing.Point(385, 267);
+            this.cmd_select.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmd_select.Name = "cmd_select";
-            this.cmd_select.Size = new System.Drawing.Size(167, 49);
+            this.cmd_select.Size = new System.Drawing.Size(125, 40);
             this.cmd_select.TabIndex = 3;
             this.cmd_select.Text = "Izaberi lika";
             this.cmd_select.UseVisualStyleBackColor = true;
@@ -86,15 +89,21 @@
             this.zlatoDataGridViewTextBoxColumn,
             this.stepenZamoraDataGridViewTextBoxColumn});
             this.dgv_likovi_dd.DataSource = this.likDTOBindingSource;
-            this.dgv_likovi_dd.Location = new System.Drawing.Point(12, 12);
+            this.dgv_likovi_dd.Location = new System.Drawing.Point(9, 10);
+            this.dgv_likovi_dd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgv_likovi_dd.Name = "dgv_likovi_dd";
             this.dgv_likovi_dd.ReadOnly = true;
             this.dgv_likovi_dd.RowTemplate.Height = 24;
-            this.dgv_likovi_dd.Size = new System.Drawing.Size(595, 255);
+            this.dgv_likovi_dd.Size = new System.Drawing.Size(501, 207);
             this.dgv_likovi_dd.TabIndex = 4;
+            // 
+            // likDTOBindingSource
+            // 
+            this.likDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.LikDTO);
             // 
             // NormalizedRasa
             // 
+            this.NormalizedRasa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.NormalizedRasa.DataPropertyName = "NormalizedRasa";
             this.NormalizedRasa.HeaderText = "NormalizedRasa";
             this.NormalizedRasa.Name = "NormalizedRasa";
@@ -102,46 +111,51 @@
             // 
             // xPDataGridViewTextBoxColumn
             // 
+            this.xPDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.xPDataGridViewTextBoxColumn.DataPropertyName = "XP";
             this.xPDataGridViewTextBoxColumn.HeaderText = "XP";
             this.xPDataGridViewTextBoxColumn.Name = "xPDataGridViewTextBoxColumn";
             this.xPDataGridViewTextBoxColumn.ReadOnly = true;
+            this.xPDataGridViewTextBoxColumn.Width = 46;
             // 
             // hPDataGridViewTextBoxColumn
             // 
+            this.hPDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.hPDataGridViewTextBoxColumn.DataPropertyName = "HP";
             this.hPDataGridViewTextBoxColumn.HeaderText = "HP";
             this.hPDataGridViewTextBoxColumn.Name = "hPDataGridViewTextBoxColumn";
             this.hPDataGridViewTextBoxColumn.ReadOnly = true;
+            this.hPDataGridViewTextBoxColumn.Width = 47;
             // 
             // zlatoDataGridViewTextBoxColumn
             // 
+            this.zlatoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.zlatoDataGridViewTextBoxColumn.DataPropertyName = "Zlato";
             this.zlatoDataGridViewTextBoxColumn.HeaderText = "Zlato";
             this.zlatoDataGridViewTextBoxColumn.Name = "zlatoDataGridViewTextBoxColumn";
             this.zlatoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.zlatoDataGridViewTextBoxColumn.Width = 56;
             // 
             // stepenZamoraDataGridViewTextBoxColumn
             // 
+            this.stepenZamoraDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.stepenZamoraDataGridViewTextBoxColumn.DataPropertyName = "StepenZamora";
             this.stepenZamoraDataGridViewTextBoxColumn.HeaderText = "StepenZamora";
             this.stepenZamoraDataGridViewTextBoxColumn.Name = "stepenZamoraDataGridViewTextBoxColumn";
             this.stepenZamoraDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // likDTOBindingSource
-            // 
-            this.likDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.LikDTO);
+            this.stepenZamoraDataGridViewTextBoxColumn.Width = 102;
             // 
             // CharacterSelectionForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 391);
+            this.ClientSize = new System.Drawing.Size(521, 318);
             this.Controls.Add(this.dgv_likovi_dd);
             this.Controls.Add(this.cmd_select);
             this.Controls.Add(this.cmd_delete);
             this.Controls.Add(this.cmd_napravi);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "CharacterSelectionForm";
             this.Text = "CharacterSelection";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_likovi_dd)).EndInit();

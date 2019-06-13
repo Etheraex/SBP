@@ -24,8 +24,6 @@ namespace SBP_Projekat.Forme
             this.UpdateList();
         }
 
-        private void updateTalb() { }
-
         private void cmd_napravi_Click(object sender, EventArgs e)
         {
             new KreirajLikaForm(_igrac.ID).ShowDialog();

@@ -139,6 +139,9 @@
     <EmbeddedResource Include="Forme\CharacterSelectionForm.resx">
       <DependentUpon>CharacterSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forme\GameForm.resx">
+      <DependentUpon>GameForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\InventoryForm.resx">
       <DependentUpon>InventoryForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +171,7 @@
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\SBP_Data.DTOs.AbstractPredmetDTO.datasource" />
     <None Include="Properties\DataSources\SBP_Data.DTOs.AlijansaDTO.datasource" />
     <None Include="Properties\DataSources\SBP_Data.DTOs.LikDTO.datasource" />
     <None Include="Properties\DataSources\SBP_Data.DTOs.QuestDTO.datasource" />

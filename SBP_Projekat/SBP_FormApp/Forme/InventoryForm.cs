@@ -19,7 +19,6 @@ namespace SBP_Projekat.Forme
 {
     public partial class InventoryForm : Form
     {
-        private List<Quest> zadaci;
         private IgracDTO _igrac { get; set; }
         public InventoryForm(IgracDTO q, Form parent)
         {
@@ -28,48 +27,10 @@ namespace SBP_Projekat.Forme
             InitializeComponent();
         }
 
-        public List<AbstractPredmetDTO> VratiListuPredmeta(int id)
-        {
-            var predmeti = new List<AbstractPredmet>();
-
-            using (ISession s = DataLayer.Session)
-            {
-                predmeti = s.Query<AbstractPredmet>().Where( x=> x.Igraci.Any(y => y.Id == id)).ToList();
-            }
-            var tmp = new List<AbstractPredmetDTO>();
-
-            foreach (var p in predmeti)
-            {
-                if(p.GetType() == typeof(Predmet))
-                {
-                    tmp.Add(new PredmetDTO(p as Predmet));
-
-                }
-                else
-                    tmp.Add(new OruzjeDTO(p as Oruzje));
-            }
-                
-
-            return tmp;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-           //var tmp = VratiListuPredmeta(1);
-
-           // foreach (var p in tmp)
-           // {
-           //     richTextBox1.AppendText(p.Naziv + "\n");
-           // }
-        }
-
         private void InventoryForm_Load(object sender, EventArgs e)
         {
-            var tmp = VratiListuPredmeta(_igrac.ID);
-            foreach (var p in tmp)
-            {
-                listView1.Items.Add("Zadatak: " + p.XpBonus);
-            }
+            var tmp = DTOManager.Instance.VratiListuPredmeta(_igrac.ID);
+            dataGridView1.DataSource = tmp;
         }
     }
 }

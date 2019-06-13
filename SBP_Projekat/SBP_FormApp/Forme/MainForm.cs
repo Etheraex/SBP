@@ -19,9 +19,7 @@ namespace SBP_Projekat.Forme
     public partial class MainForm : Form
     {
         private IgracDTO _igrac;
-        private bool _mouseDown;
         private List<LikDTO> _listaLikova;
-        private Point _lastLocation;
         public LikDTO Character { get; set; }
 
         public MainForm()
@@ -47,63 +45,10 @@ namespace SBP_Projekat.Forme
         {
             Application.Exit();
         }
-
-        //private void cmd_prikazi_likove_Click(object sender, EventArgs e)
-        //{
-        //    lb_likovi.Items.Clear();
-        //    rtb_likovi.Clear();
-        //    var listaLikova = DTOManager.Instance.VratiListuLikova(_igrac.ID);
-        //    this._listaLikova = listaLikova;
-        //    var i = 0;
-        //    foreach(var lik in listaLikova)
-        //    {
-        //        rtb_likovi.AppendText(i.ToString() + ")  " +lik.ToString()+"\n");
-        //        lb_likovi.Items.Add(i.ToString() + ")  " + lik.ToString());
-        //        i++;
-        //    }
-        //}
-
-        private void cmd_profile_Click(object sender, EventArgs e)
-        {
-            
-
-
-        }
-
-        //private void cmd_napravi_lika_Click(object sender, EventArgs e)
-        //{
-        //    new KreirajLikaForm(_igrac.ID,this).ShowDialog();
-        //    cmd_prikazi_likove_Click(null, null);
-        //}
         #endregion
 
 
-        #region DodatneMetode
-        //public void UpdateLikove(LikDTO lik)
-        //{
-        //    rtb_likovi.AppendText(lik.ToString()+"\n");
-        //}
-        private void Form1_MouseDown(object sender, MouseEventArgs e)
-        {
-            _mouseDown = true;
-            _lastLocation = e.Location;
-        }
-
-        private void Form1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (_mouseDown)
-            {
-                this.Location = new Point(
-                    (this.Location.X - _lastLocation.X) + e.X, (this.Location.Y - _lastLocation.Y) + e.Y);
-
-                this.Update();
-            }
-        }
-
-        private void Form1_MouseUp(object sender, MouseEventArgs e)
-        {
-            _mouseDown = false;
-        }
+        #region DropMenu
 
         private void cmd_fullScreen_Click(object sender, EventArgs e)
         {
