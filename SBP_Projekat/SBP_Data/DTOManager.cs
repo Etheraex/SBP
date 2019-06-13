@@ -69,16 +69,24 @@ namespace SBP_Data
                 s.Flush();
             }
         }
-
+        public void DeleteEntity<T>(T obj) where T : AbstractDTO
+        {
+            using (ISession s = DataLayer.Session)
+            {
+                s.Delete(obj.CreateOrUpdate());
+                s.Flush();
+                s.Close();
+            }
+        }
         public int LogIn(string username, string password, out IgracDTO igrac)
         {
             Igrac tmp;
             igrac = null;
             using (ISession s = DataLayer.Session)
             {
-                tmp = s.Query<Igrac>()
+                tmp = s.QueryOver<Igrac>().Fetch(x => x.PripadaAlijansi).Eager.Fetch(x => x.IspunjeniQuestiov).Eager
                             .Where(x => x.Username == username)
-                            .Select(x => x).FirstOrDefault();
+                            .SingleOrDefault();
             }
             if (tmp == null)
                 return 0;   // Error message: nepostojeci igrac

@@ -30,12 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvAlijanse = new System.Windows.Forms.DataGridView();
-            this.alijansaDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.lAlijansa = new System.Windows.Forms.Label();
+            this.btnLeave = new System.Windows.Forms.Button();
             this.nazivDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.minBrojIgracaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxBrojIgracaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xpBonusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hpBonusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.alijansaDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnJoin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlijanse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alijansaDTOBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -71,9 +75,34 @@
             this.dgvAlijanse.Size = new System.Drawing.Size(522, 136);
             this.dgvAlijanse.TabIndex = 0;
             // 
-            // alijansaDTOBindingSource
+            // label1
             // 
-            this.alijansaDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.AlijansaDTO);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(536, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Trenutno ste u alijansi:";
+            this.label1.Visible = false;
+            // 
+            // lAlijansa
+            // 
+            this.lAlijansa.AutoSize = true;
+            this.lAlijansa.Location = new System.Drawing.Point(536, 41);
+            this.lAlijansa.Name = "lAlijansa";
+            this.lAlijansa.Size = new System.Drawing.Size(0, 13);
+            this.lAlijansa.TabIndex = 2;
+            this.lAlijansa.Visible = false;
+            // 
+            // btnLeave
+            // 
+            this.btnLeave.Location = new System.Drawing.Point(539, 76);
+            this.btnLeave.Name = "btnLeave";
+            this.btnLeave.Size = new System.Drawing.Size(110, 23);
+            this.btnLeave.TabIndex = 3;
+            this.btnLeave.Text = "Napustite alijansu";
+            this.btnLeave.UseVisualStyleBackColor = true;
+            this.btnLeave.Click += new System.EventHandler(this.btnLeave_Click);
             // 
             // nazivDataGridViewTextBoxColumn
             // 
@@ -119,11 +148,29 @@
             this.hpBonusDataGridViewTextBoxColumn.ReadOnly = true;
             this.hpBonusDataGridViewTextBoxColumn.Width = 73;
             // 
+            // alijansaDTOBindingSource
+            // 
+            this.alijansaDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.AlijansaDTO);
+            // 
+            // btnJoin
+            // 
+            this.btnJoin.Location = new System.Drawing.Point(32, 175);
+            this.btnJoin.Name = "btnJoin";
+            this.btnJoin.Size = new System.Drawing.Size(169, 23);
+            this.btnJoin.TabIndex = 4;
+            this.btnJoin.Text = "Uclani se u izabranu alijansu";
+            this.btnJoin.UseVisualStyleBackColor = true;
+            this.btnJoin.Click += new System.EventHandler(this.btnJoin_Click);
+            // 
             // AlianceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(693, 219);
+            this.Controls.Add(this.btnJoin);
+            this.Controls.Add(this.btnLeave);
+            this.Controls.Add(this.lAlijansa);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvAlijanse);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MaximumSize = new System.Drawing.Size(900, 600);
@@ -134,6 +181,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlijanse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alijansaDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -146,5 +194,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn maxBrojIgracaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn xpBonusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hpBonusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lAlijansa;
+        private System.Windows.Forms.Button btnLeave;
+        private System.Windows.Forms.Button btnJoin;
     }
 }
