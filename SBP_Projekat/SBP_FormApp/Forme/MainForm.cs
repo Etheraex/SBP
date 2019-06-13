@@ -20,6 +20,7 @@ namespace SBP_Projekat.Forme
     {
         private IgracDTO _igrac;
         private bool _mouseDown;
+        private List<LikDTO> _listaLikova;
         private Point _lastLocation;
 
         public MainForm()
@@ -47,11 +48,15 @@ namespace SBP_Projekat.Forme
 
         private void cmd_prikazi_likove_Click(object sender, EventArgs e)
         {
+            lb_likovi.Items.Clear();
+            rtb_likovi.Clear();
             var listaLikova = DTOManager.Instance.VratiListuLikova(_igrac.ID);
+            this._listaLikova = listaLikova;
             var i = 0;
             foreach(var lik in listaLikova)
             {
                 rtb_likovi.AppendText(i.ToString() + ")  " +lik.ToString()+"\n");
+                lb_likovi.Items.Add(i.ToString() + ")  " + lik.ToString());
                 i++;
             }
         }
@@ -64,6 +69,8 @@ namespace SBP_Projekat.Forme
         private void cmd_napravi_lika_Click(object sender, EventArgs e)
         {
             new KreirajLikaForm(_igrac.ID,this).ShowDialog();
+            cmd_prikazi_likove_Click(null, null);
+
         }
         #endregion
 
@@ -96,5 +103,18 @@ namespace SBP_Projekat.Forme
             _mouseDown = false;
         }
         #endregion
+
+
+        private void cmd_zapocni_igru_Click(object sender, EventArgs e)
+        {
+            int index = lb_likovi.SelectedIndex;
+            if (_listaLikova == null || index == -1)
+                MessageBox.Show("Niste izabrali lika");
+            else
+            {
+                //MessageBox.Show("izabrali ste lika: " + _listaLikova[index].ToString());
+                DTOManager.Instance.zapocniSesiju(_listaLikova[index], _igrac);
+            }
+        }
     }
 }

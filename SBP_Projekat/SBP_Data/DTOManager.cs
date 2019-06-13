@@ -18,7 +18,9 @@ namespace SBP_Data
             using (ISession s = DataLayer.Session)
             {
                 T tmp = (T)Activator.CreateInstance(typeof(T));
-                return (K)s.Load(tmp.EntityType, id);
+
+                var temp = (K)s.Load(tmp.EntityType, id);
+                return temp; //(K)s.Load(tmp.EntityType, id);
             }
         }
 
@@ -91,6 +93,17 @@ namespace SBP_Data
                 tmp.Add(new LikDTO(lik));
 
             return tmp;
+        }
+
+        public void zapocniSesiju(LikDTO lik, IgracDTO igrac)
+        {
+            SesijaDTO novaSesija = new SesijaDTO();
+            novaSesija.Igrac = this.GetEntityById<IgracDTO,Igrac>(igrac.ID);
+            novaSesija.Lik = this.GetEntityById<LikDTO, Lik>(lik.ID);
+            novaSesija.Gold = 0;
+            novaSesija.VremePocetka = DateTime.Now.ToString();
+            novaSesija.ZaradjeniXP = 0;
+            this.SaveEntity<SesijaDTO>(novaSesija);
         }
 
         private static DTOManager _instance;
