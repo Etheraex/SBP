@@ -15,11 +15,12 @@ namespace SBP_Projekat.Forme
     public partial class CharacterSelectionForm : Form
     {
         IgracDTO _igrac;
+        List<LikDTO> _likovi;
         public CharacterSelectionForm(IgracDTO igrac , Form parent)
         {
             this.MdiParent = parent;
             _igrac = igrac;
-            var list = DTOManager.Instance.getDTOList<IgracDTO, Igrac>();
+            _likovi = DTOManager.Instance.VratiListuLikova(igrac.ID);
             InitializeComponent();
         }
 

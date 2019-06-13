@@ -32,14 +32,14 @@
             this.cmd_napravi = new System.Windows.Forms.Button();
             this.cmd_delete = new System.Windows.Forms.Button();
             this.cmd_select = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.likDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dgv_likovi = new System.Windows.Forms.DataGridView();
             this.zlatoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stepenZamoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rasaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.likDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_likovi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.likDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,28 +72,24 @@
             this.cmd_select.Text = "Izaberi lika";
             this.cmd_select.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgv_likovi
             // 
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_likovi.AllowUserToDeleteRows = false;
+            this.dgv_likovi.AutoGenerateColumns = false;
+            this.dgv_likovi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_likovi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.zlatoDataGridViewTextBoxColumn,
             this.hPDataGridViewTextBoxColumn,
             this.xPDataGridViewTextBoxColumn,
             this.stepenZamoraDataGridViewTextBoxColumn,
             this.rasaDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.likDTOBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 16);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(545, 255);
-            this.dataGridView1.TabIndex = 4;
-            // 
-            // likDTOBindingSource
-            // 
-            this.likDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.LikDTO);
+            this.dgv_likovi.DataSource = this.likDTOBindingSource;
+            this.dgv_likovi.Location = new System.Drawing.Point(12, 16);
+            this.dgv_likovi.Name = "dgv_likovi";
+            this.dgv_likovi.ReadOnly = true;
+            this.dgv_likovi.RowTemplate.Height = 24;
+            this.dgv_likovi.Size = new System.Drawing.Size(545, 255);
+            this.dgv_likovi.TabIndex = 4;
             // 
             // zlatoDataGridViewTextBoxColumn
             // 
@@ -130,19 +126,23 @@
             this.rasaDataGridViewTextBoxColumn.Name = "rasaDataGridViewTextBoxColumn";
             this.rasaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // CharacterSelection
+            // likDTOBindingSource
+            // 
+            this.likDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.LikDTO);
+            // 
+            // CharacterSelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(580, 391);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgv_likovi);
             this.Controls.Add(this.cmd_select);
             this.Controls.Add(this.cmd_delete);
             this.Controls.Add(this.cmd_napravi);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "CharacterSelection";
+            this.Name = "CharacterSelectionForm";
             this.Text = "CharacterSelection";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_likovi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.likDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -153,7 +153,7 @@
         private System.Windows.Forms.Button cmd_napravi;
         private System.Windows.Forms.Button cmd_delete;
         private System.Windows.Forms.Button cmd_select;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_likovi;
         private System.Windows.Forms.DataGridViewTextBoxColumn zlatoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn xPDataGridViewTextBoxColumn;
