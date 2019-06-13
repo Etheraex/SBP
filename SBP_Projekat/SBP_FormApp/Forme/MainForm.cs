@@ -22,6 +22,7 @@ namespace SBP_Projekat.Forme
         private bool _mouseDown;
         private List<LikDTO> _listaLikova;
         private Point _lastLocation;
+        public LikDTO Character { get; set; }
 
         public MainForm()
         {
@@ -82,7 +83,6 @@ namespace SBP_Projekat.Forme
         //{
         //    rtb_likovi.AppendText(lik.ToString()+"\n");
         //}
-
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
             _mouseDown = true;
