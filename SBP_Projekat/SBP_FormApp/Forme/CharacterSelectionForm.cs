@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SBP_Data.DTOs;
-
+using SBP_Data;
+using SBP_Data.Models;
 namespace SBP_Projekat.Forme
 {
     public partial class CharacterSelectionForm : Form
@@ -18,6 +19,7 @@ namespace SBP_Projekat.Forme
         {
             this.MdiParent = parent;
             _igrac = igrac;
+            var list = DTOManager.Instance.getDTOList<IgracDTO, Igrac>();
             InitializeComponent();
         }
 

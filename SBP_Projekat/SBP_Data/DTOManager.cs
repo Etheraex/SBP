@@ -34,6 +34,22 @@ namespace SBP_Data
             }
         }
 
+        public List<T> getDTOList<T,K>() where T : AbstractDTO
+        {
+            List<T> newList = new List<T>(); ;
+            using (ISession s = DataLayer.Session)
+            {
+                var temp = s.Query<K>();
+                foreach (object item in temp)
+                {
+                    T tmp = (T)Activator.CreateInstance(typeof(T), item);
+                    newList.Add(tmp);
+                }
+                return newList;
+            }
+        }
+
+
         public void SaveEntity<T>(T obj) where T : AbstractDTO
         {
             using (ISession s = DataLayer.Session)
