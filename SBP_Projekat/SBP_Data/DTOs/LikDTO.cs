@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NHibernate;
 using SBP_Data.Models;
 
 namespace SBP_Data.DTOs
@@ -14,6 +15,7 @@ namespace SBP_Data.DTOs
         public int XP { get; set; }
         public int StepenZamora { get; set; }
         public Rasa Rasa { get; set; }
+        public String NormalizedRasa { get { return this.Rasa.GetType().Name; } }
         public Igrac Igrac { get; set; }
 
         public LikDTO()

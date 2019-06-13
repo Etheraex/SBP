@@ -22,7 +22,17 @@ namespace SBP_Projekat.Forme
             this.MdiParent = parent;    
             _igrac = igrac;
             _likovi = DTOManager.Instance.VratiListuLikova(igrac.ID);
+            listView1.Items.Clear();
+            foreach (LikDTO lik in _likovi)
+            {
+                ListViewItem item = new ListViewItem(new string[] { lik.NormalizedRasa,lik.HP.ToString() , lik.Zlato.ToString() });
+
+                listView1.Items.Add(item);
+            }
+            listView1.Refresh();
+
             this.dgv_likovi_dd.DataSource = _likovi;
+     
         }
 
         private void updateTalb() { }

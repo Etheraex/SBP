@@ -95,13 +95,13 @@ namespace SBP_Data
 
         public List<LikDTO> VratiListuLikova(int id)
         {
-            var tmpLikovi = new List<Lik>();
+            IList<Lik> tmpLikovi ;
 
             using (ISession s = DataLayer.Session)
             {
-                tmpLikovi = s.Query<Lik>()
-                        .Where(l => l.Igrac.Id == id)
-                        .ToList();
+                tmpLikovi = s.QueryOver<Lik>()
+                        .Fetch(l => l.Rasa).Eager
+                        .Where(l => l.Igrac.Id == id).List();
             }
             var tmp = new List<LikDTO>();
 
