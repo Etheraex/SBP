@@ -133,8 +133,14 @@
     <Compile Include="Forme\WelcomeForm.Designer.cs">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forme\AlianceForm.resx">
+      <DependentUpon>AlianceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\CharacterSelectionForm.resx">
       <DependentUpon>CharacterSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\InventoryForm.resx">
+      <DependentUpon>InventoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -162,6 +168,7 @@
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\SBP_Data.DTOs.AlijansaDTO.datasource" />
     <None Include="Properties\DataSources\SBP_Data.DTOs.LikDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -138,6 +138,12 @@ namespace SBP_Projekat.Forme
             var temp = new QuestForm(_igrac, this);
             temp.Show();
         }
+
+        private void inventarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var temp = new InventoryForm(_igrac, this);
+            temp.Show();
+        }
         #endregion
 
 

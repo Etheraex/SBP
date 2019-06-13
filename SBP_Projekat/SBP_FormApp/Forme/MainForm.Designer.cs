@@ -51,10 +51,9 @@
             this.cmd_logout.BackColor = System.Drawing.Color.LightGray;
             this.cmd_logout.FlatAppearance.BorderSize = 0;
             this.cmd_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmd_logout.Location = new System.Drawing.Point(928, 13);
-            this.cmd_logout.Margin = new System.Windows.Forms.Padding(4);
+            this.cmd_logout.Location = new System.Drawing.Point(696, 11);
             this.cmd_logout.Name = "cmd_logout";
-            this.cmd_logout.Size = new System.Drawing.Size(167, 33);
+            this.cmd_logout.Size = new System.Drawing.Size(125, 27);
             this.cmd_logout.TabIndex = 0;
             this.cmd_logout.Text = "Log out(gasi app)";
             this.cmd_logout.UseVisualStyleBackColor = false;
@@ -66,10 +65,9 @@
             this.cmd_fullscreen.BackColor = System.Drawing.Color.LightGray;
             this.cmd_fullscreen.FlatAppearance.BorderSize = 0;
             this.cmd_fullscreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmd_fullscreen.Location = new System.Drawing.Point(876, 13);
-            this.cmd_fullscreen.Margin = new System.Windows.Forms.Padding(4);
+            this.cmd_fullscreen.Location = new System.Drawing.Point(657, 11);
             this.cmd_fullscreen.Name = "cmd_fullscreen";
-            this.cmd_fullscreen.Size = new System.Drawing.Size(44, 33);
+            this.cmd_fullscreen.Size = new System.Drawing.Size(33, 27);
             this.cmd_fullscreen.TabIndex = 0;
             this.cmd_fullscreen.Text = "🔲";
             this.cmd_fullscreen.UseVisualStyleBackColor = false;
@@ -81,10 +79,9 @@
             this.cmd_minimize.BackColor = System.Drawing.Color.LightGray;
             this.cmd_minimize.FlatAppearance.BorderSize = 0;
             this.cmd_minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmd_minimize.Location = new System.Drawing.Point(832, 13);
-            this.cmd_minimize.Margin = new System.Windows.Forms.Padding(4);
+            this.cmd_minimize.Location = new System.Drawing.Point(624, 11);
             this.cmd_minimize.Name = "cmd_minimize";
-            this.cmd_minimize.Size = new System.Drawing.Size(36, 33);
+            this.cmd_minimize.Size = new System.Drawing.Size(27, 27);
             this.cmd_minimize.TabIndex = 0;
             this.cmd_minimize.Text = "➖";
             this.cmd_minimize.UseVisualStyleBackColor = false;
@@ -106,7 +103,8 @@
             this.profilToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1108, 63);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(831, 51);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -117,27 +115,28 @@
             this.statoviToolStripMenuItem,
             this.inventarToolStripMenuItem});
             this.meniToolStripMenuItem.Name = "meniToolStripMenuItem";
-            this.meniToolStripMenuItem.Size = new System.Drawing.Size(54, 59);
+            this.meniToolStripMenuItem.Size = new System.Drawing.Size(46, 47);
             this.meniToolStripMenuItem.Text = "Meni";
             // 
             // kuestoviToolStripMenuItem
             // 
             this.kuestoviToolStripMenuItem.Name = "kuestoviToolStripMenuItem";
-            this.kuestoviToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.kuestoviToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.kuestoviToolStripMenuItem.Text = "Kuestovi";
             this.kuestoviToolStripMenuItem.Click += new System.EventHandler(this.kuestoviToolStripMenuItem_Click);
             // 
             // statoviToolStripMenuItem
             // 
             this.statoviToolStripMenuItem.Name = "statoviToolStripMenuItem";
-            this.statoviToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.statoviToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.statoviToolStripMenuItem.Text = "Statovi";
             // 
             // inventarToolStripMenuItem
             // 
             this.inventarToolStripMenuItem.Name = "inventarToolStripMenuItem";
-            this.inventarToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.inventarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.inventarToolStripMenuItem.Text = "Inventar";
+            this.inventarToolStripMenuItem.Click += new System.EventHandler(this.inventarToolStripMenuItem_Click);
             // 
             // profilToolStripMenuItem
             // 
@@ -146,43 +145,43 @@
             this.izborKarakteraToolStripMenuItem,
             this.alijanseToolStripMenuItem});
             this.profilToolStripMenuItem.Name = "profilToolStripMenuItem";
-            this.profilToolStripMenuItem.Size = new System.Drawing.Size(56, 59);
+            this.profilToolStripMenuItem.Size = new System.Drawing.Size(47, 47);
             this.profilToolStripMenuItem.Text = "Profil";
             // 
             // mojProfilToolStripMenuItem
             // 
             this.mojProfilToolStripMenuItem.Name = "mojProfilToolStripMenuItem";
-            this.mojProfilToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.mojProfilToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.mojProfilToolStripMenuItem.Text = "Moj Profil";
             this.mojProfilToolStripMenuItem.Click += new System.EventHandler(this.mojProfilToolStripMenuItem_Click);
             // 
             // izborKarakteraToolStripMenuItem
             // 
             this.izborKarakteraToolStripMenuItem.Name = "izborKarakteraToolStripMenuItem";
-            this.izborKarakteraToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.izborKarakteraToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.izborKarakteraToolStripMenuItem.Text = "Izbor Karaktera";
             this.izborKarakteraToolStripMenuItem.Click += new System.EventHandler(this.izborKarakteraToolStripMenuItem_Click);
             // 
             // alijanseToolStripMenuItem
             // 
             this.alijanseToolStripMenuItem.Name = "alijanseToolStripMenuItem";
-            this.alijanseToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.alijanseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.alijanseToolStripMenuItem.Text = "Alijanse";
             this.alijanseToolStripMenuItem.Click += new System.EventHandler(this.alijanseToolStripMenuItem_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(1108, 612);
+            this.ClientSize = new System.Drawing.Size(831, 497);
             this.Controls.Add(this.cmd_logout);
             this.Controls.Add(this.cmd_fullscreen);
             this.Controls.Add(this.cmd_minimize);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainForm";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
