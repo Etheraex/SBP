@@ -122,7 +122,12 @@ namespace SBP_Projekat.Forme
         {
             if (!IsActive("ApprenticeForm"))
             {
-                var temp = new ApprenticeForm(_igrac, this);
+                if (_character == null)
+                {
+                    MessageBox.Show("Niste izabrali lika");
+                    return;
+                }
+                var temp = new ApprenticeForm(_character, this);
                 temp.Show();
             }
         }

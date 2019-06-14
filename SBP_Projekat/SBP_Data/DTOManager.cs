@@ -208,6 +208,19 @@ namespace SBP_Data
 
             return tmp;
         }
+        
+        public SegrtDTO GetApprentice(int id)
+        {
+            var segrt = new Segrt();
+            using (ISession s = DataLayer.Session)
+            {
+                segrt = s.Query<Segrt>()
+                    .FirstOrDefault(x => x.Lik.Id == id);
+            }
+
+            var segrtDTO = new SegrtDTO(segrt);
+            return segrtDTO;
+        }
 
         private static DTOManager _instance;
         private static readonly object obj = new object();
