@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvAlijanse = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lAlijansa = new System.Windows.Forms.Label();
-            this.btnLeave = new System.Windows.Forms.Button();
             this.nazivDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.minBrojIgracaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxBrojIgracaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xpBonusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hpBonusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.alijansaDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.lAlijansa = new System.Windows.Forms.Label();
+            this.btnLeave = new System.Windows.Forms.Button();
             this.btnJoin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlijanse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alijansaDTOBindingSource)).BeginInit();
@@ -74,35 +74,6 @@
             this.dgvAlijanse.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvAlijanse.Size = new System.Drawing.Size(522, 136);
             this.dgvAlijanse.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(536, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Trenutno ste u alijansi:";
-            this.label1.Visible = false;
-            // 
-            // lAlijansa
-            // 
-            this.lAlijansa.AutoSize = true;
-            this.lAlijansa.Location = new System.Drawing.Point(536, 41);
-            this.lAlijansa.Name = "lAlijansa";
-            this.lAlijansa.Size = new System.Drawing.Size(0, 13);
-            this.lAlijansa.TabIndex = 2;
-            this.lAlijansa.Visible = false;
-            // 
-            // btnLeave
-            // 
-            this.btnLeave.Location = new System.Drawing.Point(539, 76);
-            this.btnLeave.Name = "btnLeave";
-            this.btnLeave.Size = new System.Drawing.Size(110, 23);
-            this.btnLeave.TabIndex = 3;
-            this.btnLeave.Text = "Napustite alijansu";
-            this.btnLeave.UseVisualStyleBackColor = true;
-            this.btnLeave.Click += new System.EventHandler(this.cmd_Leave_Click);
             // 
             // nazivDataGridViewTextBoxColumn
             // 
@@ -152,14 +123,49 @@
             // 
             this.alijansaDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.AlijansaDTO);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(536, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Trenutno ste u alijansi:";
+            this.label1.Visible = false;
+            // 
+            // lAlijansa
+            // 
+            this.lAlijansa.AutoSize = true;
+            this.lAlijansa.Location = new System.Drawing.Point(536, 41);
+            this.lAlijansa.Name = "lAlijansa";
+            this.lAlijansa.Size = new System.Drawing.Size(0, 13);
+            this.lAlijansa.TabIndex = 2;
+            this.lAlijansa.Visible = false;
+            // 
+            // btnLeave
+            // 
+            this.btnLeave.BackColor = System.Drawing.Color.LightGray;
+            this.btnLeave.FlatAppearance.BorderSize = 0;
+            this.btnLeave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeave.Location = new System.Drawing.Point(539, 76);
+            this.btnLeave.Name = "btnLeave";
+            this.btnLeave.Size = new System.Drawing.Size(110, 23);
+            this.btnLeave.TabIndex = 3;
+            this.btnLeave.Text = "Napustite alijansu";
+            this.btnLeave.UseVisualStyleBackColor = false;
+            this.btnLeave.Click += new System.EventHandler(this.cmd_Leave_Click);
+            // 
             // btnJoin
             // 
+            this.btnJoin.BackColor = System.Drawing.Color.LightGray;
+            this.btnJoin.FlatAppearance.BorderSize = 0;
+            this.btnJoin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnJoin.Location = new System.Drawing.Point(32, 175);
             this.btnJoin.Name = "btnJoin";
             this.btnJoin.Size = new System.Drawing.Size(169, 23);
             this.btnJoin.TabIndex = 4;
             this.btnJoin.Text = "Uclani se u izabranu alijansu";
-            this.btnJoin.UseVisualStyleBackColor = true;
+            this.btnJoin.UseVisualStyleBackColor = false;
             this.btnJoin.Click += new System.EventHandler(this.cmd_Join_Click);
             // 
             // AlianceForm
@@ -172,11 +178,13 @@
             this.Controls.Add(this.lAlijansa);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvAlijanse);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(900, 600);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(700, 250);
             this.Name = "AlianceForm";
-            this.Text = "AlianceF";
+            this.Text = "AlianceForm";
             this.Load += new System.EventHandler(this.AlianceForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlijanse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alijansaDTOBindingSource)).EndInit();

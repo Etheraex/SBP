@@ -15,7 +15,7 @@ namespace SBP_Data.DTOs
         public int XP { get; set; }
         public int StepenZamora { get; set; }
         public Rasa Rasa { get; set; }
-        public String NormalizedRasa { get { return this.Rasa.GetType().Name; } }
+        public string NormalizedRasa { get { return this.Rasa.GetType().Name; } }
         public Igrac Igrac { get; set; }
 
         public LikDTO()
@@ -30,14 +30,19 @@ namespace SBP_Data.DTOs
 
         public LikDTO(Lik i)
         {
-            base.EntityType = typeof(Lik);
-            ID = i.Id;
-            Zlato = i.Zlato;
-            HP = i.HP;
-            XP = i.XP;
-            StepenZamora = i.StepenZamora;
-            Rasa = i.Rasa;
-            Igrac = i.Igrac;
+            if (i != null)
+            {
+                base.EntityType = typeof(Lik);
+                ID = i.Id;
+                Zlato = i.Zlato;
+                HP = i.HP;
+                XP = i.XP;
+                StepenZamora = i.StepenZamora;
+                Rasa = i.Rasa;
+                Igrac = i.Igrac;
+            }
+            else
+                throw new NullReferenceException();
         }
 
         public override object CreateOrUpdate(object input)

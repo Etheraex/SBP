@@ -88,12 +88,15 @@
             // 
             // cmd_kreiraj
             // 
+            this.cmd_kreiraj.BackColor = System.Drawing.Color.LightGray;
+            this.cmd_kreiraj.FlatAppearance.BorderSize = 0;
+            this.cmd_kreiraj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmd_kreiraj.Location = new System.Drawing.Point(158, 107);
             this.cmd_kreiraj.Name = "cmd_kreiraj";
             this.cmd_kreiraj.Size = new System.Drawing.Size(75, 23);
             this.cmd_kreiraj.TabIndex = 3;
             this.cmd_kreiraj.Text = "Kreiraj";
-            this.cmd_kreiraj.UseVisualStyleBackColor = true;
+            this.cmd_kreiraj.UseVisualStyleBackColor = false;
             this.cmd_kreiraj.Click += new System.EventHandler(this.cmd_kreiraj_Click);
             // 
             // KreirajLikaForm
@@ -108,6 +111,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cb_rasa);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "KreirajLikaForm";
             this.Text = "KreirajLikaForm";
             this.ResumeLayout(false);

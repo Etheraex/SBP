@@ -31,17 +31,23 @@ namespace SBP_Data.DTOs
 
         public AlijansaDTO(Alijansa a)
         {
-            base.EntityType = typeof(Alijansa);
-            ID = a.Id;
-            Naziv = a.Naziv;
-            MinBrojIgraca = a.MinBrojIgraca;
-            MaxBrojIgraca = a.MaxBrojIgraca;
-            XpBonus = a.XpBonus;
-            HpBonus = a.HpBonus;
-            Savezi = a.Savezi;
-            Igraci = a.Igraci;
-            IspunjeniQuestiovi = a.IspunjeniQuestiovi;
+            if (a != null)
+            {
+                base.EntityType = typeof(Alijansa);
+                ID = a.Id;
+                Naziv = a.Naziv;
+                MinBrojIgraca = a.MinBrojIgraca;
+                MaxBrojIgraca = a.MaxBrojIgraca;
+                XpBonus = a.XpBonus;
+                HpBonus = a.HpBonus;
+                Savezi = a.Savezi;
+                Igraci = a.Igraci;
+                IspunjeniQuestiovi = a.IspunjeniQuestiovi;
+            }
+            else
+                throw new NullReferenceException();
         }
+
         public override object CreateOrUpdate(object input)
         {
             Alijansa a = CheckStuff((Alijansa)input);

@@ -13,6 +13,8 @@ namespace SBP_Data.DTOs
         public int Bonus { get; set; }
         public Rasa Rasa { get; set; }
         public Lik Lik { get; set; }
+        public string NormalizedRasa { get { return this.Rasa.GetType().Name; } }
+
 
         public SegrtDTO()
         {
@@ -39,12 +41,17 @@ namespace SBP_Data.DTOs
 
         public SegrtDTO(Segrt s)
         {
-            base.EntityType = typeof(Segrt);
-            ID = s.Id;
-            Ime = s.Ime;
-            Bonus = s.Bonus;
-            Rasa = s.Rasa;
-            Lik = s.Lik;
+            if (s != null)
+            {
+                base.EntityType = typeof(Segrt);
+                ID = s.Id;
+                Ime = s.Ime;
+                Bonus = s.Bonus;
+                Rasa = s.Rasa;
+                Lik = s.Lik;
+            }
+            else
+                throw new NullReferenceException();
         }
     }
 }

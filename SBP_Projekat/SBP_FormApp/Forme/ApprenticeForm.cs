@@ -35,12 +35,20 @@ namespace SBP_Projekat.Forme
 
         private void PrikaziSegrta()
         {
-            var tmp = DTOManager.Instance.GetApprentice(_lik.ID);
-            if (tmp != null)
+            SegrtDTO tmp = null;
+            try
             {
-                _segrt = tmp;
-                dgv_my_apprentice.DataSource = tmp;
+                tmp = DTOManager.Instance.GetApprentice(_lik.ID);
             }
+            catch(NullReferenceException)
+            {
+                // Samo ce da ostane prazan data grid view
+            }
+            _segrt = tmp;
+            // Mora u listu zbog dgv
+            var list = new List<SegrtDTO>();
+            list.Add(tmp);
+            dgv_my_apprentice.DataSource = list;
         }
 
         private void ApprenticeForm_Load(object sender, EventArgs e)
@@ -56,8 +64,7 @@ namespace SBP_Projekat.Forme
                 return;
             }
             var tmp = new RecruitApprenticeForm(MdiParent,_lik);
-             tmp.Show();
-            
+            tmp.Show();
         }
     }
 }

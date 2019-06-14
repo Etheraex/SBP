@@ -62,7 +62,7 @@ namespace SBP_Projekat.Forme
             }
             else
             {
-                DTOManager.Instance.DeleteEntity<LikDTO>(_likovi[index]);
+                DTOManager.Instance.DeleteEntity(_likovi[index]);
                 this.UpdateList();
             }
         }

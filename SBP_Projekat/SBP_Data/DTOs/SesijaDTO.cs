@@ -45,12 +45,17 @@ namespace SBP_Data.DTOs
 
         public SesijaDTO(Sesija s)
         {
-            base.EntityType = typeof(Sesija);
-            ID = s.Id;
-            Gold = s.Gold;
-            ZaradjeniXP = s.ZaradjeniXP;
-            VremePocetka = s.VremePocetka;
-            VremeKraja = s.VremeKraja;
+            if (s != null)
+            {
+                base.EntityType = typeof(Sesija);
+                ID = s.Id;
+                Gold = s.Gold;
+                ZaradjeniXP = s.ZaradjeniXP;
+                VremePocetka = s.VremePocetka;
+                VremeKraja = s.VremeKraja;
+            }
+            else
+                throw new NullReferenceException();
         }
     }
 }

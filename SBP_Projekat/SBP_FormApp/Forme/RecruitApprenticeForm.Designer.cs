@@ -46,12 +46,15 @@
             // 
             // cmd_recruit
             // 
+            this.cmd_recruit.BackColor = System.Drawing.Color.LightGray;
+            this.cmd_recruit.FlatAppearance.BorderSize = 0;
+            this.cmd_recruit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmd_recruit.Location = new System.Drawing.Point(119, 87);
             this.cmd_recruit.Name = "cmd_recruit";
             this.cmd_recruit.Size = new System.Drawing.Size(75, 23);
             this.cmd_recruit.TabIndex = 1;
             this.cmd_recruit.Text = "Regrutuj";
-            this.cmd_recruit.UseVisualStyleBackColor = true;
+            this.cmd_recruit.UseVisualStyleBackColor = false;
             this.cmd_recruit.Click += new System.EventHandler(this.cmd_recruit_Click);
             // 
             // tb_ime
@@ -94,6 +97,10 @@
             this.Controls.Add(this.cmd_recruit);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(222, 160);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(222, 160);
             this.Name = "RecruitApprenticeForm";
             this.Text = "RecruitApprenticeForm";
             this.ResumeLayout(false);

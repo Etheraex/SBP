@@ -19,7 +19,6 @@ namespace SBP_Projekat.Forme
     public partial class MainForm : Form
     {
         private IgracDTO _igrac;
-        private List<LikDTO> _listaLikova;
         private SesijaDTO _sesija;
         private LikDTO _character;
 
@@ -118,6 +117,21 @@ namespace SBP_Projekat.Forme
                 temp.Show();
             }
         }
+
+        private void statoviToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!IsActive("StatsForm"))
+            {
+                if (_character == null)
+                {
+                    MessageBox.Show("Niste izabrali lika");
+                    return;
+                }
+                var temp = new StatsForm(_character, this);
+                temp.Show();
+            }
+        }
+
         private void segrtToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!IsActive("ApprenticeForm"))
@@ -140,18 +154,34 @@ namespace SBP_Projekat.Forme
                 MessageBox.Show("Niste izabrali lika");
             else
             {
-                _sesija = DTOManager.Instance.ZapocniSesiju(lik, _igrac);
-                _character = lik;
+                try
+                {
+                    _sesija = DTOManager.Instance.ZapocniSesiju(lik, _igrac);
+                    _character = lik;
+                    // Odmah nakon izbora lika prikazuje stats formu
+                    statoviToolStripMenuItem.PerformClick();
+                }
+                catch(NullReferenceException e)
+                {
+                    MessageBox.Show(e.Message);
+                }
             }
         }
         public void CloseSession()
         {
             if (_sesija != null)
             {
-                DTOManager.Instance.CloseSession(_sesija);
+                try
+                {
+                    DTOManager.Instance.CloseSession(_sesija);
+                }
+                catch (NullReferenceException e)
+                {
+                    MessageBox.Show(e.Message);
+                }
             }
         }
 
-
+        
     }
 }

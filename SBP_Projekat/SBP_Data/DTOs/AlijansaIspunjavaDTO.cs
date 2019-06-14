@@ -25,11 +25,16 @@ namespace SBP_Data.DTOs
 
         public AlijansaIspunjavaDTO(AlijansaIspunjava a)
         {
-            base.EntityType = typeof(AlijansaIspunjava);
-            ID = a.Id;
-            Vreme = a.Vreme;
-            Alijansa = a.Alijansa;
-            Quest = a.Quest;
+            if (a != null)
+            {
+                base.EntityType = typeof(AlijansaIspunjava);
+                ID = a.Id;
+                Vreme = a.Vreme;
+                Alijansa = a.Alijansa;
+                Quest = a.Quest;
+            }
+            else
+                throw new NullReferenceException();
         }
 
         public override object CreateOrUpdate(object input)

@@ -26,12 +26,17 @@ namespace SBP_Data.DTOs
 
         public QuestDTO(Quest q)
         {
-            base.EntityType = typeof(Quest);
-            ID = q.Id;
-            XpGain = q.XpGain;
-            Predmeti = q.Predmeti;
-            AlijanseKojeSuIspunile = q.AlijanseKojeSuIspunile;
-            IgraciKojiSuIspunili = q.IgraciKojiSuIspunili;
+            if (q != null)
+            {
+                base.EntityType = typeof(Quest);
+                ID = q.Id;
+                XpGain = q.XpGain;
+                Predmeti = q.Predmeti;
+                AlijanseKojeSuIspunile = q.AlijanseKojeSuIspunile;
+                IgraciKojiSuIspunili = q.IgraciKojiSuIspunili;
+            }
+            else
+                throw new NullReferenceException();
         }
 
         public override object CreateOrUpdate(object input)

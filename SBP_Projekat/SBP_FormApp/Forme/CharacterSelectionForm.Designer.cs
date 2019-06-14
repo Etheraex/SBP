@@ -33,47 +33,56 @@
             this.cmd_delete = new System.Windows.Forms.Button();
             this.cmd_select = new System.Windows.Forms.Button();
             this.dgv_likovi_dd = new System.Windows.Forms.DataGridView();
-            this.likDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.NormalizedRasa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zlatoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stepenZamoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.likDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_likovi_dd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.likDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cmd_napravi
             // 
+            this.cmd_napravi.BackColor = System.Drawing.Color.LightGray;
+            this.cmd_napravi.FlatAppearance.BorderSize = 0;
+            this.cmd_napravi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmd_napravi.Location = new System.Drawing.Point(9, 225);
-            this.cmd_napravi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmd_napravi.Margin = new System.Windows.Forms.Padding(2);
             this.cmd_napravi.Name = "cmd_napravi";
             this.cmd_napravi.Size = new System.Drawing.Size(125, 40);
             this.cmd_napravi.TabIndex = 1;
             this.cmd_napravi.Text = "Napravi";
-            this.cmd_napravi.UseVisualStyleBackColor = true;
+            this.cmd_napravi.UseVisualStyleBackColor = false;
             this.cmd_napravi.Click += new System.EventHandler(this.cmd_napravi_Click);
             // 
             // cmd_delete
             // 
+            this.cmd_delete.BackColor = System.Drawing.Color.LightGray;
+            this.cmd_delete.FlatAppearance.BorderSize = 0;
+            this.cmd_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmd_delete.Location = new System.Drawing.Point(9, 270);
-            this.cmd_delete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmd_delete.Margin = new System.Windows.Forms.Padding(2);
             this.cmd_delete.Name = "cmd_delete";
             this.cmd_delete.Size = new System.Drawing.Size(125, 40);
             this.cmd_delete.TabIndex = 2;
             this.cmd_delete.Text = "Obrisi";
-            this.cmd_delete.UseVisualStyleBackColor = true;
+            this.cmd_delete.UseVisualStyleBackColor = false;
             this.cmd_delete.Click += new System.EventHandler(this.cmd_delete_Click);
             // 
             // cmd_select
             // 
+            this.cmd_select.BackColor = System.Drawing.Color.LightGray;
+            this.cmd_select.FlatAppearance.BorderSize = 0;
+            this.cmd_select.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmd_select.Location = new System.Drawing.Point(385, 267);
-            this.cmd_select.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmd_select.Margin = new System.Windows.Forms.Padding(2);
             this.cmd_select.Name = "cmd_select";
             this.cmd_select.Size = new System.Drawing.Size(125, 40);
             this.cmd_select.TabIndex = 3;
             this.cmd_select.Text = "Izaberi lika";
-            this.cmd_select.UseVisualStyleBackColor = true;
+            this.cmd_select.UseVisualStyleBackColor = false;
             this.cmd_select.Click += new System.EventHandler(this.cmd_select_Click);
             // 
             // dgv_likovi_dd
@@ -90,16 +99,12 @@
             this.stepenZamoraDataGridViewTextBoxColumn});
             this.dgv_likovi_dd.DataSource = this.likDTOBindingSource;
             this.dgv_likovi_dd.Location = new System.Drawing.Point(9, 10);
-            this.dgv_likovi_dd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgv_likovi_dd.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_likovi_dd.Name = "dgv_likovi_dd";
             this.dgv_likovi_dd.ReadOnly = true;
             this.dgv_likovi_dd.RowTemplate.Height = 24;
             this.dgv_likovi_dd.Size = new System.Drawing.Size(501, 207);
             this.dgv_likovi_dd.TabIndex = 4;
-            // 
-            // likDTOBindingSource
-            // 
-            this.likDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.LikDTO);
             // 
             // NormalizedRasa
             // 
@@ -145,6 +150,10 @@
             this.stepenZamoraDataGridViewTextBoxColumn.ReadOnly = true;
             this.stepenZamoraDataGridViewTextBoxColumn.Width = 102;
             // 
+            // likDTOBindingSource
+            // 
+            this.likDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.LikDTO);
+            // 
             // CharacterSelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,8 +163,10 @@
             this.Controls.Add(this.cmd_select);
             this.Controls.Add(this.cmd_delete);
             this.Controls.Add(this.cmd_napravi);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CharacterSelectionForm";
             this.Text = "CharacterSelection";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_likovi_dd)).EndInit();

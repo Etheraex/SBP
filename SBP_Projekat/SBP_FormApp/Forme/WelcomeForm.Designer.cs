@@ -50,22 +50,28 @@
             // 
             // cmd_show_registration
             // 
+            this.cmd_show_registration.BackColor = System.Drawing.Color.LightGray;
+            this.cmd_show_registration.FlatAppearance.BorderSize = 0;
+            this.cmd_show_registration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmd_show_registration.Location = new System.Drawing.Point(23, 12);
             this.cmd_show_registration.Name = "cmd_show_registration";
             this.cmd_show_registration.Size = new System.Drawing.Size(103, 36);
             this.cmd_show_registration.TabIndex = 0;
             this.cmd_show_registration.Text = "Registracija";
-            this.cmd_show_registration.UseVisualStyleBackColor = true;
+            this.cmd_show_registration.UseVisualStyleBackColor = false;
             this.cmd_show_registration.Click += new System.EventHandler(this.cmd_show_registration_Click);
             // 
             // cmd_show_login
             // 
+            this.cmd_show_login.BackColor = System.Drawing.Color.LightGray;
+            this.cmd_show_login.FlatAppearance.BorderSize = 0;
+            this.cmd_show_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmd_show_login.Location = new System.Drawing.Point(172, 12);
             this.cmd_show_login.Name = "cmd_show_login";
             this.cmd_show_login.Size = new System.Drawing.Size(103, 36);
             this.cmd_show_login.TabIndex = 0;
             this.cmd_show_login.Text = "Prijavljivanje";
-            this.cmd_show_login.UseVisualStyleBackColor = true;
+            this.cmd_show_login.UseVisualStyleBackColor = false;
             this.cmd_show_login.Click += new System.EventHandler(this.cmd_show_login_Click);
             // 
             // tb_username
@@ -176,22 +182,28 @@
             // 
             // cmd_login
             // 
+            this.cmd_login.BackColor = System.Drawing.Color.LightGray;
+            this.cmd_login.FlatAppearance.BorderSize = 0;
+            this.cmd_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmd_login.Location = new System.Drawing.Point(172, 262);
             this.cmd_login.Name = "cmd_login";
             this.cmd_login.Size = new System.Drawing.Size(103, 27);
             this.cmd_login.TabIndex = 0;
             this.cmd_login.Text = "Prijavi me";
-            this.cmd_login.UseVisualStyleBackColor = true;
+            this.cmd_login.UseVisualStyleBackColor = false;
             this.cmd_login.Click += new System.EventHandler(this.cmd_login_Click);
             // 
             // cmd_registration
             // 
+            this.cmd_registration.BackColor = System.Drawing.Color.LightGray;
+            this.cmd_registration.FlatAppearance.BorderSize = 0;
+            this.cmd_registration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmd_registration.Location = new System.Drawing.Point(23, 262);
             this.cmd_registration.Name = "cmd_registration";
             this.cmd_registration.Size = new System.Drawing.Size(103, 27);
             this.cmd_registration.TabIndex = 0;
             this.cmd_registration.Text = "Registracija";
-            this.cmd_registration.UseVisualStyleBackColor = true;
+            this.cmd_registration.UseVisualStyleBackColor = false;
             this.cmd_registration.Click += new System.EventHandler(this.cmd_registration_Click);
             // 
             // cb_pol
@@ -228,6 +240,10 @@
             this.Controls.Add(this.cmd_registration);
             this.Controls.Add(this.cmd_login);
             this.Controls.Add(this.cmd_show_registration);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(306, 339);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(306, 339);
             this.Name = "WelcomeForm";
             this.Text = "WelcomeForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WelcomeForm_FormClosing);

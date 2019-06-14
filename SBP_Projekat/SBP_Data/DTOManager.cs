@@ -91,7 +91,9 @@ namespace SBP_Data
             igrac = null;
             using (ISession s = DataLayer.Session)
             {
-                tmp = s.QueryOver<Igrac>().Fetch(x => x.PripadaAlijansi).Eager.Fetch(x => x.IspunjeniQuestiov).Eager
+                tmp = s.QueryOver<Igrac>()
+                            .Fetch(x => x.PripadaAlijansi).Eager
+                            .Fetch(x => x.IspunjeniQuestiov).Eager
                             .Where(x => x.Username == username)
                             .SingleOrDefault();
             }
@@ -101,7 +103,14 @@ namespace SBP_Data
                 return 1;   // Error message: pogresna sifra
             else
             {
-                igrac = new IgracDTO(tmp);
+                try
+                {
+                    igrac = new IgracDTO(tmp);
+                }
+                catch(NullReferenceException)
+                {
+                    throw new NullReferenceException(message:"DTOManager.LogIn: Neuspesno prebacivanje iz Igrac u IgracDTO");
+                }
                 return 2;   // Sve je u redu
             }
             // Hteo sam da provera bude sto dalje od korisnika, zato nisam stavio u formi
@@ -120,8 +129,15 @@ namespace SBP_Data
             }
             var tmp = new List<LikDTO>();
 
-            foreach (var lik in tmpLikovi)
-                tmp.Add(new LikDTO(lik));
+            try
+            {
+                foreach (var lik in tmpLikovi)
+                    tmp.Add(new LikDTO(lik));
+            }
+            catch(NullReferenceException)
+            {
+                throw new NullReferenceException(message: "DTOManager.VratiListuLikova: Neuspesno prebacivanje iz Lik u LikDTO");
+            }
 
             return tmp;
         }
@@ -133,7 +149,7 @@ namespace SBP_Data
                 Igrac = this.GetEntityById<IgracDTO, Igrac>(igrac.ID),
                 Lik = this.GetEntityById<LikDTO, Lik>(lik.ID),
                 Gold = 0,
-                VremePocetka = DateTime.Now.ToString(),
+                VremePocetka = DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss"),
                 ZaradjeniXP = 0,
                 EntityType = typeof(Sesija)
             };
@@ -146,7 +162,7 @@ namespace SBP_Data
         {
             if(session != null)
             {
-                session.VremeKraja = DateTime.Now.ToString();
+                session.VremeKraja = DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss");
                 this.UpdateEntity(session);
             }
         }
@@ -161,8 +177,15 @@ namespace SBP_Data
             }
             var tmp = new List<QuestDTO>();
 
-            foreach (var quest in Quests)
-                tmp.Add(new QuestDTO(quest));
+            try
+            {
+                foreach (var quest in Quests)
+                    tmp.Add(new QuestDTO(quest));
+            }
+            catch(NullReferenceException)
+            {
+                throw new NullReferenceException(message: "DTOManager.VratiListuQuestova: Neuspesno prebacivanje iz Quest u QuestDTO");
+            }
 
             return tmp;
         }
@@ -172,16 +195,33 @@ namespace SBP_Data
             List<AbstractPredmet> tmp;
             using (ISession s = DataLayer.Session)
             {
-                tmp = s.Query<AbstractPredmet>().Where(x=>x.Pripada.Id == id).ToList();
+                tmp = s.Query<AbstractPredmet>()
+                                .Where(x=>x.Pripada.Id == id)
+                                .ToList();
             }
             var temp = new List<AbstractPredmetDTO>();
 
-            foreach(var p in tmp)
+            try
             {
-                if (p.GetType() == typeof(Predmet))
-                    temp.Add(new PredmetDTO(p as Predmet));
-                else
-                    temp.Add(new OruzjeDTO(p as Oruzje));
+                foreach (var p in tmp)
+                {
+                    if (p.GetType() == typeof(Predmet))
+                    {
+                        var predmet = p as Predmet;
+                        if(predmet != null)
+                            temp.Add(new PredmetDTO(predmet));
+                    }
+                    else
+                    {
+                        var oruzje = p as Oruzje;
+                        if(oruzje != null)
+                            temp.Add(new OruzjeDTO(oruzje));
+                    }
+                }
+            }
+            catch(NullReferenceException)
+            {
+                throw new NullReferenceException(message: "DTOManager.VratiListuPredmetaZaKvest: Neuspesno prebacivanje iz Predmet u PredmetDTO");
             }
             return temp;
         }
@@ -192,18 +232,33 @@ namespace SBP_Data
 
             using (ISession s = DataLayer.Session)
             {
-                predmeti = s.Query<AbstractPredmet>().Where(x => x.Igraci.Any(y => y.Id == id)).ToList();
+                predmeti = s.Query<AbstractPredmet>()
+                        .Where(x => x.Igraci.Any(y => y.Id == id))
+                        .ToList();
             }
             var tmp = new List<AbstractPredmetDTO>();
 
-            foreach (var p in predmeti)
+            try
             {
-                if (p.GetType() == typeof(Predmet))
+                foreach (var p in predmeti)
                 {
-                    tmp.Add(new PredmetDTO(p as Predmet));
+                    if (p.GetType() == typeof(Predmet))
+                    {
+                        var predmet = p as Predmet;
+                        if (predmet != null)
+                            tmp.Add(new PredmetDTO(predmet));
+                    }
+                    else
+                    {
+                        var oruzje = p as Oruzje;
+                        if (oruzje != null)
+                            tmp.Add(new OruzjeDTO(oruzje));
+                    }
                 }
-                else
-                    tmp.Add(new OruzjeDTO(p as Oruzje));
+            }
+            catch(NullReferenceException)
+            {
+                throw new NullReferenceException(message: "DTOManager.VratiListuPredmeta: Neuspesno prebacivanje iz Predmet u PredmetDTO");
             }
 
             return tmp;
@@ -215,14 +270,18 @@ namespace SBP_Data
             using (ISession s = DataLayer.Session)
             {
                 segrt = s.Query<Segrt>()
+                    // .Fetch(x => x.Rasa).Eager
                     .FirstOrDefault(x => x.Lik.Id == id);
             }
-            if (segrt != null)
-            {
+            try
+            { 
                 var segrtDTO = new SegrtDTO(segrt);
                 return segrtDTO;
             }
-          return null;
+            catch (NullReferenceException)
+            {
+                throw new NullReferenceException(message: "DTOManager.GetApprentice: Neuspesno prebacivanje iz Segrt u SegrtDTO");
+            }
         }
 
         private static DTOManager _instance;

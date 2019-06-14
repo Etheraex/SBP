@@ -45,15 +45,20 @@ namespace SBP_Data.DTOs
 
         public PredmetDTO(Predmet p)
         {
-            base.EntityType = typeof(Predmet);
-            ID = p.Id;
-            XpBonus = p.XpBonus;
-            Naziv = p.Naziv;
-            Opis = p.Opis;
-            VrstaOruzja = p.VrstaOruzja;
-            Pripada = p.Pripada;
-            MozeDaKoristi = p.MozeDaKoristi;
-            Igraci = p.Igraci;
+            if (p != null)
+            {
+                base.EntityType = typeof(Predmet);
+                ID = p.Id;
+                XpBonus = p.XpBonus;
+                Naziv = p.Naziv;
+                Opis = p.Opis;
+                VrstaOruzja = p.VrstaOruzja;
+                Pripada = p.Pripada;
+                MozeDaKoristi = p.MozeDaKoristi;
+                Igraci = p.Igraci;
+            }
+            else
+                throw new NullReferenceException();
         }
 
         public override object CreateOrUpdate(object input)
@@ -87,15 +92,20 @@ namespace SBP_Data.DTOs
 
         public OruzjeDTO(Oruzje o)
         {
-            base.EntityType = typeof(Oruzje);
-            ID = o.Id;
-            XpBonus = o.XpBonus;
-            Naziv = o.Naziv;
-            Opis = o.Opis;
-            VrstaOruzja = o.VrstaOruzja;
-            Pripada = o.Pripada;
-            MozeDaKoristi = o.MozeDaKoristi;
-            Igraci = o.Igraci;
+            if (o != null)
+            {
+                base.EntityType = typeof(Oruzje);
+                ID = o.Id;
+                XpBonus = o.XpBonus;
+                Naziv = o.Naziv;
+                Opis = o.Opis;
+                VrstaOruzja = o.VrstaOruzja;
+                Pripada = o.Pripada;
+                MozeDaKoristi = o.MozeDaKoristi;
+                Igraci = o.Igraci;
+            }
+            else
+                throw new NullReferenceException();
         }
 
         public override object CreateOrUpdate(object input)

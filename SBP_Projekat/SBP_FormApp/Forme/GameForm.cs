@@ -56,16 +56,19 @@ namespace SBP_Projekat.Forme
         private async Task DoQuest()
         {
             // Loading bar
-            object obj = new object();
             textBox1.Visible = true;
             await Task.Run(() =>
             {
                 for (var i = 0; i < 40; i++)
                 {
-                    // Mora da se zakljuca jer ako odustanes od kvesta i ugasi se forma i dalje moze da se desi da pokusa da upise ovo
-                    lock(obj)
+                    try
                     {
-                        textBox1.Text += "# ";
+                        label1.Invoke((MethodInvoker)(() => { textBox1.Text += "# "; }));
+                    }
+                    catch(InvalidOperationException)  
+                    {
+                        // Ukoliko se ugasi forma i izgubi se textBox1 baca ovaj exception ali nije bitno
+                        // Aplikacija nastavlja sa radom bez obzira na to
                     }
                     Thread.Sleep(500);
                 }

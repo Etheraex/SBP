@@ -33,18 +33,23 @@ namespace SBP_Data.DTOs
 
         public IgracDTO(Igrac i)
         {
-            base.EntityType = typeof(Igrac);
-            ID = i.Id;
-            Username = i.Username;
-            Password = i.Password;
-            Uzrast = i.Uzrast;
-            Nadimak = i.Nadimak;
-            Pol = i.Pol;
-            Ime = i.Ime;
-            Prezime = i.Prezime;
-            PripadaAlijansi = i.PripadaAlijansi;
-            Predmeti = i.Predmeti;
-            IspunjeniQuestiov = i.IspunjeniQuestiov;
+            if (i != null)
+            {
+                base.EntityType = typeof(Igrac);
+                ID = i.Id;
+                Username = i.Username;
+                Password = i.Password;
+                Uzrast = i.Uzrast;
+                Nadimak = i.Nadimak;
+                Pol = i.Pol;
+                Ime = i.Ime;
+                Prezime = i.Prezime;
+                PripadaAlijansi = i.PripadaAlijansi;
+                Predmeti = i.Predmeti;
+                IspunjeniQuestiov = i.IspunjeniQuestiov;
+            }
+            else
+                throw new NullReferenceException();
         }
 
         public override object CreateOrUpdate(object input )

@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.abstractPredmetDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.xpBonusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nazivDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.opisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vrstaOruzjaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.abstractPredmetDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.abstractPredmetDTOBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -57,10 +57,6 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(854, 142);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // abstractPredmetDTOBindingSource
-            // 
-            this.abstractPredmetDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.AbstractPredmetDTO);
             // 
             // xpBonusDataGridViewTextBoxColumn
             // 
@@ -96,12 +92,18 @@
             this.vrstaOruzjaDataGridViewTextBoxColumn.Name = "vrstaOruzjaDataGridViewTextBoxColumn";
             this.vrstaOruzjaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // abstractPredmetDTOBindingSource
+            // 
+            this.abstractPredmetDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.AbstractPredmetDTO);
+            // 
             // InventoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(963, 308);
             this.Controls.Add(this.dataGridView1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "InventoryForm";
             this.Text = "InventoryForm";
             this.Load += new System.EventHandler(this.InventoryForm_Load);

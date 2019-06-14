@@ -32,11 +32,16 @@ namespace SBP_Data.DTOs
 
         public VilenjakDTO(Vilenjak v)
         {
-            base.EntityType = typeof(Vilenjak);
-            ID = v.Id;
-            Koristi = v.Koristi;
-            NivoEnergije = v.NivoEnergije;
-            EntityType = typeof(Vilenjak);
+            if (v != null)
+            {
+                base.EntityType = typeof(Vilenjak);
+                ID = v.Id;
+                Koristi = v.Koristi;
+                NivoEnergije = v.NivoEnergije;
+                EntityType = typeof(Vilenjak);
+            }
+            else
+                throw new NullReferenceException();
         }
 
         public override object CreateOrUpdate(object input)
@@ -66,11 +71,16 @@ namespace SBP_Data.DTOs
 
         public OrkDTO(Ork o)
         {
-            base.EntityType = typeof(Ork);
-            ID = o.Id;
-            Koristi = o.Koristi;
-            Specijalizacija = o.Specijalizacija;
-            EntityType = typeof(Ork);
+            if (o != null)
+            {
+                base.EntityType = typeof(Ork);
+                ID = o.Id;
+                Koristi = o.Koristi;
+                Specijalizacija = o.Specijalizacija;
+                EntityType = typeof(Ork);
+            }
+            else
+                throw new NullReferenceException();
         }
 
         public override object CreateOrUpdate(object input)
@@ -99,11 +109,16 @@ namespace SBP_Data.DTOs
 
         public CovekDTO(Covek c)
         {
-            base.EntityType = typeof(Covek);
-            ID = c.Id;
-            Koristi = c.Koristi;
-            UmesnostUSkrivanju = c.UmesnostUSkrivanju;
-            EntityType = typeof(Covek);
+            if (c != null)
+            {
+                base.EntityType = typeof(Covek);
+                ID = c.Id;
+                Koristi = c.Koristi;
+                UmesnostUSkrivanju = c.UmesnostUSkrivanju;
+                EntityType = typeof(Covek);
+            }
+            else
+                throw new NullReferenceException();
         }
 
         public override object CreateOrUpdate(object input)
@@ -132,11 +147,16 @@ namespace SBP_Data.DTOs
 
         public DemonDTO(Demon d)
         {
-            base.EntityType = typeof(Demon);
-            ID = d.Id;
-            Koristi = d.Koristi;
-            NivoEnergije = d.NivoEnergije;
-            EntityType = typeof(Demon);
+            if (d != null)
+            {
+                base.EntityType = typeof(Demon);
+                ID = d.Id;
+                Koristi = d.Koristi;
+                NivoEnergije = d.NivoEnergije;
+                EntityType = typeof(Demon);
+            }
+            else
+                throw new NullReferenceException();
         }
 
         public override object CreateOrUpdate(object input)
@@ -165,11 +185,16 @@ namespace SBP_Data.DTOs
 
         public PatuljakDTO(Patuljak p)
         {
-            base.EntityType = typeof(Patuljak);
-            ID = p.Id;
-            Koristi = p.Koristi;
-            Specijalizacija = p.Specijalizacija;
-            EntityType = typeof(Patuljak);
+            if (p != null)
+            {
+                base.EntityType = typeof(Patuljak);
+                ID = p.Id;
+                Koristi = p.Koristi;
+                Specijalizacija = p.Specijalizacija;
+                EntityType = typeof(Patuljak);
+            }
+            else
+                throw new NullReferenceException();
         }
         public override object CreateOrUpdate(object input)
         {
