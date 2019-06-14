@@ -104,6 +104,11 @@ namespace SBP_Projekat.Forme
         {
             if (!IsActive("QuestForm"))
             {
+                if (_character == null)
+                {
+                    MessageBox.Show("Niste izabrali lika");
+                    return;
+                }
                 var temp = new QuestForm(_igrac, this);
                 temp.Show();
             }

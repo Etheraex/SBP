@@ -20,6 +20,7 @@ namespace SBP_Projekat.Forme
     public partial class InventoryForm : Form
     {
         private IgracDTO _igrac { get; set; }
+        private List<AbstractPredmetDTO> _predmeti;
         public InventoryForm(IgracDTO q, Form parent)
         {
             this.MdiParent = parent;
@@ -27,10 +28,29 @@ namespace SBP_Projekat.Forme
             InitializeComponent();
         }
 
-        private void InventoryForm_Load(object sender, EventArgs e)
+        public void LoadData()
         {
             var tmp = DTOManager.Instance.VratiListuPredmeta(_igrac.ID);
-            dataGridView1.DataSource = tmp;
+            _predmeti = tmp;
+            dgv_items.DataSource = tmp;
+        }
+
+        private void InventoryForm_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void cmd_izbaci_Click(object sender, EventArgs e)
+        {
+            int ind = dgv_items.CurrentCell.RowIndex;
+
+            for (int i = 0; i < _igrac.Predmeti.Count; i++)
+            {
+                if (_igrac.Predmeti[i].Id == _predmeti[ind].ID)
+                    _igrac.Predmeti.RemoveAt(i);
+            }
+            DTOManager.Instance.UpdateEntity(_igrac);
+            LoadData();
         }
     }
 }

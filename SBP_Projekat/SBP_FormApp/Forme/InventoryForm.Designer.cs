@@ -29,34 +29,35 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_items = new System.Windows.Forms.DataGridView();
             this.xpBonusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nazivDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.opisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vrstaOruzjaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.abstractPredmetDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.cmd_izbaci = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_items)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.abstractPredmetDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgv_items
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_items.AllowUserToAddRows = false;
+            this.dgv_items.AllowUserToDeleteRows = false;
+            this.dgv_items.AllowUserToOrderColumns = true;
+            this.dgv_items.AutoGenerateColumns = false;
+            this.dgv_items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_items.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.xpBonusDataGridViewTextBoxColumn,
             this.nazivDataGridViewTextBoxColumn,
             this.opisDataGridViewTextBoxColumn,
             this.vrstaOruzjaDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.abstractPredmetDTOBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(854, 142);
-            this.dataGridView1.TabIndex = 0;
+            this.dgv_items.DataSource = this.abstractPredmetDTOBindingSource;
+            this.dgv_items.Location = new System.Drawing.Point(12, 12);
+            this.dgv_items.Name = "dgv_items";
+            this.dgv_items.ReadOnly = true;
+            this.dgv_items.Size = new System.Drawing.Size(854, 142);
+            this.dgv_items.TabIndex = 0;
             // 
             // xpBonusDataGridViewTextBoxColumn
             // 
@@ -96,18 +97,32 @@
             // 
             this.abstractPredmetDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.AbstractPredmetDTO);
             // 
+            // cmd_izbaci
+            // 
+            this.cmd_izbaci.BackColor = System.Drawing.Color.LightGray;
+            this.cmd_izbaci.FlatAppearance.BorderSize = 0;
+            this.cmd_izbaci.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmd_izbaci.Location = new System.Drawing.Point(12, 169);
+            this.cmd_izbaci.Name = "cmd_izbaci";
+            this.cmd_izbaci.Size = new System.Drawing.Size(127, 33);
+            this.cmd_izbaci.TabIndex = 4;
+            this.cmd_izbaci.Text = "Izbaci predmet";
+            this.cmd_izbaci.UseVisualStyleBackColor = false;
+            this.cmd_izbaci.Click += new System.EventHandler(this.cmd_izbaci_Click);
+            // 
             // InventoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(963, 308);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.cmd_izbaci);
+            this.Controls.Add(this.dgv_items);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "InventoryForm";
             this.Text = "InventoryForm";
             this.Load += new System.EventHandler(this.InventoryForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_items)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.abstractPredmetDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -115,11 +130,12 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_items;
         private System.Windows.Forms.BindingSource abstractPredmetDTOBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn xpBonusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nazivDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn opisDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vrstaOruzjaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button cmd_izbaci;
     }
 }

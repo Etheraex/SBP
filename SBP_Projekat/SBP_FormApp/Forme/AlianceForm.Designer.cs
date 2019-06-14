@@ -40,6 +40,7 @@
             this.lAlijansa = new System.Windows.Forms.Label();
             this.btnLeave = new System.Windows.Forms.Button();
             this.btnJoin = new System.Windows.Forms.Button();
+            this.cmd_create_aliance = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlijanse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alijansaDTOBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -168,11 +169,25 @@
             this.btnJoin.UseVisualStyleBackColor = false;
             this.btnJoin.Click += new System.EventHandler(this.cmd_Join_Click);
             // 
+            // cmd_create_aliance
+            // 
+            this.cmd_create_aliance.BackColor = System.Drawing.Color.LightGray;
+            this.cmd_create_aliance.FlatAppearance.BorderSize = 0;
+            this.cmd_create_aliance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmd_create_aliance.Location = new System.Drawing.Point(219, 175);
+            this.cmd_create_aliance.Name = "cmd_create_aliance";
+            this.cmd_create_aliance.Size = new System.Drawing.Size(122, 23);
+            this.cmd_create_aliance.TabIndex = 4;
+            this.cmd_create_aliance.Text = "Napravi novu alijansu";
+            this.cmd_create_aliance.UseVisualStyleBackColor = false;
+            this.cmd_create_aliance.Click += new System.EventHandler(this.cmd_create_aliance_Click);
+            // 
             // AlianceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(693, 219);
+            this.Controls.Add(this.cmd_create_aliance);
             this.Controls.Add(this.btnJoin);
             this.Controls.Add(this.btnLeave);
             this.Controls.Add(this.lAlijansa);
@@ -206,5 +221,6 @@
         private System.Windows.Forms.Label lAlijansa;
         private System.Windows.Forms.Button btnLeave;
         private System.Windows.Forms.Button btnJoin;
+        private System.Windows.Forms.Button cmd_create_aliance;
     }
 }

@@ -89,6 +89,12 @@
     <Compile Include="Forme\CharacterSelectionForm.Designer.cs">
       <DependentUpon>CharacterSelectionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forme\CreateAlianceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\CreateAlianceForm.Designer.cs">
+      <DependentUpon>CreateAlianceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\GameForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\CharacterSelectionForm.resx">
       <DependentUpon>CharacterSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\CreateAlianceForm.resx">
+      <DependentUpon>CreateAlianceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\GameForm.resx">
       <DependentUpon>GameForm.cs</DependentUpon>

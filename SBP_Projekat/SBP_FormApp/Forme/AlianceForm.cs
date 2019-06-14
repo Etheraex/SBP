@@ -51,6 +51,7 @@ namespace SBP_Projekat.Forme
                         }));
                     });
         }
+
         private void cmd_Join_Click(object sender, EventArgs e)
         {
             var newAlijansa=DTOManager.Instance.GetEntityById<AlijansaDTO,Alijansa>(dgvAlijanse.CurrentCell.RowIndex+1);
@@ -63,7 +64,19 @@ namespace SBP_Projekat.Forme
         {
             _igrac.PripadaAlijansi = null;
             DTOManager.Instance.UpdateEntity(_igrac);
+            cur = null;
             LoadInfo();
+        }
+
+        private void cmd_create_aliance_Click(object sender, EventArgs e)
+        {
+            if(cur != null)
+            {
+                MessageBox.Show("Vec se nalazite u alijansi i nemozete da napravite novu");
+                return;
+            }
+            var tmp = new CreateAlianceForm(MdiParent);
+            tmp.Show();
         }
     }
 }
