@@ -142,6 +142,9 @@
     <EmbeddedResource Include="Forme\AlianceForm.resx">
       <DependentUpon>AlianceForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forme\ApprenticeForm.resx">
+      <DependentUpon>ApprenticeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\CharacterSelectionForm.resx">
       <DependentUpon>CharacterSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,6 +184,7 @@
     <None Include="Properties\DataSources\SBP_Data.DTOs.AlijansaDTO.datasource" />
     <None Include="Properties\DataSources\SBP_Data.DTOs.LikDTO.datasource" />
     <None Include="Properties\DataSources\SBP_Data.DTOs.QuestDTO.datasource" />
+    <None Include="Properties\DataSources\SBP_Data.DTOs.SegrtDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
