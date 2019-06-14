@@ -47,12 +47,11 @@ namespace SBP_Projekat.Forme
         }
         #endregion
 
-
-        #region DropMenu
+        #region AdditionalMethods
 
         private void cmd_fullScreen_Click(object sender, EventArgs e)
         {
-            this.WindowState = (this.WindowState ==  FormWindowState.Maximized)?FormWindowState.Normal:FormWindowState.Maximized;
+            this.WindowState = (this.WindowState == FormWindowState.Maximized) ? FormWindowState.Normal : FormWindowState.Maximized;
         }
 
         private void cmd_minimize_Click(object sender, EventArgs e)
@@ -60,34 +59,62 @@ namespace SBP_Projekat.Forme
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private bool IsActive(string name)
+        {
+            bool active = false;
+            foreach (Form c in this.MdiChildren)
+                if (c.Name == name) 
+                    active = true;
+            return active;
+        }
+
+        #endregion
+
+        #region DropMenu
+
         private void mojProfilToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var temp = new ProfileForm(_igrac, this);
-            temp.Show();
+            if(!IsActive("ProfileForm"))
+            {
+                var temp = new ProfileForm(_igrac, this);
+                temp.Show();
+            }
         }
 
         private void izborKarakteraToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var temp = new CharacterSelectionForm(_igrac, this);
-            temp.Show();
+            if (!IsActive("CharacterSelectionForm"))
+            {
+                var temp = new CharacterSelectionForm(_igrac, this);
+                temp.Show();
+            }
         }
 
         private void alijanseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var temp = new AlianceForm(_igrac, this);
-            temp.Show();
+            if (!IsActive("AlianceForm"))
+            {
+                var temp = new AlianceForm(_igrac, this);
+                temp.Show();
+            }
         }
 
         private void kuestoviToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var temp = new QuestForm(_igrac, this);
-            temp.Show();
+            if (!IsActive("QuestForm"))
+            {
+                var temp = new QuestForm(_igrac, this);
+                temp.Show();
+            }
         }
 
         private void inventarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var temp = new InventoryForm(_igrac, this);
-            temp.Show();
+            if (!IsActive("InventoryForm"))
+            {
+                var temp = new InventoryForm(_igrac, this);
+                temp.Show();
+            }
         }
         #endregion
 
