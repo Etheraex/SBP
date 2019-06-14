@@ -20,7 +20,8 @@ namespace SBP_Projekat.Forme
     {
         private IgracDTO _igrac;
         private List<LikDTO> _listaLikova;
-        public LikDTO Character { get; set; }
+        private SesijaDTO _sesija;
+        private LikDTO _character;
 
         public MainForm()
         {
@@ -43,6 +44,7 @@ namespace SBP_Projekat.Forme
         #region Dugmici
         private void cmd_logout_Click(object sender, EventArgs e)
         {
+            this.CloseSession();
             Application.Exit();
         }
         #endregion
@@ -116,19 +118,35 @@ namespace SBP_Projekat.Forme
                 temp.Show();
             }
         }
+        private void segrtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!IsActive("ApprenticeForm"))
+            {
+                var temp = new ApprenticeForm(_igrac, this);
+                temp.Show();
+            }
+        }
         #endregion
 
 
-        //private void cmd_zapocni_igru_Click(object sender, EventArgs e)
-        //{
-        //    int index = lb_likovi.SelectedIndex;
-        //    if (_listaLikova == null || index == -1)
-        //        MessageBox.Show("Niste izabrali lika");
-        //    else
-        //    {
-        //        //MessageBox.Show("izabrali ste lika: " + _listaLikova[index].ToString());
-        //        DTOManager.Instance.zapocniSesiju(_listaLikova[index], _igrac);
-        //    }
-        //}
+        public void startSeasson(LikDTO lik)
+        {
+            if (lik == null)
+                MessageBox.Show("Niste izabrali lika");
+            else
+            {
+                _sesija = DTOManager.Instance.ZapocniSesiju(lik, _igrac);
+                _character = lik;
+            }
+        }
+        public void CloseSession()
+        {
+            if (_sesija != null)
+            {
+                DTOManager.Instance.CloseSession(_sesija);
+            }
+        }
+
+
     }
 }

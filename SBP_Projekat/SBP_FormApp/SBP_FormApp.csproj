@@ -77,6 +77,12 @@
     <Compile Include="Forme\AlianceForm.Designer.cs">
       <DependentUpon>AlianceForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forme\ApprenticeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\ApprenticeForm.Designer.cs">
+      <DependentUpon>ApprenticeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\CharacterSelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
