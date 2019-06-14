@@ -57,9 +57,14 @@ namespace SBP_Projekat.Forme
 
             if (ind != -1)
             {
-                var temp = new GameForm(_igrac, this.MdiParent);
+                var temp = new GameForm(_igrac, this.MdiParent, ind+1);
                 temp.Show();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Surprise motherfucker");
         }
     }
 }
