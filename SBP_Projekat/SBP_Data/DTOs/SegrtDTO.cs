@@ -16,7 +16,7 @@ namespace SBP_Data.DTOs
 
         public SegrtDTO()
         {
-
+            base.EntityType = typeof(Segrt);
         }
 
         public override string ToString()

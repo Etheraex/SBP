@@ -217,9 +217,12 @@ namespace SBP_Data
                 segrt = s.Query<Segrt>()
                     .FirstOrDefault(x => x.Lik.Id == id);
             }
-
-            var segrtDTO = new SegrtDTO(segrt);
-            return segrtDTO;
+            if (segrt != null)
+            {
+                var segrtDTO = new SegrtDTO(segrt);
+                return segrtDTO;
+            }
+          return null;
         }
 
         private static DTOManager _instance;

@@ -56,9 +56,8 @@ namespace SBP_Projekat.Forme
                 return;
             }
             var tmp = new RecruitApprenticeForm(MdiParent,_lik);
-            var result = tmp.ShowDialog();
-            if (result == DialogResult.OK)
-                PrikaziSegrta();
+             tmp.Show();
+            
         }
     }
 }

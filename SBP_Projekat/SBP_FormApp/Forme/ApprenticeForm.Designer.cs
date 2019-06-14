@@ -37,11 +37,9 @@
             this.segrtDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.cmd_odbaci = new System.Windows.Forms.Button();
-            this.segrtDTOBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.cmd_recruit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_my_apprentice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.segrtDTOBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.segrtDTOBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgv_my_apprentice
@@ -113,10 +111,6 @@
             this.cmd_odbaci.UseVisualStyleBackColor = true;
             this.cmd_odbaci.Click += new System.EventHandler(this.cmd_odbaci_Click);
             // 
-            // segrtDTOBindingSource1
-            // 
-            this.segrtDTOBindingSource1.DataSource = typeof(SBP_Data.DTOs.SegrtDTO);
-            // 
             // cmd_recruit
             // 
             this.cmd_recruit.Location = new System.Drawing.Point(497, 96);
@@ -141,7 +135,6 @@
             this.Load += new System.EventHandler(this.ApprenticeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_my_apprentice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.segrtDTOBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.segrtDTOBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,7 +148,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn bonusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rasaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn likDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource segrtDTOBindingSource1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button cmd_odbaci;
         private System.Windows.Forms.Button cmd_recruit;
