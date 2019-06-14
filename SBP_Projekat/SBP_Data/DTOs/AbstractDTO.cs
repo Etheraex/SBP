@@ -8,7 +8,7 @@ namespace SBP_Data.DTOs
 {
     public abstract class AbstractDTO
     {
-        public Type EntityType { get; protected  set; }
+        public Type EntityType { get; set; }
         public abstract object CreateOrUpdate(object input = null);
         public int ID { get; set; }
 

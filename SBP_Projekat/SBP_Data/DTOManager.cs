@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SBP_Data.DTOs;
 using SBP_Data.Models;
+using System.Reflection;
 
 #pragma warning disable CS0618
 
@@ -56,7 +57,11 @@ namespace SBP_Data
         {
             using (ISession s = DataLayer.Session)
             {
-                s.Save(obj.CreateOrUpdate());
+                Type tip = obj.EntityType;
+                var temp = obj.CreateOrUpdate();
+                s.Save(temp);
+                PropertyInfo info = tip.GetProperty("Id");
+                obj.ID = (int)info.GetValue(temp);
             }
         }
 
@@ -121,7 +126,7 @@ namespace SBP_Data
             return tmp;
         }
 
-        public void ZapocniSesiju(LikDTO lik, IgracDTO igrac)
+        public SesijaDTO ZapocniSesiju(LikDTO lik, IgracDTO igrac)
         {
             SesijaDTO novaSesija = new SesijaDTO
             {
@@ -129,9 +134,21 @@ namespace SBP_Data
                 Lik = this.GetEntityById<LikDTO, Lik>(lik.ID),
                 Gold = 0,
                 VremePocetka = DateTime.Now.ToString(),
-                ZaradjeniXP = 0
+                ZaradjeniXP = 0,
+                EntityType = typeof(Sesija)
             };
+            
             this.SaveEntity(novaSesija);
+            return novaSesija;
+        }
+
+        public void CloseSession(SesijaDTO session)
+        {
+            if(session != null)
+            {
+                session.VremeKraja = DateTime.Now.ToString();
+                this.UpdateEntity(session);
+            }
         }
 
         public List<QuestDTO> VratiListuQuestova()

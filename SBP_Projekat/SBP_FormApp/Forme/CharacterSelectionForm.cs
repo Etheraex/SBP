@@ -16,10 +16,12 @@ namespace SBP_Projekat.Forme
     {
         IgracDTO _igrac;
         List<LikDTO> _likovi;
+        MainForm _parent;
         public CharacterSelectionForm(IgracDTO igrac , Form parent)
         {
             InitializeComponent();
-            this.MdiParent = parent;    
+            this.MdiParent = parent;
+            _parent = (MainForm)parent;
             _igrac = igrac;
             this.UpdateList();
         }
@@ -45,7 +47,8 @@ namespace SBP_Projekat.Forme
             }
             else
             {
-                ((MainForm)this.MdiParent).Character = _likovi[index];
+                _parent.CloseSession();
+                _parent.startSeasson(_likovi[index]);
                 this.Close();
             }
         }
@@ -63,5 +66,7 @@ namespace SBP_Projekat.Forme
                 this.UpdateList();
             }
         }
+
+        
     }
 }
