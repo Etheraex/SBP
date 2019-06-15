@@ -130,6 +130,9 @@ namespace SBP_Projekat.Forme
                 DTOManager.Instance.SaveEntity(ispunjava);
             }
             int xpGain = DTOManager.Instance.GetDTOById<QuestDTO>(quest.Id).XpGain;//ovo je malo retardirano al zato mora jer nam getEntityById u sustini ne vraca nisa sem ID
+            PredmetDTO predemt = DTOManager.Instance.GiveRandomItem(_igrac);
+            if (predemt != null)
+                MessageBox.Show("dobili ste : " + predemt.Naziv);
             ((MainForm)this.MdiParent).QuestResults(xpGain, 100, 10);
             this.Close();
         }
