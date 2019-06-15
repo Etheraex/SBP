@@ -17,6 +17,7 @@ namespace SBP_Projekat.Forme
     {
         IgracDTO _igrac;
         AlijansaDTO cur;
+        private List<AlijansaDTO> alijanse = new List<AlijansaDTO>();
         public AlianceForm(IgracDTO igrac,Form parent)
         {
             InitializeComponent();
@@ -45,7 +46,8 @@ namespace SBP_Projekat.Forme
                     {
                         dgvAlijanse.Invoke((MethodInvoker)(() =>
                         {
-                            dgvAlijanse.DataSource = DTOManager.Instance.GetDTOList<AlijansaDTO, Alijansa>();
+                            alijanse = DTOManager.Instance.GetDTOList<AlijansaDTO, Alijansa>();
+                            dgvAlijanse.DataSource = alijanse;
                         }));
               
                         lAlijansa.Invoke((MethodInvoker)(() =>
@@ -64,7 +66,7 @@ namespace SBP_Projekat.Forme
 
         private void cmd_Join_Click(object sender, EventArgs e)
         {
-            var newAlijansa=DTOManager.Instance.GetEntityById<AlijansaDTO,Alijansa>(dgvAlijanse.CurrentCell.RowIndex+1);
+            var newAlijansa=DTOManager.Instance.GetEntityById<AlijansaDTO,Alijansa>(alijanse[dgvAlijanse.CurrentCell.RowIndex].ID);
             _igrac.PripadaAlijansi = newAlijansa;
             DTOManager.Instance.UpdateEntity(_igrac);
             LoadInfo();
