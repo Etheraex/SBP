@@ -43,8 +43,8 @@ namespace SBP_Projekat.Forme
         private void cmd_izbaci_Click(object sender, EventArgs e)
         {
             int ind = dgv_items.CurrentCell.RowIndex;
-
-            DTOManager.Instance.RemoveItemFromPlayer(_predmeti[ind].ID, _igrac.ID);
+            int[] IDs = { _predmeti[ind].ID };
+            DTOManager.Instance.RemoveItemsFromPlayer(IDs, _igrac.ID);
             LoadData();
         }
     }

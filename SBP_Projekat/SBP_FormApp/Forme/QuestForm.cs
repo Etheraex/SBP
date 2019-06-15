@@ -77,6 +77,7 @@ namespace SBP_Projekat.Forme
                 {
                     if (this.checkForRequiredItem(ind + 1))
                     {
+                        DTOManager.Instance.removeQuestItemFromPlayer(ind + 1, _igrac.ID);
                         var temp = new GameForm(_igrac, this.MdiParent, ind + 1, saAlijansom);
                         temp.Show();
                     }

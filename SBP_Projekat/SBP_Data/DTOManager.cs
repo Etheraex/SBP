@@ -158,7 +158,7 @@ namespace SBP_Data
             }
         }
 
-        public void RemoveItemFromPlayer(int predemtID, int igracID)
+        public void RemoveItemsFromPlayer(int[] predemtIDs, int igracID)
         {
             using (ISession s = DataLayer.Session)
             {
@@ -166,10 +166,24 @@ namespace SBP_Data
                     .Fetch(x => x.Predmeti).Eager
                     .Where(x => x.Id == igracID)
                     .SingleOrDefault();
-                tmp.Predmeti.Remove(tmp.Predmeti.Where(x => x.Id == predemtID).FirstOrDefault());
+                foreach (int id in predemtIDs)
+                {
+                    tmp.Predmeti.Remove(tmp.Predmeti.Where(x => x.Id == id).FirstOrDefault());
+                }
                 s.SaveOrUpdate(tmp);
                 s.Flush();
             }
+        }
+        public void removeQuestItemFromPlayer(int questID , int igracID)
+        {
+            List<AbstractPredmetDTO> predmeti =  this.VratiListuPredmetaZaKvest(questID);
+            List<int> IDs = new List<int>();
+            foreach (AbstractPredmetDTO predmet in predmeti )
+            {
+                IDs.Add(predmet.ID);
+            }
+            this.RemoveItemsFromPlayer(IDs.ToArray(), igracID);
+
         }
 
         public PredmetDTO GiveRandomItem(IgracDTO igrac)
@@ -406,7 +420,13 @@ namespace SBP_Data
             List<AbstractPredmetDTO> predmetiQuesta = VratiListuPredmetaZaKvest(questiID);
             foreach (AbstractPredmetDTO predmet in predmetiQuesta)
             {
-                if (!predmetiIgraca.Contains(predmet))
+                bool igracIma = false;
+                foreach (AbstractPredmetDTO item in predmetiIgraca)
+                {
+                    if (item.ID == predmet.ID)
+                        igracIma = true;
+                }
+                if (!igracIma)
                     igracNema.Add(predmet);
             }
             return igracNema;
