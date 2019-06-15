@@ -196,7 +196,7 @@ namespace SBP_Data
             using (ISession s = DataLayer.Session)
             {
                 tmp = s.Query<AbstractPredmet>()
-                                .Where(x=>x.Pripada.Id == id)
+                                .Where(x => x.Pripada.Id == id)
                                 .ToList();
             }
             var temp = new List<AbstractPredmetDTO>();
@@ -208,18 +208,18 @@ namespace SBP_Data
                     if (p.GetType() == typeof(Predmet))
                     {
                         var predmet = p as Predmet;
-                        if(predmet != null)
+                        if (predmet != null)
                             temp.Add(new PredmetDTO(predmet));
                     }
                     else
                     {
                         var oruzje = p as Oruzje;
-                        if(oruzje != null)
+                        if (oruzje != null)
                             temp.Add(new OruzjeDTO(oruzje));
                     }
                 }
             }
-            catch(NullReferenceException)
+            catch (NullReferenceException)
             {
                 throw new NullReferenceException(message: "DTOManager.VratiListuPredmetaZaKvest: Neuspesno prebacivanje iz Predmet u PredmetDTO");
             }
@@ -262,6 +262,19 @@ namespace SBP_Data
             }
 
             return tmp;
+        }
+
+        public List<AbstractPredmetDTO> ZadatakPredmetProvera(IgracDTO igrac,int questiID) //glupo ime znam ako hocete izmenite 
+        {
+            List<AbstractPredmetDTO> igracNema = new List<AbstractPredmetDTO>();
+            List<AbstractPredmetDTO> predmetiIgraca = VratiListuPredmeta(igrac.ID);
+            List<AbstractPredmetDTO> predmetiQuesta = VratiListuPredmetaZaKvest(questiID);
+            foreach (AbstractPredmetDTO predmet in predmetiQuesta)
+            {
+                if (!predmetiIgraca.Contains(predmet))
+                    igracNema.Add(predmet);
+            }
+            return igracNema;
         }
         
         public SegrtDTO GetApprentice(int id)

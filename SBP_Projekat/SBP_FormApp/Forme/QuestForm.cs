@@ -57,14 +57,34 @@ namespace SBP_Projekat.Forme
 
             if (ind != -1)
             {
-                var temp = new GameForm(_igrac, this.MdiParent, ind+1);
-                temp.Show();
+                if (this.checkForRequiredItem(ind + 1))
+                {
+                    var temp = new GameForm(_igrac, this.MdiParent, ind + 1);
+                    temp.Show();
+                }
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Surprise motherfucker");
+        }
+
+        private bool checkForRequiredItem(int questID)
+        {
+            List<AbstractPredmetDTO> potrbniPredmeti = DTOManager.Instance.ZadatakPredmetProvera(_igrac, questID);
+            if(potrbniPredmeti.Count > 0)
+            {
+                String potrebni = "Nedostaju vam sledeci predmeti:\n";
+                int i = 0;
+                foreach (AbstractPredmetDTO predmet in potrbniPredmeti)
+                {
+                    potrebni += i++ +")\t" + predmet.Naziv + "\n";
+                }
+                MessageBox.Show(potrebni);
+                return false;
+            }
+            return true;
         }
     }
 }
