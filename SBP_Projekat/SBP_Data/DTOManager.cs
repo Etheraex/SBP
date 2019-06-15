@@ -76,23 +76,23 @@ namespace SBP_Data
             return listDTO;
         }
 
-        public int GetCurrentSessions()
+        public async Task<int> GetCurrentSessions()
         {
             int retval = 0; ;
             using (ISession s = DataLayer.Session)
             {
-               retval = s.QueryOver<Sesija>()
+               retval = await s.QueryOver<Sesija>()
                     .Fetch(x => x.Igrac).Eager
                     .Fetch(x => x.Lik).Eager
                     .Fetch(x => x.Lik.Rasa).Eager
-                    .Where(x=>x.VremeKraja==null)
-                    .RowCount();
+                    .Where(x => x.VremeKraja == null)
+                    .RowCountAsync();
             }
 
             return retval;
         }
 
-        public List<SesijaDTO> GetAllSessions()
+        public List<SesijaDTO> GetSessions(int page)
         {
             var listDTO = new List<SesijaDTO>();
             IList<Sesija> list = new List<Sesija>();
@@ -101,7 +101,7 @@ namespace SBP_Data
                 list = s.QueryOver<Sesija>()
                     .Fetch(x => x.Igrac).Eager
                     .Fetch(x => x.Lik).Eager
-                    .Fetch(x => x.Lik.Rasa).Eager
+                    .Fetch(x => x.Lik.Rasa).Eager.Skip(page * 10).Take(10)
                     .List();
             }
             foreach (var s in list)
