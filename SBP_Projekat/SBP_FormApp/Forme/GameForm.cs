@@ -20,11 +20,12 @@ namespace SBP_Projekat.Forme
         private List<int> _brojevi;
         private int _dobijeniZadatak;
         private int _questID;
-
-        public GameForm(IgracDTO igrac, Form f, int questID)
+        private bool _saAlijansom;
+        public GameForm(IgracDTO igrac, Form f, int questID, Boolean saAlijansom)
         {
             InitializeComponent();
             _igrac = igrac;
+            _saAlijansom = saAlijansom;
             textBox1.Visible = false;
             MdiParent = f;
             cmd_finish.Visible = false;
@@ -108,8 +109,18 @@ namespace SBP_Projekat.Forme
             // Za prvi zadatak dugme se pojavi tek kad se napuni progress bar tako da uvek je uspesno zavrsen quest kada se klikne ovo dugme
             MessageBox.Show("Tacno ste uradili");
             var tmp = DTOManager.Instance.GetEntityById<QuestDTO, Quest>(_questID);
-            _igrac.IspunjeniQuestiov.Add(tmp);
-            DTOManager.Instance.UpdateEntity(_igrac);
+            if (_saAlijansom)
+            {
+                //AlijansaDTO alijansa = DTOManager.Instance.GetDTOById<AlijansaDTO>(_igrac.PripadaAlijansi.Id);
+                AlijansaDTO alijansa = DTOManager.Instance.VratiAlijansuSaQuestovima(_igrac.PripadaAlijansi.Id);
+                alijansa.IspunjeniQuestiovi.Add(tmp);
+                DTOManager.Instance.UpdateEntity(alijansa);
+            }
+            else
+            {
+                _igrac.IspunjeniQuestiov.Add(tmp);
+                DTOManager.Instance.UpdateEntity(_igrac);
+            }
 
             this.Close();
         }

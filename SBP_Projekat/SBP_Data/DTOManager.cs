@@ -167,6 +167,18 @@ namespace SBP_Data
             }
         }
 
+        public AlijansaDTO VratiAlijansuSaQuestovima(int alijansaID)
+        {
+            using (ISession s = DataLayer.Session)
+            {
+                var t = s.QueryOver<Alijansa>()
+                    .Fetch(a => a.IspunjeniQuestiovi).Eager
+                    .Where(a => a.Id == alijansaID)
+                    .SingleOrDefault();
+                return new AlijansaDTO(t);
+            }
+        }
+
         public List<QuestDTO> VratiListuQuestova()
         {
             var Quests = new List<Quest>();

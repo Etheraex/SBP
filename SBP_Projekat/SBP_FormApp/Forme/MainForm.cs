@@ -29,6 +29,7 @@ namespace SBP_Projekat.Forme
             if (tmp == DialogResult.OK)
             {
                 InitializeComponent();
+                izborKarakteraToolStripMenuItem_Click(null, null);
             }
             else
                 Application.Exit();

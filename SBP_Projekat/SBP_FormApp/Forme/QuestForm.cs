@@ -30,6 +30,9 @@ namespace SBP_Projekat.Forme
         private void QuestForm_Load(object sender, EventArgs e)
         {
             dgv_quest.DataSource = DTOManager.Instance.VratiListuQuestova();
+            if (_igrac.PripadaAlijansi == null)
+                cmd_saAlijansom.Enabled = false;
+
         }
 
         private void cmd_questItems_Click(object sender, EventArgs e)
@@ -53,21 +56,26 @@ namespace SBP_Projekat.Forme
 
         private void cmd_odradi_quest_Click(object sender, EventArgs e)
         {
+            zapocniZadatak(false);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            zapocniZadatak(true);
+        }
+
+        private void zapocniZadatak(bool saAlijansom)
+        {
             int ind = dgv_quest.CurrentCell.RowIndex;
 
             if (ind != -1)
             {
                 if (this.checkForRequiredItem(ind + 1))
                 {
-                    var temp = new GameForm(_igrac, this.MdiParent, ind + 1);
+                    var temp = new GameForm(_igrac, this.MdiParent, ind + 1,saAlijansom);
                     temp.Show();
                 }
             }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Surprise motherfucker");
         }
 
         private bool checkForRequiredItem(int questID)
