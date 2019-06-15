@@ -157,6 +157,43 @@ namespace SBP_Data
                 s.Close();
             }
         }
+
+        public PredmetDTO GiveRandomItem(IgracDTO igrac)
+        {
+            Predmet rndPredmet;
+            using (ISession s = DataLayer.Session)
+            {
+                rndPredmet = getRandomItem();
+                Igrac tmp = s.QueryOver<Igrac>()
+                    .Fetch(x => x.Predmeti).Eager
+                    .Where(x => x.Id == igrac.ID)
+                    .SingleOrDefault();
+                tmp.Predmeti.Add(rndPredmet);
+                s.SaveOrUpdate(tmp);
+                s.Flush();
+            }
+            return new PredmetDTO(rndPredmet);
+        }
+
+        private Predmet getRandomItem()
+        {
+            using (ISession s = DataLayer.Session)
+            {
+                var query =
+                "SELECT * " +
+                "FROM ( " +
+                    "SELECT * " +
+                    "FROM   PREDMET " +
+                    "ORDER BY DBMS_RANDOM.VALUE) " +
+                "WHERE rownum< 2";
+
+                ISQLQuery qry = s.CreateSQLQuery(query).AddEntity(typeof(Predmet));
+                Predmet rndPredmet = qry.List<Predmet>().FirstOrDefault();
+                return rndPredmet;
+            }
+
+        }
+
         public int LogIn(string username, string password, out IgracDTO igrac)
         {
             Igrac tmp;
