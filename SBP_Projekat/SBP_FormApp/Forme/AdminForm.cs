@@ -30,7 +30,8 @@ namespace SBP_Projekat.Forme
 
         private void raseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            var temp = new RaseForm();
+            temp.Show();
         }
 
         private void predmetiToolStripMenuItem_Click(object sender, EventArgs e)
@@ -38,6 +39,7 @@ namespace SBP_Projekat.Forme
             dgv_predmeti.Visible = true;
             var tmp = DTOManager.Instance.GetAllItems();
             dgv_predmeti.DataSource = tmp;
+            button4.Visible = true;
         }
         private void LoadSessionData()
         {
@@ -81,6 +83,12 @@ namespace SBP_Projekat.Forme
             if (_page == 0)
                 button2.Visible = false;
             LoadSessionData();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var temp = new AddItemForm();
+            temp.Show();
         }
     }
 }

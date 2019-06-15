@@ -71,6 +71,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forme\AddItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\AddItemForm.Designer.cs">
+      <DependentUpon>AddItemForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,12 @@
     <Compile Include="Forme\QuestForm.Designer.cs">
       <DependentUpon>QuestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forme\RaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\RaseForm.Designer.cs">
+      <DependentUpon>RaseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\RecruitApprenticeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +169,9 @@
     <Compile Include="Forme\WelcomeForm.Designer.cs">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forme\AddItemForm.resx">
+      <DependentUpon>AddItemForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\QuestForm.resx">
       <DependentUpon>QuestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\RaseForm.resx">
+      <DependentUpon>RaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\RecruitApprenticeForm.resx">
       <DependentUpon>RecruitApprenticeForm.cs</DependentUpon>
