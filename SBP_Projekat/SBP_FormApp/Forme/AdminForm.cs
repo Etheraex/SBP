@@ -13,6 +13,7 @@ namespace SBP_Projekat.Forme
 {
     public partial class AdminForm : Form
     {
+        private int _page = 0;
         private Form _login;
         public AdminForm(Form l)
         {
@@ -38,17 +39,48 @@ namespace SBP_Projekat.Forme
             var tmp = DTOManager.Instance.GetAllItems();
             dgv_predmeti.DataSource = tmp;
         }
-
+        private void LoadSessionData()
+        {
+            var tmp = DTOManager.Instance.GetSessions(_page);
+            dgv_sesije.DataSource = tmp;
+        }
         private void sesijeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dgv_sesije.Visible = true;
-            var tmp = DTOManager.Instance.GetAllSessions();
-            dgv_sesije.DataSource = tmp;
+            LoadSessionData();
+            button3.Visible = true;
         }
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            label2.Text = DTOManager.Instance.GetCurrentSessions().ToString();
+            CurrentPlayersAsync();
+        }
+        private async Task CurrentPlayersAsync()
+        {
+            label2.Text =  (await DTOManager.Instance.GetCurrentSessions()).ToString();
+        }
+        private async void button1_ClickAsync(object sender, EventArgs e)
+        {
+            await CurrentPlayersAsync();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            _page++;
+            if (_page > 0)
+            {
+                button2.Visible = true;
+            }
+            LoadSessionData();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (_page > 0)
+                _page--;
+            if (_page == 0)
+                button2.Visible = false;
+            LoadSessionData();
         }
     }
 }
