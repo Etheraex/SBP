@@ -65,12 +65,13 @@
             this.igracDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmd_deleteUser = new System.Windows.Forms.Button();
             this.dgv_quest = new System.Windows.Forms.DataGridView();
-            this.questDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.xpGainDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.questDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.num_xpgain = new System.Windows.Forms.NumericUpDown();
             this.cmd_dodaj_quest = new System.Windows.Forms.Button();
             this.label_xpgain = new System.Windows.Forms.Label();
             this.cmd_delete_quest = new System.Windows.Forms.Button();
+            this.cmd_delete_item = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_predmeti)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.predmetDTOBindingSource)).BeginInit();
@@ -93,56 +94,53 @@
             this.sesijeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1067, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // igraciToolStripMenuItem
             // 
             this.igraciToolStripMenuItem.Name = "igraciToolStripMenuItem";
-            this.igraciToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
+            this.igraciToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.igraciToolStripMenuItem.Text = "Igraci";
             this.igraciToolStripMenuItem.Click += new System.EventHandler(this.igraciToolStripMenuItem_Click);
             // 
             // predmetiToolStripMenuItem
             // 
             this.predmetiToolStripMenuItem.Name = "predmetiToolStripMenuItem";
-            this.predmetiToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
+            this.predmetiToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.predmetiToolStripMenuItem.Text = "Predmeti";
             this.predmetiToolStripMenuItem.Click += new System.EventHandler(this.predmetiToolStripMenuItem_Click);
             // 
             // questoviToolStripMenuItem
             // 
             this.questoviToolStripMenuItem.Name = "questoviToolStripMenuItem";
-            this.questoviToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
+            this.questoviToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.questoviToolStripMenuItem.Text = "Questovi";
             this.questoviToolStripMenuItem.Click += new System.EventHandler(this.questoviToolStripMenuItem_Click);
             // 
             // sesijeToolStripMenuItem
             // 
             this.sesijeToolStripMenuItem.Name = "sesijeToolStripMenuItem";
-            this.sesijeToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
+            this.sesijeToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.sesijeToolStripMenuItem.Text = "Sesije";
             this.sesijeToolStripMenuItem.Click += new System.EventHandler(this.sesijeToolStripMenuItem_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 43);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(12, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(165, 17);
+            this.label1.Size = new System.Drawing.Size(125, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Trenutno aktivnih igraca:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(191, 43);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(143, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(16, 17);
+            this.label2.Size = new System.Drawing.Size(13, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "0";
             // 
@@ -158,11 +156,10 @@
             this.opisDataGridViewTextBoxColumn,
             this.vrstaOruzjaDataGridViewTextBoxColumn});
             this.dgv_predmeti.DataSource = this.predmetDTOBindingSource;
-            this.dgv_predmeti.Location = new System.Drawing.Point(20, 85);
-            this.dgv_predmeti.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_predmeti.Location = new System.Drawing.Point(15, 69);
             this.dgv_predmeti.Name = "dgv_predmeti";
             this.dgv_predmeti.ReadOnly = true;
-            this.dgv_predmeti.Size = new System.Drawing.Size(1011, 426);
+            this.dgv_predmeti.Size = new System.Drawing.Size(758, 346);
             this.dgv_predmeti.TabIndex = 3;
             // 
             // xpBonusDataGridViewTextBoxColumn
@@ -172,7 +169,7 @@
             this.xpBonusDataGridViewTextBoxColumn.HeaderText = "XpBonus";
             this.xpBonusDataGridViewTextBoxColumn.Name = "xpBonusDataGridViewTextBoxColumn";
             this.xpBonusDataGridViewTextBoxColumn.ReadOnly = true;
-            this.xpBonusDataGridViewTextBoxColumn.Width = 94;
+            this.xpBonusDataGridViewTextBoxColumn.Width = 75;
             // 
             // nazivDataGridViewTextBoxColumn
             // 
@@ -181,7 +178,7 @@
             this.nazivDataGridViewTextBoxColumn.HeaderText = "Naziv";
             this.nazivDataGridViewTextBoxColumn.Name = "nazivDataGridViewTextBoxColumn";
             this.nazivDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nazivDataGridViewTextBoxColumn.Width = 72;
+            this.nazivDataGridViewTextBoxColumn.Width = 59;
             // 
             // opisDataGridViewTextBoxColumn
             // 
@@ -198,7 +195,7 @@
             this.vrstaOruzjaDataGridViewTextBoxColumn.HeaderText = "VrstaOruzja";
             this.vrstaOruzjaDataGridViewTextBoxColumn.Name = "vrstaOruzjaDataGridViewTextBoxColumn";
             this.vrstaOruzjaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.vrstaOruzjaDataGridViewTextBoxColumn.Width = 112;
+            this.vrstaOruzjaDataGridViewTextBoxColumn.Width = 86;
             // 
             // predmetDTOBindingSource
             // 
@@ -218,11 +215,10 @@
             this.igracNazivDataGridViewTextBoxColumn,
             this.likRasaDataGridViewTextBoxColumn});
             this.dgv_sesije.DataSource = this.sesijaDTOBindingSource;
-            this.dgv_sesije.Location = new System.Drawing.Point(20, 85);
-            this.dgv_sesije.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_sesije.Location = new System.Drawing.Point(15, 69);
             this.dgv_sesije.Name = "dgv_sesije";
             this.dgv_sesije.ReadOnly = true;
-            this.dgv_sesije.Size = new System.Drawing.Size(1011, 426);
+            this.dgv_sesije.Size = new System.Drawing.Size(758, 346);
             this.dgv_sesije.TabIndex = 4;
             // 
             // goldDataGridViewTextBoxColumn
@@ -273,48 +269,56 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(239, 37);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.BackColor = System.Drawing.Color.LightGray;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(179, 30);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
+            this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
             this.button1.Text = "Refresh";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_ClickAsync);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(713, 49);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.BackColor = System.Drawing.Color.LightGray;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(535, 40);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 28);
+            this.button2.Size = new System.Drawing.Size(85, 23);
             this.button2.TabIndex = 6;
             this.button2.Text = "Prethodnih 10";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(835, 49);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.BackColor = System.Drawing.Color.LightGray;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(626, 40);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(111, 28);
+            this.button3.Size = new System.Drawing.Size(83, 23);
             this.button3.TabIndex = 7;
             this.button3.Text = "Sledecih 10";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(387, 49);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.BackColor = System.Drawing.Color.LightGray;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(290, 40);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(113, 28);
+            this.button4.Size = new System.Drawing.Size(85, 23);
             this.button4.TabIndex = 8;
             this.button4.Text = "Dodaj predmet";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Visible = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -333,11 +337,10 @@
             this.imeDataGridViewTextBoxColumn,
             this.prezimeDataGridViewTextBoxColumn});
             this.dgv_igraci.DataSource = this.igracDTOBindingSource;
-            this.dgv_igraci.Location = new System.Drawing.Point(19, 85);
-            this.dgv_igraci.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_igraci.Location = new System.Drawing.Point(14, 69);
             this.dgv_igraci.Name = "dgv_igraci";
             this.dgv_igraci.ReadOnly = true;
-            this.dgv_igraci.Size = new System.Drawing.Size(1011, 426);
+            this.dgv_igraci.Size = new System.Drawing.Size(758, 346);
             this.dgv_igraci.TabIndex = 9;
             this.dgv_igraci.VisibleChanged += new System.EventHandler(this.dgv_igraci_VisibleChanged);
             // 
@@ -396,9 +399,10 @@
             // 
             // cmd_deleteUser
             // 
-            this.cmd_deleteUser.Location = new System.Drawing.Point(25, 537);
+            this.cmd_deleteUser.Location = new System.Drawing.Point(19, 436);
+            this.cmd_deleteUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmd_deleteUser.Name = "cmd_deleteUser";
-            this.cmd_deleteUser.Size = new System.Drawing.Size(134, 42);
+            this.cmd_deleteUser.Size = new System.Drawing.Size(100, 34);
             this.cmd_deleteUser.TabIndex = 10;
             this.cmd_deleteUser.Text = "obrisi korisnika";
             this.cmd_deleteUser.UseVisualStyleBackColor = true;
@@ -411,16 +415,13 @@
             this.dgv_quest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.xpGainDataGridViewTextBoxColumn});
             this.dgv_quest.DataSource = this.questDTOBindingSource;
-            this.dgv_quest.Location = new System.Drawing.Point(21, 87);
+            this.dgv_quest.Location = new System.Drawing.Point(16, 71);
+            this.dgv_quest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgv_quest.Name = "dgv_quest";
             this.dgv_quest.RowTemplate.Height = 24;
-            this.dgv_quest.Size = new System.Drawing.Size(1009, 423);
+            this.dgv_quest.Size = new System.Drawing.Size(757, 344);
             this.dgv_quest.TabIndex = 11;
             this.dgv_quest.VisibleChanged += new System.EventHandler(this.dgv_quest_VisibleChanged);
-            // 
-            // questDTOBindingSource
-            // 
-            this.questDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.QuestDTO);
             // 
             // xpGainDataGridViewTextBoxColumn
             // 
@@ -428,47 +429,75 @@
             this.xpGainDataGridViewTextBoxColumn.HeaderText = "XpGain";
             this.xpGainDataGridViewTextBoxColumn.Name = "xpGainDataGridViewTextBoxColumn";
             // 
+            // questDTOBindingSource
+            // 
+            this.questDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.QuestDTO);
+            // 
             // num_xpgain
             // 
-            this.num_xpgain.Location = new System.Drawing.Point(25, 557);
+            this.num_xpgain.Location = new System.Drawing.Point(19, 453);
+            this.num_xpgain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.num_xpgain.Name = "num_xpgain";
-            this.num_xpgain.Size = new System.Drawing.Size(112, 22);
+            this.num_xpgain.Size = new System.Drawing.Size(84, 20);
             this.num_xpgain.TabIndex = 12;
             // 
             // cmd_dodaj_quest
             // 
-            this.cmd_dodaj_quest.Location = new System.Drawing.Point(143, 538);
+            this.cmd_dodaj_quest.BackColor = System.Drawing.Color.LightGray;
+            this.cmd_dodaj_quest.FlatAppearance.BorderSize = 0;
+            this.cmd_dodaj_quest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmd_dodaj_quest.Location = new System.Drawing.Point(107, 437);
+            this.cmd_dodaj_quest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmd_dodaj_quest.Name = "cmd_dodaj_quest";
-            this.cmd_dodaj_quest.Size = new System.Drawing.Size(107, 45);
+            this.cmd_dodaj_quest.Size = new System.Drawing.Size(80, 37);
             this.cmd_dodaj_quest.TabIndex = 13;
             this.cmd_dodaj_quest.Text = "dodaj quest";
-            this.cmd_dodaj_quest.UseVisualStyleBackColor = true;
+            this.cmd_dodaj_quest.UseVisualStyleBackColor = false;
             this.cmd_dodaj_quest.Click += new System.EventHandler(this.cmd_dodaj_quest_Click);
             // 
             // label_xpgain
             // 
             this.label_xpgain.AutoSize = true;
-            this.label_xpgain.Location = new System.Drawing.Point(25, 538);
+            this.label_xpgain.Location = new System.Drawing.Point(19, 437);
+            this.label_xpgain.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_xpgain.Name = "label_xpgain";
-            this.label_xpgain.Size = new System.Drawing.Size(64, 17);
+            this.label_xpgain.Size = new System.Drawing.Size(49, 13);
             this.label_xpgain.TabIndex = 15;
             this.label_xpgain.Text = "xp Gain :";
             // 
             // cmd_delete_quest
             // 
-            this.cmd_delete_quest.Location = new System.Drawing.Point(256, 538);
+            this.cmd_delete_quest.BackColor = System.Drawing.Color.LightGray;
+            this.cmd_delete_quest.FlatAppearance.BorderSize = 0;
+            this.cmd_delete_quest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmd_delete_quest.Location = new System.Drawing.Point(192, 437);
+            this.cmd_delete_quest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmd_delete_quest.Name = "cmd_delete_quest";
-            this.cmd_delete_quest.Size = new System.Drawing.Size(107, 45);
+            this.cmd_delete_quest.Size = new System.Drawing.Size(80, 37);
             this.cmd_delete_quest.TabIndex = 16;
             this.cmd_delete_quest.Text = "obrisi quest";
-            this.cmd_delete_quest.UseVisualStyleBackColor = true;
+            this.cmd_delete_quest.UseVisualStyleBackColor = false;
             this.cmd_delete_quest.Click += new System.EventHandler(this.cmd_delete_quest_Click);
+            // 
+            // cmd_delete_item
+            // 
+            this.cmd_delete_item.BackColor = System.Drawing.Color.LightGray;
+            this.cmd_delete_item.FlatAppearance.BorderSize = 0;
+            this.cmd_delete_item.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmd_delete_item.Location = new System.Drawing.Point(381, 40);
+            this.cmd_delete_item.Name = "cmd_delete_item";
+            this.cmd_delete_item.Size = new System.Drawing.Size(85, 23);
+            this.cmd_delete_item.TabIndex = 8;
+            this.cmd_delete_item.Text = "Izbrisi predmet";
+            this.cmd_delete_item.UseVisualStyleBackColor = false;
+            this.cmd_delete_item.Visible = false;
+            this.cmd_delete_item.Click += new System.EventHandler(this.cmd_delete_item_Click);
             // 
             // AdminForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 595);
+            this.ClientSize = new System.Drawing.Size(800, 483);
             this.Controls.Add(this.cmd_delete_quest);
             this.Controls.Add(this.label_xpgain);
             this.Controls.Add(this.cmd_dodaj_quest);
@@ -476,6 +505,7 @@
             this.Controls.Add(this.dgv_quest);
             this.Controls.Add(this.cmd_deleteUser);
             this.Controls.Add(this.dgv_igraci);
+            this.Controls.Add(this.cmd_delete_item);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -486,7 +516,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AdminForm";
             this.Text = "AdminForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminForm_FormClosed);
@@ -551,5 +580,6 @@
         private System.Windows.Forms.Button cmd_dodaj_quest;
         private System.Windows.Forms.Label label_xpgain;
         private System.Windows.Forms.Button cmd_delete_quest;
+        private System.Windows.Forms.Button cmd_delete_item;
     }
 }

@@ -85,6 +85,7 @@
             this.tb_username.Name = "tb_username";
             this.tb_username.Size = new System.Drawing.Size(100, 20);
             this.tb_username.TabIndex = 1;
+            this.tb_username.Validating += new System.ComponentModel.CancelEventHandler(this.tb_username_Validating);
             // 
             // lbl_username
             // 
@@ -102,6 +103,7 @@
             this.tb_password.PasswordChar = '*';
             this.tb_password.Size = new System.Drawing.Size(100, 20);
             this.tb_password.TabIndex = 1;
+            this.tb_password.Validating += new System.ComponentModel.CancelEventHandler(this.tb_password_Validating);
             // 
             // lbl_password
             // 
@@ -255,7 +257,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(290, 300);
+            this.ClientSize = new System.Drawing.Size(290, 301);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.nud_uzrast);
             this.Controls.Add(this.cb_pol);

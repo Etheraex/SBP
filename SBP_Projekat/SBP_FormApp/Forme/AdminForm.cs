@@ -16,6 +16,7 @@ namespace SBP_Projekat.Forme
     {
         private List<IgracDTO> _igraci;
         private List<QuestDTO> _questovi;
+        private List<AbstractPredmetDTO> _predmeti;
         private int _page = 0;
         private Form _login;
         public AdminForm(Form l)
@@ -42,7 +43,9 @@ namespace SBP_Projekat.Forme
             dgv_predmeti.Visible = true;
             var tmp = DTOManager.Instance.GetAllItems();
             dgv_predmeti.DataSource = tmp;
+            _predmeti = tmp;
             hideAll();
+            cmd_delete_item.Visible = true;
             dgv_predmeti.Show();
             button4.Visible = true;
         }
@@ -115,6 +118,8 @@ namespace SBP_Projekat.Forme
                 item.Hide();
             }
             button2.Visible = button3.Visible=button4.Visible = false;
+            cmd_delete_quest.Visible = false;
+            cmd_delete_item.Visible = false;
         }
 
         private void cmd_deleteUser_Click(object sender, EventArgs e)
@@ -139,6 +144,7 @@ namespace SBP_Projekat.Forme
         private void questoviToolStripMenuItem_Click(object sender, EventArgs e)
         {
             hideAll();
+            cmd_delete_quest.Visible = true;
             _questovi = DTOManager.Instance.VratiListuQuestova();
             dgv_quest.DataSource = _questovi;
             dgv_quest.Show();
@@ -167,6 +173,20 @@ namespace SBP_Projekat.Forme
             {
                 DTOManager.Instance.DeleteEntity<QuestDTO>(_questovi[index]);
                 questoviToolStripMenuItem_Click(null, null);
+            }
+            else
+            {
+                MessageBox.Show("niste izabrali quset");
+            }
+        }
+
+        private void cmd_delete_item_Click(object sender, EventArgs e)
+        {
+            int index = dgv_predmeti.CurrentCell.RowIndex;
+            if (index >= 0)
+            {
+                DTOManager.Instance.DeleteEntity(_predmeti[index]);
+                predmetiToolStripMenuItem_Click(null, null);
             }
             else
             {

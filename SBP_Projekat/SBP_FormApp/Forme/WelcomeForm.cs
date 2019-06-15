@@ -65,13 +65,10 @@ namespace SBP_Projekat.Forme
                 tmpPol = 'm';
             else
                 tmpPol = 'z';
-
-            var HashSifra = ComputeSha256Hash(tb_password.Text);
-            MessageBox.Show(HashSifra);
+            
             var igrac = new IgracDTO
             {
                 Username = tb_username.Text,
-                // Password = HashSifra,
                 Password = tb_password.Text,
                 Nadimak = tb_nadimak.Text,
                 Pol = tmpPol,
@@ -105,8 +102,9 @@ namespace SBP_Projekat.Forme
 
         private void cmd_login_Click(object sender, EventArgs e)
         {
-            // var HashSifra = ComputeSha256Hash(tb_password.Text);
-            var result = DTOManager.Instance.LogIn("perica33", "burek123", out IgracDTO igrac);
+            if (!ValidateUsername() || !ValidatePassword())
+                return;
+            var result = DTOManager.Instance.LogIn(tb_username.Text, tb_password.Text, out IgracDTO igrac);
             if (result == 0)
                 MessageBox.Show("Nepostojeci igrac");
             else if (result == 1)
@@ -120,24 +118,6 @@ namespace SBP_Projekat.Forme
             }
         }
 
-        private string ComputeSha256Hash(string rawData)
-        {
-            // Create a SHA256   
-            using (SHA256 sha256Hash = SHA256.Create())
-            {
-                // ComputeHash - returns byte array  
-                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
-
-                // Convert byte array to a string   
-                StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < bytes.Length; i++)
-                {
-                    builder.Append(bytes[i].ToString("x2"));
-                }
-                return builder.ToString();
-            }
-        }
-
         private void WelcomeForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult = DialogResult.OK;
@@ -147,7 +127,7 @@ namespace SBP_Projekat.Forme
 
         public bool ValidateAll()
         {
-            if (!ValidateIme() || !ValidateNadimak() || !ValidatePol() || !ValidatePrezime())
+            if (!ValidateIme() || !ValidateNadimak() || !ValidatePol() || !ValidatePrezime() || !ValidatePassword() || !ValidateUsername())
                 return false;
             return true;
         }
@@ -177,6 +157,36 @@ namespace SBP_Projekat.Forme
             if(cb_pol.SelectedIndex == -1)
             {
                 error_welcome.SetError(cb_pol, "Morate izabrati pol");
+                return false;
+            }
+            return true;
+        }
+
+        private void tb_username_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateUsername();
+        }
+
+        private void tb_password_Validating(object sender, CancelEventArgs e)
+        {
+            ValidatePassword();
+        }
+
+        public bool ValidatePassword()
+        {
+            if (tb_password.Text == "")
+            {
+                error_welcome.SetError(tb_password, "Morate uneti password");
+                return false;
+            }
+            return true;
+        }
+
+        public bool ValidateUsername()
+        {
+            if (tb_username.Text == "")
+            {
+                error_welcome.SetError(tb_username, "Morate uneti username");
                 return false;
             }
             return true;
@@ -240,5 +250,7 @@ namespace SBP_Projekat.Forme
         {
             DTOManager.Instance.InitTest();
         }
+
+        
     }
 }
