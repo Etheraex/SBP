@@ -191,7 +191,8 @@ namespace SBP_Data
             Predmet rndPredmet;
             using (ISession s = DataLayer.Session)
             {
-                rndPredmet = getRandomItem();
+                
+                rndPredmet = getRandomItem(this.VratiListuPredmeta(igrac.ID));
                 Igrac tmp = s.QueryOver<Igrac>()
                     .Fetch(x => x.Predmeti).Eager
                     .Where(x => x.Id == igrac.ID)
@@ -203,8 +204,14 @@ namespace SBP_Data
             return new PredmetDTO(rndPredmet);
         }
 
-        private Predmet getRandomItem()
+        private Predmet getRandomItem(List<AbstractPredmetDTO> excldedItems)
         {
+            String excludedIDs = "( ";
+            for (int i = 0; i < excldedItems.Count; i++)
+            {
+                excludedIDs += excldedItems[i].ID + ((i < (excldedItems.Count-1))? ",":""); 
+            }
+            excludedIDs += ")";
             using (ISession s = DataLayer.Session)
             {
                 var query =
@@ -212,7 +219,8 @@ namespace SBP_Data
                 "FROM ( " +
                     "SELECT * " +
                     "FROM   PREDMET " +
-                    "ORDER BY DBMS_RANDOM.VALUE) " +
+                    "where PREDMET_ID NOT IN " + excludedIDs +
+                    "ORDER BY DBMS_RANDOM.VALUE) " + 
                 "WHERE rownum< 2";
 
                 ISQLQuery qry = s.CreateSQLQuery(query).AddEntity(typeof(Predmet));
