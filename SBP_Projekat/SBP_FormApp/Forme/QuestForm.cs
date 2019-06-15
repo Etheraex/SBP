@@ -67,15 +67,22 @@ namespace SBP_Projekat.Forme
         private void zapocniZadatak(bool saAlijansom)
         {
             int ind = dgv_quest.CurrentCell.RowIndex;
-
-            if (ind != -1)
+            if(((MainForm)this.MdiParent)._character.LocalanStepenZamora < 10)
             {
-                if (this.checkForRequiredItem(ind + 1))
+                MessageBox.Show("stepen zamora je previse nizak!!\nTrenutni Stepen: " + ((MainForm)this.MdiParent)._character.LocalanStepenZamora);
+            }
+            else
+            {
+                if (ind != -1)
                 {
-                    var temp = new GameForm(_igrac, this.MdiParent, ind + 1,saAlijansom);
-                    temp.Show();
+                    if (this.checkForRequiredItem(ind + 1))
+                    {
+                        var temp = new GameForm(_igrac, this.MdiParent, ind + 1, saAlijansom);
+                        temp.Show();
+                    }
                 }
             }
+            
         }
 
         private bool checkForRequiredItem(int questID)

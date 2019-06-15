@@ -120,10 +120,6 @@ namespace SBP_Projekat.Forme
                 ispunjava.Alijansa = _igrac.PripadaAlijansi;
                 ispunjava.Quest = quest;
                 DTOManager.Instance.SaveEntity(ispunjava);
-
-                //AlijansaDTO alijansa = DTOManager.Instance.VratiAlijansuSaQuestovima(_igrac.PripadaAlijansi.Id);
-                //alijansa.IspunjeniQuestiovi.Add(quest);
-                //DTOManager.Instance.UpdateEntity(alijansa);
             }
             else
             {
@@ -132,11 +128,9 @@ namespace SBP_Projekat.Forme
                 ispunjava.Igrac = DTOManager.Instance.GetEntityById<IgracDTO,Igrac>(_igrac.ID);  //ovo treba da se uradi bolje, treba da mozemo DTO da pretvorimo u model ako hocemo ovde da ne loadujemo opet iz baze
                 ispunjava.Quest = quest;
                 DTOManager.Instance.SaveEntity(ispunjava);
-
-                //_igrac.IspunjeniQuestiov.Add(quest);
-                //DTOManager.Instance.UpdateEntity(_igrac);
             }
-
+            int xpGain = DTOManager.Instance.GetDTOById<QuestDTO>(quest.Id).XpGain;//ovo je malo retardirano al zato mora jer nam getEntityById u sustini ne vraca nisa sem ID
+            ((MainForm)this.MdiParent).QuestResults(xpGain, 100, 10);
             this.Close();
         }
 

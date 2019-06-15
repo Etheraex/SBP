@@ -18,6 +18,8 @@ namespace SBP_Data.DTOs
         public string NormalizedRasa { get { return this.Rasa.GetType().Name; } }
         public Igrac Igrac { get; set; }
 
+        public int LocalanStepenZamora { get; set; } // ovo sluzi da za vreme igre proveravam koliko je stamine ostalo liku i da li moze da radi quest
+
         public LikDTO()
         {
             base.EntityType = typeof(Lik);
@@ -37,7 +39,7 @@ namespace SBP_Data.DTOs
                 Zlato = i.Zlato;
                 HP = i.HP;
                 XP = i.XP;
-                StepenZamora = i.StepenZamora;
+                LocalanStepenZamora = StepenZamora = i.StepenZamora;
                 Rasa = i.Rasa;
                 Igrac = i.Igrac;
             }

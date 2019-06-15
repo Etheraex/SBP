@@ -20,7 +20,7 @@ namespace SBP_Projekat.Forme
     {
         private IgracDTO _igrac;
         private SesijaDTO _sesija;
-        private LikDTO _character;
+        public LikDTO _character { get; private set; }
 
         public MainForm()
         {
@@ -153,7 +153,7 @@ namespace SBP_Projekat.Forme
         }
         #endregion
 
-
+        #region punlivMethods
         public void startSeasson(LikDTO lik)
         {
             if (lik == null)
@@ -167,7 +167,7 @@ namespace SBP_Projekat.Forme
                     // Odmah nakon izbora lika prikazuje stats formu
                     statoviToolStripMenuItem.PerformClick();
                 }
-                catch(NullReferenceException e)
+                catch (NullReferenceException e)
                 {
                     MessageBox.Show(e.Message);
                 }
@@ -187,7 +187,16 @@ namespace SBP_Projekat.Forme
                 }
             }
         }
+        public void QuestResults(int xp,int gold,int stepenzamora)
+        {
+            _character.XP += xp;
+            _sesija.ZaradjeniXP += xp;
+            _character.Zlato += gold;
+            _sesija.Gold += gold;
+            _character.LocalanStepenZamora = (_character.LocalanStepenZamora - stepenzamora < 0) ? 0 : _character.LocalanStepenZamora - stepenzamora;
 
-        
+            DTOManager.Instance.UpdateEntity(_character);
+        }
+        #endregion
     }
 }
