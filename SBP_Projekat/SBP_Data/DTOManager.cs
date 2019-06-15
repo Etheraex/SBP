@@ -30,14 +30,22 @@ namespace SBP_Data
                 return temp; //(K)s.Load(tmp.EntityType, id);
             }
         }
-        public List<String> vratiSaveze(int id)
+        public IList<string> vratiSaveze(int id)
         {
-            List<String> ret = new List<String>();
+            var alijansa = new Alijansa();
             using (ISession s = DataLayer.Session)
             {
-                ret = s.QueryOver<Alijansa>().Fetch(x => x.Savezi).Eager.Where(x => x.Id == id).Select(x => x.Savezi).Select(x => x.Naziv);
-           
+                alijansa = s.QueryOver<Alijansa>()
+                            .Fetch(x => x.Savezi).Eager
+                            .Where(x => x.Id == id)
+                            .SingleOrDefault();
             }
+            var list = new List<string>();
+
+            foreach (var s in alijansa.Savezi)
+                list.Add(s.Naziv);
+
+            return list;
         }
         public T GetDTOById<T>(int id) where T : AbstractDTO
         {

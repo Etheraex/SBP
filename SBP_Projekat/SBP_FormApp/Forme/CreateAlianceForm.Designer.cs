@@ -37,9 +37,14 @@
             this.nud_max = new System.Windows.Forms.NumericUpDown();
             this.cmd_create = new System.Windows.Forms.Button();
             this.error_create_aliance = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.alijansaDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nazivDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.nud_min)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_max)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.error_create_aliance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alijansaDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -130,11 +135,38 @@
             // 
             this.error_create_aliance.ContainerControl = this;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nazivDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.alijansaDTOBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(15, 178);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(227, 198);
+            this.dataGridView1.TabIndex = 6;
+            // 
+            // alijansaDTOBindingSource
+            // 
+            this.alijansaDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.AlijansaDTO);
+            // 
+            // nazivDataGridViewTextBoxColumn
+            // 
+            this.nazivDataGridViewTextBoxColumn.DataPropertyName = "Naziv";
+            this.nazivDataGridViewTextBoxColumn.HeaderText = "Naziv";
+            this.nazivDataGridViewTextBoxColumn.Name = "nazivDataGridViewTextBoxColumn";
+            this.nazivDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // CreateAlianceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(371, 388);
+            this.ClientSize = new System.Drawing.Size(254, 388);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.cmd_create);
             this.Controls.Add(this.nud_max);
             this.Controls.Add(this.nud_min);
@@ -144,9 +176,12 @@
             this.Controls.Add(this.label1);
             this.Name = "CreateAlianceForm";
             this.Text = "Kreiranje alijanse";
+            this.Load += new System.EventHandler(this.CreateAlianceForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nud_min)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_max)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.error_create_aliance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alijansaDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,5 +197,8 @@
         private System.Windows.Forms.NumericUpDown nud_max;
         private System.Windows.Forms.Button cmd_create;
         private System.Windows.Forms.ErrorProvider error_create_aliance;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nazivDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource alijansaDTOBindingSource;
     }
 }

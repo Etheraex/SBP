@@ -1,5 +1,6 @@
 ﻿using SBP_Data;
 using SBP_Data.DTOs;
+using SBP_Data.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace SBP_Projekat.Forme
 {
     public partial class CreateAlianceForm : Form
     {
+        private List<AlijansaDTO> _alijanse;
         public CreateAlianceForm(Form f)
         {
             InitializeComponent();
@@ -33,7 +35,16 @@ namespace SBP_Projekat.Forme
                 HpBonus = rand.Next(minValue:1,maxValue:20),
                 XpBonus = rand.Next(minValue:1,maxValue:15)
             };
+
+            var selectedRowCount = dataGridView1.Rows.GetRowCount(DataGridViewElementStates.Selected);
+
             DTOManager.Instance.SaveEntity(alijansa);
+            for (int i = 0; i < selectedRowCount; i++)
+            {
+                var alijansaEntitet = DTOManager.Instance.GetEntityById<AlijansaDTO, Alijansa>(_alijanse[dataGridView1.SelectedRows[i].Index].ID);
+                alijansa.Savezi.Add(alijansaEntitet);
+            }
+            DTOManager.Instance.UpdateEntity(alijansa);
             this.Close();
         }
 
@@ -75,6 +86,13 @@ namespace SBP_Projekat.Forme
                 return false;
             }
             return true;
+        }
+
+        private void CreateAlianceForm_Load(object sender, EventArgs e)
+        {
+            var tmp = DTOManager.Instance.GetDTOList<AlijansaDTO, Alijansa>();
+            _alijanse = tmp;
+            dataGridView1.DataSource = tmp;
         }
     }
 }

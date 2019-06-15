@@ -30,19 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvAlijanse = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lAlijansa = new System.Windows.Forms.Label();
+            this.btnLeave = new System.Windows.Forms.Button();
+            this.btnJoin = new System.Windows.Forms.Button();
+            this.cmd_create_aliance = new System.Windows.Forms.Button();
+            this.lblSavez = new System.Windows.Forms.Label();
+            this.cmd_savezi = new System.Windows.Forms.Button();
             this.nazivDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.minBrojIgracaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxBrojIgracaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xpBonusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hpBonusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.alijansaDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.lAlijansa = new System.Windows.Forms.Label();
-            this.btnLeave = new System.Windows.Forms.Button();
-            this.btnJoin = new System.Windows.Forms.Button();
-            this.cmd_create_aliance = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.lblSavez = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlijanse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alijansaDTOBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -70,13 +71,94 @@
             this.hpBonusDataGridViewTextBoxColumn});
             this.dgvAlijanse.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvAlijanse.DataSource = this.alijansaDTOBindingSource;
-            this.dgvAlijanse.Location = new System.Drawing.Point(3, 3);
+            this.dgvAlijanse.Location = new System.Drawing.Point(12, 3);
             this.dgvAlijanse.MultiSelect = false;
             this.dgvAlijanse.Name = "dgvAlijanse";
             this.dgvAlijanse.ReadOnly = true;
             this.dgvAlijanse.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgvAlijanse.Size = new System.Drawing.Size(522, 136);
+            this.dgvAlijanse.Size = new System.Drawing.Size(510, 133);
             this.dgvAlijanse.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(536, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Trenutno ste u alijansi:";
+            this.label1.Visible = false;
+            // 
+            // lAlijansa
+            // 
+            this.lAlijansa.AutoSize = true;
+            this.lAlijansa.Location = new System.Drawing.Point(536, 41);
+            this.lAlijansa.Name = "lAlijansa";
+            this.lAlijansa.Size = new System.Drawing.Size(0, 13);
+            this.lAlijansa.TabIndex = 2;
+            this.lAlijansa.Visible = false;
+            // 
+            // btnLeave
+            // 
+            this.btnLeave.BackColor = System.Drawing.Color.LightGray;
+            this.btnLeave.FlatAppearance.BorderSize = 0;
+            this.btnLeave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeave.Location = new System.Drawing.Point(539, 76);
+            this.btnLeave.Name = "btnLeave";
+            this.btnLeave.Size = new System.Drawing.Size(110, 23);
+            this.btnLeave.TabIndex = 3;
+            this.btnLeave.Text = "Napustite alijansu";
+            this.btnLeave.UseVisualStyleBackColor = false;
+            this.btnLeave.Click += new System.EventHandler(this.cmd_Leave_Click);
+            // 
+            // btnJoin
+            // 
+            this.btnJoin.BackColor = System.Drawing.Color.LightGray;
+            this.btnJoin.FlatAppearance.BorderSize = 0;
+            this.btnJoin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnJoin.Location = new System.Drawing.Point(12, 142);
+            this.btnJoin.Name = "btnJoin";
+            this.btnJoin.Size = new System.Drawing.Size(169, 23);
+            this.btnJoin.TabIndex = 4;
+            this.btnJoin.Text = "Uclani se u izabranu alijansu";
+            this.btnJoin.UseVisualStyleBackColor = false;
+            this.btnJoin.Click += new System.EventHandler(this.cmd_Join_Click);
+            // 
+            // cmd_create_aliance
+            // 
+            this.cmd_create_aliance.BackColor = System.Drawing.Color.LightGray;
+            this.cmd_create_aliance.FlatAppearance.BorderSize = 0;
+            this.cmd_create_aliance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmd_create_aliance.Location = new System.Drawing.Point(12, 201);
+            this.cmd_create_aliance.Name = "cmd_create_aliance";
+            this.cmd_create_aliance.Size = new System.Drawing.Size(122, 23);
+            this.cmd_create_aliance.TabIndex = 4;
+            this.cmd_create_aliance.Text = "Napravi novu alijansu";
+            this.cmd_create_aliance.UseVisualStyleBackColor = false;
+            this.cmd_create_aliance.Click += new System.EventHandler(this.cmd_create_aliance_Click);
+            // 
+            // lblSavez
+            // 
+            this.lblSavez.AutoSize = true;
+            this.lblSavez.Location = new System.Drawing.Point(431, 159);
+            this.lblSavez.Name = "lblSavez";
+            this.lblSavez.Size = new System.Drawing.Size(66, 13);
+            this.lblSavez.TabIndex = 6;
+            this.lblSavez.Text = "U savezu sa";
+            this.lblSavez.Visible = false;
+            // 
+            // cmd_savezi
+            // 
+            this.cmd_savezi.BackColor = System.Drawing.Color.LightGray;
+            this.cmd_savezi.FlatAppearance.BorderSize = 0;
+            this.cmd_savezi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmd_savezi.Location = new System.Drawing.Point(187, 142);
+            this.cmd_savezi.Name = "cmd_savezi";
+            this.cmd_savezi.Size = new System.Drawing.Size(122, 23);
+            this.cmd_savezi.TabIndex = 4;
+            this.cmd_savezi.Text = "Prikazi saveze";
+            this.cmd_savezi.UseVisualStyleBackColor = false;
+            this.cmd_savezi.Click += new System.EventHandler(this.cmd_savezi_Click);
             // 
             // nazivDataGridViewTextBoxColumn
             // 
@@ -126,89 +208,23 @@
             // 
             this.alijansaDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.AlijansaDTO);
             // 
-            // label1
+            // richTextBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(536, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Trenutno ste u alijansi:";
-            this.label1.Visible = false;
-            // 
-            // lAlijansa
-            // 
-            this.lAlijansa.AutoSize = true;
-            this.lAlijansa.Location = new System.Drawing.Point(536, 41);
-            this.lAlijansa.Name = "lAlijansa";
-            this.lAlijansa.Size = new System.Drawing.Size(0, 13);
-            this.lAlijansa.TabIndex = 2;
-            this.lAlijansa.Visible = false;
-            // 
-            // btnLeave
-            // 
-            this.btnLeave.BackColor = System.Drawing.Color.LightGray;
-            this.btnLeave.FlatAppearance.BorderSize = 0;
-            this.btnLeave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeave.Location = new System.Drawing.Point(539, 76);
-            this.btnLeave.Name = "btnLeave";
-            this.btnLeave.Size = new System.Drawing.Size(110, 23);
-            this.btnLeave.TabIndex = 3;
-            this.btnLeave.Text = "Napustite alijansu";
-            this.btnLeave.UseVisualStyleBackColor = false;
-            this.btnLeave.Click += new System.EventHandler(this.cmd_Leave_Click);
-            // 
-            // btnJoin
-            // 
-            this.btnJoin.BackColor = System.Drawing.Color.LightGray;
-            this.btnJoin.FlatAppearance.BorderSize = 0;
-            this.btnJoin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnJoin.Location = new System.Drawing.Point(32, 175);
-            this.btnJoin.Name = "btnJoin";
-            this.btnJoin.Size = new System.Drawing.Size(169, 23);
-            this.btnJoin.TabIndex = 4;
-            this.btnJoin.Text = "Uclani se u izabranu alijansu";
-            this.btnJoin.UseVisualStyleBackColor = false;
-            this.btnJoin.Click += new System.EventHandler(this.cmd_Join_Click);
-            // 
-            // cmd_create_aliance
-            // 
-            this.cmd_create_aliance.BackColor = System.Drawing.Color.LightGray;
-            this.cmd_create_aliance.FlatAppearance.BorderSize = 0;
-            this.cmd_create_aliance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmd_create_aliance.Location = new System.Drawing.Point(219, 175);
-            this.cmd_create_aliance.Name = "cmd_create_aliance";
-            this.cmd_create_aliance.Size = new System.Drawing.Size(122, 23);
-            this.cmd_create_aliance.TabIndex = 4;
-            this.cmd_create_aliance.Text = "Napravi novu alijansu";
-            this.cmd_create_aliance.UseVisualStyleBackColor = false;
-            this.cmd_create_aliance.Click += new System.EventHandler(this.cmd_create_aliance_Click);
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(418, 175);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(247, 30);
-            this.listBox1.TabIndex = 5;
-            // 
-            // lblSavez
-            // 
-            this.lblSavez.AutoSize = true;
-            this.lblSavez.Location = new System.Drawing.Point(415, 159);
-            this.lblSavez.Name = "lblSavez";
-            this.lblSavez.Size = new System.Drawing.Size(66, 13);
-            this.lblSavez.TabIndex = 6;
-            this.lblSavez.Text = "U savezu sa";
-            this.lblSavez.Visible = false;
+            this.richTextBox1.Location = new System.Drawing.Point(434, 175);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(247, 49);
+            this.richTextBox1.TabIndex = 7;
+            this.richTextBox1.Text = "";
+            this.richTextBox1.Visible = false;
             // 
             // AlianceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(693, 219);
+            this.ClientSize = new System.Drawing.Size(693, 236);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.lblSavez);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.cmd_savezi);
             this.Controls.Add(this.cmd_create_aliance);
             this.Controls.Add(this.btnJoin);
             this.Controls.Add(this.btnLeave);
@@ -244,7 +260,8 @@
         private System.Windows.Forms.Button btnLeave;
         private System.Windows.Forms.Button btnJoin;
         private System.Windows.Forms.Button cmd_create_aliance;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label lblSavez;
+        private System.Windows.Forms.Button cmd_savezi;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

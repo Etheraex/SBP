@@ -99,5 +99,15 @@ namespace SBP_Projekat.Forme
             var tmp = new CreateAlianceForm(MdiParent);
             tmp.Show();
         }
+
+        private void cmd_savezi_Click(object sender, EventArgs e)
+        {
+            lblSavez.Visible = true;
+            richTextBox1.Visible = true;
+            richTextBox1.Text = "";
+            var tmp = DTOManager.Instance.vratiSaveze(alijanse[dgvAlijanse.CurrentCell.RowIndex].ID);
+            foreach (var s in tmp)
+                richTextBox1.Text += s + "\n";
+        }
     }
 }

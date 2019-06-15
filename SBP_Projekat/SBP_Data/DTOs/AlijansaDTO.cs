@@ -22,6 +22,9 @@ namespace SBP_Data.DTOs
         public AlijansaDTO()
         {
             base.EntityType = typeof(Alijansa);
+            Savezi = new List<Alijansa>();
+            Igraci = new List<Igrac>();
+            IspunjeniQuestiovi = new List<Quest>();
         }
 
         public override string ToString()
