@@ -41,6 +41,21 @@ namespace SBP_Data
             }
         }
 
+        public List<IgracDTO> vratiSveIgrace()
+        {
+            IList<Igrac> igraci;
+            List<IgracDTO> DTOIgraci = new List<IgracDTO>();
+            using (ISession s = DataLayer.Session)
+            {
+                igraci = s.Query<Igrac>().ToList();
+            }
+            foreach (Igrac igrac in igraci)
+            {
+                DTOIgraci.Add(new IgracDTO(igrac));
+            }
+            return DTOIgraci;
+        }
+
         public List<AbstractPredmetDTO> GetAllItems()
         {
             var listDTO = new List<AbstractPredmetDTO>();

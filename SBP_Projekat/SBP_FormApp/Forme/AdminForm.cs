@@ -1,4 +1,5 @@
 ﻿using SBP_Data;
+using SBP_Data.DTOs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,6 +40,8 @@ namespace SBP_Projekat.Forme
             dgv_predmeti.Visible = true;
             var tmp = DTOManager.Instance.GetAllItems();
             dgv_predmeti.DataSource = tmp;
+            hideAll();
+            dgv_predmeti.Show();
             button4.Visible = true;
         }
         private void LoadSessionData()
@@ -49,7 +52,9 @@ namespace SBP_Projekat.Forme
         private void sesijeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dgv_sesije.Visible = true;
-            LoadSessionData();
+            dgv_sesije.BringToFront();
+            hideAll();
+            dgv_sesije.Show();
             button3.Visible = true;
         }
 
@@ -89,6 +94,23 @@ namespace SBP_Projekat.Forme
         {
             var temp = new AddItemForm();
             temp.Show();
+        }
+
+        private void igraciToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<IgracDTO> igraci = DTOManager.Instance.vratiSveIgrace();
+            dgv_igraci.DataSource = igraci;
+            hideAll();
+            dgv_igraci.Show();
+        }
+
+        private void hideAll()
+        {
+            var controls =  this.Controls.OfType<DataGridView>();
+            foreach (var item in controls)
+            {
+                item.Hide();
+            }
         }
     }
 }

@@ -230,6 +230,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SBP_Data.DTOs.AbstractPredmetDTO.datasource" />
     <None Include="Properties\DataSources\SBP_Data.DTOs.AlijansaDTO.datasource" />
+    <None Include="Properties\DataSources\SBP_Data.DTOs.IgracDTO.datasource" />
     <None Include="Properties\DataSources\SBP_Data.DTOs.LikDTO.datasource" />
     <None Include="Properties\DataSources\SBP_Data.DTOs.PredmetDTO.datasource" />
     <None Include="Properties\DataSources\SBP_Data.DTOs.QuestDTO.datasource" />
