@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.cmd_recruit = new System.Windows.Forms.Button();
             this.tb_ime = new System.Windows.Forms.TextBox();
             this.cb_rasa = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.error_recruit_apprentice = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.error_recruit_apprentice)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -49,7 +52,7 @@
             this.cmd_recruit.BackColor = System.Drawing.Color.LightGray;
             this.cmd_recruit.FlatAppearance.BorderSize = 0;
             this.cmd_recruit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmd_recruit.Location = new System.Drawing.Point(119, 87);
+            this.cmd_recruit.Location = new System.Drawing.Point(96, 87);
             this.cmd_recruit.Name = "cmd_recruit";
             this.cmd_recruit.Size = new System.Drawing.Size(75, 23);
             this.cmd_recruit.TabIndex = 1;
@@ -59,10 +62,11 @@
             // 
             // tb_ime
             // 
-            this.tb_ime.Location = new System.Drawing.Point(99, 6);
+            this.tb_ime.Location = new System.Drawing.Point(71, 6);
             this.tb_ime.Name = "tb_ime";
             this.tb_ime.Size = new System.Drawing.Size(100, 20);
             this.tb_ime.TabIndex = 2;
+            this.tb_ime.Validating += new System.ComponentModel.CancelEventHandler(this.tb_ime_Validating);
             // 
             // cb_rasa
             // 
@@ -73,10 +77,11 @@
             "Covek",
             "Demon",
             "Patuljak"});
-            this.cb_rasa.Location = new System.Drawing.Point(78, 32);
+            this.cb_rasa.Location = new System.Drawing.Point(50, 32);
             this.cb_rasa.Name = "cb_rasa";
             this.cb_rasa.Size = new System.Drawing.Size(121, 21);
             this.cb_rasa.TabIndex = 3;
+            this.cb_rasa.Validating += new System.ComponentModel.CancelEventHandler(this.cb_rasa_Validating);
             // 
             // label2
             // 
@@ -86,6 +91,10 @@
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Rasa";
+            // 
+            // error_recruit_apprentice
+            // 
+            this.error_recruit_apprentice.ContainerControl = this;
             // 
             // RecruitApprenticeForm
             // 
@@ -103,6 +112,7 @@
             this.MinimumSize = new System.Drawing.Size(222, 160);
             this.Name = "RecruitApprenticeForm";
             this.Text = "RecruitApprenticeForm";
+            ((System.ComponentModel.ISupportInitialize)(this.error_recruit_apprentice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,5 +125,6 @@
         private System.Windows.Forms.TextBox tb_ime;
         private System.Windows.Forms.ComboBox cb_rasa;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ErrorProvider error_recruit_apprentice;
     }
 }

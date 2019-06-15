@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.tb_naziv = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -35,8 +36,10 @@
             this.nud_min = new System.Windows.Forms.NumericUpDown();
             this.nud_max = new System.Windows.Forms.NumericUpDown();
             this.cmd_create = new System.Windows.Forms.Button();
+            this.error_create_aliance = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nud_min)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_max)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_create_aliance)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -54,6 +57,7 @@
             this.tb_naziv.Name = "tb_naziv";
             this.tb_naziv.Size = new System.Drawing.Size(100, 20);
             this.tb_naziv.TabIndex = 1;
+            this.tb_naziv.Validating += new System.ComponentModel.CancelEventHandler(this.tb_naziv_Validating);
             // 
             // label2
             // 
@@ -89,6 +93,7 @@
             0,
             0,
             0});
+            this.nud_min.Validating += new System.ComponentModel.CancelEventHandler(this.nud_min_Validating);
             // 
             // nud_max
             // 
@@ -106,6 +111,7 @@
             0,
             0,
             0});
+            this.nud_max.Validating += new System.ComponentModel.CancelEventHandler(this.nud_max_Validating);
             // 
             // cmd_create
             // 
@@ -119,6 +125,10 @@
             this.cmd_create.Text = "Napravi";
             this.cmd_create.UseVisualStyleBackColor = false;
             this.cmd_create.Click += new System.EventHandler(this.cmd_create_Click);
+            // 
+            // error_create_aliance
+            // 
+            this.error_create_aliance.ContainerControl = this;
             // 
             // CreateAlianceForm
             // 
@@ -136,6 +146,7 @@
             this.Text = "CreateAlianceForm";
             ((System.ComponentModel.ISupportInitialize)(this.nud_min)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_max)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_create_aliance)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,5 +161,6 @@
         private System.Windows.Forms.NumericUpDown nud_min;
         private System.Windows.Forms.NumericUpDown nud_max;
         private System.Windows.Forms.Button cmd_create;
+        private System.Windows.Forms.ErrorProvider error_create_aliance;
     }
 }

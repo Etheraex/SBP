@@ -25,7 +25,7 @@ namespace SBP_Projekat.Forme
             tb_prezime.Visible = false;
             tb_nadimak.Visible = false;
             cb_pol.Visible = false;
-            tb_uzrast.Visible = false;
+            nud_uzrast.Visible = false;
             lbl_ime.Visible = false;
             lbl_nadimak.Visible = false;
             lbl_pol.Visible = false;
@@ -42,7 +42,7 @@ namespace SBP_Projekat.Forme
             tb_prezime.Visible = true;
             tb_nadimak.Visible = true;
             cb_pol.Visible = true;
-            tb_uzrast.Visible = true;
+            nud_uzrast.Visible = true;
             lbl_ime.Visible = true;
             lbl_nadimak.Visible = true;
             lbl_pol.Visible = true;
@@ -52,6 +52,8 @@ namespace SBP_Projekat.Forme
 
         private void cmd_registration_Click(object sender, EventArgs e)
         {
+            if (!ValidateAll())
+                return;
             // char.Parse(cb_pol.SelectedText) Ovo nesto zajebava pa sam ovako stavi
             var tmp = cb_pol.SelectedItem.ToString();
             char tmpPol;
@@ -69,7 +71,7 @@ namespace SBP_Projekat.Forme
                 Password = tb_password.Text,
                 Nadimak = tb_nadimak.Text,
                 Pol = tmpPol,
-                Uzrast = int.Parse(tb_uzrast.Text),
+                Uzrast = (int)nud_uzrast.Value,
                 Ime = tb_ime.Text,
                 Prezime = tb_prezime.Text
             };
@@ -87,7 +89,7 @@ namespace SBP_Projekat.Forme
             tb_prezime.Visible = false;
             tb_nadimak.Visible = false;
             cb_pol.Visible = false;
-            tb_uzrast.Visible = false;
+            nud_uzrast.Visible = false;
             lbl_ime.Visible = false;
             lbl_nadimak.Visible = false;
             lbl_pol.Visible = false;
@@ -132,5 +134,92 @@ namespace SBP_Projekat.Forme
         {
             DialogResult = DialogResult.OK;
         }
+
+        #region Validacija
+
+        public bool ValidateAll()
+        {
+            if (!ValidateIme() || !ValidateNadimak() || !ValidatePol() || !ValidatePrezime())
+                return false;
+            return true;
+        }
+
+        private void tb_ime_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateIme();
+        }
+
+        private void tb_prezime_Validating(object sender, CancelEventArgs e)
+        {
+            ValidatePrezime();
+        }
+
+        private void cb_pol_Validating(object sender, CancelEventArgs e)
+        {
+            ValidatePol();
+        }
+
+        private void tb_nadimak_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateNadimak();
+        }
+        
+        public bool ValidatePol()
+        {
+            if(cb_pol.SelectedIndex == -1)
+            {
+                error_welcome.SetError(cb_pol, "Morate izabrati pol");
+                return false;
+            }
+            return true;
+        }
+
+        public bool ValidateNadimak()
+        {
+            if (tb_nadimak.Text == "")
+            {
+                error_welcome.SetError(tb_nadimak, "Morate uneti nadimak");
+                return false;
+            }
+            else if (tb_nadimak.Text.Any(char.IsDigit))
+            {
+                error_welcome.SetError(tb_nadimak, "Nadimak ne sme sadrzati brojeve");
+                return false;
+            }
+            return true;
+        }
+
+        public bool ValidateIme()
+        {
+            if(tb_ime.Text == "")
+            {
+                error_welcome.SetError(tb_ime, "Morate uneti ime");
+                return false;
+            }
+            else if(tb_ime.Text.Any(char.IsDigit))
+            {
+                error_welcome.SetError(tb_ime, "Ime ne sme sadrzati brojeve");
+                return false;
+            }
+            return true;
+        }
+
+        public bool ValidatePrezime()
+        {
+            if (tb_prezime.Text == "")
+            {
+                error_welcome.SetError(tb_prezime, "Morate uneti prezime");
+                return false;
+            }
+            else if (tb_prezime.Text.Any(char.IsDigit))
+            {
+                error_welcome.SetError(tb_prezime, "Prezime ne sme sadrzati brojeve");
+                return false;
+            }
+            return true;
+        }
+        #endregion
+
+        
     }
 }

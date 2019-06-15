@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cmd_show_registration = new System.Windows.Forms.Button();
             this.cmd_show_login = new System.Windows.Forms.Button();
             this.tb_username = new System.Windows.Forms.TextBox();
@@ -39,13 +40,16 @@
             this.lbl_ime = new System.Windows.Forms.Label();
             this.lbl_prezime = new System.Windows.Forms.Label();
             this.tb_nadimak = new System.Windows.Forms.TextBox();
-            this.tb_uzrast = new System.Windows.Forms.TextBox();
             this.lbl_pol = new System.Windows.Forms.Label();
             this.lbl_nadimak = new System.Windows.Forms.Label();
             this.lbl_uzrast = new System.Windows.Forms.Label();
             this.cmd_login = new System.Windows.Forms.Button();
             this.cmd_registration = new System.Windows.Forms.Button();
             this.cb_pol = new System.Windows.Forms.ComboBox();
+            this.error_welcome = new System.Windows.Forms.ErrorProvider(this.components);
+            this.nud_uzrast = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.error_welcome)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_uzrast)).BeginInit();
             this.SuspendLayout();
             // 
             // cmd_show_registration
@@ -113,6 +117,7 @@
             this.tb_ime.Name = "tb_ime";
             this.tb_ime.Size = new System.Drawing.Size(100, 20);
             this.tb_ime.TabIndex = 1;
+            this.tb_ime.Validating += new System.ComponentModel.CancelEventHandler(this.tb_ime_Validating);
             // 
             // tb_prezime
             // 
@@ -120,6 +125,7 @@
             this.tb_prezime.Name = "tb_prezime";
             this.tb_prezime.Size = new System.Drawing.Size(100, 20);
             this.tb_prezime.TabIndex = 1;
+            this.tb_prezime.Validating += new System.ComponentModel.CancelEventHandler(this.tb_prezime_Validating);
             // 
             // lbl_ime
             // 
@@ -145,13 +151,7 @@
             this.tb_nadimak.Name = "tb_nadimak";
             this.tb_nadimak.Size = new System.Drawing.Size(100, 20);
             this.tb_nadimak.TabIndex = 1;
-            // 
-            // tb_uzrast
-            // 
-            this.tb_uzrast.Location = new System.Drawing.Point(129, 198);
-            this.tb_uzrast.Name = "tb_uzrast";
-            this.tb_uzrast.Size = new System.Drawing.Size(100, 20);
-            this.tb_uzrast.TabIndex = 1;
+            this.tb_nadimak.Validating += new System.ComponentModel.CancelEventHandler(this.tb_nadimak_Validating);
             // 
             // lbl_pol
             // 
@@ -216,12 +216,35 @@
             this.cb_pol.Name = "cb_pol";
             this.cb_pol.Size = new System.Drawing.Size(100, 21);
             this.cb_pol.TabIndex = 3;
+            this.cb_pol.Validating += new System.ComponentModel.CancelEventHandler(this.cb_pol_Validating);
+            // 
+            // error_welcome
+            // 
+            this.error_welcome.ContainerControl = this;
+            // 
+            // nud_uzrast
+            // 
+            this.nud_uzrast.Location = new System.Drawing.Point(129, 198);
+            this.nud_uzrast.Minimum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.nud_uzrast.Name = "nud_uzrast";
+            this.nud_uzrast.Size = new System.Drawing.Size(100, 20);
+            this.nud_uzrast.TabIndex = 4;
+            this.nud_uzrast.Value = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
             // 
             // WelcomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(290, 301);
+            this.Controls.Add(this.nud_uzrast);
             this.Controls.Add(this.cb_pol);
             this.Controls.Add(this.lbl_prezime);
             this.Controls.Add(this.lbl_uzrast);
@@ -231,7 +254,6 @@
             this.Controls.Add(this.lbl_pol);
             this.Controls.Add(this.lbl_username);
             this.Controls.Add(this.tb_prezime);
-            this.Controls.Add(this.tb_uzrast);
             this.Controls.Add(this.tb_password);
             this.Controls.Add(this.tb_nadimak);
             this.Controls.Add(this.tb_ime);
@@ -247,6 +269,8 @@
             this.Name = "WelcomeForm";
             this.Text = "WelcomeForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WelcomeForm_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.error_welcome)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_uzrast)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,12 +289,13 @@
         private System.Windows.Forms.Label lbl_ime;
         private System.Windows.Forms.Label lbl_prezime;
         private System.Windows.Forms.TextBox tb_nadimak;
-        private System.Windows.Forms.TextBox tb_uzrast;
         private System.Windows.Forms.Label lbl_pol;
         private System.Windows.Forms.Label lbl_nadimak;
         private System.Windows.Forms.Label lbl_uzrast;
         private System.Windows.Forms.Button cmd_login;
         private System.Windows.Forms.Button cmd_registration;
         private System.Windows.Forms.ComboBox cb_pol;
+        private System.Windows.Forms.ErrorProvider error_welcome;
+        private System.Windows.Forms.NumericUpDown nud_uzrast;
     }
 }

@@ -27,6 +27,8 @@ namespace SBP_Projekat.Forme
 
         private void cmd_kreiraj_Click(object sender, EventArgs e)
         {
+            if (!ValidateHP() || !ValidateRasa() || !ValidateZamor())
+                return;
             Rasa tmp = null;
             switch (cb_rasa.SelectedItem.ToString())
             {
@@ -59,5 +61,61 @@ namespace SBP_Projekat.Forme
             DTOManager.Instance.SaveEntity(lik);
             this.Close();
         }
+
+        private void cb_rasa_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateRasa();
+        }
+
+        private void tb_hp_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateHP();
+        }
+
+        private void tb_stepen_zamora_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateZamor();
+        }
+
+        private bool ValidateRasa()
+        {
+            if(cb_rasa.SelectedIndex == -1)
+            {
+                error_create_character.SetError(cb_rasa, "Morate izabrati rasu");
+                return false;
+            }
+            return true;
+        }
+
+        private bool ValidateHP()
+        {
+            if(tb_hp.Text == "")
+            {
+                error_create_character.SetError(tb_hp, "Morate uneti hp");
+                return false;
+            }
+            else if(!int.TryParse(tb_hp.Text, out int tmp))
+            {
+                error_create_character.SetError(tb_hp, "Samo brojke!");
+                return false;
+            }
+            return true;
+        }
+
+        private bool ValidateZamor()
+        {
+            if (tb_stepen_zamora.Text == "")
+            {
+                error_create_character.SetError(tb_stepen_zamora, "Morate uneti stepen zamora");
+                return false;
+            }
+            else if (!int.TryParse(tb_stepen_zamora.Text, out int tmp))
+            {
+                error_create_character.SetError(tb_stepen_zamora, "Samo brojke!");
+                return false;
+            }
+            return true;
+        }
+
     }
 }

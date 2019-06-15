@@ -54,6 +54,7 @@
             // 
             this.tb_rasa.Location = new System.Drawing.Point(104, 43);
             this.tb_rasa.Name = "tb_rasa";
+            this.tb_rasa.ReadOnly = true;
             this.tb_rasa.Size = new System.Drawing.Size(100, 20);
             this.tb_rasa.TabIndex = 1;
             // 
@@ -70,6 +71,7 @@
             // 
             this.tb_hp.Location = new System.Drawing.Point(104, 69);
             this.tb_hp.Name = "tb_hp";
+            this.tb_hp.ReadOnly = true;
             this.tb_hp.Size = new System.Drawing.Size(100, 20);
             this.tb_hp.TabIndex = 1;
             // 
@@ -86,6 +88,7 @@
             // 
             this.tb_xp.Location = new System.Drawing.Point(104, 95);
             this.tb_xp.Name = "tb_xp";
+            this.tb_xp.ReadOnly = true;
             this.tb_xp.Size = new System.Drawing.Size(100, 20);
             this.tb_xp.TabIndex = 1;
             // 
@@ -111,6 +114,7 @@
             // 
             this.tb_zlato.Location = new System.Drawing.Point(104, 121);
             this.tb_zlato.Name = "tb_zlato";
+            this.tb_zlato.ReadOnly = true;
             this.tb_zlato.Size = new System.Drawing.Size(100, 20);
             this.tb_zlato.TabIndex = 1;
             // 
@@ -118,6 +122,7 @@
             // 
             this.tb_zamor.Location = new System.Drawing.Point(104, 147);
             this.tb_zamor.Name = "tb_zamor";
+            this.tb_zamor.ReadOnly = true;
             this.tb_zamor.Size = new System.Drawing.Size(100, 20);
             this.tb_zamor.TabIndex = 1;
             // 

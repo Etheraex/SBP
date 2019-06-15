@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cb_rasa = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tb_hp = new System.Windows.Forms.TextBox();
@@ -35,6 +36,8 @@
             this.tb_stepen_zamora = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmd_kreiraj = new System.Windows.Forms.Button();
+            this.error_create_character = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.error_create_character)).BeginInit();
             this.SuspendLayout();
             // 
             // cb_rasa
@@ -44,6 +47,7 @@
             this.cb_rasa.Name = "cb_rasa";
             this.cb_rasa.Size = new System.Drawing.Size(121, 21);
             this.cb_rasa.TabIndex = 0;
+            this.cb_rasa.Validating += new System.ComponentModel.CancelEventHandler(this.cb_rasa_Validating);
             // 
             // label1
             // 
@@ -60,6 +64,7 @@
             this.tb_hp.Name = "tb_hp";
             this.tb_hp.Size = new System.Drawing.Size(100, 20);
             this.tb_hp.TabIndex = 2;
+            this.tb_hp.Validating += new System.ComponentModel.CancelEventHandler(this.tb_hp_Validating);
             // 
             // label2
             // 
@@ -76,6 +81,7 @@
             this.tb_stepen_zamora.Name = "tb_stepen_zamora";
             this.tb_stepen_zamora.Size = new System.Drawing.Size(100, 20);
             this.tb_stepen_zamora.TabIndex = 2;
+            this.tb_stepen_zamora.Validating += new System.ComponentModel.CancelEventHandler(this.tb_stepen_zamora_Validating);
             // 
             // label3
             // 
@@ -99,6 +105,10 @@
             this.cmd_kreiraj.UseVisualStyleBackColor = false;
             this.cmd_kreiraj.Click += new System.EventHandler(this.cmd_kreiraj_Click);
             // 
+            // error_create_character
+            // 
+            this.error_create_character.ContainerControl = this;
+            // 
             // KreirajLikaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -115,6 +125,7 @@
             this.MinimizeBox = false;
             this.Name = "KreirajLikaForm";
             this.Text = "KreirajLikaForm";
+            ((System.ComponentModel.ISupportInitialize)(this.error_create_character)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,5 +140,6 @@
         private System.Windows.Forms.TextBox tb_stepen_zamora;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button cmd_kreiraj;
+        private System.Windows.Forms.ErrorProvider error_create_character;
     }
 }

@@ -25,6 +25,8 @@ namespace SBP_Projekat.Forme
 
         private void cmd_recruit_Click(object sender, EventArgs e)
         {
+            if (!ValidateIme() || !ValidateRasa())
+                return;
             var name = tb_ime.Text;
             Rasa tmp = null;
             switch (cb_rasa.SelectedItem.ToString())
@@ -56,6 +58,41 @@ namespace SBP_Projekat.Forme
             DTOManager.Instance.SaveEntity(segrt);
             DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void tb_ime_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateIme();
+        }
+
+        private void cb_rasa_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateRasa();
+        }
+
+        private bool ValidateIme()
+        {
+            if (tb_ime.Text == "")
+            {
+                error_recruit_apprentice.SetError(tb_ime, "Morate uneti ime segrta");
+                return false;
+            }
+            else if (tb_ime.Text.Any(char.IsDigit))
+            {
+                error_recruit_apprentice.SetError(tb_ime, "Ime ne sme sadrzati brojeve");
+                return false;
+            }
+            return true;
+        }
+
+        private bool ValidateRasa()
+        {
+            if (cb_rasa.SelectedIndex == -1)
+            {
+                error_recruit_apprentice.SetError(cb_rasa, "Morate izabrati rasu");
+                return false;
+            }
+            return true;
         }
     }
 }

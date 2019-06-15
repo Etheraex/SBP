@@ -22,6 +22,8 @@ namespace SBP_Projekat.Forme
 
         private void cmd_create_Click(object sender, EventArgs e)
         {
+            if (!ValidateNaziv() || !ValidateMinMax())
+                return;
             Random rand = new Random();
             var alijansa = new AlijansaDTO
             {
@@ -32,6 +34,47 @@ namespace SBP_Projekat.Forme
                 XpBonus = rand.Next(minValue:1,maxValue:15)
             };
             DTOManager.Instance.SaveEntity(alijansa);
+            this.Close();
+        }
+
+        private void tb_naziv_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateNaziv();
+        }
+
+        private void nud_min_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateMinMax();
+        }
+
+        private void nud_max_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateMinMax();
+        }
+
+        private bool ValidateMinMax()
+        {
+            if(nud_max.Value < nud_min.Value)
+            {
+                error_create_aliance.SetError(nud_min, "Vrednost max mora biti veca od vrednosti min");
+                return false;
+            }
+            return true;
+        }
+
+        private bool ValidateNaziv()
+        {
+            if(tb_naziv.Text == "")
+            {
+                error_create_aliance.SetError(tb_naziv, "Morate uneti naziv alijanse");
+                return false;
+            }
+            else if(tb_naziv.Text.Any(char.IsDigit))
+            {
+                error_create_aliance.SetError(tb_naziv, "Naziv ne sme imati cifre");
+                return false;
+            }
+            return true;
         }
     }
 }
