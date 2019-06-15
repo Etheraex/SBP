@@ -67,6 +67,10 @@
             this.dgv_quest = new System.Windows.Forms.DataGridView();
             this.questDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.xpGainDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.num_xpgain = new System.Windows.Forms.NumericUpDown();
+            this.cmd_dodaj_quest = new System.Windows.Forms.Button();
+            this.label_xpgain = new System.Windows.Forms.Label();
+            this.cmd_delete_quest = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_predmeti)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.predmetDTOBindingSource)).BeginInit();
@@ -76,6 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.igracDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_quest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.questDTOBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_xpgain)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -411,6 +416,7 @@
             this.dgv_quest.RowTemplate.Height = 24;
             this.dgv_quest.Size = new System.Drawing.Size(1009, 423);
             this.dgv_quest.TabIndex = 11;
+            this.dgv_quest.VisibleChanged += new System.EventHandler(this.dgv_quest_VisibleChanged);
             // 
             // questDTOBindingSource
             // 
@@ -422,11 +428,51 @@
             this.xpGainDataGridViewTextBoxColumn.HeaderText = "XpGain";
             this.xpGainDataGridViewTextBoxColumn.Name = "xpGainDataGridViewTextBoxColumn";
             // 
+            // num_xpgain
+            // 
+            this.num_xpgain.Location = new System.Drawing.Point(25, 557);
+            this.num_xpgain.Name = "num_xpgain";
+            this.num_xpgain.Size = new System.Drawing.Size(112, 22);
+            this.num_xpgain.TabIndex = 12;
+            // 
+            // cmd_dodaj_quest
+            // 
+            this.cmd_dodaj_quest.Location = new System.Drawing.Point(143, 538);
+            this.cmd_dodaj_quest.Name = "cmd_dodaj_quest";
+            this.cmd_dodaj_quest.Size = new System.Drawing.Size(107, 45);
+            this.cmd_dodaj_quest.TabIndex = 13;
+            this.cmd_dodaj_quest.Text = "dodaj quest";
+            this.cmd_dodaj_quest.UseVisualStyleBackColor = true;
+            this.cmd_dodaj_quest.Click += new System.EventHandler(this.cmd_dodaj_quest_Click);
+            // 
+            // label_xpgain
+            // 
+            this.label_xpgain.AutoSize = true;
+            this.label_xpgain.Location = new System.Drawing.Point(25, 538);
+            this.label_xpgain.Name = "label_xpgain";
+            this.label_xpgain.Size = new System.Drawing.Size(64, 17);
+            this.label_xpgain.TabIndex = 15;
+            this.label_xpgain.Text = "xp Gain :";
+            // 
+            // cmd_delete_quest
+            // 
+            this.cmd_delete_quest.Location = new System.Drawing.Point(256, 538);
+            this.cmd_delete_quest.Name = "cmd_delete_quest";
+            this.cmd_delete_quest.Size = new System.Drawing.Size(107, 45);
+            this.cmd_delete_quest.TabIndex = 16;
+            this.cmd_delete_quest.Text = "obrisi quest";
+            this.cmd_delete_quest.UseVisualStyleBackColor = true;
+            this.cmd_delete_quest.Click += new System.EventHandler(this.cmd_delete_quest_Click);
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 595);
+            this.Controls.Add(this.cmd_delete_quest);
+            this.Controls.Add(this.label_xpgain);
+            this.Controls.Add(this.cmd_dodaj_quest);
+            this.Controls.Add(this.num_xpgain);
             this.Controls.Add(this.dgv_quest);
             this.Controls.Add(this.cmd_deleteUser);
             this.Controls.Add(this.dgv_igraci);
@@ -455,6 +501,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.igracDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_quest)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.questDTOBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_xpgain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -500,5 +547,9 @@
         private System.Windows.Forms.DataGridView dgv_quest;
         private System.Windows.Forms.DataGridViewTextBoxColumn xpGainDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource questDTOBindingSource;
+        private System.Windows.Forms.NumericUpDown num_xpgain;
+        private System.Windows.Forms.Button cmd_dodaj_quest;
+        private System.Windows.Forms.Label label_xpgain;
+        private System.Windows.Forms.Button cmd_delete_quest;
     }
 }

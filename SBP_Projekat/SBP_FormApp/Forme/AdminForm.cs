@@ -143,5 +143,35 @@ namespace SBP_Projekat.Forme
             dgv_quest.DataSource = _questovi;
             dgv_quest.Show();
         }
+
+        private void dgv_quest_VisibleChanged(object sender, EventArgs e)
+        {
+            label_xpgain.Visible
+                = cmd_dodaj_quest.Visible
+                = num_xpgain.Visible
+                = dgv_quest.Visible;
+        }
+
+        private void cmd_dodaj_quest_Click(object sender, EventArgs e)
+        {
+            QuestDTO quest = new QuestDTO();
+            quest.XpGain = (int)num_xpgain.Value;
+            DTOManager.Instance.SaveEntity<QuestDTO>(quest);
+            questoviToolStripMenuItem_Click(null, null);
+        }
+
+        private void cmd_delete_quest_Click(object sender, EventArgs e)
+        {
+            int index = dgv_quest.CurrentCell.RowIndex;
+            if(index >= 0)
+            {
+                DTOManager.Instance.DeleteEntity<QuestDTO>(_questovi[index]);
+                questoviToolStripMenuItem_Click(null, null);
+            }
+            else
+            {
+                MessageBox.Show("niste izabrali quset");
+            }
+        }
     }
 }
