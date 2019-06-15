@@ -30,7 +30,15 @@ namespace SBP_Data
                 return temp; //(K)s.Load(tmp.EntityType, id);
             }
         }
-
+        public List<String> vratiSaveze(int id)
+        {
+            List<String> ret = new List<String>();
+            using (ISession s = DataLayer.Session)
+            {
+                ret = s.QueryOver<Alijansa>().Fetch(x => x.Savezi).Eager.Where(x => x.Id == id).Select(x => x.Savezi).Select(x => x.Naziv);
+           
+            }
+        }
         public T GetDTOById<T>(int id) where T : AbstractDTO
         {
             using (ISession s = DataLayer.Session)

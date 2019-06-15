@@ -41,6 +41,8 @@
             this.btnLeave = new System.Windows.Forms.Button();
             this.btnJoin = new System.Windows.Forms.Button();
             this.cmd_create_aliance = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lblSavez = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlijanse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alijansaDTOBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -182,11 +184,31 @@
             this.cmd_create_aliance.UseVisualStyleBackColor = false;
             this.cmd_create_aliance.Click += new System.EventHandler(this.cmd_create_aliance_Click);
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(418, 175);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(247, 30);
+            this.listBox1.TabIndex = 5;
+            // 
+            // lblSavez
+            // 
+            this.lblSavez.AutoSize = true;
+            this.lblSavez.Location = new System.Drawing.Point(415, 159);
+            this.lblSavez.Name = "lblSavez";
+            this.lblSavez.Size = new System.Drawing.Size(66, 13);
+            this.lblSavez.TabIndex = 6;
+            this.lblSavez.Text = "U savezu sa";
+            this.lblSavez.Visible = false;
+            // 
             // AlianceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(693, 219);
+            this.Controls.Add(this.lblSavez);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.cmd_create_aliance);
             this.Controls.Add(this.btnJoin);
             this.Controls.Add(this.btnLeave);
@@ -222,5 +244,7 @@
         private System.Windows.Forms.Button btnLeave;
         private System.Windows.Forms.Button btnJoin;
         private System.Windows.Forms.Button cmd_create_aliance;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label lblSavez;
     }
 }
