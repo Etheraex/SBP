@@ -16,11 +16,10 @@ namespace SBP_Projekat
         [STAThread]
         static void Main()
         {
-            var asd = new Rasa();
-            
+           
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new WelcomeForm());
         }
     }
 }

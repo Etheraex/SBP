@@ -37,6 +37,58 @@ namespace SBP_Data
             }
         }
 
+        public List<AbstractPredmetDTO> GetAllItems()
+        {
+            var listDTO = new List<AbstractPredmetDTO>();
+            var list = new List<AbstractPredmet>();
+            using (ISession s = DataLayer.Session)
+            {
+                list = s.Query<AbstractPredmet>().ToList();
+            }
+
+            try
+            {
+                foreach (var p in list)
+                {
+                    if (p.GetType() == typeof(Predmet))
+                    {
+                        var predmet = p as Predmet;
+                        if (predmet != null)
+                            listDTO.Add(new PredmetDTO(predmet));
+                    }
+                    else
+                    {
+                        var oruzje = p as Oruzje;
+                        if (oruzje != null)
+                            listDTO.Add(new OruzjeDTO(oruzje));
+                    }
+                }
+            }
+            catch (NullReferenceException)
+            {
+                throw new NullReferenceException(message: "DTOManager.GetAllItems: Neuspesno prebacivanje iz Predmet u PredmetDTO");
+            }
+
+            return listDTO;
+        }
+
+        public List<SesijaDTO> GetAllSessions()
+        {
+            var listDTO = new List<SesijaDTO>();
+            IList<Sesija> list = new List<Sesija>();
+            using (ISession s = DataLayer.Session)
+            {
+                list = s.QueryOver<Sesija>()
+                    .Fetch(x => x.Igrac).Eager
+                    .Fetch(x => x.Lik).Eager
+                    .Fetch(x => x.Lik.Rasa).Eager
+                    .List();
+            }
+            foreach (var s in list)
+                listDTO.Add(new SesijaDTO(s));
+            return listDTO;
+        }
+
         public List<T> GetDTOList<T,K>() where T : AbstractDTO
         {
             List<T> newList = new List<T>(); ;

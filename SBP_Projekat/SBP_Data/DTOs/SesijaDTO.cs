@@ -18,6 +18,22 @@ namespace SBP_Data.DTOs
         public Igrac Igrac { get; set; }
         public Lik Lik { get; set; }
 
+        public string IgracNaziv
+        {
+            get
+            {
+                return Igrac.Nadimak;
+            }
+        }
+
+        public string LikRasa
+        {
+            get
+            {
+                return Lik.Rasa.GetType().Name;
+            }
+        }
+
         public SesijaDTO()
         {
 
@@ -50,6 +66,8 @@ namespace SBP_Data.DTOs
                 base.EntityType = typeof(Sesija);
                 ID = s.Id;
                 Gold = s.Gold;
+                Igrac = s.Igrac;
+                Lik = s.Lik;
                 ZaradjeniXP = s.ZaradjeniXP;
                 VremePocetka = s.VremePocetka;
                 VremeKraja = s.VremeKraja;

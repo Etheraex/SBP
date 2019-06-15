@@ -56,7 +56,7 @@
             this.cmd_logout.Name = "cmd_logout";
             this.cmd_logout.Size = new System.Drawing.Size(125, 27);
             this.cmd_logout.TabIndex = 0;
-            this.cmd_logout.Text = "Log out(gasi app)";
+            this.cmd_logout.Text = "Log out";
             this.cmd_logout.UseVisualStyleBackColor = false;
             this.cmd_logout.Click += new System.EventHandler(this.cmd_logout_Click);
             // 
@@ -123,28 +123,28 @@
             // kuestoviToolStripMenuItem
             // 
             this.kuestoviToolStripMenuItem.Name = "kuestoviToolStripMenuItem";
-            this.kuestoviToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kuestoviToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.kuestoviToolStripMenuItem.Text = "Kuestovi";
             this.kuestoviToolStripMenuItem.Click += new System.EventHandler(this.kuestoviToolStripMenuItem_Click);
             // 
             // statoviToolStripMenuItem
             // 
             this.statoviToolStripMenuItem.Name = "statoviToolStripMenuItem";
-            this.statoviToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.statoviToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.statoviToolStripMenuItem.Text = "Statovi";
             this.statoviToolStripMenuItem.Click += new System.EventHandler(this.statoviToolStripMenuItem_Click);
             // 
             // inventarToolStripMenuItem
             // 
             this.inventarToolStripMenuItem.Name = "inventarToolStripMenuItem";
-            this.inventarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inventarToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.inventarToolStripMenuItem.Text = "Inventar";
             this.inventarToolStripMenuItem.Click += new System.EventHandler(this.inventarToolStripMenuItem_Click);
             // 
             // segrtToolStripMenuItem
             // 
             this.segrtToolStripMenuItem.Name = "segrtToolStripMenuItem";
-            this.segrtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.segrtToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.segrtToolStripMenuItem.Text = "Segrt";
             this.segrtToolStripMenuItem.Click += new System.EventHandler(this.segrtToolStripMenuItem_Click);
             // 
@@ -191,8 +191,10 @@
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

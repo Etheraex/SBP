@@ -169,6 +169,7 @@
             this.MinimizeBox = false;
             this.Name = "CharacterSelectionForm";
             this.Text = "CharacterSelection";
+            this.Load += new System.EventHandler(this.CharacterSelectionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_likovi_dd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.likDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
