@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,7 @@ namespace SBP_Projekat.Forme
         private int _dobijeniZadatak;
         private int _questID;
         private bool _saAlijansom;
+        private Stopwatch _questStopwhatch;
         public GameForm(IgracDTO igrac, Form f, int questID, Boolean saAlijansom)
         {
             InitializeComponent();
@@ -50,7 +52,7 @@ namespace SBP_Projekat.Forme
             btn_5.Visible = false;
             label1.Text = "Status izvrsenja kvesta";
             await DoQuest();
-
+            _questStopwhatch = Stopwatch.StartNew();
             cmd_finish.Visible = true;
         }
 
@@ -87,13 +89,15 @@ namespace SBP_Projekat.Forme
             btn_3.Visible = true;
             btn_4.Visible = true;
             btn_5.Visible = true;
-
+            _questStopwhatch = Stopwatch.StartNew();
             cmd_finish.Visible = true;
         }
 
         private void cmd_finish_Click(object sender, EventArgs e)
         {
             int i = 0;
+            _questStopwhatch.Stop();
+            int timeForQuest = _questStopwhatch.Elapsed.Seconds;
             // Za drugi zadatak mora provera da li je lepo odradjen
             if (_dobijeniZadatak == 2)
             {
@@ -108,18 +112,29 @@ namespace SBP_Projekat.Forme
             }
             // Za prvi zadatak dugme se pojavi tek kad se napuni progress bar tako da uvek je uspesno zavrsen quest kada se klikne ovo dugme
             MessageBox.Show("Tacno ste uradili");
-            var tmp = DTOManager.Instance.GetEntityById<QuestDTO, Quest>(_questID);
+            var quest = DTOManager.Instance.GetEntityById<QuestDTO, Quest>(_questID);
             if (_saAlijansom)
             {
-                //AlijansaDTO alijansa = DTOManager.Instance.GetDTOById<AlijansaDTO>(_igrac.PripadaAlijansi.Id);
-                AlijansaDTO alijansa = DTOManager.Instance.VratiAlijansuSaQuestovima(_igrac.PripadaAlijansi.Id);
-                alijansa.IspunjeniQuestiovi.Add(tmp);
-                DTOManager.Instance.UpdateEntity(alijansa);
+                AlijansaIspunjavaDTO ispunjava = new AlijansaIspunjavaDTO();
+                ispunjava.Vreme = timeForQuest;
+                ispunjava.Alijansa = _igrac.PripadaAlijansi;
+                ispunjava.Quest = quest;
+                DTOManager.Instance.SaveEntity(ispunjava);
+
+                //AlijansaDTO alijansa = DTOManager.Instance.VratiAlijansuSaQuestovima(_igrac.PripadaAlijansi.Id);
+                //alijansa.IspunjeniQuestiovi.Add(quest);
+                //DTOManager.Instance.UpdateEntity(alijansa);
             }
             else
             {
-                _igrac.IspunjeniQuestiov.Add(tmp);
-                DTOManager.Instance.UpdateEntity(_igrac);
+                IgracIspunjavaDTO ispunjava = new IgracIspunjavaDTO();
+                ispunjava.Vreme = timeForQuest;
+                ispunjava.Igrac = DTOManager.Instance.GetEntityById<IgracDTO,Igrac>(_igrac.ID);  //ovo treba da se uradi bolje, treba da mozemo DTO da pretvorimo u model ako hocemo ovde da ne loadujemo opet iz baze
+                ispunjava.Quest = quest;
+                DTOManager.Instance.SaveEntity(ispunjava);
+
+                //_igrac.IspunjeniQuestiov.Add(quest);
+                //DTOManager.Instance.UpdateEntity(_igrac);
             }
 
             this.Close();
