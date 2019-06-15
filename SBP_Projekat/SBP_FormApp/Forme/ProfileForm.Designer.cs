@@ -42,6 +42,7 @@
             this.tb_nadimak = new System.Windows.Forms.TextBox();
             this.tb_ime = new System.Windows.Forms.TextBox();
             this.tb_username = new System.Windows.Forms.TextBox();
+            this.cmd_delete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cb_pol
@@ -51,7 +52,7 @@
             "M",
             "Z"});
             this.cb_pol.Location = new System.Drawing.Point(107, 134);
-            this.cb_pol.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_pol.Margin = new System.Windows.Forms.Padding(4);
             this.cb_pol.Name = "cb_pol";
             this.cb_pol.Size = new System.Drawing.Size(132, 24);
             this.cb_pol.TabIndex = 17;
@@ -129,7 +130,7 @@
             // tb_prezime
             // 
             this.tb_prezime.Location = new System.Drawing.Point(107, 103);
-            this.tb_prezime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_prezime.Margin = new System.Windows.Forms.Padding(4);
             this.tb_prezime.Name = "tb_prezime";
             this.tb_prezime.ReadOnly = true;
             this.tb_prezime.Size = new System.Drawing.Size(132, 22);
@@ -138,7 +139,7 @@
             // tb_uzrast
             // 
             this.tb_uzrast.Location = new System.Drawing.Point(107, 167);
-            this.tb_uzrast.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_uzrast.Margin = new System.Windows.Forms.Padding(4);
             this.tb_uzrast.Name = "tb_uzrast";
             this.tb_uzrast.ReadOnly = true;
             this.tb_uzrast.Size = new System.Drawing.Size(132, 22);
@@ -147,7 +148,7 @@
             // tb_password
             // 
             this.tb_password.Location = new System.Drawing.Point(107, 39);
-            this.tb_password.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_password.Margin = new System.Windows.Forms.Padding(4);
             this.tb_password.Name = "tb_password";
             this.tb_password.ReadOnly = true;
             this.tb_password.Size = new System.Drawing.Size(132, 22);
@@ -156,7 +157,7 @@
             // tb_nadimak
             // 
             this.tb_nadimak.Location = new System.Drawing.Point(107, 199);
-            this.tb_nadimak.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_nadimak.Margin = new System.Windows.Forms.Padding(4);
             this.tb_nadimak.Name = "tb_nadimak";
             this.tb_nadimak.ReadOnly = true;
             this.tb_nadimak.Size = new System.Drawing.Size(132, 22);
@@ -165,7 +166,7 @@
             // tb_ime
             // 
             this.tb_ime.Location = new System.Drawing.Point(107, 71);
-            this.tb_ime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_ime.Margin = new System.Windows.Forms.Padding(4);
             this.tb_ime.Name = "tb_ime";
             this.tb_ime.ReadOnly = true;
             this.tb_ime.Size = new System.Drawing.Size(132, 22);
@@ -174,17 +175,28 @@
             // tb_username
             // 
             this.tb_username.Location = new System.Drawing.Point(107, 7);
-            this.tb_username.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_username.Margin = new System.Windows.Forms.Padding(4);
             this.tb_username.Name = "tb_username";
             this.tb_username.ReadOnly = true;
             this.tb_username.Size = new System.Drawing.Size(132, 22);
             this.tb_username.TabIndex = 9;
             // 
+            // cmd_delete
+            // 
+            this.cmd_delete.Location = new System.Drawing.Point(19, 236);
+            this.cmd_delete.Name = "cmd_delete";
+            this.cmd_delete.Size = new System.Drawing.Size(132, 31);
+            this.cmd_delete.TabIndex = 18;
+            this.cmd_delete.Text = "obrisi moj profil";
+            this.cmd_delete.UseVisualStyleBackColor = true;
+            this.cmd_delete.Click += new System.EventHandler(this.cmd_delete_Click);
+            // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 271);
+            this.ClientSize = new System.Drawing.Size(300, 282);
+            this.Controls.Add(this.cmd_delete);
             this.Controls.Add(this.cb_pol);
             this.Controls.Add(this.lbl_prezime);
             this.Controls.Add(this.lbl_uzrast);
@@ -199,7 +211,7 @@
             this.Controls.Add(this.tb_nadimak);
             this.Controls.Add(this.tb_ime);
             this.Controls.Add(this.tb_username);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ProfileForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProfileForm";
@@ -224,5 +236,6 @@
         private System.Windows.Forms.TextBox tb_nadimak;
         private System.Windows.Forms.TextBox tb_ime;
         private System.Windows.Forms.TextBox tb_username;
+        private System.Windows.Forms.Button cmd_delete;
     }
 }
