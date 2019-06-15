@@ -45,5 +45,10 @@ namespace SBP_Projekat.Forme
             var tmp = DTOManager.Instance.GetAllSessions();
             dgv_sesije.DataSource = tmp;
         }
+
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+            label2.Text = DTOManager.Instance.GetCurrentSessions().ToString();
+        }
     }
 }

@@ -282,6 +282,7 @@
             this.Name = "WelcomeForm";
             this.Text = "WelcomeForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WelcomeForm_FormClosing);
+            this.Load += new System.EventHandler(this.WelcomeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.error_welcome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_uzrast)).EndInit();
             this.ResumeLayout(false);

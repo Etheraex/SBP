@@ -44,13 +44,13 @@
             this.vrstaOruzjaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.predmetDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgv_sesije = new System.Windows.Forms.DataGridView();
-            this.sesijaDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.goldDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zaradjeniXPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vremePocetkaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vremeKrajaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.igracNazivDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.likRasaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sesijaDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_predmeti)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.predmetDTOBindingSource)).BeginInit();
@@ -200,10 +200,6 @@
             this.dgv_sesije.Size = new System.Drawing.Size(758, 346);
             this.dgv_sesije.TabIndex = 4;
             // 
-            // sesijaDTOBindingSource
-            // 
-            this.sesijaDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.SesijaDTO);
-            // 
             // goldDataGridViewTextBoxColumn
             // 
             this.goldDataGridViewTextBoxColumn.DataPropertyName = "Gold";
@@ -246,6 +242,10 @@
             this.likRasaDataGridViewTextBoxColumn.Name = "likRasaDataGridViewTextBoxColumn";
             this.likRasaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // sesijaDTOBindingSource
+            // 
+            this.sesijaDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.SesijaDTO);
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -260,6 +260,7 @@
             this.Name = "AdminForm";
             this.Text = "AdminForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminForm_FormClosed);
+            this.Load += new System.EventHandler(this.AdminForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_predmeti)).EndInit();

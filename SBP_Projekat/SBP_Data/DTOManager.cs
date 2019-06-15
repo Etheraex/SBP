@@ -15,7 +15,11 @@ namespace SBP_Data
     public class DTOManager
     {
         private DTOManager() { }
-
+        public void InitTest()
+        {
+            ISession s = DataLayer.Session;
+            s.Close();
+        }
         public K GetEntityById<T,K>(int id) where T : AbstractDTO
         {
             using (ISession s = DataLayer.Session)
@@ -70,6 +74,22 @@ namespace SBP_Data
             }
 
             return listDTO;
+        }
+
+        public int GetCurrentSessions()
+        {
+            int retval = 0; ;
+            using (ISession s = DataLayer.Session)
+            {
+               retval = s.QueryOver<Sesija>()
+                    .Fetch(x => x.Igrac).Eager
+                    .Fetch(x => x.Lik).Eager
+                    .Fetch(x => x.Lik.Rasa).Eager
+                    .Where(x=>x.VremeKraja==null)
+                    .RowCount();
+            }
+
+            return retval;
         }
 
         public List<SesijaDTO> GetAllSessions()
