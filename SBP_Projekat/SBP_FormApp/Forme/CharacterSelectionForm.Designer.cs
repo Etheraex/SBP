@@ -33,12 +33,12 @@
             this.cmd_delete = new System.Windows.Forms.Button();
             this.cmd_select = new System.Windows.Forms.Button();
             this.dgv_likovi_dd = new System.Windows.Forms.DataGridView();
+            this.likDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.NormalizedRasa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zlatoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stepenZamoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.likDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_likovi_dd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.likDTOBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -106,11 +106,15 @@
             this.dgv_likovi_dd.Size = new System.Drawing.Size(501, 207);
             this.dgv_likovi_dd.TabIndex = 4;
             // 
+            // likDTOBindingSource
+            // 
+            this.likDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.LikDTO);
+            // 
             // NormalizedRasa
             // 
             this.NormalizedRasa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.NormalizedRasa.DataPropertyName = "NormalizedRasa";
-            this.NormalizedRasa.HeaderText = "NormalizedRasa";
+            this.NormalizedRasa.HeaderText = "Rasa";
             this.NormalizedRasa.Name = "NormalizedRasa";
             this.NormalizedRasa.ReadOnly = true;
             // 
@@ -145,14 +149,10 @@
             // 
             this.stepenZamoraDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.stepenZamoraDataGridViewTextBoxColumn.DataPropertyName = "StepenZamora";
-            this.stepenZamoraDataGridViewTextBoxColumn.HeaderText = "StepenZamora";
+            this.stepenZamoraDataGridViewTextBoxColumn.HeaderText = "Stepen Zamora";
             this.stepenZamoraDataGridViewTextBoxColumn.Name = "stepenZamoraDataGridViewTextBoxColumn";
             this.stepenZamoraDataGridViewTextBoxColumn.ReadOnly = true;
-            this.stepenZamoraDataGridViewTextBoxColumn.Width = 102;
-            // 
-            // likDTOBindingSource
-            // 
-            this.likDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.LikDTO);
+            this.stepenZamoraDataGridViewTextBoxColumn.Width = 96;
             // 
             // CharacterSelectionForm
             // 
@@ -168,7 +168,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CharacterSelectionForm";
-            this.Text = "CharacterSelection";
+            this.Text = "Izbor karaktera";
             this.Load += new System.EventHandler(this.CharacterSelectionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_likovi_dd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.likDTOBindingSource)).EndInit();

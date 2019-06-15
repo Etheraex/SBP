@@ -143,7 +143,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "CreateAlianceForm";
-            this.Text = "CreateAlianceForm";
+            this.Text = "Kreiranje alijanse";
             ((System.ComponentModel.ISupportInitialize)(this.nud_min)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_max)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.error_create_aliance)).EndInit();

@@ -33,11 +33,11 @@
             this.cmd_odbaci = new System.Windows.Forms.Button();
             this.cmd_recruit = new System.Windows.Forms.Button();
             this.dgv_my_apprentice = new System.Windows.Forms.DataGridView();
-            this.likDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.zlatoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stepenZamoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.likDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_my_apprentice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.likDTOBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -95,10 +95,6 @@
             this.dgv_my_apprentice.Size = new System.Drawing.Size(545, 83);
             this.dgv_my_apprentice.TabIndex = 4;
             // 
-            // likDTOBindingSource
-            // 
-            this.likDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.LikDTO);
-            // 
             // zlatoDataGridViewTextBoxColumn
             // 
             this.zlatoDataGridViewTextBoxColumn.DataPropertyName = "Zlato";
@@ -127,6 +123,10 @@
             this.stepenZamoraDataGridViewTextBoxColumn.Name = "stepenZamoraDataGridViewTextBoxColumn";
             this.stepenZamoraDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // likDTOBindingSource
+            // 
+            this.likDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.LikDTO);
+            // 
             // ApprenticeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,7 +139,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ApprenticeForm";
-            this.Text = "ApprenticeForm";
+            this.Text = "Segrti";
             this.Load += new System.EventHandler(this.ApprenticeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_my_apprentice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.likDTOBindingSource)).EndInit();

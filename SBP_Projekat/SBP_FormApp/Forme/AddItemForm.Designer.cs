@@ -175,7 +175,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AddItemForm";
-            this.Text = "AddItem";
+            this.Text = "Dodavanje predmeta";
             ((System.ComponentModel.ISupportInitialize)(this.error_create_item)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

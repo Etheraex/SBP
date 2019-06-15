@@ -100,7 +100,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(206, 122);
+            this.ClientSize = new System.Drawing.Size(206, 121);
             this.Controls.Add(this.cb_rasa);
             this.Controls.Add(this.tb_ime);
             this.Controls.Add(this.cmd_recruit);
@@ -111,7 +111,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(222, 160);
             this.Name = "RecruitApprenticeForm";
-            this.Text = "RecruitApprenticeForm";
+            this.Text = "Regrutuj segrta";
             ((System.ComponentModel.ISupportInitialize)(this.error_recruit_apprentice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

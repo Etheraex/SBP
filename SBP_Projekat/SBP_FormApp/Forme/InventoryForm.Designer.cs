@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgv_items = new System.Windows.Forms.DataGridView();
+            this.abstractPredmetDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cmd_izbaci = new System.Windows.Forms.Button();
             this.xpBonusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nazivDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.opisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vrstaOruzjaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.abstractPredmetDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cmd_izbaci = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_items)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.abstractPredmetDTOBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -59,14 +59,31 @@
             this.dgv_items.Size = new System.Drawing.Size(854, 142);
             this.dgv_items.TabIndex = 0;
             // 
+            // abstractPredmetDTOBindingSource
+            // 
+            this.abstractPredmetDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.AbstractPredmetDTO);
+            // 
+            // cmd_izbaci
+            // 
+            this.cmd_izbaci.BackColor = System.Drawing.Color.LightGray;
+            this.cmd_izbaci.FlatAppearance.BorderSize = 0;
+            this.cmd_izbaci.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmd_izbaci.Location = new System.Drawing.Point(12, 169);
+            this.cmd_izbaci.Name = "cmd_izbaci";
+            this.cmd_izbaci.Size = new System.Drawing.Size(127, 33);
+            this.cmd_izbaci.TabIndex = 4;
+            this.cmd_izbaci.Text = "Izbaci predmet";
+            this.cmd_izbaci.UseVisualStyleBackColor = false;
+            this.cmd_izbaci.Click += new System.EventHandler(this.cmd_izbaci_Click);
+            // 
             // xpBonusDataGridViewTextBoxColumn
             // 
             this.xpBonusDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.xpBonusDataGridViewTextBoxColumn.DataPropertyName = "XpBonus";
-            this.xpBonusDataGridViewTextBoxColumn.HeaderText = "XpBonus";
+            this.xpBonusDataGridViewTextBoxColumn.HeaderText = "XP Bonus";
             this.xpBonusDataGridViewTextBoxColumn.Name = "xpBonusDataGridViewTextBoxColumn";
             this.xpBonusDataGridViewTextBoxColumn.ReadOnly = true;
-            this.xpBonusDataGridViewTextBoxColumn.Width = 75;
+            this.xpBonusDataGridViewTextBoxColumn.Width = 79;
             // 
             // nazivDataGridViewTextBoxColumn
             // 
@@ -89,26 +106,9 @@
             // 
             this.vrstaOruzjaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.vrstaOruzjaDataGridViewTextBoxColumn.DataPropertyName = "VrstaOruzja";
-            this.vrstaOruzjaDataGridViewTextBoxColumn.HeaderText = "VrstaOruzja";
+            this.vrstaOruzjaDataGridViewTextBoxColumn.HeaderText = "Vrsta Oruzja";
             this.vrstaOruzjaDataGridViewTextBoxColumn.Name = "vrstaOruzjaDataGridViewTextBoxColumn";
             this.vrstaOruzjaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // abstractPredmetDTOBindingSource
-            // 
-            this.abstractPredmetDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.AbstractPredmetDTO);
-            // 
-            // cmd_izbaci
-            // 
-            this.cmd_izbaci.BackColor = System.Drawing.Color.LightGray;
-            this.cmd_izbaci.FlatAppearance.BorderSize = 0;
-            this.cmd_izbaci.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmd_izbaci.Location = new System.Drawing.Point(12, 169);
-            this.cmd_izbaci.Name = "cmd_izbaci";
-            this.cmd_izbaci.Size = new System.Drawing.Size(127, 33);
-            this.cmd_izbaci.TabIndex = 4;
-            this.cmd_izbaci.Text = "Izbaci predmet";
-            this.cmd_izbaci.UseVisualStyleBackColor = false;
-            this.cmd_izbaci.Click += new System.EventHandler(this.cmd_izbaci_Click);
             // 
             // InventoryForm
             // 
@@ -120,7 +120,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "InventoryForm";
-            this.Text = "InventoryForm";
+            this.Text = "Inventar";
             this.Load += new System.EventHandler(this.InventoryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_items)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.abstractPredmetDTOBindingSource)).EndInit();
@@ -132,10 +132,10 @@
 
         private System.Windows.Forms.DataGridView dgv_items;
         private System.Windows.Forms.BindingSource abstractPredmetDTOBindingSource;
+        private System.Windows.Forms.Button cmd_izbaci;
         private System.Windows.Forms.DataGridViewTextBoxColumn xpBonusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nazivDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn opisDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vrstaOruzjaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button cmd_izbaci;
     }
 }

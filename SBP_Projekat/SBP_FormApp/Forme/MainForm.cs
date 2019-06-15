@@ -193,7 +193,10 @@ namespace SBP_Projekat.Forme
             DTOManager.Instance.UpdateEntity(_character);
         }
         #endregion
-
+        public void Brisanje()
+        {
+            this.Close();
+        }
 
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)

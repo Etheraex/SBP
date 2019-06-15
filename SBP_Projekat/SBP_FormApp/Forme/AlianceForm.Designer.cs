@@ -199,7 +199,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(700, 250);
             this.Name = "AlianceForm";
-            this.Text = "AlianceForm";
+            this.Text = "Alijanse";
             this.Load += new System.EventHandler(this.AlianceForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlijanse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alijansaDTOBindingSource)).EndInit();

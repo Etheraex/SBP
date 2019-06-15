@@ -43,10 +43,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 43);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(12, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 17);
+            this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 6;
             // 
             // cmd_giveup
@@ -54,10 +53,9 @@
             this.cmd_giveup.BackColor = System.Drawing.Color.LightGray;
             this.cmd_giveup.FlatAppearance.BorderSize = 0;
             this.cmd_giveup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmd_giveup.Location = new System.Drawing.Point(16, 94);
-            this.cmd_giveup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmd_giveup.Location = new System.Drawing.Point(12, 76);
             this.cmd_giveup.Name = "cmd_giveup";
-            this.cmd_giveup.Size = new System.Drawing.Size(100, 28);
+            this.cmd_giveup.Size = new System.Drawing.Size(75, 23);
             this.cmd_giveup.TabIndex = 4;
             this.cmd_giveup.Text = "Odustani";
             this.cmd_giveup.UseVisualStyleBackColor = false;
@@ -68,10 +66,9 @@
             this.cmd_finish.BackColor = System.Drawing.Color.LightGray;
             this.cmd_finish.FlatAppearance.BorderSize = 0;
             this.cmd_finish.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmd_finish.Location = new System.Drawing.Point(453, 94);
-            this.cmd_finish.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmd_finish.Location = new System.Drawing.Point(340, 76);
             this.cmd_finish.Name = "cmd_finish";
-            this.cmd_finish.Size = new System.Drawing.Size(100, 28);
+            this.cmd_finish.Size = new System.Drawing.Size(75, 23);
             this.cmd_finish.TabIndex = 5;
             this.cmd_finish.Text = "Zavrsi";
             this.cmd_finish.UseVisualStyleBackColor = false;
@@ -79,11 +76,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(16, 15);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Location = new System.Drawing.Point(12, 12);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(536, 22);
+            this.textBox1.Size = new System.Drawing.Size(403, 20);
             this.textBox1.TabIndex = 3;
             // 
             // btn_1
@@ -91,10 +87,9 @@
             this.btn_1.BackColor = System.Drawing.Color.LightGray;
             this.btn_1.FlatAppearance.BorderSize = 0;
             this.btn_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_1.Location = new System.Drawing.Point(20, 15);
-            this.btn_1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_1.Location = new System.Drawing.Point(15, 12);
             this.btn_1.Name = "btn_1";
-            this.btn_1.Size = new System.Drawing.Size(100, 28);
+            this.btn_1.Size = new System.Drawing.Size(75, 23);
             this.btn_1.TabIndex = 4;
             this.btn_1.Text = "1";
             this.btn_1.UseVisualStyleBackColor = false;
@@ -105,10 +100,9 @@
             this.btn_3.BackColor = System.Drawing.Color.LightGray;
             this.btn_3.FlatAppearance.BorderSize = 0;
             this.btn_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_3.Location = new System.Drawing.Point(128, 15);
-            this.btn_3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_3.Location = new System.Drawing.Point(96, 12);
             this.btn_3.Name = "btn_3";
-            this.btn_3.Size = new System.Drawing.Size(100, 28);
+            this.btn_3.Size = new System.Drawing.Size(75, 23);
             this.btn_3.TabIndex = 4;
             this.btn_3.Text = "3";
             this.btn_3.UseVisualStyleBackColor = false;
@@ -119,10 +113,9 @@
             this.btn_4.BackColor = System.Drawing.Color.LightGray;
             this.btn_4.FlatAppearance.BorderSize = 0;
             this.btn_4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_4.Location = new System.Drawing.Point(236, 15);
-            this.btn_4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_4.Location = new System.Drawing.Point(177, 12);
             this.btn_4.Name = "btn_4";
-            this.btn_4.Size = new System.Drawing.Size(100, 28);
+            this.btn_4.Size = new System.Drawing.Size(75, 23);
             this.btn_4.TabIndex = 4;
             this.btn_4.Text = "4";
             this.btn_4.UseVisualStyleBackColor = false;
@@ -133,10 +126,9 @@
             this.btn_5.BackColor = System.Drawing.Color.LightGray;
             this.btn_5.FlatAppearance.BorderSize = 0;
             this.btn_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_5.Location = new System.Drawing.Point(344, 15);
-            this.btn_5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_5.Location = new System.Drawing.Point(258, 12);
             this.btn_5.Name = "btn_5";
-            this.btn_5.Size = new System.Drawing.Size(100, 28);
+            this.btn_5.Size = new System.Drawing.Size(75, 23);
             this.btn_5.TabIndex = 4;
             this.btn_5.Text = "5";
             this.btn_5.UseVisualStyleBackColor = false;
@@ -147,10 +139,9 @@
             this.btn_2.BackColor = System.Drawing.Color.LightGray;
             this.btn_2.FlatAppearance.BorderSize = 0;
             this.btn_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_2.Location = new System.Drawing.Point(452, 15);
-            this.btn_2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_2.Location = new System.Drawing.Point(339, 12);
             this.btn_2.Name = "btn_2";
-            this.btn_2.Size = new System.Drawing.Size(100, 28);
+            this.btn_2.Size = new System.Drawing.Size(75, 23);
             this.btn_2.TabIndex = 4;
             this.btn_2.Text = "2";
             this.btn_2.UseVisualStyleBackColor = false;
@@ -161,10 +152,9 @@
             this.btn_reset.BackColor = System.Drawing.Color.LightGray;
             this.btn_reset.FlatAppearance.BorderSize = 0;
             this.btn_reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_reset.Location = new System.Drawing.Point(453, 50);
-            this.btn_reset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_reset.Location = new System.Drawing.Point(340, 41);
             this.btn_reset.Name = "btn_reset";
-            this.btn_reset.Size = new System.Drawing.Size(100, 28);
+            this.btn_reset.Size = new System.Drawing.Size(75, 23);
             this.btn_reset.TabIndex = 4;
             this.btn_reset.Text = "Resetuj";
             this.btn_reset.UseVisualStyleBackColor = false;
@@ -172,9 +162,9 @@
             // 
             // GameForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 127);
+            this.ClientSize = new System.Drawing.Size(424, 103);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_2);
             this.Controls.Add(this.btn_5);
@@ -185,9 +175,8 @@
             this.Controls.Add(this.cmd_giveup);
             this.Controls.Add(this.cmd_finish);
             this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "GameForm";
-            this.Text = "GameForm";
+            this.Text = "Obrada zadatka";
             this.ResumeLayout(false);
             this.PerformLayout();
 

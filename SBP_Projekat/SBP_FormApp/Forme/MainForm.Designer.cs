@@ -123,28 +123,28 @@
             // kuestoviToolStripMenuItem
             // 
             this.kuestoviToolStripMenuItem.Name = "kuestoviToolStripMenuItem";
-            this.kuestoviToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.kuestoviToolStripMenuItem.Text = "Kuestovi";
+            this.kuestoviToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kuestoviToolStripMenuItem.Text = "Zadaci";
             this.kuestoviToolStripMenuItem.Click += new System.EventHandler(this.kuestoviToolStripMenuItem_Click);
             // 
             // statoviToolStripMenuItem
             // 
             this.statoviToolStripMenuItem.Name = "statoviToolStripMenuItem";
-            this.statoviToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.statoviToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.statoviToolStripMenuItem.Text = "Statovi";
             this.statoviToolStripMenuItem.Click += new System.EventHandler(this.statoviToolStripMenuItem_Click);
             // 
             // inventarToolStripMenuItem
             // 
             this.inventarToolStripMenuItem.Name = "inventarToolStripMenuItem";
-            this.inventarToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.inventarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.inventarToolStripMenuItem.Text = "Inventar";
             this.inventarToolStripMenuItem.Click += new System.EventHandler(this.inventarToolStripMenuItem_Click);
             // 
             // segrtToolStripMenuItem
             // 
             this.segrtToolStripMenuItem.Name = "segrtToolStripMenuItem";
-            this.segrtToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.segrtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.segrtToolStripMenuItem.Text = "Segrt";
             this.segrtToolStripMenuItem.Click += new System.EventHandler(this.segrtToolStripMenuItem_Click);
             // 
@@ -161,21 +161,21 @@
             // mojProfilToolStripMenuItem
             // 
             this.mojProfilToolStripMenuItem.Name = "mojProfilToolStripMenuItem";
-            this.mojProfilToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mojProfilToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.mojProfilToolStripMenuItem.Text = "Moj Profil";
             this.mojProfilToolStripMenuItem.Click += new System.EventHandler(this.mojProfilToolStripMenuItem_Click);
             // 
             // izborKarakteraToolStripMenuItem
             // 
             this.izborKarakteraToolStripMenuItem.Name = "izborKarakteraToolStripMenuItem";
-            this.izborKarakteraToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.izborKarakteraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.izborKarakteraToolStripMenuItem.Text = "Izbor Karaktera";
             this.izborKarakteraToolStripMenuItem.Click += new System.EventHandler(this.izborKarakteraToolStripMenuItem_Click);
             // 
             // alijanseToolStripMenuItem
             // 
             this.alijanseToolStripMenuItem.Name = "alijanseToolStripMenuItem";
-            this.alijanseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.alijanseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.alijanseToolStripMenuItem.Text = "Alijanse";
             this.alijanseToolStripMenuItem.Click += new System.EventHandler(this.alijanseToolStripMenuItem_Click);
             // 

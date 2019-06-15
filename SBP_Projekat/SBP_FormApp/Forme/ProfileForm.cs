@@ -15,7 +15,7 @@ namespace SBP_Projekat.Forme
     public partial class ProfileForm : Form
     {
         IgracDTO _igrac;
-        public ProfileForm(IgracDTO igrac,Form parent)
+        public ProfileForm(IgracDTO igrac,MainForm parent)
         {
             this.MdiParent = parent;
             InitializeComponent();
@@ -34,8 +34,15 @@ namespace SBP_Projekat.Forme
 
         private void cmd_delete_Click(object sender, EventArgs e)
         {
-            DTOManager.Instance.DeleteEntity<IgracDTO>(_igrac);
-            this.Close();
+
+            DialogResult check = MessageBox.Show("Da li ste sigurni da zelite da obrisete profil?","Upozorenje", MessageBoxButtons.YesNo,MessageBoxIcon.Exclamation);
+            if (check == DialogResult.Yes)
+            {
+                DTOManager.Instance.DeleteEntity<IgracDTO>(_igrac);
+
+                MdiParent.Close();
+            }
+
         }
     }
 }

@@ -22,6 +22,16 @@ namespace SBP_Projekat.Forme
             InitializeComponent();
             this.MdiParent = parent;
             _igrac = igrac;
+            if (igrac.PripadaAlijansi != null)
+            {
+                btnJoin.Visible = false;
+                btnLeave.Visible = true;
+            }
+            else
+            {
+                btnJoin.Visible = true;
+                btnLeave.Visible = false;
+            }
         }
 
         private void AlianceForm_Load(object sender, EventArgs e)
@@ -58,6 +68,11 @@ namespace SBP_Projekat.Forme
             _igrac.PripadaAlijansi = newAlijansa;
             DTOManager.Instance.UpdateEntity(_igrac);
             LoadInfo();
+            btnJoin.Visible = false;
+            btnLeave.Visible = true;
+            label1.Visible = true;
+            lAlijansa.Visible = true;
+
         }
 
         private void cmd_Leave_Click(object sender, EventArgs e)
@@ -66,6 +81,10 @@ namespace SBP_Projekat.Forme
             DTOManager.Instance.UpdateEntity(_igrac);
             cur = null;
             LoadInfo();
+            btnJoin.Visible = true;
+            btnLeave.Visible = false;
+            label1.Visible = false;
+            lAlijansa.Visible = false;
         }
 
         private void cmd_create_aliance_Click(object sender, EventArgs e)

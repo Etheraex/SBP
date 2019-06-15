@@ -139,7 +139,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(220, 179);
+            this.ClientSize = new System.Drawing.Size(220, 178);
             this.Controls.Add(this.tb_zamor);
             this.Controls.Add(this.tb_zlato);
             this.Controls.Add(this.label6);
@@ -156,7 +156,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(236, 217);
             this.Name = "StatsForm";
-            this.Text = "StatsForm";
+            this.Text = "Informacije o liku";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -257,7 +257,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(290, 301);
+            this.ClientSize = new System.Drawing.Size(290, 300);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.nud_uzrast);
             this.Controls.Add(this.cb_pol);
@@ -282,7 +282,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(306, 339);
             this.Name = "WelcomeForm";
-            this.Text = "WelcomeForm";
+            this.Text = "Dobrodosli u Witcher 4";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WelcomeForm_FormClosing);
             this.Load += new System.EventHandler(this.WelcomeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.error_welcome)).EndInit();

@@ -37,18 +37,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgv_predmeti = new System.Windows.Forms.DataGridView();
-            this.xpBonusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nazivDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.opisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vrstaOruzjaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.predmetDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgv_sesije = new System.Windows.Forms.DataGridView();
-            this.goldDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zaradjeniXPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vremePocetkaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vremeKrajaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.igracNazivDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.likRasaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sesijaDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -65,13 +55,23 @@
             this.igracDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmd_deleteUser = new System.Windows.Forms.Button();
             this.dgv_quest = new System.Windows.Forms.DataGridView();
-            this.xpGainDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.questDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.num_xpgain = new System.Windows.Forms.NumericUpDown();
             this.cmd_dodaj_quest = new System.Windows.Forms.Button();
             this.label_xpgain = new System.Windows.Forms.Label();
             this.cmd_delete_quest = new System.Windows.Forms.Button();
             this.cmd_delete_item = new System.Windows.Forms.Button();
+            this.xpGainDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.xpBonusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nazivDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.opisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vrstaOruzjaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goldDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zaradjeniXPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vremePocetkaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vremeKrajaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.igracNazivDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.likRasaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_predmeti)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.predmetDTOBindingSource)).BeginInit();
@@ -162,41 +162,6 @@
             this.dgv_predmeti.Size = new System.Drawing.Size(758, 346);
             this.dgv_predmeti.TabIndex = 3;
             // 
-            // xpBonusDataGridViewTextBoxColumn
-            // 
-            this.xpBonusDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.xpBonusDataGridViewTextBoxColumn.DataPropertyName = "XpBonus";
-            this.xpBonusDataGridViewTextBoxColumn.HeaderText = "XpBonus";
-            this.xpBonusDataGridViewTextBoxColumn.Name = "xpBonusDataGridViewTextBoxColumn";
-            this.xpBonusDataGridViewTextBoxColumn.ReadOnly = true;
-            this.xpBonusDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // nazivDataGridViewTextBoxColumn
-            // 
-            this.nazivDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nazivDataGridViewTextBoxColumn.DataPropertyName = "Naziv";
-            this.nazivDataGridViewTextBoxColumn.HeaderText = "Naziv";
-            this.nazivDataGridViewTextBoxColumn.Name = "nazivDataGridViewTextBoxColumn";
-            this.nazivDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nazivDataGridViewTextBoxColumn.Width = 59;
-            // 
-            // opisDataGridViewTextBoxColumn
-            // 
-            this.opisDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.opisDataGridViewTextBoxColumn.DataPropertyName = "Opis";
-            this.opisDataGridViewTextBoxColumn.HeaderText = "Opis";
-            this.opisDataGridViewTextBoxColumn.Name = "opisDataGridViewTextBoxColumn";
-            this.opisDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // vrstaOruzjaDataGridViewTextBoxColumn
-            // 
-            this.vrstaOruzjaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.vrstaOruzjaDataGridViewTextBoxColumn.DataPropertyName = "VrstaOruzja";
-            this.vrstaOruzjaDataGridViewTextBoxColumn.HeaderText = "VrstaOruzja";
-            this.vrstaOruzjaDataGridViewTextBoxColumn.Name = "vrstaOruzjaDataGridViewTextBoxColumn";
-            this.vrstaOruzjaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.vrstaOruzjaDataGridViewTextBoxColumn.Width = 86;
-            // 
             // predmetDTOBindingSource
             // 
             this.predmetDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.PredmetDTO);
@@ -220,48 +185,6 @@
             this.dgv_sesije.ReadOnly = true;
             this.dgv_sesije.Size = new System.Drawing.Size(758, 346);
             this.dgv_sesije.TabIndex = 4;
-            // 
-            // goldDataGridViewTextBoxColumn
-            // 
-            this.goldDataGridViewTextBoxColumn.DataPropertyName = "Gold";
-            this.goldDataGridViewTextBoxColumn.HeaderText = "Gold";
-            this.goldDataGridViewTextBoxColumn.Name = "goldDataGridViewTextBoxColumn";
-            this.goldDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // zaradjeniXPDataGridViewTextBoxColumn
-            // 
-            this.zaradjeniXPDataGridViewTextBoxColumn.DataPropertyName = "ZaradjeniXP";
-            this.zaradjeniXPDataGridViewTextBoxColumn.HeaderText = "ZaradjeniXP";
-            this.zaradjeniXPDataGridViewTextBoxColumn.Name = "zaradjeniXPDataGridViewTextBoxColumn";
-            this.zaradjeniXPDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // vremePocetkaDataGridViewTextBoxColumn
-            // 
-            this.vremePocetkaDataGridViewTextBoxColumn.DataPropertyName = "VremePocetka";
-            this.vremePocetkaDataGridViewTextBoxColumn.HeaderText = "VremePocetka";
-            this.vremePocetkaDataGridViewTextBoxColumn.Name = "vremePocetkaDataGridViewTextBoxColumn";
-            this.vremePocetkaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // vremeKrajaDataGridViewTextBoxColumn
-            // 
-            this.vremeKrajaDataGridViewTextBoxColumn.DataPropertyName = "VremeKraja";
-            this.vremeKrajaDataGridViewTextBoxColumn.HeaderText = "VremeKraja";
-            this.vremeKrajaDataGridViewTextBoxColumn.Name = "vremeKrajaDataGridViewTextBoxColumn";
-            this.vremeKrajaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // igracNazivDataGridViewTextBoxColumn
-            // 
-            this.igracNazivDataGridViewTextBoxColumn.DataPropertyName = "IgracNaziv";
-            this.igracNazivDataGridViewTextBoxColumn.HeaderText = "IgracNaziv";
-            this.igracNazivDataGridViewTextBoxColumn.Name = "igracNazivDataGridViewTextBoxColumn";
-            this.igracNazivDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // likRasaDataGridViewTextBoxColumn
-            // 
-            this.likRasaDataGridViewTextBoxColumn.DataPropertyName = "LikRasa";
-            this.likRasaDataGridViewTextBoxColumn.HeaderText = "LikRasa";
-            this.likRasaDataGridViewTextBoxColumn.Name = "likRasaDataGridViewTextBoxColumn";
-            this.likRasaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // sesijaDTOBindingSource
             // 
@@ -400,11 +323,11 @@
             // cmd_deleteUser
             // 
             this.cmd_deleteUser.Location = new System.Drawing.Point(19, 436);
-            this.cmd_deleteUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmd_deleteUser.Margin = new System.Windows.Forms.Padding(2);
             this.cmd_deleteUser.Name = "cmd_deleteUser";
             this.cmd_deleteUser.Size = new System.Drawing.Size(100, 34);
             this.cmd_deleteUser.TabIndex = 10;
-            this.cmd_deleteUser.Text = "obrisi korisnika";
+            this.cmd_deleteUser.Text = "Obrisi igraca";
             this.cmd_deleteUser.UseVisualStyleBackColor = true;
             this.cmd_deleteUser.Click += new System.EventHandler(this.cmd_deleteUser_Click);
             // 
@@ -416,18 +339,12 @@
             this.xpGainDataGridViewTextBoxColumn});
             this.dgv_quest.DataSource = this.questDTOBindingSource;
             this.dgv_quest.Location = new System.Drawing.Point(16, 71);
-            this.dgv_quest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgv_quest.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_quest.Name = "dgv_quest";
             this.dgv_quest.RowTemplate.Height = 24;
             this.dgv_quest.Size = new System.Drawing.Size(757, 344);
             this.dgv_quest.TabIndex = 11;
             this.dgv_quest.VisibleChanged += new System.EventHandler(this.dgv_quest_VisibleChanged);
-            // 
-            // xpGainDataGridViewTextBoxColumn
-            // 
-            this.xpGainDataGridViewTextBoxColumn.DataPropertyName = "XpGain";
-            this.xpGainDataGridViewTextBoxColumn.HeaderText = "XpGain";
-            this.xpGainDataGridViewTextBoxColumn.Name = "xpGainDataGridViewTextBoxColumn";
             // 
             // questDTOBindingSource
             // 
@@ -436,7 +353,7 @@
             // num_xpgain
             // 
             this.num_xpgain.Location = new System.Drawing.Point(19, 453);
-            this.num_xpgain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.num_xpgain.Margin = new System.Windows.Forms.Padding(2);
             this.num_xpgain.Name = "num_xpgain";
             this.num_xpgain.Size = new System.Drawing.Size(84, 20);
             this.num_xpgain.TabIndex = 12;
@@ -447,11 +364,11 @@
             this.cmd_dodaj_quest.FlatAppearance.BorderSize = 0;
             this.cmd_dodaj_quest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmd_dodaj_quest.Location = new System.Drawing.Point(107, 437);
-            this.cmd_dodaj_quest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmd_dodaj_quest.Margin = new System.Windows.Forms.Padding(2);
             this.cmd_dodaj_quest.Name = "cmd_dodaj_quest";
             this.cmd_dodaj_quest.Size = new System.Drawing.Size(80, 37);
             this.cmd_dodaj_quest.TabIndex = 13;
-            this.cmd_dodaj_quest.Text = "dodaj quest";
+            this.cmd_dodaj_quest.Text = "Dodaj zadatak";
             this.cmd_dodaj_quest.UseVisualStyleBackColor = false;
             this.cmd_dodaj_quest.Click += new System.EventHandler(this.cmd_dodaj_quest_Click);
             // 
@@ -461,9 +378,9 @@
             this.label_xpgain.Location = new System.Drawing.Point(19, 437);
             this.label_xpgain.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_xpgain.Name = "label_xpgain";
-            this.label_xpgain.Size = new System.Drawing.Size(49, 13);
+            this.label_xpgain.Size = new System.Drawing.Size(27, 13);
             this.label_xpgain.TabIndex = 15;
-            this.label_xpgain.Text = "xp Gain :";
+            this.label_xpgain.Text = "XP :";
             // 
             // cmd_delete_quest
             // 
@@ -471,11 +388,11 @@
             this.cmd_delete_quest.FlatAppearance.BorderSize = 0;
             this.cmd_delete_quest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmd_delete_quest.Location = new System.Drawing.Point(192, 437);
-            this.cmd_delete_quest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmd_delete_quest.Margin = new System.Windows.Forms.Padding(2);
             this.cmd_delete_quest.Name = "cmd_delete_quest";
             this.cmd_delete_quest.Size = new System.Drawing.Size(80, 37);
             this.cmd_delete_quest.TabIndex = 16;
-            this.cmd_delete_quest.Text = "obrisi quest";
+            this.cmd_delete_quest.Text = "Obrisi zadatak";
             this.cmd_delete_quest.UseVisualStyleBackColor = false;
             this.cmd_delete_quest.Click += new System.EventHandler(this.cmd_delete_quest_Click);
             // 
@@ -492,6 +409,89 @@
             this.cmd_delete_item.UseVisualStyleBackColor = false;
             this.cmd_delete_item.Visible = false;
             this.cmd_delete_item.Click += new System.EventHandler(this.cmd_delete_item_Click);
+            // 
+            // xpGainDataGridViewTextBoxColumn
+            // 
+            this.xpGainDataGridViewTextBoxColumn.DataPropertyName = "XpGain";
+            this.xpGainDataGridViewTextBoxColumn.HeaderText = "Dobijen XP";
+            this.xpGainDataGridViewTextBoxColumn.Name = "xpGainDataGridViewTextBoxColumn";
+            // 
+            // xpBonusDataGridViewTextBoxColumn
+            // 
+            this.xpBonusDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.xpBonusDataGridViewTextBoxColumn.DataPropertyName = "XpBonus";
+            this.xpBonusDataGridViewTextBoxColumn.HeaderText = "XP Bonus";
+            this.xpBonusDataGridViewTextBoxColumn.Name = "xpBonusDataGridViewTextBoxColumn";
+            this.xpBonusDataGridViewTextBoxColumn.ReadOnly = true;
+            this.xpBonusDataGridViewTextBoxColumn.Width = 79;
+            // 
+            // nazivDataGridViewTextBoxColumn
+            // 
+            this.nazivDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nazivDataGridViewTextBoxColumn.DataPropertyName = "Naziv";
+            this.nazivDataGridViewTextBoxColumn.HeaderText = "Naziv";
+            this.nazivDataGridViewTextBoxColumn.Name = "nazivDataGridViewTextBoxColumn";
+            this.nazivDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nazivDataGridViewTextBoxColumn.Width = 59;
+            // 
+            // opisDataGridViewTextBoxColumn
+            // 
+            this.opisDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.opisDataGridViewTextBoxColumn.DataPropertyName = "Opis";
+            this.opisDataGridViewTextBoxColumn.HeaderText = "Opis";
+            this.opisDataGridViewTextBoxColumn.Name = "opisDataGridViewTextBoxColumn";
+            this.opisDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vrstaOruzjaDataGridViewTextBoxColumn
+            // 
+            this.vrstaOruzjaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.vrstaOruzjaDataGridViewTextBoxColumn.DataPropertyName = "VrstaOruzja";
+            this.vrstaOruzjaDataGridViewTextBoxColumn.HeaderText = "Vrsta Oruzja";
+            this.vrstaOruzjaDataGridViewTextBoxColumn.Name = "vrstaOruzjaDataGridViewTextBoxColumn";
+            this.vrstaOruzjaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.vrstaOruzjaDataGridViewTextBoxColumn.Width = 89;
+            // 
+            // goldDataGridViewTextBoxColumn
+            // 
+            this.goldDataGridViewTextBoxColumn.DataPropertyName = "Gold";
+            this.goldDataGridViewTextBoxColumn.HeaderText = "Gold";
+            this.goldDataGridViewTextBoxColumn.Name = "goldDataGridViewTextBoxColumn";
+            this.goldDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // zaradjeniXPDataGridViewTextBoxColumn
+            // 
+            this.zaradjeniXPDataGridViewTextBoxColumn.DataPropertyName = "ZaradjeniXP";
+            this.zaradjeniXPDataGridViewTextBoxColumn.HeaderText = "Zaradjen XP";
+            this.zaradjeniXPDataGridViewTextBoxColumn.Name = "zaradjeniXPDataGridViewTextBoxColumn";
+            this.zaradjeniXPDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vremePocetkaDataGridViewTextBoxColumn
+            // 
+            this.vremePocetkaDataGridViewTextBoxColumn.DataPropertyName = "VremePocetka";
+            this.vremePocetkaDataGridViewTextBoxColumn.HeaderText = "Vreme Pocetka";
+            this.vremePocetkaDataGridViewTextBoxColumn.Name = "vremePocetkaDataGridViewTextBoxColumn";
+            this.vremePocetkaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vremeKrajaDataGridViewTextBoxColumn
+            // 
+            this.vremeKrajaDataGridViewTextBoxColumn.DataPropertyName = "VremeKraja";
+            this.vremeKrajaDataGridViewTextBoxColumn.HeaderText = "Vreme Kraja";
+            this.vremeKrajaDataGridViewTextBoxColumn.Name = "vremeKrajaDataGridViewTextBoxColumn";
+            this.vremeKrajaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // igracNazivDataGridViewTextBoxColumn
+            // 
+            this.igracNazivDataGridViewTextBoxColumn.DataPropertyName = "IgracNaziv";
+            this.igracNazivDataGridViewTextBoxColumn.HeaderText = "Igrac";
+            this.igracNazivDataGridViewTextBoxColumn.Name = "igracNazivDataGridViewTextBoxColumn";
+            this.igracNazivDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // likRasaDataGridViewTextBoxColumn
+            // 
+            this.likRasaDataGridViewTextBoxColumn.DataPropertyName = "LikRasa";
+            this.likRasaDataGridViewTextBoxColumn.HeaderText = "Rasa";
+            this.likRasaDataGridViewTextBoxColumn.Name = "likRasaDataGridViewTextBoxColumn";
+            this.likRasaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // AdminForm
             // 
@@ -517,7 +517,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AdminForm";
-            this.Text = "AdminForm";
+            this.Text = "Administracija";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminForm_FormClosed);
             this.Load += new System.EventHandler(this.AdminForm_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -547,17 +547,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgv_predmeti;
         private System.Windows.Forms.BindingSource predmetDTOBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn xpBonusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nazivDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn opisDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vrstaOruzjaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridView dgv_sesije;
-        private System.Windows.Forms.DataGridViewTextBoxColumn goldDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zaradjeniXPDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vremePocetkaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vremeKrajaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn igracNazivDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn likRasaDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource sesijaDTOBindingSource;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
@@ -574,12 +564,22 @@
         private System.Windows.Forms.BindingSource igracDTOBindingSource;
         private System.Windows.Forms.Button cmd_deleteUser;
         private System.Windows.Forms.DataGridView dgv_quest;
-        private System.Windows.Forms.DataGridViewTextBoxColumn xpGainDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource questDTOBindingSource;
         private System.Windows.Forms.NumericUpDown num_xpgain;
         private System.Windows.Forms.Button cmd_dodaj_quest;
         private System.Windows.Forms.Label label_xpgain;
         private System.Windows.Forms.Button cmd_delete_quest;
         private System.Windows.Forms.Button cmd_delete_item;
+        private System.Windows.Forms.DataGridViewTextBoxColumn xpBonusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nazivDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn opisDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vrstaOruzjaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goldDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zaradjeniXPDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vremePocetkaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vremeKrajaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn igracNazivDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn likRasaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn xpGainDataGridViewTextBoxColumn;
     }
 }

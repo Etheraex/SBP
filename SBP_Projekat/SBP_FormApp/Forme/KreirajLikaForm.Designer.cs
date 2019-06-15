@@ -124,7 +124,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "KreirajLikaForm";
-            this.Text = "KreirajLikaForm";
+            this.Text = "Kreiranje lika";
             ((System.ComponentModel.ISupportInitialize)(this.error_create_character)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
