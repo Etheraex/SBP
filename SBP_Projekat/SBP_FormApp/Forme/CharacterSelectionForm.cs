@@ -23,7 +23,7 @@ namespace SBP_Projekat.Forme
             this.MdiParent = parent;
             _parent = (MainForm)parent;
             _igrac = igrac;
-            this.UpdateList();
+
         }
 
         private void cmd_napravi_Click(object sender, EventArgs e)
@@ -67,6 +67,9 @@ namespace SBP_Projekat.Forme
             }
         }
 
-        
+        private void CharacterSelectionForm_Load(object sender, EventArgs e)
+        {
+            this.UpdateList();
+        }
     }
 }

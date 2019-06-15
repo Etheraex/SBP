@@ -21,31 +21,26 @@ namespace SBP_Projekat.Forme
         private IgracDTO _igrac;
         private SesijaDTO _sesija;
         public LikDTO _character { get; private set; }
-
-        public MainForm()
+        private Form _login;
+        public MainForm(Form login)
         {
             this.WindowState = FormWindowState.Maximized;
-            var tmp = new WelcomeForm(this).ShowDialog();
-            if (tmp == DialogResult.OK)
-            {
+          
                 InitializeComponent();
-                izborKarakteraToolStripMenuItem_Click(null, null);
-            }
-            else
-                Application.Exit();
+              
+            _login = login;
         }
 
         public void SetPlayer(IgracDTO igrac)
         {
             _igrac = igrac;
-            this.Show();
         }
 
         #region Dugmici
         private void cmd_logout_Click(object sender, EventArgs e)
         {
             this.CloseSession();
-            Application.Exit();
+            this.Close();
         }
         #endregion
 
@@ -198,5 +193,17 @@ namespace SBP_Projekat.Forme
             DTOManager.Instance.UpdateEntity(_character);
         }
         #endregion
+
+
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _login.Show();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            izborKarakteraToolStripMenuItem_Click(null, null);
+        }
     }
 }

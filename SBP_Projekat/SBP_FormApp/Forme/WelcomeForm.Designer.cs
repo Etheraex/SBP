@@ -48,6 +48,7 @@
             this.cb_pol = new System.Windows.Forms.ComboBox();
             this.error_welcome = new System.Windows.Forms.ErrorProvider(this.components);
             this.nud_uzrast = new System.Windows.Forms.NumericUpDown();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.error_welcome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_uzrast)).BeginInit();
             this.SuspendLayout();
@@ -239,11 +240,23 @@
             0,
             0});
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(20, 51);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(71, 13);
+            this.linkLabel1.TabIndex = 5;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Administracija";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // WelcomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(290, 301);
+            this.ClientSize = new System.Drawing.Size(290, 300);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.nud_uzrast);
             this.Controls.Add(this.cb_pol);
             this.Controls.Add(this.lbl_prezime);
@@ -297,5 +310,6 @@
         private System.Windows.Forms.ComboBox cb_pol;
         private System.Windows.Forms.ErrorProvider error_welcome;
         private System.Windows.Forms.NumericUpDown nud_uzrast;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

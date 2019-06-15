@@ -17,7 +17,7 @@ namespace SBP_Projekat.Forme
     public partial class WelcomeForm : Form
     {
         private MainForm _mainForm;
-        public WelcomeForm(MainForm f)
+        public WelcomeForm()
         {
             InitializeComponent();
             cmd_registration.Visible = false;
@@ -31,9 +31,13 @@ namespace SBP_Projekat.Forme
             lbl_pol.Visible = false;
             lbl_prezime.Visible = false;
             lbl_uzrast.Visible = false;
-            _mainForm = f;
+            _mainForm = new MainForm(this);
         }
-
+        private MainForm LoadMainForm()
+        {
+            _mainForm= new MainForm(this);
+            return _mainForm;
+        }
         private void cmd_show_registration_Click(object sender, EventArgs e)
         {
             cmd_registration.Visible = true;
@@ -76,9 +80,11 @@ namespace SBP_Projekat.Forme
                 Prezime = tb_prezime.Text
             };
             DTOManager.Instance.SaveEntity(igrac);
+            LoadMainForm();
             _mainForm.SetPlayer(igrac);
 
-            this.Close();
+            this.Hide();
+            _mainForm.Show();
         }
 
         private void cmd_show_login_Click(object sender, EventArgs e)
@@ -107,8 +113,10 @@ namespace SBP_Projekat.Forme
                 MessageBox.Show("Pogresna sifra");
             else
             {
+                LoadMainForm();
                 _mainForm.SetPlayer(igrac);
-                this.Close();
+                this.Hide();
+                _mainForm.Show();
             }
         }
 
@@ -218,8 +226,14 @@ namespace SBP_Projekat.Forme
             }
             return true;
         }
+
         #endregion
 
-        
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var form = new AdminForm(this);
+            form.Show();
+            this.Hide();
+        }
     }
 }
