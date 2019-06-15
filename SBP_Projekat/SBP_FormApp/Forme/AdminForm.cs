@@ -55,12 +55,14 @@ namespace SBP_Projekat.Forme
             dgv_sesije.BringToFront();
             hideAll();
             dgv_sesije.Show();
+            LoadSessionData();
             button3.Visible = true;
         }
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
             CurrentPlayersAsync();
+            hideAll();
         }
         private async Task CurrentPlayersAsync()
         {
@@ -80,7 +82,6 @@ namespace SBP_Projekat.Forme
             }
             LoadSessionData();
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             if (_page > 0)
@@ -111,6 +112,7 @@ namespace SBP_Projekat.Forme
             {
                 item.Hide();
             }
+            button2.Visible = button3.Visible=button4.Visible = false;
         }
     }
 }
