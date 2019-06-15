@@ -158,6 +158,20 @@ namespace SBP_Data
             }
         }
 
+        public void RemoveItemFromPlayer(int predemtID, int igracID)
+        {
+            using (ISession s = DataLayer.Session)
+            {
+                Igrac tmp = s.QueryOver<Igrac>()
+                    .Fetch(x => x.Predmeti).Eager
+                    .Where(x => x.Id == igracID)
+                    .SingleOrDefault();
+                tmp.Predmeti.Remove(tmp.Predmeti.Where(x => x.Id == predemtID).FirstOrDefault());
+                s.SaveOrUpdate(tmp);
+                s.Flush();
+            }
+        }
+
         public PredmetDTO GiveRandomItem(IgracDTO igrac)
         {
             Predmet rndPredmet;

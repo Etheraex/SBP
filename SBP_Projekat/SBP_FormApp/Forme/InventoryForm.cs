@@ -44,12 +44,7 @@ namespace SBP_Projekat.Forme
         {
             int ind = dgv_items.CurrentCell.RowIndex;
 
-            for (int i = 0; i < _igrac.Predmeti.Count; i++)
-            {
-                if (_igrac.Predmeti[i].Id == _predmeti[ind].ID)
-                    _igrac.Predmeti.RemoveAt(i);
-            }
-            DTOManager.Instance.UpdateEntity(_igrac);
+            DTOManager.Instance.RemoveItemFromPlayer(_predmeti[ind].ID, _igrac.ID);
             LoadData();
         }
     }
