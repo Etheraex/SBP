@@ -64,6 +64,9 @@
             this.prezimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.igracDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmd_deleteUser = new System.Windows.Forms.Button();
+            this.dgv_quest = new System.Windows.Forms.DataGridView();
+            this.questDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.xpGainDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_predmeti)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.predmetDTOBindingSource)).BeginInit();
@@ -71,6 +74,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.sesijaDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_igraci)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.igracDTOBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_quest)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -107,6 +112,7 @@
             this.questoviToolStripMenuItem.Name = "questoviToolStripMenuItem";
             this.questoviToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
             this.questoviToolStripMenuItem.Text = "Questovi";
+            this.questoviToolStripMenuItem.Click += new System.EventHandler(this.questoviToolStripMenuItem_Click);
             // 
             // sesijeToolStripMenuItem
             // 
@@ -393,11 +399,35 @@
             this.cmd_deleteUser.UseVisualStyleBackColor = true;
             this.cmd_deleteUser.Click += new System.EventHandler(this.cmd_deleteUser_Click);
             // 
+            // dgv_quest
+            // 
+            this.dgv_quest.AutoGenerateColumns = false;
+            this.dgv_quest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_quest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.xpGainDataGridViewTextBoxColumn});
+            this.dgv_quest.DataSource = this.questDTOBindingSource;
+            this.dgv_quest.Location = new System.Drawing.Point(21, 87);
+            this.dgv_quest.Name = "dgv_quest";
+            this.dgv_quest.RowTemplate.Height = 24;
+            this.dgv_quest.Size = new System.Drawing.Size(1009, 423);
+            this.dgv_quest.TabIndex = 11;
+            // 
+            // questDTOBindingSource
+            // 
+            this.questDTOBindingSource.DataSource = typeof(SBP_Data.DTOs.QuestDTO);
+            // 
+            // xpGainDataGridViewTextBoxColumn
+            // 
+            this.xpGainDataGridViewTextBoxColumn.DataPropertyName = "XpGain";
+            this.xpGainDataGridViewTextBoxColumn.HeaderText = "XpGain";
+            this.xpGainDataGridViewTextBoxColumn.Name = "xpGainDataGridViewTextBoxColumn";
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 595);
+            this.Controls.Add(this.dgv_quest);
             this.Controls.Add(this.cmd_deleteUser);
             this.Controls.Add(this.dgv_igraci);
             this.Controls.Add(this.button4);
@@ -423,6 +453,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.sesijaDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_igraci)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.igracDTOBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_quest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -465,5 +497,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn prezimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource igracDTOBindingSource;
         private System.Windows.Forms.Button cmd_deleteUser;
+        private System.Windows.Forms.DataGridView dgv_quest;
+        private System.Windows.Forms.DataGridViewTextBoxColumn xpGainDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource questDTOBindingSource;
     }
 }

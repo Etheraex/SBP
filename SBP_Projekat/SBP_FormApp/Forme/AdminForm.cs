@@ -15,6 +15,7 @@ namespace SBP_Projekat.Forme
     public partial class AdminForm : Form
     {
         private List<IgracDTO> _igraci;
+        private List<QuestDTO> _questovi;
         private int _page = 0;
         private Form _login;
         public AdminForm(Form l)
@@ -133,6 +134,14 @@ namespace SBP_Projekat.Forme
         private void dgv_igraci_VisibleChanged(object sender, EventArgs e)
         {
             cmd_deleteUser.Visible = dgv_igraci.Visible;
+        }
+
+        private void questoviToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            hideAll();
+            _questovi = DTOManager.Instance.VratiListuQuestova();
+            dgv_quest.DataSource = _questovi;
+            dgv_quest.Show();
         }
     }
 }
