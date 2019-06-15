@@ -95,46 +95,60 @@ namespace SBP_Projekat.Forme
 
         private void cmd_finish_Click(object sender, EventArgs e)
         {
+            bool tacno = false;
             int i = 0;
             _questStopwhatch.Stop();
             int timeForQuest = _questStopwhatch.Elapsed.Seconds;
             // Za drugi zadatak mora provera da li je lepo odradjen
             if (_dobijeniZadatak == 2)
             {
+                if(_brojevi == null || _brojevi.Count ==0)
+                {
+                    MessageBox.Show("Netacno ste uradili");
+                    Close();
+                }
                 var correct = new List<int> { 1, 2, 3, 4, 5 };
                 while (i < 5 && _brojevi[i] == correct[i])
                     i++;
                 if (i != 5)
                 {
                     MessageBox.Show("Netacno ste uradili");
-                    this.Close();
+                    Close();
+                }
+                else
+                {
+                    tacno = true;
                 }
             }
-            // Za prvi zadatak dugme se pojavi tek kad se napuni progress bar tako da uvek je uspesno zavrsen quest kada se klikne ovo dugme
-            MessageBox.Show("Tacno ste uradili");
-            var quest = DTOManager.Instance.GetEntityById<QuestDTO, Quest>(_questID);
-            if (_saAlijansom)
+            if(_dobijeniZadatak != 2 || tacno == true)
             {
-                AlijansaIspunjavaDTO ispunjava = new AlijansaIspunjavaDTO();
-                ispunjava.Vreme = timeForQuest;
-                ispunjava.Alijansa = _igrac.PripadaAlijansi;
-                ispunjava.Quest = quest;
-                DTOManager.Instance.SaveEntity(ispunjava);
+                // Za prvi zadatak dugme se pojavi tek kad se napuni progress bar tako da uvek je uspesno zavrsen quest kada se klikne ovo dugme
+                MessageBox.Show("Tacno ste uradili");
+                var quest = DTOManager.Instance.GetEntityById<QuestDTO, Quest>(_questID);
+                if (_saAlijansom)
+                {
+                    AlijansaIspunjavaDTO ispunjava = new AlijansaIspunjavaDTO();
+                    ispunjava.Vreme = timeForQuest;
+                    ispunjava.Alijansa = _igrac.PripadaAlijansi;
+                    ispunjava.Quest = quest;
+                    DTOManager.Instance.SaveEntity(ispunjava);
+                }
+                else
+                {
+                    IgracIspunjavaDTO ispunjava = new IgracIspunjavaDTO();
+                    ispunjava.Vreme = timeForQuest;
+                    ispunjava.Igrac = DTOManager.Instance.GetEntityById<IgracDTO, Igrac>(_igrac.ID);  //ovo treba da se uradi bolje, treba da mozemo DTO da pretvorimo u model ako hocemo ovde da ne loadujemo opet iz baze
+                    ispunjava.Quest = quest;
+                    DTOManager.Instance.SaveEntity(ispunjava);
+                }
+                int xpGain = DTOManager.Instance.GetDTOById<QuestDTO>(quest.Id).XpGain;//ovo je malo retardirano al zato mora jer nam getEntityById u sustini ne vraca nisa sem ID
+                PredmetDTO predemt = DTOManager.Instance.GiveRandomItem(_igrac);
+                if (predemt != null)
+                    MessageBox.Show("dobili ste : " + predemt.Naziv);
+                ((MainForm)this.MdiParent).QuestResults(xpGain, 100, 10);
+                this.Close();
             }
-            else
-            {
-                IgracIspunjavaDTO ispunjava = new IgracIspunjavaDTO();
-                ispunjava.Vreme = timeForQuest;
-                ispunjava.Igrac = DTOManager.Instance.GetEntityById<IgracDTO,Igrac>(_igrac.ID);  //ovo treba da se uradi bolje, treba da mozemo DTO da pretvorimo u model ako hocemo ovde da ne loadujemo opet iz baze
-                ispunjava.Quest = quest;
-                DTOManager.Instance.SaveEntity(ispunjava);
-            }
-            int xpGain = DTOManager.Instance.GetDTOById<QuestDTO>(quest.Id).XpGain;//ovo je malo retardirano al zato mora jer nam getEntityById u sustini ne vraca nisa sem ID
-            PredmetDTO predemt = DTOManager.Instance.GiveRandomItem(_igrac);
-            if (predemt != null)
-                MessageBox.Show("dobili ste : " + predemt.Naziv);
-            ((MainForm)this.MdiParent).QuestResults(xpGain, 100, 10);
-            this.Close();
+            Close();
         }
 
         private void cmd_giveup_Click(object sender, EventArgs e)
