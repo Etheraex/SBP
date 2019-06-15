@@ -328,6 +328,7 @@
             this.dgv_igraci.ReadOnly = true;
             this.dgv_igraci.Size = new System.Drawing.Size(1011, 426);
             this.dgv_igraci.TabIndex = 9;
+            this.dgv_igraci.VisibleChanged += new System.EventHandler(this.dgv_igraci_VisibleChanged);
             // 
             // usernameDataGridViewTextBoxColumn
             // 

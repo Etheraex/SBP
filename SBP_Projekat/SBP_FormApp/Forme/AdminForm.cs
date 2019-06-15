@@ -129,5 +129,10 @@ namespace SBP_Projekat.Forme
                 MessageBox.Show("niste izabrali korisnika");
             }
         }
+
+        private void dgv_igraci_VisibleChanged(object sender, EventArgs e)
+        {
+            cmd_deleteUser.Visible = dgv_igraci.Visible;
+        }
     }
 }
