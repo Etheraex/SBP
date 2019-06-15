@@ -213,8 +213,11 @@
     <None Include="Properties\DataSources\SBP_Data.DTOs.AbstractPredmetDTO.datasource" />
     <None Include="Properties\DataSources\SBP_Data.DTOs.AlijansaDTO.datasource" />
     <None Include="Properties\DataSources\SBP_Data.DTOs.LikDTO.datasource" />
+    <None Include="Properties\DataSources\SBP_Data.DTOs.PredmetDTO.datasource" />
     <None Include="Properties\DataSources\SBP_Data.DTOs.QuestDTO.datasource" />
+    <None Include="Properties\DataSources\SBP_Data.DTOs.RasaDTO.datasource" />
     <None Include="Properties\DataSources\SBP_Data.DTOs.SegrtDTO.datasource" />
+    <None Include="Properties\DataSources\SBP_Data.DTOs.SesijaDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
