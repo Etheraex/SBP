@@ -14,6 +14,7 @@ namespace SBP_Projekat.Forme
 {
     public partial class AdminForm : Form
     {
+        private List<IgracDTO> _igraci;
         private int _page = 0;
         private Form _login;
         public AdminForm(Form l)
@@ -99,8 +100,8 @@ namespace SBP_Projekat.Forme
 
         private void igraciToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            List<IgracDTO> igraci = DTOManager.Instance.vratiSveIgrace();
-            dgv_igraci.DataSource = igraci;
+            _igraci = DTOManager.Instance.vratiSveIgrace();
+            dgv_igraci.DataSource = _igraci;
             hideAll();
             dgv_igraci.Show();
         }
@@ -113,6 +114,20 @@ namespace SBP_Projekat.Forme
                 item.Hide();
             }
             button2.Visible = button3.Visible=button4.Visible = false;
+        }
+
+        private void cmd_deleteUser_Click(object sender, EventArgs e)
+        {
+            int index = dgv_igraci.CurrentCell.RowIndex;
+            if(index >= 0)
+            {
+                DTOManager.Instance.DeleteEntity<IgracDTO>(_igraci[index]);
+                igraciToolStripMenuItem_Click(null, null);
+            }
+            else
+            {
+                MessageBox.Show("niste izabrali korisnika");
+            }
         }
     }
 }
