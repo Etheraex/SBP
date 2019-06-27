@@ -14,8 +14,8 @@ namespace SBP_Data.DTOs
         public string Opis { get; set; }
         public string VrstaOruzja { get; set; }
         public Quest Pripada { get; set; }
-        public IList<Rasa> MozeDaKoristi { get; set; }
-        public IList<Igrac> Igraci { get; set; }
+        public IList<string> MozeDaKoristi { get; set; }
+        public IList<string> Igraci { get; set; }
 
         public AbstractPredmetDTO()
         {
@@ -54,8 +54,16 @@ namespace SBP_Data.DTOs
                 Opis = p.Opis;
                 VrstaOruzja = p.VrstaOruzja;
                 Pripada = p.Pripada;
-                MozeDaKoristi = p.MozeDaKoristi;
-                Igraci = p.Igraci;
+                MozeDaKoristi = new List<string>();
+                foreach (var item in p.MozeDaKoristi)
+                {
+                    MozeDaKoristi.Add("TODO"); // DTOMANAGER FJA KOJA VRACA RASU odnosno njen naziv makar
+                }
+                Igraci = new List<string>();
+                foreach (var item in p.Igraci)
+                {
+                    Igraci.Add(item.Nadimak);
+                }
             }
             else
                 throw new NullReferenceException();
@@ -72,9 +80,9 @@ namespace SBP_Data.DTOs
             p.Opis = Opis;
             p.VrstaOruzja = VrstaOruzja;
             p.Pripada = Pripada;
-            p.MozeDaKoristi = MozeDaKoristi;
+         
             p.Pripada = Pripada;
-            p.Igraci = Igraci;
+    
 
             return p;
         }
@@ -101,8 +109,15 @@ namespace SBP_Data.DTOs
                 Opis = o.Opis;
                 VrstaOruzja = o.VrstaOruzja;
                 Pripada = o.Pripada;
-                MozeDaKoristi = o.MozeDaKoristi;
-                Igraci = o.Igraci;
+                foreach (var item in o.MozeDaKoristi)
+                {
+                    MozeDaKoristi.Add("TODO"); // DTOMANAGER FJA KOJA VRACA RASU odnosno njen naziv makar
+                }
+                Igraci = new List<string>();
+                foreach (var item in o.Igraci)
+                {
+                    Igraci.Add(item.Nadimak);
+                }
             }
             else
                 throw new NullReferenceException();
@@ -119,9 +134,9 @@ namespace SBP_Data.DTOs
             o.Opis = Opis;
             o.VrstaOruzja = VrstaOruzja;
             o.Pripada = Pripada;
-            o.MozeDaKoristi = MozeDaKoristi;
+           
             o.Pripada = Pripada;
-            o.Igraci = Igraci;
+   
 
             return o;
         }

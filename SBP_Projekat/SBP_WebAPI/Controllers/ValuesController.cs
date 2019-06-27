@@ -4,21 +4,23 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using SBP_Data;
+using SBP_Data.DTOs;
 
 namespace SBP_WebAPI.Controllers
 {
     public class ValuesController : ApiController
     {
         // GET api/values
-        public IEnumerable<string> Get()
+        public AbstractDTO Get()
         {
-            return new string[] { "value1", "value2" };
+            return DTOManager.Instance.GetDTO<IgracDTO>(2);
         }
 
         // GET api/values/5
-        public string Get(int id)
+        public AbstractDTO Get(int id)
         {
-            return "value";
+            return DTOManager.Instance.GetDTOById<IgracDTO>(id);
         }
 
         // POST api/values

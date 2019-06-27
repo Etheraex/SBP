@@ -15,16 +15,16 @@ namespace SBP_Data.DTOs
         public int XpBonus { get; set; }
         public int HpBonus { get; set; }
 
-        public IList<Alijansa> Savezi { get; set; }
-        public IList<Igrac> Igraci { get; set; }
-        public IList<Quest> IspunjeniQuestiovi { get; set; }
+        public IList<string> Savezi { get; set; }
+        public IList<string> Igraci { get; set; }
+        public IList<string> IspunjeniQuestiovi { get; set; }
 
         public AlijansaDTO()
         {
             base.EntityType = typeof(Alijansa);
-            Savezi = new List<Alijansa>();
-            Igraci = new List<Igrac>();
-            IspunjeniQuestiovi = new List<Quest>();
+            Savezi = new List<string>();
+            Igraci = new List<string>();
+            IspunjeniQuestiovi = new List<string>();
         }
 
         public override string ToString()
@@ -43,9 +43,21 @@ namespace SBP_Data.DTOs
                 MaxBrojIgraca = a.MaxBrojIgraca;
                 XpBonus = a.XpBonus;
                 HpBonus = a.HpBonus;
-                Savezi = a.Savezi;
-                Igraci = a.Igraci;
-                IspunjeniQuestiovi = a.IspunjeniQuestiovi;
+                Savezi = new List<string>();
+                foreach (var i in a.Savezi)
+                {
+                    Savezi.Add(i.Naziv);
+                }
+                Igraci = new List<string>();
+                foreach ( var item in a.Igraci)
+                {
+                    Igraci.Add(item.Nadimak);
+                }
+                IspunjeniQuestiovi = new List<string>();
+                foreach (var item in a.IspunjeniQuestiovi)
+                {
+                    IspunjeniQuestiovi.Add(item.Id.ToString());
+                }
             }
             else
                 throw new NullReferenceException();
@@ -62,9 +74,7 @@ namespace SBP_Data.DTOs
             a.MaxBrojIgraca = MaxBrojIgraca;
             a.XpBonus = XpBonus;
             a.HpBonus = HpBonus;
-            a.Savezi = Savezi;
-            a.Igraci = Igraci;
-            a.IspunjeniQuestiovi = IspunjeniQuestiovi;
+          
 
             return a;
         }

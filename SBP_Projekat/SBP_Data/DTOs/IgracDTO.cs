@@ -22,9 +22,9 @@ namespace SBP_Data.DTOs
             base.EntityType = typeof(Igrac);
         }
 
-        public Alijansa PripadaAlijansi { get; set; }
-        public IList<AbstractPredmet> Predmeti { get; set; }
-        public IList<Quest> IspunjeniQuestiov { get; set; }
+        public AlijansaDTO PripadaAlijansi { get; set; }
+        public IList<AbstractPredmetDTO> Predmeti { get; set; }
+        public IList<string> IspunjeniQuestiov { get; set; }
 
         public override string ToString()
         {
@@ -44,9 +44,25 @@ namespace SBP_Data.DTOs
                 Pol = i.Pol;
                 Ime = i.Ime;
                 Prezime = i.Prezime;
-                PripadaAlijansi = i.PripadaAlijansi;
-                Predmeti = i.Predmeti;
-                IspunjeniQuestiov = i.IspunjeniQuestiov;
+                if(i.PripadaAlijansi!=null)
+                PripadaAlijansi = new AlijansaDTO(i.PripadaAlijansi);
+                Predmeti = new List<AbstractPredmetDTO>();
+                foreach (var a in i.Predmeti)
+                {
+                    if(a.GetType().Equals(typeof(Oruzje)))
+                    {
+                        Predmeti.Add(new OruzjeDTO(a as Oruzje));
+                    }
+                    else
+                    {
+                        Predmeti.Add(new PredmetDTO(a as Predmet));
+                    }
+                }
+                IspunjeniQuestiov = new List<string>();
+                foreach (var a in i.IspunjeniQuestiov)
+                {
+                    IspunjeniQuestiov.Add(a.Id.ToString());
+                }
             }
             else
                 throw new NullReferenceException();
@@ -65,9 +81,8 @@ namespace SBP_Data.DTOs
             i.Pol = Pol;
             i.Ime = Ime;
             i.Prezime = Prezime;
-            i.PripadaAlijansi = PripadaAlijansi;
-            i.Predmeti = Predmeti;
-            i.IspunjeniQuestiov = IspunjeniQuestiov;
+           
+        
             return i;
         }
     }

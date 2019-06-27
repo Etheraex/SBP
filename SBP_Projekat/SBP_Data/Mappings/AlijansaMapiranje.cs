@@ -30,6 +30,7 @@ namespace SBP_Data.Mappings
               .ParentKeyColumn("ALIJANSA_FK")
               .ChildKeyColumn("QUEST_FK")
               .Cascade.All();
+            HasMany(x => x.Igraci).KeyColumn("ALIJANSA_FK").LazyLoad().Cascade.All().Inverse();
         }
     }
 }
