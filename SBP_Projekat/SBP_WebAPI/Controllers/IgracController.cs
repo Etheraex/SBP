@@ -14,7 +14,6 @@ namespace SBP_WebAPI.Controllers
         {
 
             List<IgracDTO> ret = DTOManager.Instance.vratiSveIgrace();
-            var ret2 = DTOManager.Instance.tryTest<IgracDTO>(ret[4]);
             //foreach (var item in ret)
             //{
             //    item.IspunjeniQuestiov = null;
@@ -29,7 +28,7 @@ namespace SBP_WebAPI.Controllers
         public IgracDTO Get(int id)
         {
             var ret = DTOManager.Instance.GetDTOById<IgracDTO>(id);
-            return ret2;
+            return ret;
         }
 
         // POST: api/Igrac
