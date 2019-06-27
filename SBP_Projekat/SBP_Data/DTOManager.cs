@@ -249,8 +249,8 @@ namespace SBP_Data
                 "SELECT * " +
                 "FROM ( " +
                     "SELECT * " +
-                    "FROM   PREDMET " +
-                    "where PREDMET_ID NOT IN " + excludedIDs +
+                    "FROM   PREDMET " + 
+                    ((!excludedIDs.Equals("( )"))? ("where PREDMET_ID NOT IN " + excludedIDs):"") +
                     "ORDER BY DBMS_RANDOM.VALUE) " + 
                 "WHERE rownum< 2";
 
