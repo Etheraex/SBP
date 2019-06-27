@@ -29,7 +29,6 @@ namespace SBP_WebAPI.Controllers
         public IgracDTO Get(int id)
         {
             var ret = DTOManager.Instance.GetDTOById<IgracDTO>(id);
-            var ret2 = DTOManager.Instance.tryTest<IgracDTO>(ret);
             return ret2;
         }
 
