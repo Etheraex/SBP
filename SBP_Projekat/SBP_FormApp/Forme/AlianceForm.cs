@@ -53,7 +53,7 @@ namespace SBP_Projekat.Forme
                         lAlijansa.Invoke((MethodInvoker)(() =>
                         {
                             if (_igrac.PripadaAlijansi != null)
-                                cur = DTOManager.Instance.GetDTOById<AlijansaDTO>(_igrac.PripadaAlijansi.Id);
+                                cur = DTOManager.Instance.GetDTOById<AlijansaDTO>(_igrac.PripadaAlijansi.ID);
                             if (cur != null)
                             {
                                 lAlijansa.Text = cur.Naziv;

@@ -12,16 +12,11 @@ namespace SBP_WebAPI.Controllers
         //public IEnumerable<IgracDTO> Get()
         public List<IgracDTO> Get()
         {
-
+           
             List<IgracDTO> ret = DTOManager.Instance.vratiSveIgrace();
-            //foreach (var item in ret)
-            //{
-            //    item.IspunjeniQuestiov = null;
-            //    item.Predmeti = null;
-            //    item.PripadaAlijansi = null;
-            //}
+
             return ret;
-            //return Newtonsoft.Json.JsonConvert.SerializeObject(DTOManager.Instance.vratiSveIgrace());
+         
         }
 
         // GET: api/Igrac/5

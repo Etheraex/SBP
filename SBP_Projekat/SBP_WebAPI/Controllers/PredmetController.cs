@@ -6,20 +6,20 @@ using System.Web.Http;
 
 namespace SBP_WebAPI.Controllers
 {
-    public class AbstractPredmetController : ApiController
+    public class PredmetController : ApiController
     {
         // GET: api/AbstractPredmet
-        public List<AbstractPredmetDTO> Get(int id)
+        public List<AbstractPredmetDTO> Get()
         {
-            List<AbstractPredmetDTO> predmeti = DTOManager.Instance.VratiListuPredmeta(id);
+            List<AbstractPredmetDTO> predmeti = DTOManager.Instance.GetAllItems();
             return predmeti;
         }
 
         [HttpGet]
         // GET: api/AbstractPredmet/5
-        public AbstractPredmetDTO GetPredmet(int id)
+        public AbstractPredmetDTO Get(int id)
         {
-            return DTOManager.Instance.GetDTOById<AbstractPredmetDTO>(id);
+            return DTOManager.Instance.GetDTOById<PredmetDTO>(id);
         }
 
         // POST: api/AbstractPredmet

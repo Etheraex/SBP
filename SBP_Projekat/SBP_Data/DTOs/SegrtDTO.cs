@@ -34,8 +34,7 @@ namespace SBP_Data.DTOs
 
             s.Ime = Ime;
             s.Bonus = Bonus;
-            s.Rasa = Rasa;
-            s.Lik = Lik;
+
             return s;
         }
 

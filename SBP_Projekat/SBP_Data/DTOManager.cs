@@ -30,6 +30,32 @@ namespace SBP_Data
                 return temp; //(K)s.Load(tmp.EntityType, id);
             }
         }
+        public RasaDTO vratiRasuDTO(Rasa rasa)
+        {
+            Type t = rasa.GetType();
+            if (t.Equals(typeof(Vilenjak)))
+            {
+                return GetDTOById<VilenjakDTO>(3);
+            }
+            else if (t.Equals(typeof(Ork)))
+            {
+                return GetDTOById<OrkDTO>(4);
+            }
+            else if (t.Equals(typeof(Demon)))
+            {
+                return GetDTOById<DemonDTO>(5);
+            }
+            else if (t.Equals(typeof(Covek)))
+            {
+                return GetDTOById<CovekDTO>(1);
+            }
+            else if (t.Equals(typeof(Patuljak)))
+            {
+                return GetDTOById<PatuljakDTO>(2);
+            }
+            return null;
+
+        }
         public IList<string> vratiSaveze(int id)
         {
             var alijansa = new Alijansa();
@@ -53,7 +79,7 @@ namespace SBP_Data
             {
                 T tmp = (T)Activator.CreateInstance(typeof(T));
                 var t = s.Load(tmp.EntityType, id);
-                return (T)Activator.CreateInstance(typeof(T), t);
+                return (T)Activator.CreateInstance(typeof(T), t,true);
             }
         }
 

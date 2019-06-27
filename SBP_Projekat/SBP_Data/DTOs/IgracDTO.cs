@@ -24,14 +24,14 @@ namespace SBP_Data.DTOs
 
         public AlijansaDTO PripadaAlijansi { get; set; }
         public IList<AbstractPredmetDTO> Predmeti { get; set; }
-        public IList<string> IspunjeniQuestiov { get; set; }
+        public IList<QuestDTO> IspunjeniQuestiov { get; set; }
 
         public override string ToString()
         {
             return EntityType.Name + Pol;
         }
 
-        public IgracDTO(Igrac i)
+        public IgracDTO(Igrac i,bool include = true)
         {
             if (i != null)
             {
@@ -44,30 +44,40 @@ namespace SBP_Data.DTOs
                 Pol = i.Pol;
                 Ime = i.Ime;
                 Prezime = i.Prezime;
-                if(i.PripadaAlijansi!=null)
-                PripadaAlijansi = new AlijansaDTO(i.PripadaAlijansi);
+                if(i.PripadaAlijansi!=null && include)
+                PripadaAlijansi = new AlijansaDTO(i.PripadaAlijansi,false);
                 Predmeti = new List<AbstractPredmetDTO>();
-                foreach (var a in i.Predmeti)
+        
+               
+                IspunjeniQuestiov = new List<QuestDTO>();
+                if (include)
                 {
-                    if(a.GetType().Equals(typeof(Oruzje)))
+                    foreach (var a in i.Predmeti)
                     {
-                        Predmeti.Add(new OruzjeDTO(a as Oruzje));
+                        if (a.GetType().Equals(typeof(Oruzje)))
+                        {
+                            Predmeti.Add(new OruzjeDTO(a as Oruzje, false));
+                        }
+                        else
+                        {
+                            Predmeti.Add(new PredmetDTO(a as Predmet, false));
+                        }
                     }
-                    else
+                    foreach (var a in i.IspunjeniQuestiov)
                     {
-                        Predmeti.Add(new PredmetDTO(a as Predmet));
+                        IspunjeniQuestiov.Add(new QuestDTO(a, false));
                     }
                 }
-                IspunjeniQuestiov = new List<string>();
-                foreach (var a in i.IspunjeniQuestiov)
-                {
-                    IspunjeniQuestiov.Add(a.Id.ToString());
-                }
+             
             }
             else
                 throw new NullReferenceException();
         }
-
+        /// <summary>
+        /// Currently broken, used in the WinForm project
+        /// </summary>
+        /// <param name="input">Model to convert to DTO</param>
+        /// <returns>DTO of the provided model</returns>
         public override object CreateOrUpdate(object input )
         {
             Igrac i = CheckStuff((Igrac)input);

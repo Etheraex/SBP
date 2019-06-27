@@ -15,16 +15,16 @@ namespace SBP_Data.DTOs
         public int XpBonus { get; set; }
         public int HpBonus { get; set; }
 
-        public IList<string> Savezi { get; set; }
-        public IList<string> Igraci { get; set; }
-        public IList<string> IspunjeniQuestiovi { get; set; }
+        public IList<AlijansaDTO> Savezi { get; set; }
+        public IList<IgracDTO> Igraci { get; set; }
+        public IList<QuestDTO> IspunjeniQuestiovi { get; set; }
 
         public AlijansaDTO()
         {
             base.EntityType = typeof(Alijansa);
-            Savezi = new List<string>();
-            Igraci = new List<string>();
-            IspunjeniQuestiovi = new List<string>();
+            Savezi = new List<AlijansaDTO>();
+            Igraci = new List<IgracDTO>();
+            IspunjeniQuestiovi = new List<QuestDTO>();
         }
 
         public override string ToString()
@@ -32,7 +32,7 @@ namespace SBP_Data.DTOs
             return EntityType.Name + Naziv;
         }
 
-        public AlijansaDTO(Alijansa a)
+        public AlijansaDTO(Alijansa a,bool include = true)
         {
             if (a != null)
             {
@@ -43,20 +43,27 @@ namespace SBP_Data.DTOs
                 MaxBrojIgraca = a.MaxBrojIgraca;
                 XpBonus = a.XpBonus;
                 HpBonus = a.HpBonus;
-                Savezi = new List<string>();
-                foreach (var i in a.Savezi)
+         
+                Savezi = new List<AlijansaDTO>();
+               
+                Igraci = new List<IgracDTO>();
+               
+                IspunjeniQuestiovi = new List<QuestDTO>();
+              
+                if (include)
                 {
-                    Savezi.Add(i.Naziv);
-                }
-                Igraci = new List<string>();
-                foreach ( var item in a.Igraci)
-                {
-                    Igraci.Add(item.Nadimak);
-                }
-                IspunjeniQuestiovi = new List<string>();
-                foreach (var item in a.IspunjeniQuestiovi)
-                {
-                    IspunjeniQuestiovi.Add(item.Id.ToString());
+                    foreach (var i in a.Savezi)
+                    {
+                        Savezi.Add(new AlijansaDTO(i, false));
+                    }
+                    foreach (var item in a.Igraci)
+                    {
+                        Igraci.Add(new IgracDTO(item,false));
+                    }
+                    foreach (var item in a.IspunjeniQuestiovi)
+                    {
+                        IspunjeniQuestiovi.Add(new QuestDTO(item,false));
+                    }
                 }
             }
             else

@@ -9,7 +9,7 @@ namespace SBP_Data.DTOs
 {
     public abstract class RasaDTO : AbstractDTO
     {
-        public IList<AbstractPredmet> Koristi { get; set; }
+        public IList<AbstractPredmetDTO> Koristi { get; set; }
 
         public override string ToString()
         {
@@ -30,15 +30,17 @@ namespace SBP_Data.DTOs
             base.EntityType = typeof(Vilenjak);
         }
 
-        public VilenjakDTO(Vilenjak v)
+        public VilenjakDTO(Vilenjak v,bool include=true)
         {
             if (v != null)
             {
                 base.EntityType = typeof(Vilenjak);
                 ID = v.Id;
-                Koristi = v.Koristi;
+               
                 NivoEnergije = v.NivoEnergije;
                 EntityType = typeof(Vilenjak);
+                //if include add, dodaj nekad za sve rase pls neko
+                Koristi = new List<AbstractPredmetDTO>();
             }
             else
                 throw new NullReferenceException();
@@ -50,7 +52,7 @@ namespace SBP_Data.DTOs
             if (ID != 0)
                 i.Id = ID;
 
-            i.Koristi = Koristi;
+           
             i.NivoEnergije = NivoEnergije;
             return i;
 
@@ -69,13 +71,13 @@ namespace SBP_Data.DTOs
             base.EntityType = typeof(Ork);
         }
 
-        public OrkDTO(Ork o)
+        public OrkDTO(Ork o, bool include = true)
         {
             if (o != null)
             {
                 base.EntityType = typeof(Ork);
                 ID = o.Id;
-                Koristi = o.Koristi;
+                 Koristi = new List<AbstractPredmetDTO>();
                 Specijalizacija = o.Specijalizacija;
                 EntityType = typeof(Ork);
             }
@@ -89,7 +91,7 @@ namespace SBP_Data.DTOs
             if (ID != 0)
                 i.Id = ID;
 
-            i.Koristi = Koristi;
+        
             i.Specijalizacija = Specijalizacija;
             return i;
         }
@@ -107,13 +109,13 @@ namespace SBP_Data.DTOs
             base.EntityType = typeof(Covek);
         }
 
-        public CovekDTO(Covek c)
+        public CovekDTO(Covek c, bool include = true)
         {
             if (c != null)
             {
                 base.EntityType = typeof(Covek);
                 ID = c.Id;
-                Koristi = c.Koristi;
+                Koristi = new List<AbstractPredmetDTO>();
                 UmesnostUSkrivanju = c.UmesnostUSkrivanju;
                 EntityType = typeof(Covek);
             }
@@ -127,7 +129,7 @@ namespace SBP_Data.DTOs
             if (ID != 0)
                 i.Id = ID;
 
-            i.Koristi = Koristi;
+            
             i.UmesnostUSkrivanju = UmesnostUSkrivanju;
             return i;
         }
@@ -145,13 +147,13 @@ namespace SBP_Data.DTOs
             base.EntityType = typeof(Demon);
         }
 
-        public DemonDTO(Demon d)
+        public DemonDTO(Demon d, bool include = true)
         {
             if (d != null)
             {
                 base.EntityType = typeof(Demon);
                 ID = d.Id;
-                Koristi = d.Koristi;
+                Koristi = new List<AbstractPredmetDTO>();
                 NivoEnergije = d.NivoEnergije;
                 EntityType = typeof(Demon);
             }
@@ -165,7 +167,7 @@ namespace SBP_Data.DTOs
             if (ID != 0)
                 i.Id = ID;
 
-            i.Koristi = Koristi;
+            Koristi = new List<AbstractPredmetDTO>();
             i.NivoEnergije = NivoEnergije;
             return i;
         }
@@ -183,13 +185,13 @@ namespace SBP_Data.DTOs
             base.EntityType = typeof(Patuljak);
         }
 
-        public PatuljakDTO(Patuljak p)
+        public PatuljakDTO(Patuljak p, bool include = true)
         {
             if (p != null)
             {
                 base.EntityType = typeof(Patuljak);
                 ID = p.Id;
-                Koristi = p.Koristi;
+                Koristi = new List<AbstractPredmetDTO>();
                 Specijalizacija = p.Specijalizacija;
                 EntityType = typeof(Patuljak);
             }
@@ -202,7 +204,7 @@ namespace SBP_Data.DTOs
             if (ID != 0)
                 i.Id = ID;
 
-            i.Koristi = Koristi;
+            Koristi = new List<AbstractPredmetDTO>();
             i.Specijalizacija = Specijalizacija;
             return i;
         }

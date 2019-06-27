@@ -9,6 +9,11 @@ namespace SBP_Data.DTOs
     public abstract class AbstractDTO
     {
         public Type EntityType { get; set; }
+        /// <summary>
+        /// Currently broken, used in the WinForm project
+        /// </summary>
+        /// <param name="input">Model to convert to DTO</param>
+        /// <returns>DTO of the provided model</returns>
         public abstract object CreateOrUpdate(object input = null);
         public int ID { get; set; }
 

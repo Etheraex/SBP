@@ -14,8 +14,8 @@ namespace SBP_Data.DTOs
         public string Opis { get; set; }
         public string VrstaOruzja { get; set; }
         public Quest Pripada { get; set; }
-        public IList<string> MozeDaKoristi { get; set; }
-        public IList<string> Igraci { get; set; }
+        public IList<RasaDTO> MozeDaKoristi { get; set; }
+        public IList<IgracDTO> Igraci { get; set; }
 
         public AbstractPredmetDTO()
         {
@@ -43,7 +43,7 @@ namespace SBP_Data.DTOs
             base.EntityType = typeof(Predmet);
         }
 
-        public PredmetDTO(Predmet p)
+        public PredmetDTO(Predmet p,bool include=true)
         {
             if (p != null)
             {
@@ -54,16 +54,21 @@ namespace SBP_Data.DTOs
                 Opis = p.Opis;
                 VrstaOruzja = p.VrstaOruzja;
                 Pripada = p.Pripada;
-                MozeDaKoristi = new List<string>();
-                foreach (var item in p.MozeDaKoristi)
+                MozeDaKoristi = new List<RasaDTO>();
+       
+                Igraci = new List<IgracDTO>();
+                if (include)
                 {
-                    MozeDaKoristi.Add("TODO"); // DTOMANAGER FJA KOJA VRACA RASU odnosno njen naziv makar
+                    foreach (var item in p.Igraci)
+                    {
+                        Igraci.Add(new IgracDTO(item, false));
+                    }
+                    foreach (var item in p.MozeDaKoristi)
+                    {
+                        MozeDaKoristi.Add(DTOManager.Instance.vratiRasuDTO(item)); // DTOMANAGER FJA KOJA VRACA RASU odnosno njen naziv makar
+                    }
                 }
-                Igraci = new List<string>();
-                foreach (var item in p.Igraci)
-                {
-                    Igraci.Add(item.Nadimak);
-                }
+
             }
             else
                 throw new NullReferenceException();
@@ -98,7 +103,7 @@ namespace SBP_Data.DTOs
             base.EntityType = typeof(Oruzje);
         }
 
-        public OruzjeDTO(Oruzje o)
+        public OruzjeDTO(Oruzje o,bool include = true)
         {
             if (o != null)
             {
@@ -109,14 +114,19 @@ namespace SBP_Data.DTOs
                 Opis = o.Opis;
                 VrstaOruzja = o.VrstaOruzja;
                 Pripada = o.Pripada;
-                foreach (var item in o.MozeDaKoristi)
+                MozeDaKoristi = new List<RasaDTO>();
+  
+                Igraci = new List<IgracDTO>();
+                if (include)
                 {
-                    MozeDaKoristi.Add("TODO"); // DTOMANAGER FJA KOJA VRACA RASU odnosno njen naziv makar
-                }
-                Igraci = new List<string>();
-                foreach (var item in o.Igraci)
-                {
-                    Igraci.Add(item.Nadimak);
+                    foreach (var item in o.Igraci)
+                    {
+                        Igraci.Add(new IgracDTO(item, false));
+                    }
+                    foreach (var item in o.MozeDaKoristi)
+                    {
+                        MozeDaKoristi.Add(DTOManager.Instance.vratiRasuDTO(item)); // DTOMANAGER FJA KOJA VRACA RASU odnosno njen naziv makar
+                    }
                 }
             }
             else

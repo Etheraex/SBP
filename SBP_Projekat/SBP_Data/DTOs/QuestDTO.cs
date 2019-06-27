@@ -10,9 +10,9 @@ namespace SBP_Data.DTOs
     public class QuestDTO : AbstractDTO
     {
         public int XpGain { get; set; }
-        public IList<Predmet> Predmeti { get; set; }
-        public IList<Alijansa> AlijanseKojeSuIspunile { get; set; } 
-        public IList<Igrac> IgraciKojiSuIspunili { get; set; }
+        public IList<PredmetDTO> Predmeti { get; set; }
+        public IList<AlijansaDTO> AlijanseKojeSuIspunile { get; set; } 
+        public IList<IgracDTO> IgraciKojiSuIspunili { get; set; }
 
         public QuestDTO()
         {
@@ -24,16 +24,37 @@ namespace SBP_Data.DTOs
             return EntityType.Name + XpGain;
         }
 
-        public QuestDTO(Quest q)
+        public QuestDTO(Quest q, bool include = true)
         {
             if (q != null)
             {
                 base.EntityType = typeof(Quest);
                 ID = q.Id;
                 XpGain = q.XpGain;
-                Predmeti = q.Predmeti;
-                AlijanseKojeSuIspunile = q.AlijanseKojeSuIspunile;
-                IgraciKojiSuIspunili = q.IgraciKojiSuIspunili;
+                Predmeti = new List<PredmetDTO>();
+                AlijanseKojeSuIspunile = new List<AlijansaDTO>();
+                IgraciKojiSuIspunili = new List<IgracDTO>();
+                if (include)
+                {
+                    foreach (var a in q.Predmeti)
+                    {
+                        {
+                            Predmeti.Add(new PredmetDTO(a));
+                        }
+                    }
+                    foreach (var a in q.AlijanseKojeSuIspunile)
+                    {
+                        {
+                            AlijanseKojeSuIspunile.Add(new AlijansaDTO(a));
+                        }
+                    }
+                    foreach (var a in q.IgraciKojiSuIspunili)
+                    {
+                        {
+                            IgraciKojiSuIspunili.Add(new IgracDTO(a));
+                        }
+                    }
+                }
             }
             else
                 throw new NullReferenceException();
@@ -46,9 +67,7 @@ namespace SBP_Data.DTOs
                 q.Id = ID;
 
             q.XpGain = XpGain;
-            q.Predmeti = Predmeti;
-            q.AlijanseKojeSuIspunile = AlijanseKojeSuIspunile;
-            q.IgraciKojiSuIspunili = IgraciKojiSuIspunili;
+          
 
             return q;
         }
