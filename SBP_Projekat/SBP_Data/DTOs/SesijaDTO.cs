@@ -36,7 +36,7 @@ namespace SBP_Data.DTOs
 
         public SesijaDTO()
         {
-
+            EntityType = typeof(Sesija);
         }
 
         public override string ToString()
