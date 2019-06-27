@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SBP_FormApp", "SBP_FormApp\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SBP_Data", "SBP_Data\SBP_Data.csproj", "{9637D653-DD6E-4F8A-B00D-D5253B8A932E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SBP_WebAPI", "SBP_WebAPI\SBP_WebAPI.csproj", "{35863673-44C4-4C23-A759-5348CEC09F74}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SBP_WebAPI", "SBP_WebAPI\SBP_WebAPI.csproj", "{3C02986D-AF1A-4D33-8464-1E651F054C3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,8 +23,10 @@ Global
 		{9637D653-DD6E-4F8A-B00D-D5253B8A932E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9637D653-DD6E-4F8A-B00D-D5253B8A932E}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{9637D653-DD6E-4F8A-B00D-D5253B8A932E}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{35863673-44C4-4C23-A759-5348CEC09F74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{35863673-44C4-4C23-A759-5348CEC09F74}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C02986D-AF1A-4D33-8464-1E651F054C3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C02986D-AF1A-4D33-8464-1E651F054C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C02986D-AF1A-4D33-8464-1E651F054C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C02986D-AF1A-4D33-8464-1E651F054C3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
