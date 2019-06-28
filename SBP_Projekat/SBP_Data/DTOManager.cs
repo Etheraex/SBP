@@ -90,11 +90,12 @@ namespace SBP_Data
             using (ISession s = DataLayer.Session)
             {
                 igraci = s.Query<Igrac>().ToList();
+                foreach (Igrac igrac in igraci)
+                {
+                    DTOIgraci.Add(new IgracDTO(igrac));
+                }
             }
-            foreach (Igrac igrac in igraci)
-            {
-                DTOIgraci.Add(new IgracDTO(igrac));
-            }
+
             return DTOIgraci;
         }
 

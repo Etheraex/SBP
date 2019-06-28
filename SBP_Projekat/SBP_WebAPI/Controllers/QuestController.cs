@@ -29,9 +29,7 @@ namespace SBP_WebAPI.Controllers
         // PUT: api/Quest/5
         public void Put(int id, [FromBody]QuestDTO quest)
         {
-            var tmp = DTOManager.Instance.GetDTOById<QuestDTO>(id);
-            QuestDTO noviQuest = new QuestDTO((Quest)tmp.CreateOrUpdate(quest));
-            DTOManager.Instance.UpdateEntity(noviQuest);
+            DTOManager.Instance.UpdateEntity(quest);
         }
 
         // DELETE: api/Quest/5

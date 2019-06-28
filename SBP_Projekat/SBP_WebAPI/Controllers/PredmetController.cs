@@ -31,8 +31,6 @@ namespace SBP_WebAPI.Controllers
         // PUT: api/AbstractPredmet/5
         public void Put(int id, [FromBody]AbstractPredmetDTO predmet)
         {
-            //var tmp = DTOManager.Instance.GetDTOById<AbstractPredmetDTO>(id);
-            //AbstractPredmetDTO noviPredmet = new AbstractPredmetDTO((AbstractPredmet)tmp.CreateOrUpdate(predmet));
             //DTOManager.Instance.UpdateEntity(noviPredmet);
         }
 

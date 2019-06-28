@@ -30,9 +30,7 @@ namespace SBP_WebAPI.Controllers
         // PUT: api/Lik/5
         public void Put(int id, [FromBody]LikDTO lik)
         {
-            var tmp = DTOManager.Instance.GetDTOById<LikDTO>(id);
-            LikDTO noviLik = new LikDTO((Lik)tmp.CreateOrUpdate(lik));
-            DTOManager.Instance.UpdateEntity(noviLik);
+            DTOManager.Instance.UpdateEntity(lik);
         }
 
         // DELETE: api/Lik/5

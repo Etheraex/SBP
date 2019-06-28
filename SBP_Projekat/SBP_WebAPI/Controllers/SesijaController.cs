@@ -30,9 +30,7 @@ namespace SBP_WebAPI.Controllers
         // PUT: api/Sesija/5
         public void Put(int id, [FromBody]SesijaDTO sesija)
         {
-            var tmp = DTOManager.Instance.GetDTOById<SesijaDTO>(id);
-            SesijaDTO novaSesija = new SesijaDTO((Sesija)tmp.CreateOrUpdate(sesija));
-            DTOManager.Instance.UpdateEntity(novaSesija);
+            DTOManager.Instance.UpdateEntity(sesija);
         }
 
         // DELETE: api/Sesija/5

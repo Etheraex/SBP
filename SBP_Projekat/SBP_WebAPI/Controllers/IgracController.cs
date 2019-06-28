@@ -8,15 +8,12 @@ namespace SBP_WebAPI.Controllers
 {
     public class IgracController : ApiController
     {
-        // GET: api/Igrac
-        //public IEnumerable<IgracDTO> Get()
-        public List<IgracDTO> Get()
-        {
-           
+        // GET: api/Igraci
+        [HttpGet]
+        public List<IgracDTO> sviIgraci()
+        {    
             List<IgracDTO> ret = DTOManager.Instance.vratiSveIgrace();
-
             return ret;
-         
         }
 
         // GET: api/Igrac/5
@@ -30,18 +27,16 @@ namespace SBP_WebAPI.Controllers
         public void Post([FromBody]IgracDTO igrac)
         {
             DTOManager.Instance.SaveEntity(igrac);
-
         }
 
         // PUT: api/Igrac/5
         public void Put(int id, [FromBody]IgracDTO igrac)
         {
-            var tmp = DTOManager.Instance.GetDTOById<IgracDTO>(id);
-            IgracDTO noviIgrac = new IgracDTO((Igrac)tmp.CreateOrUpdate(igrac));
-            DTOManager.Instance.UpdateEntity(noviIgrac);
+            DTOManager.Instance.UpdateEntity(igrac);
         }
 
         // DELETE: api/Igrac/5
+        //[HttpDelete]
         public void Delete(int id)
         {
             var tmp = DTOManager.Instance.GetDTOById<IgracDTO>(id);

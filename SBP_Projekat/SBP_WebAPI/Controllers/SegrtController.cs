@@ -23,9 +23,7 @@ namespace SBP_WebAPI.Controllers
         // PUT: api/Segrt/5
         public void Put(int id, [FromBody]SegrtDTO segrt)
         {
-            var tmp = DTOManager.Instance.GetDTOById<SegrtDTO>(id);
-            SegrtDTO noviSegrt = new SegrtDTO((Segrt)tmp.CreateOrUpdate(segrt));
-            DTOManager.Instance.UpdateEntity(noviSegrt);
+            DTOManager.Instance.UpdateEntity(segrt);
         }
 
         // DELETE: api/Segrt/5

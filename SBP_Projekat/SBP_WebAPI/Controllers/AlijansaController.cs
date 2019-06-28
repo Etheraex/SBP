@@ -29,9 +29,7 @@ namespace SBP_WebAPI.Controllers
         // PUT: api/Alijansa/5
         public void Put(int id, [FromBody]AlijansaDTO alijansa)
         {
-            var tmp = DTOManager.Instance.GetDTOById<AlijansaDTO>(id);
-            AlijansaDTO novaAlijansa = new AlijansaDTO((Alijansa)tmp.CreateOrUpdate(alijansa));
-            DTOManager.Instance.UpdateEntity(novaAlijansa);
+            DTOManager.Instance.UpdateEntity(alijansa);
         }
 
         // DELETE: api/Alijansa/5
