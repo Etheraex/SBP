@@ -14,9 +14,9 @@ namespace SBP_Data.DTOs
         public int HP { get; set; }
         public int XP { get; set; }
         public int StepenZamora { get; set; }
-        public Rasa Rasa { get; set; }
+        public RasaDTO Rasa { get; set; }
         public string NormalizedRasa { get { return this.Rasa.GetType().Name; } }
-        public Igrac Igrac { get; set; }
+        public IgracDTO Igrac { get; set; }
 
         public int LocalanStepenZamora { get; set; } // ovo sluzi da za vreme igre proveravam koliko je stamine ostalo liku i da li moze da radi quest
 
@@ -30,7 +30,7 @@ namespace SBP_Data.DTOs
             return HP.ToString() + " " + XP.ToString() +" "+ StepenZamora.ToString();
         }
 
-        public LikDTO(Lik i)
+        public LikDTO(Lik i, bool include = true)
         {
             if (i != null)
             {
@@ -40,8 +40,16 @@ namespace SBP_Data.DTOs
                 HP = i.HP;
                 XP = i.XP;
                 LocalanStepenZamora = StepenZamora = i.StepenZamora;
-                Rasa = i.Rasa;
-                Igrac = i.Igrac;
+
+                if(i.Igrac !=null && include)
+                {
+                    this.Igrac = new IgracDTO(i.Igrac, false);
+                }
+                if(i.Rasa != null && include)
+                {
+                    String typeInStringForm = i.Rasa.ToString().Replace("Models", "DTOs") + "DTO";
+                    this.Rasa = (RasaDTO)Activator.CreateInstance(Type.GetType(typeInStringForm),DTOManager.Instance.UnProxyObjectAs<Rasa>(i.Rasa),false);
+                }
             }
             else
                 throw new NullReferenceException();
@@ -57,8 +65,8 @@ namespace SBP_Data.DTOs
             i.HP = HP;
             i.XP = XP;
             i.StepenZamora = StepenZamora;
-            i.Rasa = Rasa;
-            i.Igrac = Igrac;
+            i.Rasa = (Rasa)Rasa.CreateOrUpdate(i.Rasa);
+            i.Igrac = (Igrac)Igrac.CreateOrUpdate(i.Igrac);
 
             return i;
         }

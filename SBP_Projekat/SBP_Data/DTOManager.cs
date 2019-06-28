@@ -79,9 +79,19 @@ namespace SBP_Data
             {
                 T tmp = (T)Activator.CreateInstance(typeof(T));
                 var t = s.Load(tmp.EntityType, id);
+                
                 return (T)Activator.CreateInstance(typeof(T), t,true);
             }
         }
+
+        public T UnProxyObjectAs<T>(object obj)
+        {
+            using (ISession Session = DataLayer.Session)
+            {
+                return (T)Session.GetSessionImplementation().PersistenceContext.Unproxy(obj);
+            }
+        }
+
 
         public List<IgracDTO> vratiSveIgrace()
         {
@@ -323,25 +333,22 @@ namespace SBP_Data
         public List<LikDTO> VratiListuLikova(int id)
         {
             IList<Lik> tmpLikovi ;
-
+            var tmp = new List<LikDTO>();
             using (ISession s = DataLayer.Session)
             {
                 tmpLikovi = s.QueryOver<Lik>()
                         .Fetch(l => l.Rasa).Eager
                         .Where(l => l.Igrac.Id == id).List();
+                try
+                {
+                    foreach (var lik in tmpLikovi)
+                        tmp.Add(new LikDTO(lik));
+                }
+                catch (NullReferenceException)
+                {
+                    throw new NullReferenceException(message: "DTOManager.VratiListuLikova: Neuspesno prebacivanje iz Lik u LikDTO");
+                }
             }
-            var tmp = new List<LikDTO>();
-
-            try
-            {
-                foreach (var lik in tmpLikovi)
-                    tmp.Add(new LikDTO(lik));
-            }
-            catch(NullReferenceException)
-            {
-                throw new NullReferenceException(message: "DTOManager.VratiListuLikova: Neuspesno prebacivanje iz Lik u LikDTO");
-            }
-
             return tmp;
         }
 

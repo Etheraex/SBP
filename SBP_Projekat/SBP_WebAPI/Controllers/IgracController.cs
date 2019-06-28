@@ -32,6 +32,7 @@ namespace SBP_WebAPI.Controllers
         // PUT: api/Igrac/5
         public void Put(int id, [FromBody]IgracDTO igrac)
         {
+            igrac.ID = id;
             DTOManager.Instance.UpdateEntity(igrac);
         }
 

@@ -8,15 +8,16 @@ namespace SBP_WebAPI.Controllers
 {
     public class LikController : ApiController
     {
-        // GET: api/Lik. Gibt es eine Problem hier?
-        public string Get(int id)
+        // GET: api/listaLikova/5 
+        [HttpGet]
+        public List<LikDTO> likoviKorisnika(int idIgraca)
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(DTOManager.Instance.VratiListuLikova(id));
+            return DTOManager.Instance.VratiListuLikova(idIgraca);
         }
 
         // GET: api/Lik/5
         [HttpGet]
-        public LikDTO GetId(int id)
+        public LikDTO Get(int id)
         {
             return DTOManager.Instance.GetDTOById<LikDTO>(id);
         }
@@ -30,6 +31,7 @@ namespace SBP_WebAPI.Controllers
         // PUT: api/Lik/5
         public void Put(int id, [FromBody]LikDTO lik)
         {
+            lik.ID = id;
             DTOManager.Instance.UpdateEntity(lik);
         }
 
