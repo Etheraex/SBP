@@ -55,8 +55,8 @@ namespace SBP_Data.DTOs
                 VrstaOruzja = p.VrstaOruzja;
                 Pripada = p.Pripada;
                 MozeDaKoristi = new List<RasaDTO>();
-       
                 Igraci = new List<IgracDTO>();
+
                 if (include)
                 {
                     foreach (var item in p.Igraci)
@@ -115,7 +115,6 @@ namespace SBP_Data.DTOs
                 VrstaOruzja = o.VrstaOruzja;
                 Pripada = o.Pripada;
                 MozeDaKoristi = new List<RasaDTO>();
-  
                 Igraci = new List<IgracDTO>();
                 if (include)
                 {

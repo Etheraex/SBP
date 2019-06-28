@@ -30,32 +30,19 @@ namespace SBP_Data
                 return temp; //(K)s.Load(tmp.EntityType, id);
             }
         }
+
         public RasaDTO vratiRasuDTO(Rasa rasa)
         {
-            Type t = rasa.GetType();
-            if (t.Equals(typeof(Vilenjak)))
-            {
-                return GetDTOById<VilenjakDTO>(3);
-            }
-            else if (t.Equals(typeof(Ork)))
-            {
-                return GetDTOById<OrkDTO>(4);
-            }
-            else if (t.Equals(typeof(Demon)))
-            {
-                return GetDTOById<DemonDTO>(5);
-            }
-            else if (t.Equals(typeof(Covek)))
-            {
-                return GetDTOById<CovekDTO>(1);
-            }
-            else if (t.Equals(typeof(Patuljak)))
-            {
-                return GetDTOById<PatuljakDTO>(2);
-            }
-            return null;
+            String typeInStringForm = rasa.ToString().Replace("Models", "DTOs") + "DTO";
+            return (RasaDTO)Activator.CreateInstance(Type.GetType(typeInStringForm), DTOManager.Instance.UnProxyObjectAs<Rasa>(rasa), false);
 
         }
+        public AbstractPredmetDTO vratiAbstractPredmetDTO(AbstractPredmet predmet)
+        {
+            String typeInStringForm = predmet.ToString().Replace("Models", "DTOs") + "DTO";
+            return (AbstractPredmetDTO)Activator.CreateInstance(Type.GetType(typeInStringForm), DTOManager.Instance.UnProxyObjectAs<AbstractPredmet>(predmet), false);
+        }
+
         public IList<string> vratiSaveze(int id)
         {
             var alijansa = new Alijansa();
@@ -116,30 +103,23 @@ namespace SBP_Data
             using (ISession s = DataLayer.Session)
             {
                 list = s.Query<AbstractPredmet>().ToList();
-            }
-
-            try
-            {
-                foreach (var p in list)
+                try
                 {
-                    if (p.GetType() == typeof(Predmet))
+                    foreach (var p in list)
                     {
-                        var predmet = p as Predmet;
-                        if (predmet != null)
-                            listDTO.Add(new PredmetDTO(predmet));
-                    }
-                    else
-                    {
-                        var oruzje = p as Oruzje;
-                        if (oruzje != null)
-                            listDTO.Add(new OruzjeDTO(oruzje));
+                        //String typeInStringForm = p.ToString().Replace("Models", "DTOs") + "DTO";
+                        //AbstractPredmetDTO temp = (AbstractPredmetDTO)Activator.CreateInstance(Type.GetType(typeInStringForm), DTOManager.Instance.UnProxyObjectAs<AbstractPredmet>(p), false);
+
+                        listDTO.Add(this.vratiAbstractPredmetDTO(p));
                     }
                 }
+                catch (NullReferenceException)
+                {
+                    throw new NullReferenceException(message: "DTOManager.GetAllItems: Neuspesno prebacivanje iz Predmet u PredmetDTO");
+                }
             }
-            catch (NullReferenceException)
-            {
-                throw new NullReferenceException(message: "DTOManager.GetAllItems: Neuspesno prebacivanje iz Predmet u PredmetDTO");
-            }
+
+           
 
             return listDTO;
         }
