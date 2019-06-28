@@ -9,30 +9,30 @@ namespace SBP_WebAPI.Controllers
     public class RasaController : ApiController
     {
         // GET: api/Rasa
-        public string Get()
+        public List<RasaDTO> Get()
         {
-            return null;
+            return DTOManager.Instance.vratiSveRase();
         }
 
         // GET: api/Rasa/5
-        public OrkDTO Get(int id)
+        public RasaDTO Get(int id)
         {
-            return DTOManager.Instance.GetDTOById<OrkDTO>(id);
-            
+            return DTOManager.Instance.getRasaByID(id);
         }
 
         // POST: api/Rasa
-        public void Post([FromBody]RasaDTO rasa)
-        {
-            DTOManager.Instance.SaveEntity(rasa);
-        }
+        //public void Post([FromBody]RasaDTO rasa)
+        //{
+        //    DTOManager.Instance.SaveEntity(rasa);
+        //}
 
         // PUT: api/Rasa/5
         public void Put(int id, [FromBody]RasaDTO rasa)
         {
             //var tmp = DTOManager.Instance.GetDTOById<RasaDTO>(id);
             //RasaDTO novaRasa = new RasaDTO((Rasa)tmp.CreateOrUpdate(rasa));
-            //DTOManager.Instance.UpdateEntity(novaRasa);
+            rasa.ID = id;
+            DTOManager.Instance.UpdateEntity(rasa);
         }
 
         // DELETE: api/Rasa/5

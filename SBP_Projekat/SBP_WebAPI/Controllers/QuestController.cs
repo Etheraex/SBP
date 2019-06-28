@@ -9,9 +9,9 @@ namespace SBP_WebAPI.Controllers
     public class QuestController : ApiController
     {
         // GET: api/Quest
-        public string Get()
+        public List<QuestDTO> Get()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(DTOManager.Instance.VratiListuQuestova());
+            return DTOManager.Instance.VratiListuQuestova();
         }
 
         // GET: api/Quest/5
@@ -29,6 +29,7 @@ namespace SBP_WebAPI.Controllers
         // PUT: api/Quest/5
         public void Put(int id, [FromBody]QuestDTO quest)
         {
+            quest.ID = id;
             DTOManager.Instance.UpdateEntity(quest);
         }
 

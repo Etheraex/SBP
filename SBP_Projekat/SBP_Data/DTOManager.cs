@@ -15,6 +15,9 @@ namespace SBP_Data
     public class DTOManager
     {
         private DTOManager() { }
+
+
+
         public void InitTest()
         {
             ISession s = DataLayer.Session;
@@ -30,17 +33,41 @@ namespace SBP_Data
                 return temp; //(K)s.Load(tmp.EntityType, id);
             }
         }
-
+        public List<RasaDTO> vratiSveRase()
+        {
+            List<RasaDTO> ret = new List<RasaDTO>();
+            using (ISession session = DataLayer.Session)
+            {
+                List<Rasa> rase = session.Query<Rasa>().ToList();
+                foreach (var item in rase)
+                {
+                    ret.Add(this.vratiRasuDTO(item));
+                }
+            }
+            return ret;
+        }
         public RasaDTO vratiRasuDTO(Rasa rasa)
         {
+            if (rasa == null)
+                return null;
             String typeInStringForm = rasa.ToString().Replace("Models", "DTOs") + "DTO";
             return (RasaDTO)Activator.CreateInstance(Type.GetType(typeInStringForm), DTOManager.Instance.UnProxyObjectAs<Rasa>(rasa), false);
-
         }
         public AbstractPredmetDTO vratiAbstractPredmetDTO(AbstractPredmet predmet)
         {
+            if (predmet == null)
+                return null;
             String typeInStringForm = predmet.ToString().Replace("Models", "DTOs") + "DTO";
             return (AbstractPredmetDTO)Activator.CreateInstance(Type.GetType(typeInStringForm), DTOManager.Instance.UnProxyObjectAs<AbstractPredmet>(predmet), false);
+        }
+
+        public RasaDTO getRasaByID(int id)
+        {
+            using (ISession session = DataLayer.Session)
+            {
+                Rasa temp = session.Load<Rasa>(id);
+                return this.vratiRasuDTO(temp);
+            }
         }
 
         public IList<string> vratiSaveze(int id)
@@ -107,9 +134,6 @@ namespace SBP_Data
                 {
                     foreach (var p in list)
                     {
-                        //String typeInStringForm = p.ToString().Replace("Models", "DTOs") + "DTO";
-                        //AbstractPredmetDTO temp = (AbstractPredmetDTO)Activator.CreateInstance(Type.GetType(typeInStringForm), DTOManager.Instance.UnProxyObjectAs<AbstractPredmet>(p), false);
-
                         listDTO.Add(this.vratiAbstractPredmetDTO(p));
                     }
                 }
@@ -372,23 +396,20 @@ namespace SBP_Data
         public List<QuestDTO> VratiListuQuestova()
         {
             var Quests = new List<Quest>();
-
+            var tmp = new List<QuestDTO>();
             using (ISession s = DataLayer.Session)
             {
                 Quests = s.Query<Quest>().ToList();
+                try
+                {
+                    foreach (var quest in Quests)
+                        tmp.Add(new QuestDTO(quest));
+                }
+                catch (NullReferenceException)
+                {
+                    throw new NullReferenceException(message: "DTOManager.VratiListuQuestova: Neuspesno prebacivanje iz Quest u QuestDTO");
+                }
             }
-            var tmp = new List<QuestDTO>();
-
-            try
-            {
-                foreach (var quest in Quests)
-                    tmp.Add(new QuestDTO(quest));
-            }
-            catch(NullReferenceException)
-            {
-                throw new NullReferenceException(message: "DTOManager.VratiListuQuestova: Neuspesno prebacivanje iz Quest u QuestDTO");
-            }
-
             return tmp;
         }
 
