@@ -64,7 +64,13 @@ namespace SBP_Data.DTOs
         {
             Quest q = CheckStuff((Quest)input);
             if (ID != 0)
+            {
                 q.Id = ID;
+                Quest old = DTOManager.Instance.GetEntityById<QuestDTO, Quest>(ID);
+                q.Predmeti = old.Predmeti;
+                q.AlijanseKojeSuIspunile = old.AlijanseKojeSuIspunile;
+                q.IgraciKojiSuIspunili = old.IgraciKojiSuIspunili;
+            }
 
             q.XpGain = XpGain;
           

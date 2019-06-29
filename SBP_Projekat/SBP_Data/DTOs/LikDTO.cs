@@ -59,7 +59,12 @@ namespace SBP_Data.DTOs
         {
             Lik i = CheckStuff((Lik)input);
             if (ID != 0)
+            {
                 i.Id = ID;
+                Lik old = DTOManager.Instance.GetEntityById<LikDTO, Lik>(ID);
+                i.Rasa = old.Rasa;
+                i.Igrac = old.Igrac;
+            }
 
             i.Zlato = Zlato;
             i.HP = HP;

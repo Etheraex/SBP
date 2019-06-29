@@ -78,7 +78,13 @@ namespace SBP_Data.DTOs
         {
             Predmet p = CheckStuff((Predmet)input);
             if (ID != 0)
+            {
                 p.Id = ID;
+                Predmet old = DTOManager.Instance.GetEntityById<PredmetDTO, Predmet>(ID);
+                p.MozeDaKoristi = old.MozeDaKoristi;
+                p.Igraci = old.Igraci;
+                p.Pripada = old.Pripada;
+            }
 
             p.XpBonus = XpBonus;
             p.Naziv = Naziv;
@@ -136,7 +142,13 @@ namespace SBP_Data.DTOs
         {
             Oruzje o = CheckStuff((Oruzje)input);
             if (ID != 0)
+            {
                 o.Id = ID;
+                Oruzje old = DTOManager.Instance.GetEntityById<OruzjeDTO, Oruzje>(ID);
+                o.MozeDaKoristi = old.MozeDaKoristi;
+                o.Igraci = old.Igraci;
+                o.Pripada = old.Pripada;
+            }
 
             o.XpBonus = XpBonus;
             o.Naziv = Naziv;

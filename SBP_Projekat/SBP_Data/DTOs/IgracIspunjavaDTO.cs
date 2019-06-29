@@ -41,7 +41,12 @@ namespace SBP_Data.DTOs
         {
             IgracIspunjava i = CheckStuff((IgracIspunjava)input);
             if (ID != 0)
+            {
                 i.Id = ID;
+                IgracIspunjava old = DTOManager.Instance.GetEntityById<IgracIspunjavaDTO, IgracIspunjava>(ID);
+                i.Quest = old.Quest;
+                i.Igrac = old.Igrac;
+            }
 
             i.Vreme = Vreme;
             i.Igrac = Igrac;

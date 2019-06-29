@@ -74,7 +74,13 @@ namespace SBP_Data.DTOs
         {
             Alijansa a = CheckStuff((Alijansa)input);
             if (ID != 0)
+            {
                 a.Id = ID;
+                Alijansa old = DTOManager.Instance.GetEntityById<AlijansaDTO, Alijansa>(ID);
+                a.Savezi = old.Savezi;
+                a.Igraci = old.Igraci;
+                a.IspunjeniQuestiovi = old.IspunjeniQuestiovi;
+            }
 
             a.Naziv = Naziv;
             a.MinBrojIgraca = MinBrojIgraca;

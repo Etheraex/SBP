@@ -30,7 +30,12 @@ namespace SBP_Data.DTOs
         {
             Segrt s = CheckStuff((Segrt)input);
             if (ID != 0)
+            {
                 s.Id = ID;
+                Segrt old = DTOManager.Instance.GetEntityById<SegrtDTO, Segrt>(ID);
+                s.Rasa = old.Rasa;
+                s.Lik = old.Lik;
+            }
 
             s.Ime = Ime;
             s.Bonus = Bonus;

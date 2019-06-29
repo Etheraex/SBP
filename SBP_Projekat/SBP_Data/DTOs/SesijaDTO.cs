@@ -48,7 +48,12 @@ namespace SBP_Data.DTOs
         {
             Sesija s = CheckStuff((Sesija)input);
             if (ID != 0)
+            {
                 s.Id = ID;
+                Sesija old = DTOManager.Instance.GetEntityById<SesijaDTO, Sesija>(ID);
+                s.Igrac = old.Igrac;
+                s.Lik = old.Lik;
+            }
 
             s.Gold = Gold;
             s.ZaradjeniXP = ZaradjeniXP;

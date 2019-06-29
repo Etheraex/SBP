@@ -41,7 +41,12 @@ namespace SBP_Data.DTOs
         {
             AlijansaIspunjava a = CheckStuff((AlijansaIspunjava)input);
             if (ID != 0)
+            {
                 a.Id = ID;
+                AlijansaIspunjava old = DTOManager.Instance.GetEntityById<AlijansaIspunjavaDTO, AlijansaIspunjava>(ID);
+                a.Quest = old.Quest;
+                a.Alijansa = old.Alijansa;
+            }
 
             a.Vreme = Vreme;
             a.Alijansa = Alijansa;

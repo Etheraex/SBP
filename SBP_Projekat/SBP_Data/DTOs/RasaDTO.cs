@@ -50,9 +50,13 @@ namespace SBP_Data.DTOs
         {
             Vilenjak i = CheckStuff((Vilenjak)input);
             if (ID != 0)
+            {
                 i.Id = ID;
+                Vilenjak old = DTOManager.Instance.GetEntityById<VilenjakDTO, Vilenjak>(ID);
+                i.Koristi = old.Koristi;
+            }
 
-           
+
             i.NivoEnergije = NivoEnergije;
             return i;
 
@@ -89,9 +93,13 @@ namespace SBP_Data.DTOs
         {
             Ork i = CheckStuff((Ork)input);
             if (ID != 0)
+            {
                 i.Id = ID;
+                Ork old = DTOManager.Instance.GetEntityById<OrkDTO, Ork>(ID);
+                i.Koristi = old.Koristi;
+            }
 
-        
+
             i.Specijalizacija = Specijalizacija;
             return i;
         }
@@ -127,9 +135,13 @@ namespace SBP_Data.DTOs
         {
             Covek i = CheckStuff((Covek)input);
             if (ID != 0)
+            {
                 i.Id = ID;
+                Covek old = DTOManager.Instance.GetEntityById<CovekDTO, Covek>(ID);
+                i.Koristi = old.Koristi;
+            }
 
-            
+
             i.UmesnostUSkrivanju = UmesnostUSkrivanju;
             return i;
         }
@@ -165,7 +177,11 @@ namespace SBP_Data.DTOs
         {
             Demon i = CheckStuff((Demon)input);
             if (ID != 0)
+            {
                 i.Id = ID;
+                Demon old = DTOManager.Instance.GetEntityById<DemonDTO, Demon>(ID);
+                i.Koristi = old.Koristi;
+            }
 
             Koristi = new List<AbstractPredmetDTO>();
             i.NivoEnergije = NivoEnergije;
@@ -202,7 +218,11 @@ namespace SBP_Data.DTOs
         {
             Patuljak i = CheckStuff((Patuljak)input);
             if (ID != 0)
+            {
                 i.Id = ID;
+                Patuljak old = DTOManager.Instance.GetEntityById<PatuljakDTO, Patuljak>(ID);
+                i.Koristi = old.Koristi;
+            }
 
             Koristi = new List<AbstractPredmetDTO>();
             i.Specijalizacija = Specijalizacija;
