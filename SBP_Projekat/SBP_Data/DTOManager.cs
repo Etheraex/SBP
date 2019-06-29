@@ -30,6 +30,7 @@ namespace SBP_Data
                 T tmp = (T)Activator.CreateInstance(typeof(T));
 
                 var temp = (K)s.Load(tmp.EntityType, id);
+                NHibernateUtil.Initialize(temp);
                 return temp; //(K)s.Load(tmp.EntityType, id);
             }
         }

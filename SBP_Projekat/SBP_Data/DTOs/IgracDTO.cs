@@ -82,7 +82,14 @@ namespace SBP_Data.DTOs
         {
             Igrac i = CheckStuff((Igrac)input);
             if (ID != 0)
+            {
                 i.Id = ID;
+                Igrac old = DTOManager.Instance.GetEntityById<IgracDTO, Igrac>(ID);
+                i.IspunjeniQuestiov = old.IspunjeniQuestiov;
+                i.PripadaAlijansi = old.PripadaAlijansi;
+                i.Predmeti = old.Predmeti;
+            }
+              
 
             i.Username = Username;
             i.Password = Password;
