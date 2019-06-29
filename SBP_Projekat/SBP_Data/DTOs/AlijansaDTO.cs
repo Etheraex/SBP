@@ -32,7 +32,7 @@ namespace SBP_Data.DTOs
             return EntityType.Name + Naziv;
         }
 
-        public AlijansaDTO(Alijansa a,bool include = true)
+        public AlijansaDTO(Alijansa a, bool include = true)
         {
             if (a != null)
             {
@@ -43,13 +43,13 @@ namespace SBP_Data.DTOs
                 MaxBrojIgraca = a.MaxBrojIgraca;
                 XpBonus = a.XpBonus;
                 HpBonus = a.HpBonus;
-         
+
                 Savezi = new List<AlijansaDTO>();
-               
+
                 Igraci = new List<IgracDTO>();
-               
+
                 IspunjeniQuestiovi = new List<QuestDTO>();
-              
+
                 if (include)
                 {
                     foreach (var i in a.Savezi)
@@ -58,11 +58,11 @@ namespace SBP_Data.DTOs
                     }
                     foreach (var item in a.Igraci)
                     {
-                        Igraci.Add(new IgracDTO(item,false));
+                        Igraci.Add(new IgracDTO(item, false));
                     }
                     foreach (var item in a.IspunjeniQuestiovi)
                     {
-                        IspunjeniQuestiovi.Add(new QuestDTO(item,false));
+                        IspunjeniQuestiovi.Add(new QuestDTO(item, false));
                     }
                 }
             }
@@ -81,9 +81,9 @@ namespace SBP_Data.DTOs
             a.MaxBrojIgraca = MaxBrojIgraca;
             a.XpBonus = XpBonus;
             a.HpBonus = HpBonus;
-          
+
 
             return a;
         }
-    }   
+    }
 }

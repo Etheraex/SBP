@@ -23,7 +23,7 @@ namespace SBP_Data
             ISession s = DataLayer.Session;
             s.Close();
         }
-        public K GetEntityById<T,K>(int id) where T : AbstractDTO
+        public K GetEntityById<T, K>(int id) where T : AbstractDTO
         {
             using (ISession s = DataLayer.Session)
             {
@@ -94,8 +94,8 @@ namespace SBP_Data
             {
                 T tmp = (T)Activator.CreateInstance(typeof(T));
                 var t = s.Load(tmp.EntityType, id);
-                
-                return (T)Activator.CreateInstance(typeof(T), t,true);
+
+                return (T)Activator.CreateInstance(typeof(T), t, true);
             }
         }
 
@@ -143,9 +143,7 @@ namespace SBP_Data
                     throw new NullReferenceException(message: "DTOManager.GetAllItems: Neuspesno prebacivanje iz Predmet u PredmetDTO");
                 }
             }
-
-           
-
+            
             return listDTO;
         }
 
@@ -154,12 +152,12 @@ namespace SBP_Data
             int retval = 0; ;
             using (ISession s = DataLayer.Session)
             {
-               retval = await s.QueryOver<Sesija>()
-                    .Fetch(x => x.Igrac).Eager
-                    .Fetch(x => x.Lik).Eager
-                    .Fetch(x => x.Lik.Rasa).Eager
-                    .Where(x => x.VremeKraja == null)
-                    .RowCountAsync();
+                retval = await s.QueryOver<Sesija>()
+                     .Fetch(x => x.Igrac).Eager
+                     .Fetch(x => x.Lik).Eager
+                     .Fetch(x => x.Lik.Rasa).Eager
+                     .Where(x => x.VremeKraja == null)
+                     .RowCountAsync();
             }
 
             return retval;
@@ -182,7 +180,7 @@ namespace SBP_Data
             return listDTO;
         }
 
-        public List<T> GetDTOList<T,K>() where T : AbstractDTO
+        public List<T> GetDTOList<T, K>() where T : AbstractDTO
         {
             List<T> newList = new List<T>(); ;
             using (ISession s = DataLayer.Session)
@@ -190,11 +188,25 @@ namespace SBP_Data
                 var temp = s.Query<K>();
                 foreach (object item in temp)
                 {
-                    T tmp = (T)Activator.CreateInstance(typeof(T), item);
+                    T tmp = (T)Activator.CreateInstance(typeof(T), item, true);
                     newList.Add(tmp);
                 }
                 return newList;
             }
+        }
+
+        public List<AlijansaDTO> GetAllAliances()
+        {
+            var listDTO = new List<AlijansaDTO>();
+            using (ISession s = DataLayer.Session)
+            {
+                var list = s.Query<Alijansa>();
+                foreach(var item in list)
+                {
+                    listDTO.Add(new AlijansaDTO(item));
+                }
+            }
+            return listDTO;
         }
 
 
@@ -247,11 +259,11 @@ namespace SBP_Data
                 s.Flush();
             }
         }
-        public void removeQuestItemFromPlayer(int questID , int igracID)
+        public void removeQuestItemFromPlayer(int questID, int igracID)
         {
-            List<AbstractPredmetDTO> predmeti =  this.VratiListuPredmetaZaKvest(questID);
+            List<AbstractPredmetDTO> predmeti = this.VratiListuPredmetaZaKvest(questID);
             List<int> IDs = new List<int>();
-            foreach (AbstractPredmetDTO predmet in predmeti )
+            foreach (AbstractPredmetDTO predmet in predmeti)
             {
                 IDs.Add(predmet.ID);
             }
@@ -264,7 +276,7 @@ namespace SBP_Data
             Predmet rndPredmet;
             using (ISession s = DataLayer.Session)
             {
-                
+
                 rndPredmet = getRandomItem(this.VratiListuPredmeta(igrac.ID));
                 Igrac tmp = s.QueryOver<Igrac>()
                     .Fetch(x => x.Predmeti).Eager
@@ -282,7 +294,7 @@ namespace SBP_Data
             String excludedIDs = "( ";
             for (int i = 0; i < excldedItems.Count; i++)
             {
-                excludedIDs += excldedItems[i].ID + ((i < (excldedItems.Count-1))? ",":""); 
+                excludedIDs += excldedItems[i].ID + ((i < (excldedItems.Count - 1)) ? "," : "");
             }
             excludedIDs += ")";
             using (ISession s = DataLayer.Session)
@@ -291,9 +303,9 @@ namespace SBP_Data
                 "SELECT * " +
                 "FROM ( " +
                     "SELECT * " +
-                    "FROM   PREDMET " + 
-                    ((!excludedIDs.Equals("( )"))? ("where PREDMET_ID NOT IN " + excludedIDs):"") +
-                    "ORDER BY DBMS_RANDOM.VALUE) " + 
+                    "FROM   PREDMET " +
+                    ((!excludedIDs.Equals("( )")) ? ("where PREDMET_ID NOT IN " + excludedIDs) : "") +
+                    "ORDER BY DBMS_RANDOM.VALUE) " +
                 "WHERE rownum< 2";
 
                 ISQLQuery qry = s.CreateSQLQuery(query).AddEntity(typeof(Predmet));
@@ -325,9 +337,9 @@ namespace SBP_Data
                 {
                     igrac = new IgracDTO(tmp);
                 }
-                catch(NullReferenceException)
+                catch (NullReferenceException)
                 {
-                    throw new NullReferenceException(message:"DTOManager.LogIn: Neuspesno prebacivanje iz Igrac u IgracDTO");
+                    throw new NullReferenceException(message: "DTOManager.LogIn: Neuspesno prebacivanje iz Igrac u IgracDTO");
                 }
                 return 2;   // Sve je u redu
             }
@@ -337,7 +349,7 @@ namespace SBP_Data
 
         public List<LikDTO> VratiListuLikova(int id)
         {
-            IList<Lik> tmpLikovi ;
+            IList<Lik> tmpLikovi;
             var tmp = new List<LikDTO>();
             using (ISession s = DataLayer.Session)
             {
@@ -368,14 +380,14 @@ namespace SBP_Data
                 ZaradjeniXP = 0,
                 EntityType = typeof(Sesija)
             };
-            
+
             this.SaveEntity(novaSesija);
             return novaSesija;
         }
 
         public void CloseSession(SesijaDTO session)
         {
-            if(session != null)
+            if (session != null)
             {
                 session.VremeKraja = DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss");
                 this.UpdateEntity(session);
@@ -480,7 +492,7 @@ namespace SBP_Data
                     }
                 }
             }
-            catch(NullReferenceException)
+            catch (NullReferenceException)
             {
                 throw new NullReferenceException(message: "DTOManager.VratiListuPredmeta: Neuspesno prebacivanje iz Predmet u PredmetDTO");
             }
@@ -488,7 +500,7 @@ namespace SBP_Data
             return tmp;
         }
 
-        public List<AbstractPredmetDTO> ZadatakPredmetProvera(IgracDTO igrac,int questiID) //glupo ime znam ako hocete izmenite 
+        public List<AbstractPredmetDTO> ZadatakPredmetProvera(IgracDTO igrac, int questiID) //glupo ime znam ako hocete izmenite 
         {
             List<AbstractPredmetDTO> igracNema = new List<AbstractPredmetDTO>();
             List<AbstractPredmetDTO> predmetiIgraca = VratiListuPredmeta(igrac.ID);
@@ -506,7 +518,7 @@ namespace SBP_Data
             }
             return igracNema;
         }
-        
+
         public SegrtDTO GetApprentice(int id)
         {
             var segrt = new Segrt();
@@ -517,7 +529,7 @@ namespace SBP_Data
                     .FirstOrDefault(x => x.Lik.Id == id);
             }
             try
-            { 
+            {
                 var segrtDTO = new SegrtDTO(segrt);
                 return segrtDTO;
             }
