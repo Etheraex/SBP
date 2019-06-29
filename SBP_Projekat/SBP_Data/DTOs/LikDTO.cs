@@ -70,8 +70,6 @@ namespace SBP_Data.DTOs
             i.HP = HP;
             i.XP = XP;
             i.StepenZamora = StepenZamora;
-            i.Rasa = (Rasa)Rasa.CreateOrUpdate(i.Rasa);
-            i.Igrac = (Igrac)Igrac.CreateOrUpdate(i.Igrac);
 
             return i;
         }

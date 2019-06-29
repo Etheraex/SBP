@@ -41,7 +41,7 @@ namespace SBP_Projekat.Forme
             DTOManager.Instance.SaveEntity(alijansa);
             for (int i = 0; i < selectedRowCount; i++)
             {
-                var alijansaEntitet = DTOManager.Instance.GetEntityById<AlijansaDTO, Alijansa>(_alijanse[dataGridView1.SelectedRows[i].Index].ID);
+                var alijansaEntitet = DTOManager.Instance.GetDTOById<AlijansaDTO>(_alijanse[dataGridView1.SelectedRows[i].Index].ID);
                 alijansa.Savezi.Add(alijansaEntitet);
             }
             DTOManager.Instance.UpdateEntity(alijansa);

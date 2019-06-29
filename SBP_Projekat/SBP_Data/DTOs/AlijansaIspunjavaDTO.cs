@@ -10,8 +10,8 @@ namespace SBP_Data.DTOs
     public class AlijansaIspunjavaDTO : AbstractDTO
     {
         public int Vreme { get; set; }
-        public Alijansa Alijansa { get; set; }
-        public Quest Quest { get; set; }
+        public AlijansaDTO Alijansa { get; set; }
+        public QuestDTO Quest { get; set; }
 
         public AlijansaIspunjavaDTO()
         {
@@ -23,15 +23,19 @@ namespace SBP_Data.DTOs
             return EntityType.Name + Vreme;
         }
 
-        public AlijansaIspunjavaDTO(AlijansaIspunjava a)
+        public AlijansaIspunjavaDTO(AlijansaIspunjava a,bool include = true)
         {
             if (a != null)
             {
                 base.EntityType = typeof(AlijansaIspunjava);
                 ID = a.Id;
                 Vreme = a.Vreme;
-                Alijansa = a.Alijansa;
-                Quest = a.Quest;
+                if (include)
+                {
+                    Alijansa = new AlijansaDTO(a.Alijansa);
+                    Quest = new QuestDTO(a.Quest);
+                }
+               
             }
             else
                 throw new NullReferenceException();
@@ -49,8 +53,7 @@ namespace SBP_Data.DTOs
             }
 
             a.Vreme = Vreme;
-            a.Alijansa = Alijansa;
-            a.Quest = Quest;
+
             return a;
         }
     }

@@ -25,7 +25,7 @@ namespace SBP_Projekat.Forme
             if (!ValidateNaziv() || !ValidateRase() || !ValidateTipOruzja() || !ValidateTipPredmeta() || !ValidateOpis())
                 return;
             Random rand = new Random();
-            var list = new List<Rasa>();
+            var list = new List<RasaDTO>();
             var tmp = cb_rase.CheckedItems;
             if (tmp.Count == 5)
                 list = null; // ako je izabrano da sve rase mogu da koriste predmet u bazi se upisuje null
@@ -35,19 +35,19 @@ namespace SBP_Projekat.Forme
                     switch (r.ToString())
                     {
                         case "Covek":
-                            list.Add(DTOManager.Instance.GetEntityById<CovekDTO, Covek>(1));
+                            list.Add(DTOManager.Instance.GetDTOById<CovekDTO>(1));
                             break;
                         case "Patuljak":
-                            list.Add(DTOManager.Instance.GetEntityById<PatuljakDTO, Patuljak>(2));
+                            list.Add(DTOManager.Instance.GetDTOById<PatuljakDTO>(2));
                             break;
                         case "Ork":
-                            list.Add(DTOManager.Instance.GetEntityById<OrkDTO, Ork>(4));
+                            list.Add(DTOManager.Instance.GetDTOById<OrkDTO>(4));
                             break;
                         case "Vilenjak":
-                            list.Add(DTOManager.Instance.GetEntityById<VilenjakDTO, Vilenjak>(3));
+                            list.Add(DTOManager.Instance.GetDTOById<VilenjakDTO>(3));
                             break;
                         case "Demon":
-                            list.Add(DTOManager.Instance.GetEntityById<DemonDTO, Demon>(5));
+                            list.Add(DTOManager.Instance.GetDTOById<DemonDTO>(5));
                             break;
                     }
                 }

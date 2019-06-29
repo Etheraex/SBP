@@ -124,7 +124,7 @@ namespace SBP_Projekat.Forme
             {
                 // Za prvi zadatak dugme se pojavi tek kad se napuni progress bar tako da uvek je uspesno zavrsen quest kada se klikne ovo dugme
                 MessageBox.Show("Tacno ste uradili");
-                var quest = DTOManager.Instance.GetEntityById<QuestDTO, Quest>(_questID);
+                var quest = DTOManager.Instance.GetDTOById<QuestDTO>(_questID);
                 if (_saAlijansom)
                 {
                     AlijansaIspunjavaDTO ispunjava = new AlijansaIspunjavaDTO();
@@ -137,11 +137,11 @@ namespace SBP_Projekat.Forme
                 {
                     IgracIspunjavaDTO ispunjava = new IgracIspunjavaDTO();
                     ispunjava.Vreme = timeForQuest;
-                    ispunjava.Igrac = DTOManager.Instance.GetEntityById<IgracDTO, Igrac>(_igrac.ID);  //ovo treba da se uradi bolje, treba da mozemo DTO da pretvorimo u model ako hocemo ovde da ne loadujemo opet iz baze
+                    ispunjava.Igrac = DTOManager.Instance.GetDTOById<IgracDTO>(_igrac.ID);  //ovo treba da se uradi bolje, treba da mozemo DTO da pretvorimo u model ako hocemo ovde da ne loadujemo opet iz baze
                     ispunjava.Quest = quest;
                     DTOManager.Instance.SaveEntity(ispunjava);
                 }
-                int xpGain = DTOManager.Instance.GetDTOById<QuestDTO>(quest.Id).XpGain;//ovo je malo retardirano al zato mora jer nam getEntityById u sustini ne vraca nisa sem ID
+                int xpGain = DTOManager.Instance.GetDTOById<QuestDTO>(quest.ID).XpGain;//ovo je malo retardirano al zato mora jer nam getEntityById u sustini ne vraca nisa sem ID
                 PredmetDTO predemt = DTOManager.Instance.GiveRandomItem(_igrac);
                 if (predemt != null)
                     MessageBox.Show("dobili ste : " + predemt.Naziv);

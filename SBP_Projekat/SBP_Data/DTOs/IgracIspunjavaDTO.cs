@@ -10,8 +10,8 @@ namespace SBP_Data.DTOs
     public class IgracIspunjavaDTO : AbstractDTO
     {
         public int Vreme { get; set; }
-        public Igrac Igrac { get; set; }
-        public Quest Quest { get; set; }
+        public IgracDTO Igrac { get; set; }
+        public QuestDTO Quest { get; set; }
 
         public IgracIspunjavaDTO()
         {
@@ -23,15 +23,19 @@ namespace SBP_Data.DTOs
             return EntityType.Name + Vreme;
         }
 
-        public IgracIspunjavaDTO(IgracIspunjava i)
+        public IgracIspunjavaDTO(IgracIspunjava i,bool include=true)
         {
             if (i != null)
             {
                 base.EntityType = typeof(IgracIspunjava);
                 ID = i.Id;
                 Vreme = i.Vreme;
-                Igrac = i.Igrac;
-                Quest = i.Quest;
+                if (include)
+                {
+                    Igrac = new IgracDTO(i.Igrac);
+                    Quest = new QuestDTO(i.Quest);
+                }
+             
             }
             else
                 throw new NullReferenceException();
@@ -49,8 +53,7 @@ namespace SBP_Data.DTOs
             }
 
             i.Vreme = Vreme;
-            i.Igrac = Igrac;
-            i.Quest = Quest;
+     
 
             return i;
         }

@@ -182,8 +182,6 @@ namespace SBP_Data.DTOs
                 Demon old = DTOManager.Instance.GetEntityById<DemonDTO, Demon>(ID);
                 i.Koristi = old.Koristi;
             }
-
-            Koristi = new List<AbstractPredmetDTO>();
             i.NivoEnergije = NivoEnergije;
             return i;
         }
@@ -224,7 +222,6 @@ namespace SBP_Data.DTOs
                 i.Koristi = old.Koristi;
             }
 
-            Koristi = new List<AbstractPredmetDTO>();
             i.Specijalizacija = Specijalizacija;
             return i;
         }

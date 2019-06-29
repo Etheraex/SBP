@@ -66,7 +66,7 @@ namespace SBP_Projekat.Forme
 
         private void cmd_Join_Click(object sender, EventArgs e)
         {
-            var newAlijansa=DTOManager.Instance.GetEntityById<AlijansaDTO,Alijansa>(alijanse[dgvAlijanse.CurrentCell.RowIndex].ID);
+            var newAlijansa=DTOManager.Instance.GetDTOById<AlijansaDTO>(alijanse[dgvAlijanse.CurrentCell.RowIndex].ID);
             _igrac.PripadaAlijansi = newAlijansa;
             DTOManager.Instance.UpdateEntity(_igrac);
             LoadInfo();

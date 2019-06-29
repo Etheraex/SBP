@@ -59,8 +59,6 @@ namespace SBP_Data.DTOs
             s.ZaradjeniXP = ZaradjeniXP;
             s.VremeKraja = VremeKraja;
             s.VremePocetka = VremePocetka;
-            s.Igrac = Igrac;
-            s.Lik = Lik;
             return s;
         }
 

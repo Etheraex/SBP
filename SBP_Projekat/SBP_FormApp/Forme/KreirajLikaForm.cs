@@ -29,23 +29,23 @@ namespace SBP_Projekat.Forme
         {
             if (!ValidateHP() || !ValidateRasa() || !ValidateZamor())
                 return;
-            Rasa tmp = null;
+            RasaDTO tmp = null;
             switch (cb_rasa.SelectedItem.ToString())
             {
                 case "Covek":
-                    tmp = DTOManager.Instance.GetEntityById<CovekDTO, Covek>(1);
+                    tmp = DTOManager.Instance.GetDTOById<CovekDTO>(1);
                     break;
                 case "Patuljak":
-                    tmp = DTOManager.Instance.GetEntityById<PatuljakDTO, Patuljak>(2);
+                    tmp = DTOManager.Instance.GetDTOById<PatuljakDTO>(2);
                     break;
                 case "Ork":
-                    tmp = DTOManager.Instance.GetEntityById<OrkDTO, Ork>(4);
+                    tmp = DTOManager.Instance.GetDTOById<OrkDTO>(4);
                     break;
                 case "Vilenjak":
-                    tmp = DTOManager.Instance.GetEntityById<VilenjakDTO, Vilenjak>(3);
+                    tmp = DTOManager.Instance.GetDTOById<VilenjakDTO>(3);
                     break;
                 case "Demon":
-                    tmp = DTOManager.Instance.GetEntityById<DemonDTO, Demon>(5);
+                    tmp = DTOManager.Instance.GetDTOById<DemonDTO>(5);
                     break;
             }
 
@@ -54,7 +54,7 @@ namespace SBP_Projekat.Forme
                 HP = int.Parse(tb_hp.Text),
                 XP = 0,
                 StepenZamora = int.Parse(tb_stepen_zamora.Text),
-                Igrac = DTOManager.Instance.GetEntityById<IgracDTO, Igrac>(_id),
+                Igrac = DTOManager.Instance.GetDTOById<IgracDTO>(_id),
                 Zlato = 0,
                 Rasa = tmp
             };

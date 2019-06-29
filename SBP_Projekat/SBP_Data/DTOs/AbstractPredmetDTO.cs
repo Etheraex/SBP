@@ -90,9 +90,7 @@ namespace SBP_Data.DTOs
             p.Naziv = Naziv;
             p.Opis = Opis;
             p.VrstaOruzja = VrstaOruzja;
-            p.Pripada = Pripada;
-         
-            p.Pripada = Pripada;
+
     
 
             return p;
@@ -154,9 +152,7 @@ namespace SBP_Data.DTOs
             o.Naziv = Naziv;
             o.Opis = Opis;
             o.VrstaOruzja = VrstaOruzja;
-            o.Pripada = Pripada;
-           
-            o.Pripada = Pripada;
+
    
 
             return o;
