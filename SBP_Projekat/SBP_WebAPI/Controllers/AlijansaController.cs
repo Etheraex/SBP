@@ -9,9 +9,9 @@ namespace SBP_WebAPI.Controllers
     public class AlijansaController : ApiController
     {
         // GET: api/Alijansa
-        public IEnumerable<string> Get()
+        public List<AlijansaDTO> Get()
         {
-            return null;
+            return DTOManager.Instance.GetDTOList<AlijansaDTO,Alijansa>();
         }
 
         // GET: api/Alijansa/5
@@ -29,6 +29,7 @@ namespace SBP_WebAPI.Controllers
         // PUT: api/Alijansa/5
         public void Put(int id, [FromBody]AlijansaDTO alijansa)
         {
+            alijansa.ID = id;
             DTOManager.Instance.UpdateEntity(alijansa);
         }
 
