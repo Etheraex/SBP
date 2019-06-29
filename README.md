@@ -4,5 +4,5 @@ MMORPG
 
 - [x] - Projekat I deo - DB dizajn  
 - [x] - Projekat II deo - Fluent nHibernate mapiranje  
-- [ ] - Projekat III deo - WinForm  
+- [x] - Projekat III deo - WinForm  
 - [ ] - Projekat IV deo - WinAPI  
