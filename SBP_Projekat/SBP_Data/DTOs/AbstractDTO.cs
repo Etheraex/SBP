@@ -1,13 +1,16 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace SBP_Data.DTOs
 {
     public abstract class AbstractDTO
     {
+        [JsonIgnore]
         public Type EntityType { get; set; }
         /// <summary>
         /// Currently broken, used in the WinForm project
@@ -15,6 +18,7 @@ namespace SBP_Data.DTOs
         /// <param name="input">Model to convert to DTO</param>
         /// <returns>DTO of the provided model</returns>
         public abstract object CreateOrUpdate(object input = null);
+        [JsonIgnore]
         public int ID { get; set; }
 
         public AbstractDTO()
