@@ -8,12 +8,19 @@ namespace SBP_WebAPI.Controllers
 {
     public class AlijansaController : ApiController
     {
+        /// <summary>
+        /// Vraca listu alijansi
+        /// </summary>
         // GET: api/Alijansa
         public List<AlijansaDTO> Get()
         {
             return DTOManager.Instance.GetDTOList<AlijansaDTO,Alijansa>();
         }
 
+        /// <summary>
+        /// Vraca alijansu sa izabrani id-jem
+        /// </summary>
+        /// <param name="id"></param>
         // GET: api/Alijansa/5
         public AlijansaDTO Get(int id)
         {

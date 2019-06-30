@@ -8,36 +8,53 @@ namespace SBP_WebAPI.Controllers
 {
     public class PredmetController : ApiController
     {
-        // GET: api/AbstractPredmet
+        // GET: api/Predmet
         public List<AbstractPredmetDTO> Get()
         {
             List<AbstractPredmetDTO> predmeti = DTOManager.Instance.GetAllItems();
             return predmeti;
         }
-
-        [HttpGet]
-        // GET: api/AbstractPredmet/5
+        
+        // GET: api/Predmet/5
         public AbstractPredmetDTO Get(int id)
         {
             return DTOManager.Instance.GetDTOById<PredmetDTO>(id);
         }
 
-        // POST: api/AbstractPredmet
-        public void Post([FromBody]AbstractPredmetDTO predmet)
+        // POST: api/Predmet/Predmet/
+        [Route("api/Predmet/Predmet/")]
+        public void Post([FromBody]PredmetDTO predmet)
         {
             DTOManager.Instance.SaveEntity(predmet);
         }
 
-        // PUT: api/AbstractPredmet/5
-        public void Put(int id, [FromBody]AbstractPredmetDTO predmet)
+        // PUT: api/Predmet/Predmet/5
+        [Route("api/Predmet/Predmet/{id?}")]
+        public void Put(int id, [FromBody]PredmetDTO predmet)
         {
-            //DTOManager.Instance.UpdateEntity(noviPredmet);
+            predmet.ID = id;
+            DTOManager.Instance.UpdateEntity(predmet);
         }
 
-        // DELETE: api/AbstractPredmet/5
+        // PUT: api/Predmet/Oruzje
+        [Route("api/Predmet/Oruzje/")]
+        public void Post([FromBody]OruzjeDTO oruzje)
+        {
+            DTOManager.Instance.SaveEntity(oruzje);
+        }
+
+        // PUT: api/Predmet/Oruzje/5
+        [Route("api/Predmet/Oruzje/{id?}")]
+        public void Put(int id, [FromBody]OruzjeDTO oruzje)
+        {
+            oruzje.ID = id;
+            DTOManager.Instance.UpdateEntity(oruzje);
+        }
+
+        // DELETE: api/Predmet/5
         public void Delete(int id)
         {
-            var tmp = DTOManager.Instance.GetDTOById<AlijansaDTO>(id);
+            var tmp = DTOManager.Instance.GetDTOById<PredmetDTO>(id);
             DTOManager.Instance.DeleteEntity(tmp);
         }
     }

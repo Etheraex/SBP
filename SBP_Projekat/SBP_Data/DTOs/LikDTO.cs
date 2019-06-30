@@ -15,7 +15,7 @@ namespace SBP_Data.DTOs
         public int XP { get; set; }
         public int StepenZamora { get; set; }
         public RasaDTO Rasa { get; set; }
-        public string NormalizedRasa { get { return this.Rasa.GetType().Name; } }
+        public string NormalizedRasa { get { return (this.Rasa != null) ?  this.Rasa.GetType().Name : ""; } }
         public IgracDTO Igrac { get; set; }
 
         public int LocalanStepenZamora { get; set; } // ovo sluzi da za vreme igre proveravam koliko je stamine ostalo liku i da li moze da radi quest

@@ -13,7 +13,7 @@ namespace SBP_Data.DTOs
         public string Naziv { get; set; }
         public string Opis { get; set; }
         public string VrstaOruzja { get; set; }
-        public Quest Pripada { get; set; }
+        public QuestDTO Pripada { get; set; }
         public IList<RasaDTO> MozeDaKoristi { get; set; }
         public IList<IgracDTO> Igraci { get; set; }
 
@@ -53,7 +53,8 @@ namespace SBP_Data.DTOs
                 Naziv = p.Naziv;
                 Opis = p.Opis;
                 VrstaOruzja = p.VrstaOruzja;
-                Pripada = p.Pripada;
+                if (p.Pripada != null && include)
+                    this.Pripada = new QuestDTO(p.Pripada, false);
                 MozeDaKoristi = new List<RasaDTO>();
                 Igraci = new List<IgracDTO>();
 
@@ -117,7 +118,10 @@ namespace SBP_Data.DTOs
                 Naziv = o.Naziv;
                 Opis = o.Opis;
                 VrstaOruzja = o.VrstaOruzja;
-                Pripada = o.Pripada;
+
+                if (o.Pripada!= null && include)
+                    this.Pripada = new QuestDTO(o.Pripada, false);
+                
                 MozeDaKoristi = new List<RasaDTO>();
                 Igraci = new List<IgracDTO>();
                 if (include)

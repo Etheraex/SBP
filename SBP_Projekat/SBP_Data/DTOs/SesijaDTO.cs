@@ -15,8 +15,8 @@ namespace SBP_Data.DTOs
         public string VremePocetka { get; set; }
         public string VremeKraja { get; set; }
 
-        public Igrac Igrac { get; set; }
-        public Lik Lik { get; set; }
+        public IgracDTO Igrac { get; set; }
+        public LikDTO Lik { get; set; }
 
         public string IgracNaziv
         {
@@ -62,15 +62,18 @@ namespace SBP_Data.DTOs
             return s;
         }
 
-        public SesijaDTO(Sesija s)
+        public SesijaDTO(Sesija s, bool include = true)
         {
             if (s != null)
             {
                 base.EntityType = typeof(Sesija);
                 ID = s.Id;
                 Gold = s.Gold;
-                Igrac = s.Igrac;
-                Lik = s.Lik;
+                if (s.Igrac != null && include)
+                    Igrac = new IgracDTO(s.Igrac, false);
+
+                if (s.Lik != null && include)
+                    Lik = new LikDTO(s.Lik, false);
                 ZaradjeniXP = s.ZaradjeniXP;
                 VremePocetka = s.VremePocetka;
                 VremeKraja = s.VremeKraja;

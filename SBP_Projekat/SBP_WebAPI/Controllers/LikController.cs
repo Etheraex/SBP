@@ -8,7 +8,13 @@ namespace SBP_WebAPI.Controllers
 {
     public class LikController : ApiController
     {
-        // GET: api/listaLikova/5 
+        // GET: api/Lik/
+        public List<LikDTO> Get()
+        {
+            return DTOManager.Instance.GetDTOList<LikDTO,Lik>();
+        }
+
+        // GET: api/Lik/?idIgraca=5 
         [HttpGet]
         public List<LikDTO> likoviKorisnika(int idIgraca)
         {

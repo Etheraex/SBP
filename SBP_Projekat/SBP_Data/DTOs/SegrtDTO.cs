@@ -11,9 +11,9 @@ namespace SBP_Data.DTOs
     {
         public string Ime { get; set; }
         public int Bonus { get; set; }
-        public Rasa Rasa { get; set; }
-        public Lik Lik { get; set; }
-        public string NormalizedRasa { get { return this.Rasa.GetType().Name; } }
+        public RasaDTO Rasa { get; set; }
+        public LikDTO Lik { get; set; }
+        public string NormalizedRasa { get { return (this.Rasa != null) ? this.Rasa.GetType().Name : ""; } }
 
 
         public SegrtDTO()
@@ -43,7 +43,7 @@ namespace SBP_Data.DTOs
             return s;
         }
 
-        public SegrtDTO(Segrt s)
+        public SegrtDTO(Segrt s, bool include = true)
         {
             if (s != null)
             {
@@ -51,8 +51,13 @@ namespace SBP_Data.DTOs
                 ID = s.Id;
                 Ime = s.Ime;
                 Bonus = s.Bonus;
-                Rasa = s.Rasa;
-                Lik = s.Lik;
+                if (s.Lik != null && include)
+                    this.Lik = new LikDTO(s.Lik, false);
+                if (s.Rasa != null && include)
+                {
+                    String typeInStringForm = s.Rasa.ToString().Replace("Models", "DTOs") + "DTO";
+                    this.Rasa = (RasaDTO)Activator.CreateInstance(Type.GetType(typeInStringForm), DTOManager.Instance.UnProxyObjectAs<Rasa>(s.Rasa), false);
+                }
             }
             else
                 throw new NullReferenceException();

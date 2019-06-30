@@ -31,7 +31,7 @@ namespace SBP_Data.DTOs
             return EntityType.Name + Pol;
         }
 
-        public IgracDTO(Igrac i,bool include = true)
+        public IgracDTO(Igrac i, bool include = true)
         {
             if (i != null)
             {
@@ -44,11 +44,10 @@ namespace SBP_Data.DTOs
                 Pol = i.Pol;
                 Ime = i.Ime;
                 Prezime = i.Prezime;
-                if(i.PripadaAlijansi!=null && include)
-                PripadaAlijansi = new AlijansaDTO(i.PripadaAlijansi,false);
+                if (i.PripadaAlijansi != null && include)
+                    PripadaAlijansi = new AlijansaDTO(i.PripadaAlijansi, false);
                 Predmeti = new List<AbstractPredmetDTO>();
-        
-               
+
                 IspunjeniQuestiov = new List<QuestDTO>();
                 if (include)
                 {
@@ -68,7 +67,7 @@ namespace SBP_Data.DTOs
                         IspunjeniQuestiov.Add(new QuestDTO(a, false));
                     }
                 }
-             
+
             }
             else
                 throw new NullReferenceException();
@@ -78,7 +77,7 @@ namespace SBP_Data.DTOs
         /// </summary>
         /// <param name="input">Model to convert to DTO</param>
         /// <returns>DTO of the provided model</returns>
-        public override object CreateOrUpdate(object input )
+        public override object CreateOrUpdate(object input)
         {
             Igrac i = CheckStuff((Igrac)input);
             if (ID != 0)
@@ -89,7 +88,7 @@ namespace SBP_Data.DTOs
                 i.PripadaAlijansi = old.PripadaAlijansi;
                 i.Predmeti = old.Predmeti;
             }
-              
+
 
             i.Username = Username;
             i.Password = Password;
@@ -98,8 +97,8 @@ namespace SBP_Data.DTOs
             i.Pol = Pol;
             i.Ime = Ime;
             i.Prezime = Prezime;
-           
-        
+
+
             return i;
         }
     }

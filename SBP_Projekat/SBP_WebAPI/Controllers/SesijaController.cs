@@ -8,17 +8,23 @@ namespace SBP_WebAPI.Controllers
 {
     public class SesijaController : ApiController
     {
-        // GET: api/Sesija/5
+        // GET: api/Sesija/?
+        public List<SesijaDTO> Get()
+        {
+            return DTOManager.Instance.GetDTOList<SesijaDTO,Sesija>();
+        }
+
+        // GET: api/Sesija/?page=5
         public List<SesijaDTO> Get(int page)
         {
             return DTOManager.Instance.GetSessions(page);
         }
 
+        // GET: api/Sesija/?id=5
         [HttpGet]
         public SesijaDTO asd(int id)
         {
             return DTOManager.Instance.GetDTOById<SesijaDTO>(id);
-            //ne radi Load. Nadograditi posle
         }
 
         // POST: api/Sesija

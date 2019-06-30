@@ -373,8 +373,8 @@ namespace SBP_Data
         {
             SesijaDTO novaSesija = new SesijaDTO
             {
-                Igrac = this.GetEntityById<IgracDTO, Igrac>(igrac.ID),
-                Lik = this.GetEntityById<LikDTO, Lik>(lik.ID),
+                Igrac = this.GetDTOById<IgracDTO>(igrac.ID),
+                Lik = this.GetDTOById<LikDTO>(lik.ID),
                 Gold = 0,
                 VremePocetka = DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss"),
                 ZaradjeniXP = 0,
