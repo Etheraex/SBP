@@ -9,6 +9,12 @@ namespace SBP_WebAPI.Controllers
     public class SegrtController : ApiController
     {
         // GET: api/Segrt
+        public List<SegrtDTO> Get()
+        {
+            return DTOManager.Instance.GetDTOList<SegrtDTO,Segrt>();
+        }
+
+        // GET: api/Segrt/5
         public SegrtDTO Get(int id)
         {
             return DTOManager.Instance.GetDTOById<SegrtDTO>(id);

@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Newtonsoft.Json;
 using SBP_Data.Models;
-
 
 namespace SBP_Data.DTOs
 {
@@ -18,6 +14,7 @@ namespace SBP_Data.DTOs
         public IgracDTO Igrac { get; set; }
         public LikDTO Lik { get; set; }
 
+        [JsonIgnore]
         public string IgracNaziv
         {
             get
@@ -26,6 +23,7 @@ namespace SBP_Data.DTOs
             }
         }
 
+        [JsonIgnore]
         public string LikRasa
         {
             get

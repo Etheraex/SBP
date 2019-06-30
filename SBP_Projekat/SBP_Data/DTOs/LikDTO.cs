@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NHibernate;
 using SBP_Data.Models;
 
 namespace SBP_Data.DTOs
