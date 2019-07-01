@@ -21,14 +21,25 @@ namespace SBP_WebAPI.Controllers
         }       
 
         // POST: api/Segrt
-        public void Post([FromBody]SegrtDTO segrt)
+        public void Post(int likID,int RasaId,string ime,int bonus)
         {
+            //DTOManager.Instance.dodajSegrta(likID, RasaId, ime, bonus);
+            SegrtDTO segrt = new SegrtDTO
+            {
+                Ime = ime,
+                Bonus = bonus,
+                Rasa = DTOManager.Instance.getRasaByID(RasaId), //DTOManager.Instance.GetDTOById<RasaDTO>(RasaId),
+                Lik = DTOManager.Instance.GetDTOById<LikDTO>(likID)
+            };
             DTOManager.Instance.SaveEntity(segrt);
         }
 
         // PUT: api/Segrt/5
-        public void Put(int id, [FromBody]SegrtDTO segrt)
+        public void Put(int id, string ime, int bonus)
         {
+            SegrtDTO segrt = DTOManager.Instance.GetDTOById<SegrtDTO>(id);
+            segrt.Ime = ime;
+            segrt.Bonus = bonus;
             DTOManager.Instance.UpdateEntity(segrt);
         }
 

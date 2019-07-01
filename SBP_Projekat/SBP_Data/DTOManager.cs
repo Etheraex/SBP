@@ -34,6 +34,7 @@ namespace SBP_Data
                 return temp; //(K)s.Load(tmp.EntityType, id);
             }
         }
+
         public List<RasaDTO> vratiSveRase()
         {
             List<RasaDTO> ret = new List<RasaDTO>();
