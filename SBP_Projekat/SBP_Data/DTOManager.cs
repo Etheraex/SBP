@@ -380,7 +380,10 @@ namespace SBP_Data
                 ZaradjeniXP = 0,
                 EntityType = typeof(Sesija)
             };
+            using (ISession session = DataLayer.Session)
+            {
 
+            }
             this.SaveEntity(novaSesija);
             return novaSesija;
         }

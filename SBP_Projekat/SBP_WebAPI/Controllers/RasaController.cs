@@ -19,27 +19,5 @@ namespace SBP_WebAPI.Controllers
         {
             return DTOManager.Instance.getRasaByID(id);
         }
-
-        // POST: api/Rasa
-        //public void Post([FromBody]RasaDTO rasa)
-        //{
-        //    DTOManager.Instance.SaveEntity(rasa);
-        //}
-
-        // PUT: api/Rasa/5
-        public void Put(int id, [FromBody]RasaDTO rasa)
-        {
-            //var tmp = DTOManager.Instance.GetDTOById<RasaDTO>(id);
-            //RasaDTO novaRasa = new RasaDTO((Rasa)tmp.CreateOrUpdate(rasa));
-            rasa.ID = id;
-            DTOManager.Instance.UpdateEntity(rasa);
-        }
-
-        // DELETE: api/Rasa/5
-        public void Delete(int id)
-        {
-            var tmp = DTOManager.Instance.GetDTOById<RasaDTO>(id);
-            DTOManager.Instance.DeleteEntity(tmp);
-        }
     }
 }

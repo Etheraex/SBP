@@ -28,15 +28,20 @@ namespace SBP_WebAPI.Controllers
         }
 
         // POST: api/Sesija
-        public void Post([FromBody]SesijaDTO sesija)
+        public void Post(int igracID , int likID)
         {
-            DTOManager.Instance.SaveEntity(sesija);
+            LikDTO lik = DTOManager.Instance.GetDTOById<LikDTO>(likID);
+            IgracDTO igrac = DTOManager.Instance.GetDTOById<IgracDTO>(igracID);
+            DTOManager.Instance.ZapocniSesiju(lik,igrac);
         }
 
         // PUT: api/Sesija/5
         public void Put(int id, [FromBody]SesijaDTO sesija)
         {
-            DTOManager.Instance.UpdateEntity(sesija);
+            SesijaDTO s = DTOManager.Instance.GetDTOById<SesijaDTO>(id);
+            s.Gold = sesija.Gold;
+            s.ZaradjeniXP = sesija.ZaradjeniXP;
+            DTOManager.Instance.CloseSession(s);
         }
 
         // DELETE: api/Sesija/5

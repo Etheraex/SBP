@@ -19,7 +19,7 @@ namespace SBP_Data.DTOs
         {
             get
             {
-                return Igrac.Nadimak;
+                return (Igrac != null)?Igrac.Nadimak:"";
             }
         }
 
@@ -28,7 +28,7 @@ namespace SBP_Data.DTOs
         {
             get
             {
-                return Lik.Rasa.GetType().Name;
+                return (Lik.Rasa != null)?Lik.Rasa.GetType().Name : "";
             }
         }
 
@@ -57,6 +57,8 @@ namespace SBP_Data.DTOs
             s.ZaradjeniXP = ZaradjeniXP;
             s.VremeKraja = VremeKraja;
             s.VremePocetka = VremePocetka;
+            s.Igrac = DTOManager.Instance.GetEntityById<IgracDTO, Igrac>(Igrac.ID);
+            s.Lik = DTOManager.Instance.GetEntityById<LikDTO, Lik>(Lik.ID);
             return s;
         }
 
