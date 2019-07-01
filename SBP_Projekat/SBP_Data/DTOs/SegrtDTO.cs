@@ -41,7 +41,7 @@ namespace SBP_Data.DTOs
             s.Bonus = Bonus;
             s.Lik = DTOManager.Instance.GetEntityById<LikDTO, Lik>(Lik.ID);
 
-            s.Rasa = (Rasa)DTOManager.Instance.getRasaByID(Rasa.ID).CreateOrUpdate();//DTOManager.Instance.GetEntityById<RasaDTO, Rasa>(Rasa.ID);
+            s.Rasa = (Rasa)DTOManager.Instance.getRasaByID(Rasa.ID).CreateOrUpdate();
             return s;
         }
 
